@@ -1,0 +1,3 @@
+* xref:index.adoc[Home]
+* xref:kodein-di::index.adoc[Dependency Injection]
+* xref:kodein-db::index.adoc[Embedded NoSQL database]

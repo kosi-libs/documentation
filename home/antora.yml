@@ -1,0 +1,6 @@
+name: kodein-framework
+title: Kodein-Framework
+version: master
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/nav.adoc
