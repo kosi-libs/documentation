@@ -10,31 +10,28 @@
   </head>
   <body class="article">
 <header class="header">
-  <nav class="navbar">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="https://kodein.org/documentation">
-        <div style="font-weight: bold;">KODEIN</div>
-        <div>Framework</div>
-      </a>
-      <button class="navbar-burger" data-target="topbar-nav">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <a class="navbar-item" href="https://kodein.net" target="_blank">
-            <div style="margin: 0.5rem;">by</div>
-            <div style="font-weight: bold;">KODEIN</div>
-            <div>Koders</div>
-        </a>
-      </div>
-    </div>
-  </nav>
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://kodein.org/documentation">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
 </header>
 <div class="body">
 <div class="nav-container" data-component="kodein-di" data-version="7.0">
+  <div class="navbar-bottom-line-linear"></div>
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -117,7 +114,7 @@
       <span class="title">Kodein-DI</span>
       <ul class="versions">
         <li class="version">
-          <a href="../../7.1/index.html">7.1 dev channel</a>
+          <a href="../../7.1/index.html">7.1 dev</a>
         </li>
         <li class="version is-current is-latest">
           <a href="../index.html">7.0</a>
@@ -138,7 +135,8 @@
   </aside>
 </div>
 <main class="article">
-<div class="toolbar" role="navigation">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
   <a href="../../../kodein-framework/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
@@ -151,7 +149,7 @@
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">7.0</button>
   <div class="version-menu">
-    <a class="version" href="../../7.1/framework/tornadofx.html">7.1 dev channel</a>
+    <a class="version" href="../../7.1/framework/tornadofx.html">7.1 dev</a>
     <a class="version is-current" href="tornadofx.html">7.0</a>
   </div>
 </div>
@@ -920,8 +918,11 @@ The <code>WeakContextScope</code> will keep singleton and multiton instances as 
 </main>
 </div>
 <footer class="footer">
-  <p>This page was built using the Antora default UI.</p>
-  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
 </footer>
 <script src="../../../_/js/site.js"></script>
 <script async src="../../../_/js/vendor/highlight.js"></script>
