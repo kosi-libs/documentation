@@ -55,7 +55,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Core documentation</span>
+    <a class="nav-link" href="../core/install.html">Core documentation</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -269,87 +269,11 @@
     <a class="version" href="../../6.5/migration/migration-4to5.html">6.5</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="file:///Users/romain/workspace/kodein/di//doc/modules/migration/pages/migration-4to5.adoc">Edit this Page</a></div>
-</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/antora-master/doc/modules/migration/pages/migration-4to5.adoc">Edit this Page</a></div>
+  </div>
   <div class="content">
 <article class="doc">
 <h1 class="page">Changes &amp; Migration from Kodein 4 to Kodein DI 5</h1>
-<div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_changes">Changes</a>
-<ul class="sectlevel2">
-<li><a href="#_new_repository_jcenter">New repository: JCenter</a></li>
-<li><a href="#_new_modules">New modules</a></li>
-<li><a href="#_new_package_org_kodein_di">New package: org.kodein.di</a></li>
-<li><a href="#_laziness">laziness</a></li>
-<li><a href="#_currying">Currying</a></li>
-<li><a href="#_injector">Injector</a></li>
-<li><a href="#_scope_contexts">Scope &amp; contexts</a></li>
-<li><a href="#_android">Android</a></li>
-</ul>
-</li>
-<li><a href="#_migration">Migration</a>
-<ul class="sectlevel2">
-<li><a href="#_new_repository_jcenter_2">New repository: JCenter</a>
-<ul class="sectlevel3">
-<li><a href="#_with_maven">With Maven</a></li>
-<li><a href="#_with_gradle">With Gradle</a></li>
-</ul>
-</li>
-<li><a href="#_new_modules_2">New modules</a></li>
-<li><a href="#_new_package_org_kodein_di_2">New package: org.kodein.di</a></li>
-<li><a href="#_laziness_2">Laziness</a>
-<ul class="sectlevel3">
-<li><a href="#_for_jvm_server">For JVM / Server</a>
-<ul class="sectlevel4">
-<li><a href="#_lazy_by_default">Lazy by default</a></li>
-<li><a href="#_direct_by_default">Direct by default</a></li>
-</ul>
-</li>
-<li><a href="#_for_android">For Android</a></li>
-</ul>
-</li>
-<li><a href="#_currying_2">Currying</a></li>
-<li><a href="#_injector_2">Injector</a>
-<ul class="sectlevel3">
-<li><a href="#_trigger">Trigger</a>
-<ul class="sectlevel4">
-<li><a href="#_by_itself">By itself</a></li>
-<li><a href="#_in_kodeinaware">In KodeinAware</a></li>
-</ul>
-</li>
-<li><a href="#_late_init">Late init</a>
-<ul class="sectlevel4">
-<li><a href="#_in_kodeinaware_2">In KodeinAware</a></li>
-<li><a href="#_by_itself_2">By itself</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_scope_contexts_2">Scope contexts</a>
-<ul class="sectlevel3">
-<li><a href="#_binding_with_a_scope">Binding with a scope</a></li>
-<li><a href="#_getting_a_scoped_singleton_instance">Getting a scoped singleton instance</a>
-<ul class="sectlevel4">
-<li><a href="#_retrieval_context">Retrieval context</a></li>
-<li><a href="#_kodeinaware_context">KodeinAware context</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#android">Android</a>
-<ul class="sectlevel3">
-<li><a href="#_laziness_3">Laziness</a></li>
-<li><a href="#_layered_dependencies">Layered dependencies</a></li>
-<li><a href="#_scopes">Scopes</a></li>
-<li><a href="#_modules">Modules</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -1026,7 +950,7 @@ Setting a <code>kodeinContext</code> still allows you to acces bindings without 
 <h3 id="android"><a class="anchor" href="#android"></a>Android</h3>
 <div class="paragraph">
 <p>The Kodein Android extension has radically changed.
-It is therefore advised to read <a href="https://kodein.org/Kodein-DI/?7.1/android">the new Kodein on Android documentation</a>.</p>
+It is therefore advised to read <a href="../framework/android.html" class="page">the new Kodein on Android documentation</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="_laziness_3"><a class="anchor" href="#_laziness_3"></a>Laziness</h4>

@@ -55,7 +55,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Core documentation</span>
+    <a class="nav-link" href="core/install.html">Core documentation</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -268,8 +268,8 @@
     <a class="version" href="../6.5/getting-started.html">6.5</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/antora-v7/doc/modules/ROOT/pages/getting-started.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///Users/romain/workspace/kodein/di//doc/modules/ROOT/pages/getting-started.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <article class="doc">
 <h1 class="page">Getting started with Kodein-DI</h1>
@@ -330,7 +330,7 @@ Similarly, <code>di.instance&lt;List&lt;String&gt;&gt;()</code> and <code>di.ins
 <td class="content">
 <div class="paragraph">
 <p>Since <strong>7.0</strong>, <em>Kodein-DI</em> can use <code>generic</code> for non JVM platforms, thus it is now the default implementation.
-However you still can force the use of <code>erased</code> with the generic and erased function forms!</p>
+However, you still can force the use of <code>erased</code> with the generic and erased function forms!</p>
 </div>
 </td>
 </tr>
@@ -542,7 +542,7 @@ The syntax is quite simple:</p>
 </div>
 <div class="paragraph">
 <p>As you can see, Kodein-DI offers a DSL (Domain Specific Language) that allows to very easily declare a binding.
-Kodein-DI offers many bindings that can manage implementations: <code>provider</code>, <code>singleton</code>, <code>factory</code>, <code>multiton</code>, <code>instance</code>, and more, which you can read about in the <a href="https://kodein.org/Kodein-DI/?7.0/core#declaring-dependencies">bindings section of the core documentation</a>.</p>
+Kodein-DI offers many bindings that can manage implementations: <code>provider</code>, <code>singleton</code>, <code>factory</code>, <code>multiton</code>, <code>instance</code>, and more, which you can read about in the <a href="#core:bindings">bindings section of the core documentation</a>.</p>
 </div>
 <div class="paragraph">
 <p>Most of the time, the type of the interface of the dependency is enough to identify it.
@@ -716,7 +716,7 @@ When using dependency retrieval, <strong>properties are retrieved lazily</strong
 <h3 id="_direct"><a class="anchor" href="#_direct"></a>Direct</h3>
 <div class="paragraph">
 <p>If you don&#8217;t want everything to be lazy (as it is by default), DI has you covered.
-Head to the <a href="https://kodein.org/Kodein-DI/?7.0/core#direct-rectrieval">Retrival: Direct</a> section of the core documentation.</p>
+Head to the <a href="core/injection-retrieval.html#direct-retrieval" class="page">Retrieval: Direct</a> section of the core documentation.</p>
 </div>
 </div>
 </div>
@@ -759,10 +759,10 @@ Handling those dependencies is actually very easy.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Kodein-DI offers a lot of features.
-All of them are documented, you can find them here: <strong><a href="http://kodein.org/Kodein-DI/?7.0" class="bare">http://kodein.org/Kodein-DI/?7.0</a></strong>.</p>
+All of them are documented, you can find them here: xref:core:install.adoc</p>
 </div>
 <div class="paragraph">
-<p>If you are using Kodein-DI on Android, you should read the <a href="http://kodein.org/Kodein-DI/?7.0/android">Kodein on Android</a> documentation.</p>
+<p>If you are using Kodein-DI on Android, you should read the <a href="framework/android.html" class="page">Kodein on Android</a> documentation.</p>
 </div>
 </div>
 </div>

@@ -55,7 +55,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Core documentation</span>
+    <a class="nav-link" href="../core/install.html">Core documentation</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -269,59 +269,11 @@
     <a class="version" href="../../6.5/framework/android.html">6.5</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/antora-v7/doc/modules/framework/pages/android.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///Users/romain/workspace/kodein/di//doc/modules/framework/pages/android.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <article class="doc">
 <h1 class="page">Kodein-DI on Android</h1>
-<div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#install">Install</a></li>
-<li><a href="#_retrieving">Retrieving</a>
-<ul class="sectlevel2">
-<li><a href="#_getting_a_di_object">Getting a DI object</a></li>
-<li><a href="#_being_diaware">Being DIAware</a></li>
-<li><a href="#_using_a_trigger">Using a Trigger</a></li>
-<li><a href="#_view_models">View Models</a></li>
-</ul>
-</li>
-<li><a href="#_android_module">Android module</a></li>
-<li><a href="#_android_context_translators">Android context translators</a></li>
-<li><a href="#_android_scopes">Android scopes</a>
-<ul class="sectlevel2">
-<li><a href="#_component_scopes">Component scopes</a></li>
-<li><a href="#_activity_retained_scope">Activity retained scope</a></li>
-<li><a href="#_lifecycle_scope">Lifecycle scope</a></li>
-</ul>
-</li>
-<li><a href="#_layered_dependencies">Layered dependencies</a>
-<ul class="sectlevel2">
-<li><a href="#_the_closest_di_pattern">The closest DI pattern</a></li>
-<li><a href="#_component_based_sub_di">Component based sub DI</a></li>
-<li><a href="#_activity_retained_sub_di_container">Activity retained sub DI container</a></li>
-</ul>
-</li>
-<li><a href="#_independant_activity_retained_di_container">Independant Activity retained DI container</a></li>
-<li><a href="#_kodein_di_in_android_without_the_extension">Kodein-DI in Android without the extension</a>
-<ul class="sectlevel2">
-<li><a href="#_being_diaware_2">Being DIAware</a>
-<ul class="sectlevel3">
-<li><a href="#_using_lazy">Using lazy</a></li>
-<li><a href="#_using_lateinit">Using lateinit</a></li>
-</ul>
-</li>
-<li><a href="#_using_lateinitdi">Using LateInitDI</a></li>
-<li><a href="#_being_kodein_di_independant">Being Kodein-DI independant</a>
-<ul class="sectlevel3">
-<li><a href="#dependency-holder">The dependency holder pattern</a></li>
-<li><a href="#view-model-factory">View Model Factory</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -715,7 +667,7 @@ This module is absolutely <strong>optional</strong>, you are free to use it or l
 <h2 id="_android_context_translators"><a class="anchor" href="#_android_context_translators"></a>Android context translators</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The android module provides a number of <a href="http://kodein.org/Kodein-DI/?7.0/core#_context_translators">context translators</a>.
+<p>The android module provides a number of <a href="../core/using-environment.html#_context_translators" class="page">context translators</a>.
 For example, they allow you to retrieve an activity scoped singleton inside a fragment, without manually specifying the activity.</p>
 </div>
 <div class="admonitionblock note">
@@ -827,7 +779,7 @@ This means that you <strong>should never retain the activity</strong> passed at 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This scope <strong>IS</strong> compatible with <code>ScopeCloseable</code>: <a href="http://kodein.org/Kodein-DI/?7.0/core#scope-closeable">see documentation</a>.
+This scope <strong>IS</strong> compatible with <code>ScopeCloseable</code>: <a href="../core/using-environment.html#scope-closeable" class="page">see documentation</a>.
 </td>
 </tr>
 </table>
@@ -866,7 +818,7 @@ These lifecycles are <strong>NOT</strong> immune to activity restart due to conf
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This scope <strong>IS</strong> compatible with <code>ScopeCloseable</code>: <a href="http://kodein.org/Kodein-DI/?7.0/core#scope-closeable">see documentation</a>.
+This scope <strong>IS</strong> compatible with <code>ScopeCloseable</code>: <a href="../core/using-environment.html#scope-closeable" class="page">see documentation</a>.
 </td>
 </tr>
 </table>
@@ -926,7 +878,7 @@ Kodein-DI allows you to create a <code>DI</code> instance that lives only inside
 </td>
 <td class="content">
 <div class="paragraph">
-<p>By default all bindings are cached. You can also define the way the parent DI container is extended by defining the <a href="http://kodein.org/Kodein-DI/?7.0/core#_overridden_access_from_parent">copy mode</a>. In below example each instance of activity will store a copy of the DI module (all bindings including <code>singleton</code> will be recreated per activity instance).</p>
+<p>By default all bindings are cached. You can also define the way the parent DI container is extended by defining the <a href="../core/modules-inheritance.html#overridden_access_from_parent" class="page">copy mode</a>. In below example each instance of activity will store a copy of the DI module (all bindings including <code>singleton</code> will be recreated per activity instance).</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: defining an Activity specific DI container that copies all parent bindings</div>
@@ -987,7 +939,7 @@ This means that you <strong>should never access the containing activity</strong>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You can define the way the parent DI container is extended by defining the <a href="http://kodein.org/Kodein-DI/?7.0/core#_overridden_access_from_parent">copy mode</a>:</p>
+<p>You can define the way the parent DI container is extended by defining the <a href="../core/modules-inheritance.html#overridden_access_from_parent" class="page">copy mode</a>:</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: defining an Activity specific DI container that copies all parent bindings</div>

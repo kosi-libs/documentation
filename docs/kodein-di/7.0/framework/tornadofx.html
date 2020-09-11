@@ -55,7 +55,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Core documentation</span>
+    <a class="nav-link" href="../core/install.html">Core documentation</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -269,36 +269,11 @@
     <a class="version" href="../../6.5/framework/tornadofx.html">6.5</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/antora-v7/doc/modules/framework/pages/tornadofx.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///Users/romain/workspace/kodein/di//doc/modules/framework/pages/tornadofx.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <article class="doc">
 <h1 class="page">Kodein-DI on TornadoFX</h1>
-<div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#install">Install</a></li>
-<li><a href="#retrieving">Retrieving</a>
-<ul class="sectlevel2">
-<li><a href="#closest-di">Closest DI pattern</a>
-<ul class="sectlevel3">
-<li><a href="#closest-tfx">From a TornadoFX perspective</a></li>
-<li><a href="#closest-jfx">From a JavaFX perspective</a></li>
-<li><a href="#kodeinaware">Being DIAware</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#di-extension">Extension of Kodein-DI</a>
-<ul class="sectlevel2">
-<li><a href="#external-source">Using TornadoFX Dependency Injection as external source</a></li>
-<li><a href="#fx-container">Defining DI container in FX&#8217;s <code>Node</code></a></li>
-<li><a href="#sub-di">Extending the nearest DI container</a></li>
-</ul>
-</li>
-<li><a href="#scopes">TornadoFX scopes</a></li>
-</ul>
-</div>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -369,7 +344,7 @@ Kodein-DI does work on TornadoFX as-is.
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Branch DI upon TornadoFX dependency injection, to be able to access those dependencies through your DI container (see <a href="https://kodein.org/Kodein-DI/?7.0/tornadofx#external-source">documentation</a>)</td>
+<td>Branch DI upon TornadoFX dependency injection, to be able to access those dependencies through your DI container (see <a href="#external-source">documentation</a>)</td>
 </tr>
 </table>
 </div>
@@ -403,7 +378,7 @@ In order to leverage the power of DI and the helpers we made, you should really 
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-You may also want to access your TornadoFX components (such as <code>View</code>, <code>Fragment</code>, <code>Controller</code>, etc) through a DI container, to help you with that check the <a href="https://kodein.org/Kodein-DI/?7.0/tornadofx#external-source">external source</a> section.
+You may also want to access your TornadoFX components (such as <code>View</code>, <code>Fragment</code>, <code>Controller</code>, etc) through a DI container, to help you with that check the <a href="#external-source">external source</a> section.
 </td>
 </tr>
 </table>
@@ -426,7 +401,7 @@ You may also want to access your TornadoFX components (such as <code>View</code>
 <div class="sect3">
 <h4 id="closest-tfx"><a class="anchor" href="#closest-tfx"></a>From a TornadoFX perspective</h4>
 <div class="paragraph">
-<p>In TornadoFX there is no hierarchy between the different components. In fact, their is no bound between <code>View</code>, <code>Fragment</code>, <code>Controller</code> or <code>ViewModel</code>, except if you handle it yourself. However, they are available through the DI container of TornadoFX (and the one of DI if you use <a href="https://kodein.org/Kodein-DI/?7.0/tornadofx#external-source">external source</a> helper), and they all have a reference to the <code>App</code>.</p>
+<p>In TornadoFX there is no hierarchy between the different components. In fact, their is no bound between <code>View</code>, <code>Fragment</code>, <code>Controller</code> or <code>ViewModel</code>, except if you handle it yourself. However, they are available through the DI container of TornadoFX (and the one of DI if you use <a href="#external-source">external source</a> helper), and they all have a reference to the <code>App</code>.</p>
 </div>
 <div class="paragraph">
 <p>So, if we made our <code>App</code> as <code>DIAware</code>, we can get the global <code>DI</code> container from any <code>Component</code> thanks to:</p>
@@ -814,7 +789,7 @@ val editor: EditorTabFragment by kodeinDI().on(personScope).instance() <i class=
 </td>
 <td class="content">
 This feature will provide a <strong>new</strong> DI container, meaning it won&#8217;t be linked to other DI container, such as your global one.
-To keep your binding from the global DI container you can use <a href="https://kodein.org/Kodein-DI/?7.0/tornadofx#kodein-extension">extension</a> or following the next about <a href="https://kodein.org/Kodein-DI/?7.0/tornadofx#sub-kodein">subDI</a>
+To keep your binding from the global DI container you can use <a href="#kodein-extension">extension</a> or following the next about <a href="#sub-kodein">subDI</a>
 </td>
 </tr>
 </table>
@@ -927,7 +902,7 @@ Making your <code>Component</code> as <code>DIAware</code> is <strong>optional</
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-In the case of a <code>Component</code> you have to handle the reference of the extended container yourself. But, in the case of a <code>Node</code> the <code>subDI</code> will manage it, by storing the reference to the extended container, into the <code>Node</code> properties, like for the <a href="https://kodein.org/Kodein-DI/?7.0/tornadofx#fx-container">FX container feature</a>
+In the case of a <code>Component</code> you have to handle the reference of the extended container yourself. But, in the case of a <code>Node</code> the <code>subDI</code> will manage it, by storing the reference to the extended container, into the <code>Node</code> properties, like for the <a href="#fx-container">FX container feature</a>
 </td>
 </tr>
 </table>
