@@ -154,8 +154,8 @@
     <a class="version is-current" href="tornadofx.html">6.5</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/6.5/doc/modules/framework/pages/tornadofx.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///Users/romain/workspace/kodein/di//doc/modules/framework/pages/tornadofx.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <article class="doc">
 <h1 class="page">Kodein DI on TornadoFX</h1>
@@ -243,7 +243,7 @@ either <code>kodein-di-generic-jvm</code> or <code>kodein-di-erased</code> <stro
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Branch Kodein upon TornadoFX dependency injection, to be able to access those dependencies through your Kodein container (see <a href="https://kodein.org/Kodein-DI/?6.5/tornadofx#external-source">documentation</a>)</td>
+<td>Branch Kodein upon TornadoFX dependency injection, to be able to access those dependencies through your Kodein container (see <a href="#external-source">documentation</a>)</td>
 </tr>
 </table>
 </div>
@@ -277,7 +277,7 @@ In order to leverage the power of Kodein and the helpers we made, you should rea
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-You may also want to access your TornadoFX components (such as <code>View</code>, <code>Fragment</code>, <code>Controller</code>, etc) through a Kodein container, to help you with that check the <a href="https://kodein.org/Kodein-DI/?6.5/tornadofx#external-source">external source</a> section.
+You may also want to access your TornadoFX components (such as <code>View</code>, <code>Fragment</code>, <code>Controller</code>, etc) through a Kodein container, to help you with that check the <a href="#external-source">external source</a> section.
 </td>
 </tr>
 </table>
@@ -300,7 +300,7 @@ You may also want to access your TornadoFX components (such as <code>View</code>
 <div class="sect3">
 <h4 id="closest-tfx"><a class="anchor" href="#closest-tfx"></a>From a TornadoFX perspective</h4>
 <div class="paragraph">
-<p>In TornadoFX there is no hierarchy between the different components. In fact, their is no bound between <code>View</code>, <code>Fragment</code>, <code>Controller</code> or <code>ViewModel</code>, except if you handle it yourself. However, they are available through the DI container of TornadoFX (and the one of Kodein if you use <a href="https://kodein.org/Kodein-DI/?6.5/tornadofx#external-source">external source</a> helper), and they all have a reference to the <code>App</code>.</p>
+<p>In TornadoFX there is no hierarchy between the different components. In fact, their is no bound between <code>View</code>, <code>Fragment</code>, <code>Controller</code> or <code>ViewModel</code>, except if you handle it yourself. However, they are available through the DI container of TornadoFX (and the one of Kodein if you use <a href="#external-source">external source</a> helper), and they all have a reference to the <code>App</code>.</p>
 </div>
 <div class="paragraph">
 <p>So, if we made our <code>App</code> as <code>KodeinAware</code>, we can get the global <code>Kodein</code> container from any <code>Component</code> thanks to:</p>
@@ -688,7 +688,7 @@ val editor: EditorTabFragment by kodein().on(personScope).instance() <i class="c
 </td>
 <td class="content">
 This feature will provide a <strong>new</strong> Kodein container, meaning it won&#8217;t be linked to other Kodein container, such as your global one.
-To keep your binding from the global Kodein container you can use <a href="https://kodein.org/Kodein-DI/?6.5/tornadofx#kodein-extension">extension</a> or following the next about <a href="https://kodein.org/Kodein-DI/?6.5/tornadofx#sub-kodein">subKodein</a>
+To keep your binding from the global Kodein container you can use <a href="#kodein-extension">extension</a> or following the next about <a href="#sub-kodein">subKodein</a>
 </td>
 </tr>
 </table>
@@ -801,7 +801,7 @@ Making your <code>Component</code> as <code>KodeinAware</code> is <strong>option
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-In the case of a <code>Component</code> you have to handle the reference of the extended container yourself. But, in the case of a <code>Node</code> the <code>subKodein</code> will manage it, by storing the reference to the extended container, into the <code>Node</code> properties, like for the <a href="https://kodein.org/Kodein-DI/?6.5/tornadofx#fx-container">FX container feature</a>
+In the case of a <code>Component</code> you have to handle the reference of the extended container yourself. But, in the case of a <code>Node</code> the <code>subKodein</code> will manage it, by storing the reference to the extended container, into the <code>Node</code> properties, like for the <a href="#fx-container">FX container feature</a>
 </td>
 </tr>
 </table>

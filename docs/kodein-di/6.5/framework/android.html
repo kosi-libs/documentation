@@ -154,8 +154,8 @@
     <a class="version is-current" href="android.html">6.5</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/6.5/doc/modules/framework/pages/android.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///Users/romain/workspace/kodein/di//doc/modules/framework/pages/android.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <article class="doc">
 <h1 class="page">Kodein DI on Android</h1>
@@ -553,7 +553,7 @@ This module is absolutely <strong>optional</strong>, you are free to use it or l
 <h2 id="_android_context_translators"><a class="anchor" href="#_android_context_translators"></a>Android context translators</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The android module provides a number of <a href="http://kodein.org/Kodein-DI/?6.5/core#_context_translators">context translators</a>.
+<p>The android module provides a number of <a href="../core.html#context_translators" class="page">context translators</a>.
 For example, they allow you to retrieve an activity scoped singleton inside a fragment, without manually specifying the activity.</p>
 </div>
 <div class="admonitionblock note">
@@ -665,7 +665,7 @@ This means that you <strong>should never retain the activity</strong> passed at 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This scope <strong>IS</strong> compatible with <code>ScopeCloseable</code>: <a href="http://kodein.org/Kodein-DI/?6.5/core#scope-closeable">see documentation</a>.
+This scope <strong>IS</strong> compatible with <code>ScopeCloseable</code>: <a href="../core.html#scope-closeable" class="page">see documentation</a>.
 </td>
 </tr>
 </table>
@@ -704,7 +704,7 @@ These lifecycles are <strong>NOT</strong> immune to activity restart due to conf
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This scope <strong>IS</strong> compatible with <code>ScopeCloseable</code>: <a href="http://kodein.org/Kodein-DI/?6.5/core#scope-closeable">see documentation</a>.
+This scope <strong>IS</strong> compatible with <code>ScopeCloseable</code>: <a href="../core.html#scope-closeable" class="page">see documentation</a>.
 </td>
 </tr>
 </table>
@@ -764,7 +764,7 @@ Kodein allows you to create a <code>Kodein</code> instance that lives only insid
 </td>
 <td class="content">
 <div class="paragraph">
-<p>By default all bindings are cached. You can also define the way the parent kodein is extended by defining the <a href="http://kodein.org/Kodein-DI/?6.5/core#_overridden_access_from_parent">copy mode</a>. In below example each instance of activity will store a copy of the kodein module (all bindings including <code>singleton</code> will be recreated per activity instance).</p>
+<p>By default all bindings are cached. You can also define the way the parent kodein is extended by defining the <a href="../core.html#overridden_access_from_parent" class="page">copy mode</a>. In below example each instance of activity will store a copy of the kodein module (all bindings including <code>singleton</code> will be recreated per activity instance).</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: defining an Activity specific Kodein that copies all parent bindings</div>
@@ -825,7 +825,7 @@ This means that you <strong>should never access the containing activity</strong>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You can define the way the parent kodein is extended by defining the <a href="http://kodein.org/Kodein-DI/?6.5/core#_overridden_access_from_parent">copy mode</a>:</p>
+<p>You can define the way the parent kodein is extended by defining the <a href="../core.html#overridden_access_from_parent" class="page">copy mode</a>:</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: defining an Activity specific Kodein that copies all parent bindings</div>

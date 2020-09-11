@@ -153,8 +153,8 @@
     <a class="version is-current" href="core.html">6.5</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/6.5/doc/modules/ROOT/pages/core.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///Users/romain/workspace/kodein/di//doc/modules/ROOT/pages/core.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <article class="doc">
 <h1 class="page">Core documentation</h1>
@@ -1405,7 +1405,7 @@ This is useful if you want to "enhance" a binding (for example, using the decora
 </div>
 </div>
 <div class="sect2">
-<h3 id="_overridden_access_from_parent"><a class="anchor" href="#_overridden_access_from_parent"></a>Overridden access from parent</h3>
+<h3 id="overridden_access_from_parent"><a class="anchor" href="#overridden_access_from_parent"></a>Overridden access from parent</h3>
 <div class="paragraph">
 <p>Let&#8217;s consider the following code :</p>
 </div>
@@ -1438,7 +1438,7 @@ In this example, both <code>parent.instance&lt;Bar&gt;().foo</code> and <code>ch
 </td>
 <td class="content">
 This is because <code>Bar</code> is bound to a <code>singleton</code>, the first access would define the container used (<code>parent</code> or <code>child</code>).
-      If the singleton were initialized by <code>child</code>, then a subsequent access from <code>parent</code> would yeild a <code>Bar</code> with a reference to a <code>Foo2</code>, which is not supposed to exist in <code>parent</code>.
+If the singleton were initialized by <code>child</code>, then a subsequent access from <code>parent</code> would yeild a <code>Bar</code> with a reference to a <code>Foo2</code>, which is not supposed to exist in <code>parent</code>.
 </td>
 </tr>
 </table>
@@ -1477,7 +1477,7 @@ By default, <strong>all bindings that do not cache instances</strong> (basically
 </td>
 <td class="content">
 Copying a binding means that it will exists once more.
-         Therefore, a copied singleton will <strong>no longer be unique</strong> and have TWO instances, one managed by each binding (the original and the copied).
+Therefore, a copied singleton will <strong>no longer be unique</strong> and have TWO instances, one managed by each binding (the original and the copied).
 </td>
 </tr>
 </table>
@@ -2381,7 +2381,7 @@ Because Kodein is lazy by default, this does not cause any issue: simply have th
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There is an official module to ease the use of Kodein in Android, you can read more about it on <a href="http://kodein.org/Kodein-DI/?6.5/android">the dedicated document</a>.
+There is an official module to ease the use of Kodein in Android, you can read more about it on <a href="framework/android.html" class="page">the dedicated document</a>.
 </td>
 </tr>
 </table>
@@ -2858,7 +2858,7 @@ WeakContextScope is <strong>NOT</strong> compatible with <code>ScopeCloseable</c
 </div>
 </div>
 <div class="sect3">
-<h4 id="_context_translators"><a class="anchor" href="#_context_translators"></a>Context translators</h4>
+<h4 id="context_translators"><a class="anchor" href="#context_translators"></a>Context translators</h4>
 <div class="paragraph">
 <p>Let&#8217;s get back to the web server example.
 There is one session per user, so we have bound a <code>User</code> singleton inside a <code>Session</code> scope.
