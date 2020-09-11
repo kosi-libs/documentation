@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>KODEIN-DI: Painless Dependency Injection: 7.0.0 :: Kodein-Framework Documentation</title>
+    <title>Untitled :: Kodein-Framework Documentation</title>
     <link rel="canonical" href="https://kodein.org/documentation/kodein-di/7.0/index.html">
     <meta name="generator" content="Antora 2.3.3">
     <link rel="stylesheet" href="../../_/css/site.css">
@@ -41,13 +41,125 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="index.html">Introduction</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="getting-started.html">Getting started</a>
+    <a class="nav-link" href="getting-started.html">Quick start guide</a>
   </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="core.html">Full documentation</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Core documentation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="core/install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/install.html#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="core/bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/bindings.html#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/bindings.html#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/bindings.html#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/bindings.html#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="core/modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="core/injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="core/using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/using-environment.html#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/using-environment.html#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/using-environment.html#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="core/advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/advanced.html#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/advanced.html#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/advanced.html#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/advanced.html#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="core/advanced.html#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -119,6 +231,9 @@
         <li class="version is-current is-latest">
           <a href="index.html">7.0</a>
         </li>
+        <li class="version">
+          <a href="../6.5/index.html">6.5</a>
+        </li>
       </ul>
     </li>
     <li class="component">
@@ -142,7 +257,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Kodein-DI</a></li>
-    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html">Introduction</a></li>
   </ul>
 </nav>
 <div class="page-versions">
@@ -150,18 +265,106 @@
   <div class="version-menu">
     <a class="version" href="../7.1/index.html">7.1 dev</a>
     <a class="version is-current" href="index.html">7.0</a>
+    <a class="version" href="../6.5/index.html">6.5</a>
   </div>
 </div>
   <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/antora-v7/doc/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">KODEIN-DI: Painless Dependency Injection: 7.0.0</h1>
-<div id="preamble">
-<div class="sectionbody">
 <div class="imageblock">
 <div class="content">
 <img src="_images/Kodein-DI-logo.png" alt="KODEIN-DI" width="700">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_description"><a class="anchor" href="#_description"></a>Description</h3>
+<div class="paragraph lead">
+<p><em>Kodein-DI</em> is a very useful dependency injection / retrieval container, it is very easy to use and configure.</p>
+</div>
+<div class="ulist">
+<div class="title"><em>Kodein-DI</em> allows you to:</div>
+<ul>
+<li>
+<p>Lazily instantiate your dependencies when needed.</p>
+</li>
+<li>
+<p>Stop caring about dependency initialization order.</p>
+</li>
+<li>
+<p>Easily bind classes or interfaces to their instance, provider or factory.</p>
+</li>
+<li>
+<p>Easily debug your dependency bindings and recursions.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title"><em>Kodein-DI</em> is a good choice because:</div>
+<ul>
+<li>
+<p>It is small, fast and optimized (makes extensive use of <code>inline</code>).</p>
+</li>
+<li>
+<p>It proposes a very simple and readable declarative DSL.</p>
+</li>
+<li>
+<p>It is not subject to type erasure (like Java).</p>
+</li>
+<li>
+<p>It integrates nicely with Android.</p>
+</li>
+<li>
+<p>It proposes a very kotlin-esque idiomatic API.</p>
+</li>
+<li>
+<p>It can be used in plain Java.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example"><a class="anchor" href="#_example"></a>Example</h3>
+<div class="paragraph">
+<p>Kodein makes it very easy to bind a type:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example bindings:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Dice&gt;() with provider { RandomDice(0, 5) }
+    bind&lt;DataSource&gt;() with singleton { SqliteDS.open("path/to/file") }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once bindings are declared, <em>Kodein-DI</em> allows you to either inject or retrieve the dependencies for a class.</p>
+</div>
+<div class="paragraph">
+<p>If you want your class to be unaware of dependency retrieval, then you can <strong>inject</strong> dependencies at construction:</p>
+</div>
+<div class="listingblock">
+<div class="title">Using Kodein&#8217;s dependency injection via construction:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class Controller(private val ds: DataSource) {
+    /*...*/
+}
+val controller by di.newInstance { Controller(instance()) }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want your class to handle it&#8217;s dependencies by itself, then you can have it easily <strong>retrieve</strong> them:</p>
+</div>
+<div class="listingblock">
+<div class="title">Using Kodein&#8217;s dependency injection via construction:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class Controller(override val di: DI): DIAware {
+    private val ds: DataSource by instance()
+}</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -172,7 +375,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://kodein.org/Kodein-DI/?7.0/getting-started">Guide to getting started with Kodein-DI</a></p>
+<p><a href="getting-started.html" class="page">Guide to getting started with Kodein-DI</a></p>
 </li>
 </ul>
 </div>
@@ -250,6 +453,31 @@
 <p><a href="https://kodein.org/Kodein-DI/?3.4">Kodein version 3</a>.</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_community"><a class="anchor" href="#_community"></a>Community</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_contribute"><a class="anchor" href="#_contribute"></a>Contribute</h3>
+<div class="paragraph">
+<p>Contributions are very welcome and greatly appreciated! The great majority of pull requests are eventually merged.</p>
+</div>
+<div class="paragraph">
+<p>To contribute, simply fork <a href="https://github.com/Kodein-Framework/Kodein-DI">the project on Github</a>, fix whatever is iching you, and submit a pull request!</p>
+</div>
+<div class="paragraph">
+<p>I am sure that this documentation contains typos, inaccuracies and languages error (English is not my mother tongue).
+If you feel like enhancing this document, you can propose a pull request that modifies <a href="https://github.com/Kodein-Framework/Kodein-DI/tree/master/doc">the documentation documents</a>.
+(Documentation is auto-generated from those).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lets_talk"><a class="anchor" href="#_lets_talk"></a>Let&#8217;s talk!</h3>
+<div class="paragraph">
+<p>Why don&#8217;t you drop by the <a href="https://kotlinlang.slack.com/messages/kodein/">Kodein Slack channel</a> on Kotlin&#8217;s Slack group?</p>
+</div>
 </div>
 </div>
 </div>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>KODEIN-DI: Painless Kotlin Dependency Injection :: Kodein-Framework Documentation</title>
-    <link rel="canonical" href="https://kodein.org/documentation/kodein-di/7.0/core.html">
+    <title>Core documentation :: Kodein-Framework Documentation</title>
+    <link rel="canonical" href="https://kodein.org/documentation/kodein-di/6.5/core.html">
     <meta name="generator" content="Antora 2.3.3">
     <link rel="stylesheet" href="../../_/css/site.css">
   </head>
@@ -30,7 +30,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="kodein-di" data-version="7.0">
+<div class="nav-container" data-component="kodein-di" data-version="6.5">
   <div class="navbar-bottom-line-linear"></div>
   <aside class="nav">
     <div class="panels">
@@ -47,7 +47,7 @@
     <a class="nav-link" href="getting-started.html">Getting started</a>
   </li>
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="core.html">Full documentation</a>
+    <a class="nav-link" href="core.html">Core documentation</a>
   </li>
 </ul>
   </li>
@@ -83,9 +83,6 @@
     <span class="nav-text">Migration guides</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="migration/migration-6to7.html">Kodein version 6 to version 7</a>
-  </li>
-  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="migration/migration-4to5.html">Kodein version 4 to version 5</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -99,7 +96,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Kodein-DI</span>
-    <span class="version">7.0</span>
+    <span class="version">6.5</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -116,8 +113,11 @@
         <li class="version">
           <a href="../7.1/index.html">7.1 dev</a>
         </li>
-        <li class="version is-current is-latest">
-          <a href="index.html">7.0</a>
+        <li class="version is-latest">
+          <a href="../7.0/index.html">7.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">6.5</a>
         </li>
       </ul>
     </li>
@@ -142,240 +142,32 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Kodein-DI</a></li>
-    <li><a href="core.html">Full documentation</a></li>
+    <li><a href="core.html">Core documentation</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">7.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">6.5</button>
   <div class="version-menu">
     <a class="version is-missing" href="../7.1/index.html">7.1 dev</a>
-    <a class="version is-current" href="core.html">7.0</a>
+    <a class="version is-missing" href="../7.0/index.html">7.0</a>
+    <a class="version is-current" href="core.html">6.5</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/antora-v7/doc/modules/ROOT/pages/core.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/6.5/doc/modules/ROOT/pages/core.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">KODEIN-DI: Painless Kotlin Dependency Injection</h1>
-<div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_introduction">Introduction</a>
-<ul class="sectlevel2">
-<li><a href="#_description">Description</a></li>
-<li><a href="#_example">Example</a></li>
-</ul>
-</li>
-<li><a href="#_platform_compatibility_genericity">Platform compatibility &amp; Genericity</a>
-<ul class="sectlevel2">
-<li><a href="#_the_jvm_case">The JVM case</a></li>
-</ul>
-</li>
-<li><a href="#install">Install</a>
-<ul class="sectlevel2">
-<li><a href="#_jvm">JVM</a>
-<ul class="sectlevel3">
-<li><a href="#_with_maven">With Maven</a></li>
-<li><a href="#_with_gradle">With Gradle</a></li>
-</ul>
-</li>
-<li><a href="#_javascript_gradle">JavaScript (Gradle)</a></li>
-<li><a href="#_native_gradle">Native (Gradle)</a></li>
-</ul>
-</li>
-<li><a href="#declaring-dependencies">Bindings: Declaring dependencies</a>
-<ul class="sectlevel2">
-<li><a href="#tagged-bindings">Tagged bindings</a></li>
-<li><a href="#_provider_binding">Provider binding</a></li>
-<li><a href="#_singleton_binding">Singleton binding</a>
-<ul class="sectlevel3">
-<li><a href="#_non_synced_singleton">Non-synced singleton</a></li>
-<li><a href="#_eager_singleton">Eager singleton</a></li>
-</ul>
-</li>
-<li><a href="#_factory_binding">Factory binding</a>
-<ul class="sectlevel3">
-<li><a href="#multi-argument-factories">Multi-arguments factories</a></li>
-</ul>
-</li>
-<li><a href="#_multiton_binding">Multiton binding</a>
-<ul class="sectlevel3">
-<li><a href="#_non_synced_multiton">non-synced multiton</a></li>
-</ul>
-</li>
-<li><a href="#_referenced_singleton_or_multiton_binding">Referenced singleton or multiton binding</a>
-<ul class="sectlevel3">
-<li><a href="#_jvm_soft_weak">JVM: Soft &amp; weak</a></li>
-<li><a href="#_jvm_thread_local">JVM: Thread local</a></li>
-</ul>
-</li>
-<li><a href="#_instance_binding">Instance binding</a>
-<ul class="sectlevel3">
-<li><a href="#constant-binding">Constant binding</a></li>
-</ul>
-</li>
-<li><a href="#_direct_binding">Direct binding</a></li>
-<li><a href="#_subtypes_bindings">Subtypes bindings</a></li>
-<li><a href="#_transitive_dependencies">Transitive dependencies</a>
-<ul class="sectlevel3">
-<li><a href="#_transitive_factory_dependencies">Transitive factory dependencies</a></li>
-</ul>
-</li>
-<li><a href="#_being_responsible_for_its_own_retrieval">Being responsible for its own retrieval</a></li>
-</ul>
-</li>
-<li><a href="#_bindings_separation">Bindings separation</a>
-<ul class="sectlevel2">
-<li><a href="#_modules">Modules</a>
-<ul class="sectlevel3">
-<li><a href="#_definition">Definition</a></li>
-<li><a href="#module-uniqueness">Name uniqueness</a></li>
-<li><a href="#_import_once">Import once</a></li>
-</ul>
-</li>
-<li><a href="#_extension_composition">Extension (composition)</a></li>
-<li><a href="#_overriding">Overriding</a></li>
-<li><a href="#_overridden_access_from_parent">Overridden access from parent</a></li>
-</ul>
-</li>
-<li><a href="#_dependency_injection_retrieval">Dependency injection &amp; retrieval</a>
-<ul class="sectlevel2">
-<li><a href="#_retrieval_rules">Retrieval rules</a></li>
-<li><a href="#_injection_retrieval">Injection &amp; Retrieval</a>
-<ul class="sectlevel3">
-<li><a href="#_base_methods">Base methods</a></li>
-</ul>
-</li>
-<li><a href="#injection">Injection</a>
-<ul class="sectlevel3">
-<li><a href="#_simple_case">Simple case</a></li>
-<li><a href="#_multi_arguments_factories">Multi-arguments factories</a></li>
-<li><a href="#_currying_factories">Currying factories</a></li>
-<li><a href="#_defining_context">Defining context</a></li>
-</ul>
-</li>
-<li><a href="#_retrieval_the_di_container">Retrieval: the DI container</a>
-<ul class="sectlevel3">
-<li><a href="#_everything_is_lazy_by_default">everything is lazy by default!</a></li>
-<li><a href="#_kodein_di_methods"><em>Kodein-DI</em> methods</a></li>
-<li><a href="#_constants">Constants</a></li>
-<li><a href="#_named_bindings">Named bindings</a></li>
-<li><a href="#_multi_arguments_factories_2">Multi-arguments factories</a>
-<ul class="sectlevel4">
-<li><a href="#_factory_retrieval">Factory retrieval</a></li>
-</ul>
-</li>
-<li><a href="#_currying_factories_2">Currying factories</a></li>
-<li><a href="#_defining_context_2">Defining context</a></li>
-<li><a href="#_using_a_trigger">Using a Trigger</a></li>
-<li><a href="#_lazy_access">Lazy access</a></li>
-<li><a href="#_late_init">Late init</a></li>
-<li><a href="#_all_matches">All matches</a></li>
-</ul>
-</li>
-<li><a href="#di-aware">Retrieval: being DIAware</a>
-<ul class="sectlevel3">
-<li><a href="#_simple_retrieval">Simple retrieval</a></li>
-<li><a href="#_class_global_context">Class global context</a></li>
-<li><a href="#_class_global_trigger">Class global trigger</a></li>
-<li><a href="#_lazy_access_2">Lazy access</a></li>
-<li><a href="#_lateinit">Lateinit</a></li>
-<li><a href="#_all_matches_2">All matches</a></li>
-</ul>
-</li>
-<li><a href="#direct-retrieval">Retrieval: Direct</a>
-<ul class="sectlevel3">
-<li><a href="#_being_directdiaware">Being DirectDIAware</a></li>
-<li><a href="#_in_java">In Java</a></li>
-</ul>
-</li>
-<li><a href="#_error_messages">Error messages</a></li>
-</ul>
-</li>
-<li><a href="#_using_the_environment">Using the environment</a>
-<ul class="sectlevel2">
-<li><a href="#_context">Context</a></li>
-<li><a href="#_scope">Scope</a>
-<ul class="sectlevel3">
-<li><a href="#scope-closeable">Scope closeable</a></li>
-<li><a href="#_jvm_references_in_scopes">JVM references in scopes</a></li>
-<li><a href="#_weak_context_scope">Weak Context Scope</a></li>
-<li><a href="#_context_translators">Context translators</a></li>
-<li><a href="#_context_finder">Context finder</a></li>
-</ul>
-</li>
-<li><a href="#scope-creation">Scope creation</a>
-<ul class="sectlevel3">
-<li><a href="#scope-registry">Scope registry</a>
-<ul class="sectlevel4">
-<li><a href="#_standardscoperegistry">StandardScopeRegistry</a></li>
-<li><a href="#_singleitemscoperegistry">SingleItemScopeRegistry</a></li>
-</ul>
-</li>
-<li><a href="#_sub_scopes">Sub-scopes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_multi_binding">Multi-binding</a>
-<ul class="sectlevel2">
-<li><a href="#set-bindings">In a Set</a>
-<ul class="sectlevel3">
-<li><a href="#_binding_in_a_set">Binding in a Set</a></li>
-<li><a href="#_retrieving_from_a_set">Retrieving from a Set</a></li>
-</ul>
-</li>
-<li><a href="#_in_a_map">In a map</a></li>
-</ul>
-</li>
-<li><a href="#debugging">Debugging</a>
-<ul class="sectlevel2">
-<li><a href="#_print_bindings">Print bindings</a></li>
-<li><a href="#_recursive_dependency_loop">Recursive dependency loop</a></li>
-</ul>
-</li>
-<li><a href="#_onready_callbacks">OnReady callbacks</a></li>
-<li><a href="#_external_source">External Source</a></li>
-<li><a href="#erased-version">Erased version pitfalls</a>
-<ul class="sectlevel2">
-<li><a href="#_using_generic_and_erased_function_forms">Using generic and erased function forms</a></li>
-<li><a href="#_erased_parameterized_generic_types">Erased parameterized generic types</a></li>
-</ul>
-</li>
-<li><a href="#_bind_the_same_type_to_different_factories">Bind the same type to different factories</a></li>
-<li><a href="#_hack_the_container">Hack the container!</a>
-<ul class="sectlevel2">
-<li><a href="#_tag_vs_context_vs_argument">Tag vs context vs argument</a></li>
-<li><a href="#_explore_bindings">Explore bindings</a></li>
-</ul>
-</li>
-<li><a href="#_community">Community</a>
-<ul class="sectlevel2">
-<li><a href="#_contribute">Contribute</a></li>
-<li><a href="#_lets_talk">Let&#8217;s talk!</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div id="preamble">
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="_images/Kodein-DI-logo.png" alt="KODEIN" width="700" height="233">
-</div>
-</div>
-</div>
-</div>
+<h1 class="page">Core documentation</h1>
 <div class="sect1">
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_description"><a class="anchor" href="#_description"></a>Description</h3>
 <div class="paragraph lead">
-<p><em>Kodein-DI</em> is a very useful dependency injection / retrieval container, it is very easy to use and configure.</p>
+<p>Kodein is a very useful dependency injection / retrieval container, it is very easy to use and configure.</p>
 </div>
 <div class="ulist">
-<div class="title"><em>Kodein-DI</em> allows you to:</div>
+<div class="title">Kodein allows you to:</div>
 <ul>
 <li>
 <p>Lazily instantiate your dependencies when needed.</p>
@@ -392,7 +184,7 @@
 </ul>
 </div>
 <div class="ulist">
-<div class="title"><em>Kodein-DI</em> is a good choice because:</div>
+<div class="title">Kodein is a good choice because:</div>
 <ul>
 <li>
 <p>It is small, fast and optimized (makes extensive use of <code>inline</code>).</p>
@@ -423,14 +215,14 @@
 <div class="listingblock">
 <div class="title">Example bindings:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Dice&gt;() with provider { RandomDice(0, 5) }
     bind&lt;DataSource&gt;() with singleton { SqliteDS.open("path/to/file") }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Once bindings are declared, <em>Kodein-DI</em> allows you to either inject or retrieve the dependencies for a class.</p>
+<p>Once bindings are declared, Kodein allows you to either inject or retrieve the dependencies for a class.</p>
 </div>
 <div class="paragraph">
 <p>If you want your class to be unaware of dependency retrieval, then you can <strong>inject</strong> dependencies at construction:</p>
@@ -441,7 +233,7 @@
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class Controller(private val ds: DataSource) {
     /*...*/
 }
-val controller by di.newInstance { Controller(instance()) }</code></pre>
+val controller by kodein.newInstance { Controller(instance()) }</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -450,7 +242,7 @@ val controller by di.newInstance { Controller(instance()) }</code></pre>
 <div class="listingblock">
 <div class="title">Using Kodein&#8217;s dependency injection via construction:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class Controller(override val di: DI): DIAware {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class Controller(override val kodein: Kodein): KodeinAware {
     private val ds: DataSource by instance()
 }</code></pre>
 </div>
@@ -461,49 +253,55 @@ val controller by di.newInstance { Controller(instance()) }</code></pre>
 <div class="sect1">
 <h2 id="_platform_compatibility_genericity"><a class="anchor" href="#_platform_compatibility_genericity"></a>Platform compatibility &amp; Genericity</h2>
 <div class="sectionbody">
-<div class="admonitionblock important">
-<table>
+<div class="paragraph">
+<p>Kodein is compatible with all platforms that the Kotlin language compiles to: JVM &amp; compatible (Android), Javascript and all the Kotlin/Native targets.</p>
+</div>
+<div class="paragraph">
+<p>On the JVM &amp; compatible (Android), you need to choose to use either the <code>erased</code> or the <code>generic</code> version.<br>
+On the Javascript and Native targets, only the <code>erased</code> version is available.</p>
+</div>
+<div class="paragraph">
+<p>The difference is very simple: the <code>generic</code> version is <strong>NOT</strong> subject to type erasure while the <code>erased</code> version <strong>IS</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Of course, it is a little bit more complicated!<br>
+To be able to circumvent the type erasure that&#8217;s inherent to the JVM bytecode, the <code>generic</code> version uses a trix that makes heavy use of reflexivity.
+Because the <code>erased</code> version does not use that trix, handling generic types in Kodein are a lot more complex to use.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
 <tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-From <code>6.3.0</code> On the JVM, you must be targeting <code>JDK 1.8</code> minimum!
-</td>
+<th class="tableblock halign-left valign-top">&nbsp;</th>
+<th class="tableblock halign-left valign-top">Type erasure</th>
+<th class="tableblock halign-left valign-top">Optimized</th>
+<th class="tableblock halign-left valign-top">Non-generic bindings</th>
+<th class="tableblock halign-left valign-top">Generic bindings</th>
 </tr>
-</table>
-</div>
-<div class="paragraph">
-<p><em>Kodein-DI</em> is compatible with all platforms that the Kotlin language compiles to: JVM &amp; compatible (Android), Javascript and all the Kotlin/Native targets.</p>
-</div>
-<div class="paragraph">
-<p>Since <code>7.0.0</code>, a new <a href="https://github.com/Kodein-Framework/Kodein-Type">type system</a> has been designed and included to <em>Kodein-DI</em>.
-Thus, it appears to the developer that there is no more <em>obvious</em> differences between platforms, you no longer have to choose between <code>erased</code> or <code>generic</code> dependencies.
-Starting from <code>7.0.0</code>, <em>Kodein-DI</em> is using the <code>generic</code> version of the type system, meaning you should be able to bind generics easily for <em>Kotlin/Multiplatform</em> projects.
-So, whatever platform you are targeting, <code>bind&lt;List&lt;String&gt;&gt;()</code> and <code>bind&lt;List&lt;Int&gt;&gt;()</code> will represent two different bindings.<br>
-Similarly, <code>di.instance&lt;List&lt;String&gt;&gt;()</code> and <code>di.instance&lt;List&lt;Int&gt;&gt;()</code> will yield two different list.</p>
-</div>
-<div class="admonitionblock note">
-<table>
+</thead>
+<tbody>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Since <strong>7.0</strong>, <em>Kodein-DI</em> can use <code>generic</code> for non JVM platforms, thus it is now the default implementation.
-However you still can force the use of <code>erased</code> with the generic and erased function forms!</p>
-</div>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>generic</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>immune</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>simple</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>simple</strong></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>erased</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>yes</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>simple</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">complex</p></td>
+</tr>
+</tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_the_jvm_case"><a class="anchor" href="#_the_jvm_case"></a>The JVM case</h3>
-<div class="paragraph">
-<p>However, you should be aware that under the hood, this new type system uses the new function <code>typeOf()</code> from Kotlin, for every platforms, except for the JVM that still have it&#8217;s own <code>generic</code> implementation.
-Meaning that the JVM counterpart of the type system makes a heavy use of reflection, so it&#8217;s <em>less optimized</em>.</p>
-</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -523,7 +321,7 @@ Meaning that the JVM counterpart of the type system makes a heavy use of reflect
 <p>Optimisation is important <strong>in critical path</strong>, not <em>everywhere</em>.</p>
 </li>
 <li>
-<p><em>Kodein-DI</em> is already pretty optimized ;)</p>
+<p>Kodein is already pretty optimized ;)</p>
 </li>
 <li>
 <p>In the vast majority of cases, using the erased version will result in <strong>no significant performance change</strong> to your application, as IoC happens once and is not a performance pitfall!</p>
@@ -538,18 +336,25 @@ Meaning that the JVM counterpart of the type system makes a heavy use of reflect
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Even if by default <em>Kodein-DI</em> uses a <code>generic</code> type system, you still can use the <code>erased</code> one manually. (see <strong>TODO</strong>)
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>On the JVM, you might prefer the erased version if:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>You are confident you are not binding / injecting / retrieving generic types and you are sure <strong>none of the libraries you are using are</strong>.</p>
+</li>
+<li>
+<p>You are not using <a href="#set-bindings">set bindings</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you profile your code and find that injection is a performance pitfall, then it probably is instanciation: you are creating too many objects in critical paths.
+Reusing objects in critical paths will enhance performance both in dependency injection / retrieval and in GC!</p>
+</div>
+<div class="paragraph">
+<p>If you are using the erased version, either by choice on the JVM, or by default on JS &amp; Native, you should read <a href="#erased-version">erased version pitfalls</a>.</p>
 </div>
 </div>
 </div>
@@ -581,20 +386,20 @@ Even if by default <em>Kodein-DI</em> uses a <code>generic</code> type system, y
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependencies&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;org.kodein.di&lt;/groupId&gt;
-        &lt;artifactId&gt;kodein-di-jvm&lt;/artifactId&gt;
-        &lt;version&gt;7.0.0&lt;/version&gt;
+        &lt;artifactId&gt;kodein-di-generic-jvm&lt;/artifactId&gt;
+        &lt;version&gt;6.5.5&lt;/version&gt;
     &lt;/dependency&gt;
 &lt;/dependencies&gt;</code></pre>
 </div>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Use <code>kodein-di-jvm</code>, as <em>Kotlin/Multiplatform</em> projects does not work with Maven
+Use <code>kodein-di-generic-jvm</code> or <code>kodein-di-erased-jvm</code>.
 </td>
 </tr>
 </table>
@@ -620,16 +425,28 @@ Use <code>kodein-di-jvm</code>, as <em>Kotlin/Multiplatform</em> projects does n
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-    implementation 'org.kodein.di:kodein-di:7.0.0'
+    implementation 'org.kodein.di:kodein-di-generic-jvm:6.5.5'
 }</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Use <code>kodein-di-generic-jvm</code> or <code>kodein-di-erased-jvm</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_javascript_gradle"><a class="anchor" href="#_javascript_gradle"></a>JavaScript (Gradle)</h3>
 <div class="paragraph">
-<p>Because <em>Kodein-DI</em> for JavaScript is compiled as a <a href="https://github.com/umdjs/umd">UMD module</a>, it can be imported:</p>
+<p>Because Kodein for JavaScript is compiled as a <a href="https://github.com/umdjs/umd">UMD module</a>, it can be imported:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -669,7 +486,7 @@ Use <code>kodein-di-jvm</code>, as <em>Kotlin/Multiplatform</em> projects does n
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-    compile 'org.kodein.di:kodein-di-js:7.0.0'
+    compile 'org.kodein.di:kodein-di-erased-js:6.5.5'
 }</code></pre>
 </div>
 </div>
@@ -683,34 +500,15 @@ Use <code>kodein-di-jvm</code>, as <em>Kotlin/Multiplatform</em> projects does n
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<em>Kodein-DI</em> supports the following targets:<br>
+Kodein supports the following targets:<br>
       androidArm32, androidArm64, iosArm32, iosArm64, iosX64, linuxArm32Hfp, linuxMips32, linuxMipsel32, linuxX64, macosX64, mingwX64
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><em>Kodein-DI</em> uses the new gradle native dependency model.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you are <strong>NOT</strong> using <strong>Gradle 6+</strong>, you should declare the use of the Gralde Metadata experimental feature</p>
-</div>
-<div class="listingblock">
-<div class="title">settings.gradle.kts</div>
-<div class="content">
-<pre>enableFeaturePreview("GRADLE_METADATA")</pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
+<p>Kodein-DI uses the new gradle native dependency model.
+Because that model is experimental in gradle, it is not forward compatible with next versions of Gradle.</p>
 </div>
 <div class="paragraph">
 <p>Add the JCenter repository:</p>
@@ -733,7 +531,7 @@ Use <code>kodein-di-jvm</code>, as <em>Kotlin/Multiplatform</em> projects does n
     sourceSets {
         commonMain {
             dependencies {
-                implementation "org.kodein.di:kodein-di:7.0.0"
+                implementation "org.kodein.di:kodein-di-erased:6.5.5"
             }
         }
     }
@@ -747,15 +545,40 @@ Use <code>kodein-di-jvm</code>, as <em>Kotlin/Multiplatform</em> projects does n
 <h2 id="declaring-dependencies"><a class="anchor" href="#declaring-dependencies"></a>Bindings: Declaring dependencies</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Example: initialization of a DI container</div>
+<div class="title">Example: initialization of a Kodein container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
 	/* Bindings */
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Bindings are declared inside a DI initialization block.</p>
+<p>Bindings are declared inside a Kodein initialization block.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are using <code>kodein-di-generic-jvm</code>, Kodein <strong>not</strong> subject to type erasure (e.g. You can bind both a <code>List&lt;Int&gt;</code> and a <code>List&lt;String&gt;</code>).
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+This is <strong>NOT</strong> the case when using <code>kodein-di-erased-jvm</code>, <code>kodein-erased-js</code> or <code>kodein-erased-native</code>.
+         With the <code>erased</code> version by default, binding <code>List&lt;Int&gt;</code> and <code>List&lt;String&gt;</code> actually means binding <code>List&lt;*&gt;</code> twice.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>A binding always starts with <code>bind&lt;TYPE&gt;() with</code>.</p>
@@ -771,7 +594,7 @@ Use <code>kodein-di-jvm</code>, as <em>Kotlin/Multiplatform</em> projects does n
 <div class="listingblock">
 <div class="title">Example: different Dice bindings</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Dice&gt;() with ... <i class="conum" data-value="1"></i><b>(1)</b>
     bind&lt;Dice&gt;(tag = "DnD10") with ... <i class="conum" data-value="2"></i><b>(2)</b>
     bind&lt;Dice&gt;(tag = "DnD20") with ... <i class="conum" data-value="2"></i><b>(2)</b>
@@ -837,7 +660,7 @@ The provided function will be called <strong>each time</strong> you need an inst
 <div class="listingblock">
 <div class="title">Example: creates a new 6 sided Dice entry each time you need one</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Dice&gt;() with provider { RandomDice(6) }
 }</code></pre>
 </div>
@@ -852,7 +675,7 @@ Therefore, the provided function will be called <strong>only once</strong>: the 
 <div class="listingblock">
 <div class="title">Example: creates a DataSource singleton that will be initialized on first access</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;DataSource&gt;() with singleton { SqliteDS.open("path/to/file") }
 }</code></pre>
 </div>
@@ -861,8 +684,8 @@ Therefore, the provided function will be called <strong>only once</strong>: the 
 <h4 id="_non_synced_singleton"><a class="anchor" href="#_non_synced_singleton"></a>Non-synced singleton</h4>
 <div class="paragraph">
 <p>By definition, there can be only one instance of a singleton, which means only one instance can be constructed.
-To achieve this certainty, <em>Kodein-DI</em> synchronizes construction.
-This means that, when a singleton instance is requested and not available, <em>Kodein-DI</em> uses a synchronization mutex to ensure that other request to the same type will wait for this instance to be constructed.</p>
+To achieve this certainty, Kodein synchronizes construction.
+This means that, when a singleton instance is requested and not available, Kodein uses a synchronization mutex to ensure that other request to the same type will wait for this instance to be constructed.</p>
 </div>
 <div class="paragraph">
 <p>While this behaviour is the only way to ensure the singleton&#8217;s correctness, it is also costly (due to the mutex) and degrades startup performance.</p>
@@ -873,7 +696,7 @@ This means that, when a singleton instance is requested and not available, <em>K
 <div class="listingblock">
 <div class="title">Example: creates a DataSource non synced singleton</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;DataSource&gt;() with singleton(sync = false) { SqliteDS.open("path/to/file") }
 }</code></pre>
 </div>
@@ -898,13 +721,13 @@ This means that, when a singleton instance is requested and not available, <em>K
 <div class="sect3">
 <h4 id="_eager_singleton"><a class="anchor" href="#_eager_singleton"></a>Eager singleton</h4>
 <div class="paragraph">
-<p>This is the same as a regular singleton, except that the provided function will be called as soon as the DI instance is created and all bindings are defined.</p>
+<p>This is the same as a regular singleton, except that the provided function will be called as soon as the Kodein instance is created and all bindings are defined.</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: creates a DataSource singleton that will be initialized as soon as the binding block ends</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
-    // The SQLite connection will be opened as soon as the di instance is ready
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
+    // The SQLite connection will be opened as soon as the kodein instance is ready
     bind&lt;DataSource&gt;() with eagerSingleton { SqliteDS.open("path/to/file") }
 }</code></pre>
 </div>
@@ -920,7 +743,7 @@ The provided function will be called <strong>each time</strong> you need an inst
 <div class="listingblock">
 <div class="title">Example: creates a new Dice each time you need one, according to an Int representing the number of sides</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Dice&gt;() with factory { sides: Int -&gt; RandomDice(sides) }
 }</code></pre>
 </div>
@@ -945,7 +768,7 @@ This multi-agrument-factories mechanism is deprecated and will be removed in ver
 <div class="listingblock">
 <div class="title">Example: creates a new Dice each time you need one, according to an Int representing the number of sides</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Dice&gt;() with factory { startNumber: Int, sides: Int -&gt; RandomDice(sides) }
 }</code></pre>
 </div>
@@ -957,13 +780,13 @@ This multi-agrument-factories mechanism is deprecated and will be removed in ver
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-We recommend to use <code>data classes</code> instead!
+We recommand to use <code>data classes</code> instead!
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Regarding our users feedback, we find out that multi-arguments factories was difficult to use.</p>
+<p>Regarding our users feedbacks, we find out that multi-arguments factories was difficult to use.</p>
 </div>
 <div class="paragraph">
 <p>Thus this mechanism will be deprecate soon. So we highly recommend that you migrate your multi-args factories to simple factories by using <strong>data classes</strong>.</p>
@@ -973,7 +796,7 @@ We recommend to use <code>data classes</code> instead!
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class DiceParams(val startNumber: Int, val sides: Int)
 
-val di = DI {
+val kodein = Kodein {
     bind&lt;Dice&gt;() with factory { params: DiceParams -&gt; RandomDice(params) }
 }</code></pre>
 </div>
@@ -989,7 +812,7 @@ In other words, for a given argument, the first time a multiton is called with t
 <div class="listingblock">
 <div class="title">Example: creates one random generator for each value</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;RandomGenerator&gt;() with multiton { max: Int -&gt; SecureRandomGenerator(max) }
 }</code></pre>
 </div>
@@ -1005,7 +828,7 @@ In other words, for a given argument, the first time a multiton is called with t
 <div class="listingblock">
 <div class="title">Example: non-synced multiton</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;RandomGenerator&gt;(sync = false) with multiton { max: Int -&gt; SecureRandomGenerator(max) }
 }</code></pre>
 </div>
@@ -1022,7 +845,7 @@ A referenced multiton is an object that is guaranteed to be single for the same 
 <p>A referenced singleton or multiton needs a "reference maker" in addition to the classic construction function that determines the type of reference that will be used.</p>
 </div>
 <div class="paragraph lead">
-<p><em>Kodein-DI</em> comes with three reference makers for the JVM:</p>
+<p>Kodein comes with three reference makers for the JVM:</p>
 </div>
 <div class="sect3">
 <h4 id="_jvm_soft_weak"><a class="anchor" href="#_jvm_soft_weak"></a>JVM: Soft &amp; weak</h4>
@@ -1036,7 +859,7 @@ If there are no more strong references to the instances, they may be GC&#8217;d 
 <div class="listingblock">
 <div class="title">Example: creates a Cache object that will exist only once at a given time</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Map&gt;() with singleton(ref = softReference) { WorldMap() } <i class="conum" data-value="1"></i><b>(1)</b>
     bind&lt;Client&gt;() with singleton(ref = weakReference) { id -&gt; clientFromDB(id) } <i class="conum" data-value="2"></i><b>(2)</b>
 }</code></pre>
@@ -1067,7 +890,7 @@ Therefore, the provided function will be called <strong>once per thread</strong>
 <div class="listingblock">
 <div class="title">Example: creates a Cache object that will exist once per thread</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Cache&gt;() with singleton(ref = threadLocal) { LRUCache(16 * 1024) }
 }</code></pre>
 </div>
@@ -1106,7 +929,7 @@ Thread locals are not available in JavaScript.
 <div class="listingblock">
 <div class="title">Example: a DataSource binding to an already existing instance.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;DataSource&gt;() with instance(SqliteDataSource.open("path/to/file")) <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
@@ -1139,7 +962,7 @@ Constants are always <a href="#tagged-bindings">tagged</a>.
 <div class="listingblock">
 <div class="title">Example: two constants</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     constant(tag = "maxThread") with 8 <i class="conum" data-value="1"></i><b>(1)</b>
     constant(tag = "serverURL") with "https://my.server.url" <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
@@ -1173,12 +996,12 @@ You should only use constant bindings for very simple types without inheritance 
 <p>Sometimes, it may seem overkill to specify the type to <code>bind</code> if you are binding the same type as you are creating.</p>
 </div>
 <div class="paragraph">
-<p>For this use case, you can transform any <code>bind&lt;TYPE&gt;() with &#8230;&#8203;</code> to <code>bind() from &#8230;&#8203;</code>.</p>
+<p>For this use case, you can transform any <code>bind&lt;Type&gt;() with &#8230;&#8203;</code> to <code>bind() from &#8230;&#8203;</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: direct bindings</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind() from singleton { RandomDice(6) }
     bind("DnD20") from provider { RandomDice(20) }
     bind() from instance(SqliteDataSource.open("path/to/file"))
@@ -1204,7 +1027,7 @@ You should only use constant bindings for very simple types without inheritance 
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-When binding a generic type, the bound type will be the specialized type,<br>
+When using <code>kodein-generic-*</code> and binding a generic type, the bound type will be the specialized type,<br>
          e.g. <code>bind() from singleton { listOf(1, 2, 3, 4) }</code> registers the binding to <code>List&lt;Int&gt;</code>.
 </td>
 </tr>
@@ -1227,13 +1050,13 @@ If you are using Kodein/Native, because of <a href="https://github.com/JetBrains
 <div class="sect2">
 <h3 id="_subtypes_bindings"><a class="anchor" href="#_subtypes_bindings"></a>Subtypes bindings</h3>
 <div class="paragraph">
-<p><em>Kodein-DI</em> allows you register a "subtype bindings factory".
+<p>Kodein allows you register a "subtype bindings factory".
 These are big words for a simple concept that&#8217;s best explained with an example:</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: direct bindings</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Controller&gt;().subtypes() with { type -&gt;
         when (type.jvmType) { <i class="conum" data-value="1"></i><b>(1)</b>
             MySpecialController::class.java -&gt; singleton { MySpecialController() }
@@ -1252,7 +1075,7 @@ These are big words for a simple concept that&#8217;s best explained with an exa
 </table>
 </div>
 <div class="paragraph">
-<p>In essence, <code>bind&lt;Whatever&gt;().subtypes() with { type &#8594; binding }</code> allows you to register, in <em>Kodein-DI</em>, a binding factory that will be called for subtypes of the provided type.</p>
+<p>In essence, <code>bind&lt;Whatever&gt;().subtypes() with { type &#8594; binding }</code> allows you to register, in Kodein, a binding factory that will be called for subtypes of the provided type.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1260,7 +1083,7 @@ These are big words for a simple concept that&#8217;s best explained with an exa
 <div class="paragraph">
 <p>With those lazily instantiated dependencies, a dependency (very) often needs another dependency.
 Such classes can have their dependencies passed to their constructor.
-Thanks to Kotlin&#8217;s <em>killer</em> type inference engine, <em>Kodein-DI</em> makes retrieval of transitive dependencies really easy.</p>
+Thanks to Kotlin&#8217;s <em>killer</em> type inference engine, Kodein makes retrieval of transitive dependencies really easy.</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: a class that needs transitive dependencies</div>
@@ -1276,11 +1099,11 @@ Thanks to Kotlin&#8217;s <em>killer</em> type inference engine, <em>Kodein-DI</e
 <div class="listingblock">
 <div class="title">Example: bindings of a Dice and of its transitive dependencies</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Dice&gt;() with singleton { Dice(instance(), instance(tag = "max")) } <i class="conum" data-value="1"></i><b>(1)</b>
 
     bind&lt;Random&gt;() with provider { SecureRandom() } <i class="conum" data-value="2"></i><b>(2)</b>
-    constant(tag="max") with 5 <i class="conum" data-value="2"></i><b>(2)</b>
+    constant(tag "max") with 5 <i class="conum" data-value="2"></i><b>(2)</b>
 }</code></pre>
 </div>
 </div>
@@ -1320,7 +1143,7 @@ You can read it to learn more about the <code>instance</code>, <code>provider</c
 <div class="listingblock">
 <div class="title">Example: using a DataSource to create a Connection.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;DataSource&gt;() with singleton { MySQLDataSource() }
     bind&lt;Connection&gt;() with provider { instance&lt;DataSource&gt;().openConnection() } <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
@@ -1339,13 +1162,13 @@ You can read it to learn more about the <code>instance</code>, <code>provider</c
 <div class="sect2">
 <h3 id="_being_responsible_for_its_own_retrieval"><a class="anchor" href="#_being_responsible_for_its_own_retrieval"></a>Being responsible for its own retrieval</h3>
 <div class="paragraph">
-<p>If the bound class is <a href="#di-aware">DIAware</a>, you can pass the <code>di</code> object to the class so it can itself use the DI container to retrieve its own dependencies.</p>
+<p>If the bound class is <a href="#kodein-aware">KodeinAware</a>, you can pass the <code>kodein</code> object to the class so it can itself use the Kodein container to retrieve its own dependencies.</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: bindings of Manager that is responsible for retrieving its own dependencies</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
-    bind&lt;Manager&gt;() with singleton { ManagerImpl(di) } <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
+    bind&lt;Manager&gt;() with singleton { ManagerImpl(kodein) } <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
 </div>
@@ -1353,7 +1176,7 @@ You can read it to learn more about the <code>instance</code>, <code>provider</c
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>ManagerImpl is given a DI instance.</td>
+<td>ManagerImpl is given a Kodein instance.</td>
 </tr>
 </table>
 </div>
@@ -1368,26 +1191,26 @@ You can read it to learn more about the <code>instance</code>, <code>provider</c
 <div class="sect3">
 <h4 id="_definition"><a class="anchor" href="#_definition"></a>Definition</h4>
 <div class="paragraph">
-<p><em>Kodein-DI</em> allows you to export your bindings in modules.
+<p>Kodein allows you to export your bindings in modules.
 It is very useful to have separate modules defining their own bindings instead of having only one central binding definition.
-A module is an object that you can construct the exact same way as you construct a DI instance.</p>
+A module is an object that you can construct the exact same way as you construct a Kodein instance.</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: a simple module</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val apiModule = DI.Module(name = "API") {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val apiModule = Kodein.Module(name = "API") {
     bind&lt;API&gt;() with singleton { APIImpl() }
     /* other bindings */
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Then, in your DI binding block:</p>
+<p>Then, in your Kodein binding block:</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: imports the module</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     import(apiModule)
     /* other bindings */
 }</code></pre>
@@ -1400,8 +1223,8 @@ A module is an object that you can construct the exact same way as you construct
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Modules are <strong>definitions</strong>, they will re-declare their bindings in each DI instance you use.
-      If you create a module that defines a singleton and import that module into two different DI instances, then the singleton object will exist twice: once in each DI instance.
+Modules are <strong>definitions</strong>, they will re-declare their bindings in each Kodein instance you use.
+      If you create a module that defines a singleton and import that module into two different Kodein instances, then the singleton object will exist twice: once in each Kodein instance.
 </td>
 </tr>
 </table>
@@ -1413,11 +1236,11 @@ Modules are <strong>definitions</strong>, they will re-declare their bindings in
 <p>Each module name should only be imported once.</p>
 </div>
 <div class="paragraph">
-<p>If a second module with the name of an already imported module is imported, then <em>Kodein-DI</em> will fail.</p>
+<p>If a second module with the name of an already imported module is imported, then Kodein will fail.</p>
 </div>
 <div class="paragraph">
 <p>However, you cannot always ensure that every module name is unique: you may need to import modules that are defined outside of your code.
-<em>Kodein-DI</em> offers two ways to mitigate that:</p>
+Kodein offers two ways to mitigate that:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1427,7 +1250,7 @@ Use when you are importing a module whose name already exists.</p>
 <div class="listingblock">
 <div class="title">Example: imports a renamed module</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     import(apiModule.copy(name = "otherAPI"))
 }</code></pre>
 </div>
@@ -1439,7 +1262,7 @@ Use when a module imported by another module uses a names which already exists.<
 <div class="listingblock">
 <div class="title">Example: imports a module with a prefix for sub-modules</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     import(apiModule.copy(prefix = "otherAPI-"))
 }</code></pre>
 </div>
@@ -1452,15 +1275,15 @@ Use when a module imported by another module uses a names which already exists.<
 <h4 id="_import_once"><a class="anchor" href="#_import_once"></a>Import once</h4>
 <div class="paragraph">
 <p>You may define a module which you know depends on another module, so it would be great to import that dependency inside the module that has the dependency.
-However, each module can only be imported once, so if every module that depends on another module imports it, <em>Kodein-DI</em> will fail at the second module that imports it.</p>
+However, each module can only be imported once, so if every module that depends on another module imports it, Kodein will fail at the second module that imports it.</p>
 </div>
 <div class="paragraph">
-<p>To support this, <em>Kodein-DI</em> offers <code>importOnce</code>: it imports the module if no module with that name was previously imported.</p>
+<p>To support this, Kodein offers <code>importOnce</code>: it imports the module if no module with that name was previously imported.</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: importing a module only once</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val appModule = DI.Module {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val appModule = Kodein.Module {
     importOnce(apiModule)
 }</code></pre>
 </div>
@@ -1470,13 +1293,13 @@ However, each module can only be imported once, so if every module that depends 
 <div class="sect2">
 <h3 id="_extension_composition"><a class="anchor" href="#_extension_composition"></a>Extension (composition)</h3>
 <div class="paragraph">
-<p><em>Kodein-DI</em> allows you to create a new DI instance by extending an existing one.</p>
+<p>Kodein allows you to create a new Kodein instance by extending an existing one.</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: extends an already existing DI instance</div>
+<div class="title">Example: extends an already existing Kodein instance</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val subDI = DI {
-    extend(appDI)
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val subKodein = Kodein {
+    extend(appKodein)
     /* other bindings */
 }</code></pre>
 </div>
@@ -1488,8 +1311,8 @@ However, each module can only be imported once, so if every module that depends 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This <strong>preserves bindings</strong>, meaning that a singleton in the parent DI will continue to exist only once.
-      Both parent and child DI objects will give the same instance.
+This <strong>preserves bindings</strong>, meaning that a singleton in the parent Kodein will continue to exist only once.
+      Both parent and child Kodein objects will give the same instance.
 </td>
 </tr>
 </table>
@@ -1498,7 +1321,7 @@ This <strong>preserves bindings</strong>, meaning that a singleton in the parent
 <div class="sect2">
 <h3 id="_overriding"><a class="anchor" href="#_overriding"></a>Overriding</h3>
 <div class="paragraph">
-<p>By default, overriding a binding is not allowed in <em>Kodein-DI</em>.
+<p>By default, overriding a binding is not allowed in Kodein.
 That is because accidentally binding twice the same (class,tag) to different instances/providers/factories can cause real headaches to debug.</p>
 </div>
 <div class="paragraph">
@@ -1508,7 +1331,7 @@ You can override an existing binding by specifying explicitly that it is an over
 <div class="listingblock">
 <div class="title">Example: binds twice the same type, the second time explitly specifying an override</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;API&gt;() with singleton { APIImpl() }
     /* ... */
     bind&lt;API&gt;(overrides = true) with singleton { OtherAPIImpl() }
@@ -1522,7 +1345,7 @@ You can allow a module to override some of your bindings when you import it (the
 <div class="listingblock">
 <div class="title">Example: imports a module and giving it the right to override existing bindings.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     /* ... */
     import(testEnvModule, allowOverride = true)
 }</code></pre>
@@ -1547,7 +1370,7 @@ Those cases should be rare and you should know what you are doing.</p>
 <div class="listingblock">
 <div class="title">Example: declaring a module in which each binding may or may not override existing bindings.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val testModule = DI.Module(name = "test", allowSilentOverride = true) {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val testModule = Kodein.Module(name = "test", allowSilentOverride = true) {
     bind&lt;EmailClient&gt;() with singleton { MockEmailClient() } <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
@@ -1567,7 +1390,7 @@ This is useful if you want to "enhance" a binding (for example, using the decora
 <div class="listingblock">
 <div class="title">Example: declaring a module in which each binding may or may not override existing bindings.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val testModule = DI.Module(name = "test") {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val testModule = Kodein.Module(name = "test") {
     bind&lt;Logger&gt;(overrides = true) with singleton { FileLoggerWrapper("path/to/file", overriddenInstance()) } <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
@@ -1589,12 +1412,12 @@ This is useful if you want to "enhance" a binding (for example, using the decora
 <div class="listingblock">
 <div class="title">Example: Mixing overriding &amp; extension</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val parent = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val parent = Kodein {
     bind&lt;Foo&gt;() with provider { Foo1() }
     bind&lt;Bar&gt;() with singleton { Bar(foo = instance&lt;Foo&gt;()) }
 }
 
-val child = DI {
+val child = Kodein {
     extend(parent)
     bind&lt;Foo&gt;(overrides = true) with provider { Foo2() }
 }
@@ -1604,7 +1427,7 @@ val foo = child.instance&lt;Bar&gt;().foo</code></pre>
 </div>
 <div class="paragraph">
 <p>In this example, the <code>foo</code> variable will be of type <code>Foo1</code>.
-Because the <code>Bar</code> binding is a <code>singleton</code> and is declared in the <code>parent</code> <em>Kodein-DI</em>, it <strong>does not have access to bindings declared in <code>child</code>.</strong>
+Because the <code>Bar</code> binding is a <code>singleton</code> and is declared in the <code>parent</code> Kodein, it <strong>does not have access to bindings declared in <code>child</code>.</strong>
 In this example, both <code>parent.instance&lt;Bar&gt;().foo</code> and <code>child.instance&lt;Bar&gt;().foo</code> will yield a <code>Foo1</code> object.</p>
 </div>
 <div class="admonitionblock note">
@@ -1638,7 +1461,7 @@ By default, <strong>all bindings that do not cache instances</strong> (basically
 <div class="listingblock">
 <div class="title">Example: Copying the bar binding into the child container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val child = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val child = Kodein {
     extend(parent, copy = Copy {
         copy the binding&lt;Bar&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
     })
@@ -1665,11 +1488,11 @@ Copying a binding means that it will exists once more.
 <div class="listingblock">
 <div class="title">Example: Copying a tagged scoped singleton</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val parent = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val parent = Kodein {
     bind&lt;Session&gt;(tag = "req") with scoped(requestScope).singleton { context.session() }
 }
 
-val child = DI {
+val child = Kodein {
     extend(parent, copy = Copy {
         copy the binding&lt;Session&gt;() with scope(requestScope) and tag("req")
     })
@@ -1695,7 +1518,7 @@ You can use the <code>context&lt;&gt;()</code>, <code>scope()</code> and <code>t
 <div class="listingblock">
 <div class="title">Example: Copying all that matches</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val child = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val child = Kodein {
     extend(parent, copy = Copy {
         copy all binding&lt;String&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
         copy all scope(requestScope) <i class="conum" data-value="2"></i><b>(2)</b>
@@ -1721,7 +1544,7 @@ You can use the <code>context&lt;&gt;()</code>, <code>scope()</code> and <code>t
 <div class="listingblock">
 <div class="title">Example: Copying all</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val child = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val child = Kodein {
     extend(parent, copy = Copy.All)
 }</code></pre>
 </div>
@@ -1732,7 +1555,7 @@ You can use the <code>context&lt;&gt;()</code>, <code>scope()</code> and <code>t
 <div class="listingblock">
 <div class="title">Example: Copying none</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val child = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val child = Kodein {
     extend(parent, copy = Copy.None)
 }</code></pre>
 </div>
@@ -1746,7 +1569,7 @@ You can use the <code>context&lt;&gt;()</code>, <code>scope()</code> and <code>t
 <div class="listingblock">
 <div class="title">Example bindings that are used throughout the chapter:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Dice&gt;() with factory { sides: Int -&gt; RandomDice(sides) }
     bind&lt;DataSource&gt;() with singleton { SqliteDS.open("path/to/file") }
     bind&lt;Random&gt;() with provider { SecureRandom() }
@@ -1800,7 +1623,7 @@ When dependencies are <strong>retrieved</strong>, the class is <em>responsible</
 </div>
 <div class="paragraph">
 <p>Using dependency <strong>injection</strong> is a bit more cumbersome, but your classes are "pure": they are unaware of the dependency container.
-Using dependency <strong>retrieval</strong> is easier (and allows more tooling), but it does binds your classes to the <em>Kodein-DI</em> API.</p>
+Using dependency <strong>retrieval</strong> is easier (and allows more tooling), but it does binds your classes to the Kodein API.</p>
 </div>
 <div class="paragraph">
 <p>Finally, in retrieval, <strong>everything is lazy by default</strong>, while there can be no lazy-loading using injection.</p>
@@ -1812,7 +1635,7 @@ Using dependency <strong>retrieval</strong> is easier (and allows more tooling),
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you are developing a library, then you probably should use dependency <strong>injection</strong>, to avoid forcing the users of your library to use <em>Kodein-DI</em> as well.<br>
+If you are developing a library, then you probably should use dependency <strong>injection</strong>, to avoid forcing the users of your library to use Kodein as well.<br>
      If you are developing an application, then you should consider using dependency <strong>retrieval</strong>, as it is easier to use and provides more tooling.
 </td>
 </tr>
@@ -1873,7 +1696,7 @@ These methods are:</p>
 <p>Declare your dependencies in the constructor of your classes.</p>
 </li>
 <li>
-<p>Use <em>Kodein-DI</em>'s <code>newInstance</code> method to create an object of such class.</p>
+<p>Use Kodein&#8217;s <code>newInstance</code> method to create an object of such class.</p>
 </li>
 </ol>
 </div>
@@ -1888,7 +1711,7 @@ These methods are:</p>
 <div class="listingblock">
 <div class="title">Example: Creating a MainController by injecting its dependencies.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller by di.newInstance { MainController(instance(), instance(tag = "whatever")) } <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller by kodein.newInstance { MainController(instance(), instance(tag = "whatever")) } <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1906,7 +1729,7 @@ These methods are:</p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-When injecting a type that was not bound, a <code>DI.NotFoundException</code> will be thrown.
+When injecting a type that was not bound, a <code>Kodein.NotFoundException</code> will be thrown.
 </td>
 </tr>
 </table>
@@ -1925,7 +1748,7 @@ the arguments must be wrapped inside a <strong>data class</strong>:</p>
 <div class="title">Example: Creating a FileController by injecting a multi-argument bound dependency.</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class ControllerParams(val path: String, val timeout: Int)
-val controller by di.newInstance { FileController(instance(args = ControllerParams("path/to/file", 0))) }</code></pre>
+val controller by kodein.newInstance { FileController(instance(args = ControllerParams("path/to/file", 0))) }</code></pre>
 </div>
 </div>
 </div>
@@ -1943,7 +1766,7 @@ val controller by di.newInstance { FileController(instance(args = ControllerPara
 <div class="listingblock">
 <div class="title">Example: Creating a RollController by injecting its dependency.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller by di.newInstance { RollController(instance(arg = 6)) }</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller by kodein.newInstance { RollController(instance(arg = 6)) }</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1953,7 +1776,7 @@ val controller by di.newInstance { FileController(instance(args = ControllerPara
 <div class="title">Example: Creating a multi-argument RollController by injecting its dependency.</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class Params(val arg1: Int, val arg2: Int)
-val controller by di.newInstance { RollController(instance(arg = Params(60, 6))) }</code></pre>
+val controller by kodein.newInstance { RollController(instance(arg = Params(60, 6))) }</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -1978,7 +1801,7 @@ For this, you can use the <code>on</code> method:</p>
 <div class="listingblock">
 <div class="title">Example: Setting a global context.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller by di.on(context = myContext).newInstance { OtherController(instance(arg = 6), instance()) }</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller by kodein.on(context = myContext).newInstance { OtherController(instance(arg = 6), instance()) }</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -2000,13 +1823,13 @@ When that happens, you can define a lazy context that will be accessed only when
 <div class="listingblock">
 <div class="title">Example: Setting a global context.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller by di.on { requireActivity() } .newInstance { OtherController(instance(arg = 6), instance()) }</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller by kodein.on { requireActivity() } .newInstance { OtherController(instance(arg = 6), instance()) }</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_retrieval_the_di_container"><a class="anchor" href="#_retrieval_the_di_container"></a>Retrieval: the DI container</h3>
+<h3 id="_retrieval_the_kodein_container"><a class="anchor" href="#_retrieval_the_kodein_container"></a>Retrieval: the Kodein container</h3>
 <div class="sect3">
 <h4 id="_everything_is_lazy_by_default"><a class="anchor" href="#_everything_is_lazy_by_default"></a>everything is lazy by default!</h4>
 <div class="paragraph">
@@ -2031,22 +1854,22 @@ As you might have guessed by the title of this section, everything, in dependenc
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kodein_di_methods"><a class="anchor" href="#_kodein_di_methods"></a><em>Kodein-DI</em> methods</h4>
+<h4 id="_kodein_methods"><a class="anchor" href="#_kodein_methods"></a>Kodein methods</h4>
 <div class="paragraph">
-<p>You can retrieve a bound type via a DI instance.</p>
+<p>You can retrieve a bound type via a Kodein instance.</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: retrieving bindings</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val diceFactory: (Int) -&gt; Dice by di.factory()
-val dataSource: DataSource by di.instance()
-val randomProvider: () -&gt; Random by di.provider()
-val answerConstant: String by di.instance(tag = "answer")</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val diceFactory: (Int) -&gt; Dice by kodein.factory()
+val dataSource: DataSource by kodein.instance()
+val randomProvider: () -&gt; Random by kodein.provider()
+val answerConstant: String by kodein.instance(tag = "answer")</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Note the use of the <code>by</code>.
-<em>Kodein-DI</em> uses <a href="https://kotlinlang.org/docs/reference/delegated-properties.html::">delegated properties</a> to enable:</p>
+Kodein uses <a href="https://kotlinlang.org/docs/reference/delegated-properties.html::">delegated properties</a> to enable:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2077,7 +1900,7 @@ When using a provider function (<code>() &#8594; T</code>), whether this functio
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-When asking for a type that was not bound, a <code>DI.NotFoundException</code> will be thrown.
+When asking for a type that was not bound, a <code>Kodein.NotFoundException</code> will be thrown.
 </td>
 </tr>
 </table>
@@ -2088,10 +1911,10 @@ When asking for a type that was not bound, a <code>DI.NotFoundException</code> w
 <div class="listingblock">
 <div class="title">Example: retrieving bindings that may not have been bound</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val diceFactory: ((Int) -&gt; Dice)? by di.factoryOrNull()
-val dataSource: DataSource? by di.instanceOrNull()
-val randomProvider: (() -&gt; Random)? by di.providerOrNull()
-val answerConstant: String? by di.instanceOrNull(tag = "answer")</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val diceFactory: ((Int) -&gt; Dice)? by kodein.factoryOrNull()
+val dataSource: DataSource? by kodein.instanceOrNull()
+val randomProvider: (() -&gt; Random)? by kodein.providerOrNull()
+val answerConstant: String? by kodein.instanceOrNull(tag = "answer")</code></pre>
 </div>
 </div>
 </div>
@@ -2103,7 +1926,7 @@ val answerConstant: String? by di.instanceOrNull(tag = "answer")</code></pre>
 <div class="listingblock">
 <div class="title">Example: retrieving a constant</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val answer: String by di.constant()</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val answer: String by kodein.constant()</code></pre>
 </div>
 </div>
 </div>
@@ -2115,7 +1938,7 @@ val answerConstant: String? by di.instanceOrNull(tag = "answer")</code></pre>
 <div class="listingblock">
 <div class="title">Example: retrieving a named binding</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val answer: String by di.named.instance()</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val answer: String by kodein.named.instance()</code></pre>
 </div>
 </div>
 </div>
@@ -2128,7 +1951,7 @@ val answerConstant: String? by di.instanceOrNull(tag = "answer")</code></pre>
 <div class="title">Example: Creating a MainController by injecting a multi-argument bound dependency.</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class FileParams(val path: String, val maxSize: Int)
-val fileAccess: FileAccess by di.instance(args = FileParams("/path/to/file", 0))</code></pre>
+val fileAccess: FileAccess by kodein.instance(args = FileParams("/path/to/file", 0))</code></pre>
 </div>
 </div>
 <div class="sect4">
@@ -2139,7 +1962,7 @@ val fileAccess: FileAccess by di.instance(args = FileParams("/path/to/file", 0))
 <div class="listingblock">
 <div class="title">Example: Retrieving factory.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val f1: (Int) -&gt; Int by di.factory() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val f1: (Int) -&gt; Int by kodein.factory() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2160,8 +1983,8 @@ val fileAccess: FileAccess by di.instance(args = FileParams("/path/to/file", 0))
 <div class="listingblock">
 <div class="title">Example: currying factories</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val sixSideDiceProvider: () -&gt; Dice by di.provider(arg = 6)
-val twentySideDice: Dice by di.instance(arg = 20)</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val sixSideDiceProvider: () -&gt; Dice by kodein.provider(arg = 6)
+val twentySideDice: Dice by kodein.instance(arg = 20)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2171,7 +1994,7 @@ val twentySideDice: Dice by di.instance(arg = 20)</code></pre>
 <div class="title">Example: Creating a multi-argument Dice by injecting its dependency.</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class DiceParams(val startNumber: Int, val sides: Int)
-val sixtyToSixtySixDice: Dice by di.instance(arg = DiceParams(60, 6)) <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+val sixtyToSixtySixDice: Dice by kodein.instance(arg = DiceParams(60, 6)) <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2203,17 +2026,17 @@ The <code>arg</code> argument should always be named.
 <div class="listingblock">
 <div class="title">Example: Getting a Session after setting the Request context.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val session: Session by di.on(context = request).instance()</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val session: Session by kodein.on(context = request).instance()</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you retrieve multiple dependencies all using the same context, you can create a new <code>DI</code> object with the context set:</p>
+<p>If you retrieve multiple dependencies all using the same context, you can create a new <code>Kodein</code> object with the context set:</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: creating a DI object with the Request context.</div>
+<div class="title">Example: creating a Kodein object with the Request context.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val reqDI = di.on(context = request)
-val session: Session by reqDI.instance()</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val reqKodein = kodein.on(context = request)
+val session: Session by reqKodein.instance()</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -2251,8 +2074,8 @@ This mechanism is called a Trigger.</p>
 <div class="listingblock">
 <div class="title">Example: using a trigger.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val trigger = DITrigger()
-val dice: Dice by di.on(trigger = trigger).instance()
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val trigger = KodeinTrigger()
+val dice: Dice by kodein.on(trigger = trigger).instance()
 /*...*/
 trigger.trigger() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
@@ -2267,14 +2090,14 @@ trigger.trigger() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 <div class="paragraph">
 <p>You can, of course, assign multiple properties to the same trigger.
-You can also create a DI object that has a given trigger by default:</p>
+You can also create a Kodein object that has a given trigger by default:</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: creating a DI object with a trigger.</div>
+<div class="title">Example: creating a Kodein object with a trigger.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val trigger = DITrigger()
-val injectDI = di.on(trigger = trigger)
-val dice: Dice by injectDI.instance()
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val trigger = KodeinTrigger()
+val injectKodein = kodein.on(trigger = trigger)
+val dice: Dice by injectKodein.instance()
 /*...*/
 trigger.trigger()</code></pre>
 </div>
@@ -2308,27 +2131,27 @@ A trigger allows you to "force" retrieval.
 <div class="sect3">
 <h4 id="_lazy_access"><a class="anchor" href="#_lazy_access"></a>Lazy access</h4>
 <div class="paragraph">
-<p><em>Kodein-DI</em> proposes a <code>LazyDI</code> object that allows you to lazily access the DI object only when needed.
+<p>Kodein proposes a <code>LazyKodein</code> object that allows you to lazily access the Kodein object only when needed.
 This is useful if:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You need to defined a lazily retrieved dependency before having access to a DI container.</p>
+<p>You need to defined a lazily retrieved dependency before having access to a Kodein container.</p>
 </li>
 <li>
-<p>You don&#8217;t know if you&#8217;ll ever need to access a DI object.</p>
+<p>You don&#8217;t know if you&#8217;ll ever need to access a Kodein object.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For this, you can use a <code>LazyDI</code>:</p>
+<p>For this, you can use a <code>LazyKodein</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: Using a LazyDI.</div>
+<div class="title">Example: Using a LazyKodein.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = LazyDI { /* access to a di instance */ }
-val ds: DataSource by di.instance()
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = LazyKodein { /* access to a kodein instance */ }
+val ds: DataSource by kodein.instance()
 /*...*/
 dice.roll() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
@@ -2337,20 +2160,20 @@ dice.roll() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Only then will the DI instance will itself be retrieved.</td>
+<td>Only then will the Kodein instance will itself be retrieved.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Note that you can also lazily create a <code>DI</code> object so that the bindings definition function will only be called when the first retrieved property is needed:</p>
+<p>Note that you can also lazily create a <code>Kodein</code> object so that the bindings definition function will only be called when the first retrieved property is needed:</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: Using a lazy DI.</div>
+<div class="title">Example: Using a lazy Kodein.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di by DI.lazy {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein by Kodein.lazy {
     bind&lt;Env&gt;() with instance(Env.getInstance())
 }
-val env: Env by di.instance()
+val env: Env by kodein.instance()
 /*...*/
 env.doSomething() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
@@ -2359,7 +2182,7 @@ env.doSomething() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Only then will the DI instance will itself be created, and the bindings definition function ran.</td>
+<td>Only then will the Kodein instance will itself be created, and the bindings definition function ran.</td>
 </tr>
 </table>
 </div>
@@ -2367,15 +2190,15 @@ env.doSomething() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 <div class="sect3">
 <h4 id="_late_init"><a class="anchor" href="#_late_init"></a>Late init</h4>
 <div class="paragraph">
-<p><em>Kodein-DI</em> proposes a <code>LateInitDI</code> that allows you to define a DI object <em>after</em> some lazy retrieval:</p>
+<p>Kodein proposes a <code>LateInitKodein</code> that allows you to define a Kodein object <em>after</em> some lazy retrieval:</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: Using a LateInitDI.</div>
+<div class="title">Example: Using a LateInitKodein.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = LateInitDI()
-val env: Env by di.instance()
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = LateInitKodein()
+val env: Env by kodein.instance()
 /*...*/
-di.baseDI = /* access to a di instance */ <i class="conum" data-value="1"></i><b>(1)</b>
+kodein.baseKodein = /* access to a kodein instance */ <i class="conum" data-value="1"></i><b>(1)</b>
 /*...*/
 env.doSomething() <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
@@ -2384,11 +2207,11 @@ env.doSomething() <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Setting the real DI object.</td>
+<td>Setting the real Kodein object.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>If this was run before setting <code>di.baseDI</code>, an <code>UninitializedPropertyAccessException</code> would be thrown.</td>
+<td>If this was run before setting <code>kodein.baseKodein</code>, an <code>UninitializedPropertyAccessException</code> would be thrown.</td>
 </tr>
 </table>
 </div>
@@ -2396,12 +2219,12 @@ env.doSomething() <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 <div class="sect3">
 <h4 id="_all_matches"><a class="anchor" href="#_all_matches"></a>All matches</h4>
 <div class="paragraph">
-<p><em>Kodein-DI</em> allows you to retrieve all instances that matches a given type:</p>
+<p>Kodein allows you to retrieve all instances that matches a given type:</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: all instances of Foo.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val instances: List&lt;Foo&gt; by di.allInstances() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val instances: List&lt;Foo&gt; by kodein.allInstances() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2427,40 +2250,40 @@ Of course, <code>allProviders</code> and <code>allFactories</code> are also prov
 </div>
 </div>
 <div class="sect2">
-<h3 id="di-aware"><a class="anchor" href="#di-aware"></a>Retrieval: being DIAware</h3>
+<h3 id="kodein-aware"><a class="anchor" href="#kodein-aware"></a>Retrieval: being KodeinAware</h3>
 <div class="sect3">
 <h4 id="_simple_retrieval"><a class="anchor" href="#_simple_retrieval"></a>Simple retrieval</h4>
 <div class="paragraph">
-<p>You can have classes that implement the interface <code>DIAware</code>.<br>
+<p>You can have classes that implement the interface <code>KodeinAware</code>.<br>
 Doing so has the benefit of getting a simpler syntax for retrieval.</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: a DIAware class</div>
+<div class="title">Example: a KodeinAware class</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager(override val di: DI) : DIAware {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager(override val kodein: Kodein) : KodeinAware {
     private val diceFactory: ((Int) -&gt; Dice)? by factoryOrNull()
     private val dataSource: DataSource? by instanceOrNull()
     private val randomProvider: (() -&gt; Random)? by providerOrNull()
     private val answerConstant: String? by instanceOrNull(tag = "answer")
-    private val sixSideDiceProvider: () -&gt; Dice by di.provider(arg = 6)
-    private val twentySideDice: Dice by di.instance(arg = 20)
+    private val sixSideDiceProvider: () -&gt; Dice by kodein.provider(arg = 6)
+    private val twentySideDice: Dice by kodein.instance(arg = 20)
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>All methods that are available to the DI container are available to a <code>DIAware</code> class.</p>
+<p>All methods that are available to the Kodein container are available to a <code>KodeinAware</code> class.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_class_global_context"><a class="anchor" href="#_class_global_context"></a>Class global context</h4>
 <div class="paragraph">
-<p>In a <code>DIAware</code> class, to define a context that&#8217;s valid for the entire class, you can simply override the <code>diContext</code> property:</p>
+<p>In a <code>KodeinAware</code> class, to define a context that&#8217;s valid for the entire class, you can simply override the <code>kodeinContext</code> property:</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: a DIAware class with a context</div>
+<div class="title">Example: a KodeinAware class with a context</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager(override val di: DI) : DIAware {
-    override val diContext = kcontext(whatever) <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager(override val kodein: Kodein) : KodeinAware {
+    override val kodeinContext = kcontext(whatever) <i class="conum" data-value="1"></i><b>(1)</b>
     /*...*/
 }</code></pre>
 </div>
@@ -2469,7 +2292,7 @@ Doing so has the benefit of getting a simpler syntax for retrieval.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Note the use of the <code>diContext</code> function that creates a <code>DIContext</code> with the given value.</td>
+<td>Note the use of the <code>kcontext</code> function that creates a <code>KodeinContext</code> with the given value.</td>
 </tr>
 </table>
 </div>
@@ -2491,10 +2314,10 @@ Using a global context does not forces you to use only bindings that are declare
 When that happens, you can define a lazy context that will be accessed only when needed.</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: a DIAware class with a context</div>
+<div class="title">Example: a KodeinAware class with a context</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager(override val di: DI) : DIAware {
-    override val diContext = kcontext { requireActivity }
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager(override val kodein: Kodein) : KodeinAware {
+    override val kodeinContext = kcontext { requireActivity }
     /*...*/
 }</code></pre>
 </div>
@@ -2504,17 +2327,17 @@ When that happens, you can define a lazy context that will be accessed only when
 <h4 id="_class_global_trigger"><a class="anchor" href="#_class_global_trigger"></a>Class global trigger</h4>
 <div class="paragraph">
 <p>If you want to have all dependency properties retrieved at once, you can use a class global trigger.
-Simply override the <code>diTrigger</code> property:</p>
+Simply override the <code>kodeinTrigger</code> property:</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: a DIAware class with a trigger</div>
+<div class="title">Example: a KodeinAware class with a trigger</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager(override val di: DI) : DIAware {
-    override val diTrigger = DITrigger()
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager(override val kodein: Kodein) : KodeinAware {
+    override val kodeinTrigger = KodeinTrigger()
     val ds: DataSource by instance()
     /*...*/
     fun onReady() {
-        diTrigger.trigger() <i class="conum" data-value="1"></i><b>(1)</b>
+        kodeinTrigger.trigger() <i class="conum" data-value="1"></i><b>(1)</b>
     }
 }</code></pre>
 </div>
@@ -2531,14 +2354,14 @@ Simply override the <code>diTrigger</code> property:</p>
 <div class="sect3">
 <h4 id="_lazy_access_2"><a class="anchor" href="#_lazy_access_2"></a>Lazy access</h4>
 <div class="paragraph">
-<p>Some classes (such as Android Activities) do not have access to a <code>DI</code> instance at the time of construction, but only later when they have been properly connected to their environment (Android context).<br>
-Because DI is lazy by default, this does not cause any issue: simply have the <code>di</code> property be lazy by itself:</p>
+<p>Some classes (such as Android Activities) do not have access to a <code>Kodein</code> instance at the time of construction, but only later when they have been properly connected to their environment (Android context).<br>
+Because Kodein is lazy by default, this does not cause any issue: simply have the kodein property be lazy by itself:</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: an Activity class with a lazy-loaded <code>di</code></div>
+<div class="title">Example: an Activity class with a lazy-loaded kodein</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), DIAware {
-    override val di by lazy { (applicationContext as MyApplication).di }
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), KodeinAware {
+    override val kodein by lazy { (applicationContext as MyApplication).kodein }
     val ds: DataSource by instance() <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
@@ -2547,7 +2370,7 @@ Because DI is lazy by default, this does not cause any issue: simply have the <c
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Because <code>ds</code> is lazily retrieved, access to the <code>di</code> property will only happen at first retrieval.</td>
+<td>Because <code>ds</code> is lazily retrieved, access to the <code>kodein</code> property will only happen at first retrieval.</td>
 </tr>
 </table>
 </div>
@@ -2558,7 +2381,7 @@ Because DI is lazy by default, this does not cause any issue: simply have the <c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There is an official module to ease the use of DI in Android, you can read more about it on <a href="http://kodein.org/Kodein-DI/?7.0/android">the dedicated document</a>.
+There is an official module to ease the use of Kodein in Android, you can read more about it on <a href="http://kodein.org/Kodein-DI/?6.5/android">the dedicated document</a>.
 </td>
 </tr>
 </table>
@@ -2567,16 +2390,16 @@ There is an official module to ease the use of DI in Android, you can read more 
 <div class="sect3">
 <h4 id="_lateinit"><a class="anchor" href="#_lateinit"></a>Lateinit</h4>
 <div class="paragraph">
-<p>Because everything is lazy and, in a DIAware class, the DI object is not accessed until needed, you can easily declare the <code>di</code> field as lateinit.</p>
+<p>Because everything is lazy and, in a KodeinAware class, the Kodein object is not accessed until needed, you can easily declare the <code>kodein</code> field as lateinit.</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: an Activity class with a lateinit <code>di</code></div>
+<div class="title">Example: an Activity class with a lateinit kodein</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), DIAware {
-    override val lateinit di: DI
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), KodeinAware {
+    override val lateinit kodein: Kodein
     val ds: DataSource by instance() <i class="conum" data-value="1"></i><b>(1)</b>
     override fun onCreate(savedInstanceState: Bundle?) {
-        di = (applicationContext as MyApplication).di
+        kodein = (applicationContext as MyApplication).kodein
     }
 }</code></pre>
 </div>
@@ -2585,7 +2408,7 @@ There is an official module to ease the use of DI in Android, you can read more 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Because <code>ds</code> is lazily retrieved, access to the <code>di</code> property will only happen at first retrieval.</td>
+<td>Because <code>ds</code> is lazily retrieved, access to the <code>kodein</code> property will only happen at first retrieval.</td>
 </tr>
 </table>
 </div>
@@ -2593,12 +2416,12 @@ There is an official module to ease the use of DI in Android, you can read more 
 <div class="sect3">
 <h4 id="_all_matches_2"><a class="anchor" href="#_all_matches_2"></a>All matches</h4>
 <div class="paragraph">
-<p><em>Kodein-DI</em> allows you to retrieve all instances that matches a given type:</p>
+<p>Kodein allows you to retrieve all instances that matches a given type:</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: all instances of Foo.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val instances: List&lt;Foo&gt; = di.allInstances() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val instances: List&lt;Foo&gt; = dkodein.allInstances() <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2626,12 +2449,12 @@ Of course, <code>allProviders</code> and <code>allFactories</code> are also prov
 <div class="sect2">
 <h3 id="direct-retrieval"><a class="anchor" href="#direct-retrieval"></a>Retrieval: Direct</h3>
 <div class="paragraph">
-<p>If you don&#8217;t want to use delegated properties, <em>Kodein-DI</em> has you covered.
-Most of the features available to <code>DI</code> are available to <code>DirectDI</code>.
-<code>DirectDI</code> allows you to directly get a new instance or dependency.</p>
+<p>If you don&#8217;t want to use delegated properties, Kodein has you covered.
+Most of the features available to <code>Kodein</code> are available to <code>DKodein</code> (D is for Direct).
+<code>DKodein</code> allows you to directly get a new instance or dependency.</p>
 </div>
 <div class="paragraph">
-<p>However, because it is direct, <code>DirectDI</code> does <strong>NOT</strong> feature:</p>
+<p>However, because it is direct, <code>DKodein</code> does <strong>NOT</strong> feature:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2644,13 +2467,13 @@ Most of the features available to <code>DI</code> are available to <code>DirectD
 </ul>
 </div>
 <div class="listingblock">
-<div class="title">Example: using a DirectDI</div>
+<div class="title">Example: using a DKodein</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val directDI = di.direct
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val dk = kodein.direct
 
-val ds: Datasource = directDI.instance()
+val ds: Datasource = dk.instance()
 
-val controller = directDI.newInstance { MainController(instance(), instance(tag = "whatever")) }</code></pre>
+val controller = dk.newInstance { MainController(instance(), instance(tag = "whatever")) }</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -2661,12 +2484,12 @@ val controller = directDI.newInstance { MainController(instance(), instance(tag 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If you only plan to use direct access, you can define your main di object to be a <code>DirectDI</code>:</p>
+<p>If you only plan to use direct access, you can define your main kodein object to be a <code>DKodein</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: using a DirectDI</div>
+<div class="title">Example: using a DKodein</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI.direct { <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein.direct { <i class="conum" data-value="1"></i><b>(1)</b>
         /* bindings */
     }</code></pre>
 </div>
@@ -2679,20 +2502,20 @@ val controller = directDI.newInstance { MainController(instance(), instance(tag 
 </table>
 </div>
 <div class="sect3">
-<h4 id="_being_directdiaware"><a class="anchor" href="#_being_directdiaware"></a>Being DirectDIAware</h4>
+<h4 id="_being_dkodeinaware"><a class="anchor" href="#_being_dkodeinaware"></a>Being DKodeinAware</h4>
 <div class="paragraph">
-<p>Much like <code>DI</code> offers <code>DIAware</code>, <code>DirectDI</code> offers <code>DirectDIAware</code></p>
+<p>Much like <code>Kodein</code> offers <code>KodeinAware</code>, <code>DKodein</code> offers <code>DKodeinAware</code></p>
 </div>
 <div class="listingblock">
-<div class="title">Example: a DirectDIAware class</div>
+<div class="title">Example: a DKodeinAware class</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager(override val directDI: DirectDI) : DirectDIAware {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager(override val dkodein: DKodein) : DKodeinAware {
     private val diceFactory: ((Int) -&gt; Dice)? = factoryOrNull()
     private val dataSource: DataSource? = instanceOrNull()
     private val randomProvider: (() -&gt; Random)? = providerOrNull()
     private val answerConstant: String? = instanceOrNull(tag = "answer")
-    private val sixSideDiceProvider: () -&gt; Dice = di.provider(arg = 6)
-    private val twentySideDice: Dice = di.instance(arg = 20)
+    private val sixSideDiceProvider: () -&gt; Dice = kodein.provider(arg = 6)
+    private val twentySideDice: Dice = kodein.instance(arg = 20)
 }</code></pre>
 </div>
 </div>
@@ -2700,11 +2523,11 @@ val controller = directDI.newInstance { MainController(instance(), instance(tag 
 <div class="sect3">
 <h4 id="_in_java"><a class="anchor" href="#_in_java"></a>In Java</h4>
 <div class="paragraph">
-<p>While <em>Kodein-DI</em> does not allow you to declare modules or dependencies in Java, it does allow you to retrieve dependencies via <code>DirectDI</code>.
-Simply give the DirectDI instance to your Java classes, use <em>Kodein-DI</em> in Java with the <code>TT</code> static function:</p>
+<p>While Kodein does not allow you to declare modules or dependencies in Java, it does allow you to retrieve dependencies via <code>DKodein</code>.
+Simply give the DKodein instance to your Java classes, use Kodein in Java with the <code>TT</code> static function:</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: using <em>Kodein-DI</em> in Java</div>
+<div class="title">Example: using Kodein in Java</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.kodein.di.TypesKt.TT;
 
@@ -2714,11 +2537,11 @@ public class JavaClass {
     private final Function0&lt;Random&gt; randomProvider;
     private final String answerConstant;
 
-    public JavaClass(DirectDI di) {
-        diceFactory = di.Factory(TT(Integer.class), TT(Dice.class), null);
-        dataSource = di.Instance(TT(Datasource.class), null);
-        randomProvider = di.Provider(TT(Random.class), null);
-        answerConstant = di.Instance(TT(String.class), "answer");
+    public JavaClass(DKodein kodein) {
+        diceFactory = kodein.Factory(TT(Integer.class), TT(Dice.class), null);
+        dataSource = kodein.Instance(TT(Datasource.class), null);
+        randomProvider = kodein.Provider(TT(Random.class), null);
+        answerConstant = kodein.Instance(TT(String.class), "answer");
     }}</code></pre>
 </div>
 </div>
@@ -2739,8 +2562,8 @@ Therefore, if you registered a generic Class binding such as <code>bind&lt;List&
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class JavaClass {
     private final List&lt;String&gt; list;
 
-    public JavaClass(TypeDI di) {
-        list = di.Instance(TT(new TypeReference&lt;List&lt;String&gt;&gt;() {}), null);
+    public JavaClass(TKodein kodein) {
+        list = kodein.Instance(TT(new TypeReference&lt;List&lt;String&gt;&gt;() {}), null);
     }
 }</code></pre>
 </div>
@@ -2754,24 +2577,24 @@ Therefore, if you registered a generic Class binding such as <code>bind&lt;List&
 <div class="sect2">
 <h3 id="_error_messages"><a class="anchor" href="#_error_messages"></a>Error messages</h3>
 <div class="paragraph">
-<p>By default, <em>Kodein-DI</em> error messages contains the classes simple names (e.g. <code>View</code>), which makes it easily readable.<br>
+<p>By default, Kodein error messages contains the classes simple names (e.g. <code>View</code>), which makes it easily readable.<br>
 If you want the error to contain classes full names (e.g. <code>com.company.app.UserController.View</code>), you can set <code>fullDescriptionOnError</code>:</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: showing qualified names in errors</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     fullDescriptionOnError = true
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you are using multiple DI instances, you can set the default value <code>fullDescriptionOnError</code> for all subsequently created DI instances:</p>
+<p>If you are using multiple Kodein instances, you can set the default value <code>fullDescriptionOnError</code> for all subsequently created Kodein instances:</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: showing qualified names in all di instances errors</div>
+<div class="title">Example: showing qualified names in all kodein instances errors</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">DI.defaultFullDescriptionOnError = true</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Kodein.defaultFullDescriptionOnError = true</code></pre>
 </div>
 </div>
 <div class="admonitionblock caution">
@@ -2781,7 +2604,7 @@ If you want the error to contain classes full names (e.g. <code>com.company.app.
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-<code>DI.defaultFullDescriptionOnError</code> must be set <strong>before</strong> creating a DI instance.
+<code>Kodein.defaultFullDescriptionOnError</code> must be set <strong>before</strong> creating a Kodein instance.
 </td>
 </tr>
 </table>
@@ -2844,7 +2667,7 @@ When in doubt, use a factory with an argument instead of a provider with a conte
 <div class="listingblock">
 <div class="title">Example: binding in a context</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Writer&gt;() with contexted&lt;Request&gt;.provider { context.response.writer } <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
@@ -2868,7 +2691,7 @@ When in doubt, use a factory with an argument instead of a provider with a conte
 </td>
 <td class="content">
 <div class="paragraph">
-<p><em>Kodein-DI</em> provides only 1 scope by default, but:</p>
+<p>Kodein provides only 1 scope by default, but:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2897,7 +2720,7 @@ Therefore, the provided function will be called <strong>once per session</strong
 <div class="listingblock">
 <div class="title">Example: binding a User in a Session scope.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;User&gt;() with scoped(SessionScope).singleton { UserData(session.userId) } <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
@@ -2916,7 +2739,7 @@ Therefore, the provided function will be called <strong>once per session</strong
 <div class="listingblock">
 <div class="title">Example: binding in a context</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val user by di.on(session).instance()</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val user by kodein.on(session).instance()</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2955,7 +2778,7 @@ For example, in android&#8217;s <code>ActivityRetainedScope</code>, scoped value
 <div class="ulist">
 <ul>
 <li>
-<p>By scopes that explicitely <strong>support</strong> that feature (not all scopes do, all scopes provided by the <em>Kodein-DI</em> Framework do <strong>except WeakContextScope</strong>).</p>
+<p>By scopes that explicitely <strong>support</strong> that feature (not all scopes do, all scopes provided by the Kodein Framework do <strong>except WeakContextScope</strong>).</p>
 </li>
 <li>
 <p>If the value does <strong>not</strong> use <code>WeakRef</code> or <code>SoftRef</code> references.<br>
@@ -2976,7 +2799,7 @@ If the value does, the close method <em>may or may not</em> be called (it will b
 <div class="listingblock">
 <div class="title">Example: JVM scoped weak references.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;User&gt;() with scoped(requestScope).singleton(ref = weakReference) {
         instance&lt;DataSource&gt;().createUser(context.session.id)
     } <i class="conum" data-value="1"></i><b>(1)</b>
@@ -2987,7 +2810,7 @@ If the value does, the close method <em>may or may not</em> be called (it will b
 <div class="sect3">
 <h4 id="_weak_context_scope"><a class="anchor" href="#_weak_context_scope"></a>Weak Context Scope</h4>
 <div class="paragraph">
-<p><em>Kodein-DI</em> provides the <code>WeakContextScope</code> scope.
+<p>Kodein provides the <code>WeakContextScope</code> scope.
 This is a particular scope, as the context it holds on are weak references.</p>
 </div>
 <div class="admonitionblock caution">
@@ -3008,7 +2831,7 @@ WeakContextScope is <strong>NOT</strong> compatible with <code>ScopeCloseable</c
 <div class="listingblock">
 <div class="title">Example: controller scoped to an Activity with WeakContextScope.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;Controller&gt;() with scoped(WeakContextScope.of&lt;Activity&gt;()).singleton { ControllerImpl(context) } <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
@@ -3044,7 +2867,7 @@ As each <code>Request</code> is associated with a <code>Session</code>, you can 
 <div class="listingblock">
 <div class="title">Example:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;User&gt;() with scoped(SessionScope).singleton { UserData(session.userId) }
 
     registerContextTranslator { r: Request -&gt; r.session }
@@ -3061,8 +2884,8 @@ As each <code>Request</code> is associated with a <code>Session</code>, you can 
 <div class="listingblock">
 <div class="title">Example: retriving with a global context</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyController(override val di: DI, request: Request): DIAware {
-    override val diContext = kcontext(request)
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyController(override val kodein: Kodein, request: Request): KodeinAware {
+    override val kodeinContext = kcontext(request)
 
     val user: User by instance()
 }</code></pre>
@@ -3074,7 +2897,7 @@ As each <code>Request</code> is associated with a <code>Session</code>, you can 
 <div class="listingblock">
 <div class="title">Example: retriving with a global context</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MySpecialRequest(override val di: DI): Request(), DIAware {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MySpecialRequest(override val kodein: Kodein): Request(), KodeinAware {
     val user: User by instance()
 }</code></pre>
 </div>
@@ -3094,7 +2917,7 @@ As each <code>Request</code> is associated with a <code>Session</code>, you can 
 <div class="listingblock">
 <div class="title">Example:</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind&lt;User&gt;() with scoped(SessionScope).singleton { UserData(session.userId) }
 
     registerContextFinder { ThreadLocalSession.get() }
@@ -3238,7 +3061,7 @@ This means that when the parent scope clears, so does all of its subscopes.</p>
 <h2 id="_multi_binding"><a class="anchor" href="#_multi_binding"></a>Multi-binding</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>Kodein-DI</em> allows multi bindings via a binding set.</p>
+<p>Kodein allows multi bindings via a binding set.</p>
 </div>
 <div class="sect2">
 <h3 id="set-bindings"><a class="anchor" href="#set-bindings"></a>In a Set</h3>
@@ -3260,7 +3083,7 @@ This means that when the parent scope clears, so does all of its subscopes.</p>
 <div class="listingblock">
 <div class="title">Example creating a set of <code>Configuration</code> bindings.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind() from setBinding&lt;Configuration&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
 
     bind&lt;Configuration&gt;().inSet() with provider { FooConfiguration() } <i class="conum" data-value="2"></i><b>(2)</b>
@@ -3310,7 +3133,7 @@ This means that when the parent scope clears, so does all of its subscopes.</p>
 <div class="listingblock">
 <div class="title">Example creating a set of <code>Result</code> bindings.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind() from argSetBinding&lt;Query, Result&gt;()
 
     bind&lt;Result&gt;().inSet() with factory { q: Query -&gt; Foo.query(q) }
@@ -3328,7 +3151,7 @@ Therefore, you need to retrieve a <code>Set</code>:</p>
 <div class="listingblock">
 <div class="title">Example retrieving set of <code>Configuration</code> with the generic version.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val configurations: Set&lt;Configuration&gt; by di.instance()</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val configurations: Set&lt;Configuration&gt; by kodein.instance()</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3337,7 +3160,7 @@ Therefore, you need to retrieve a <code>Set</code>:</p>
 <div class="listingblock">
 <div class="title">Example retrieving set of <code>Configuration</code> with the erased version.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val configurations: Set&lt;Configuration&gt; by di.Instance(erasedSet())</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val configurations: Set&lt;Configuration&gt; by kodein.Instance(erasedSet())</code></pre>
 </div>
 </div>
 </div>
@@ -3345,7 +3168,7 @@ Therefore, you need to retrieve a <code>Set</code>:</p>
 <div class="sect2">
 <h3 id="_in_a_map"><a class="anchor" href="#_in_a_map"></a>In a map</h3>
 <div class="paragraph">
-<p><em>Kodein-DI</em> does not directly support map multi-binding.
+<p>Kodein does not directly support map multi-binding.
 However, it is very easy to create a binding map by using a binding set.</p>
 </div>
 <div class="paragraph">
@@ -3364,7 +3187,7 @@ typealias ConfigurationEntries = Set&lt;ConfigurationEntry&gt;</code></pre>
 <div class="listingblock">
 <div class="title">Example binding as in a map multibinding.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     bind() from setBinding&lt;ConfigurationEntry&gt;()
 
     bind&lt;ConfigurationEntry&gt;().inSet() with factory { "foo" to FooConfiguration() }
@@ -3378,7 +3201,7 @@ typealias ConfigurationEntries = Set&lt;ConfigurationEntry&gt;</code></pre>
 <div class="listingblock">
 <div class="title">Example retrieving a map multibinding.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val configurations by di.instance&lt;ConfigurationEntries&gt;().toMap()</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val configurations by kodein.instance&lt;ConfigurationEntries&gt;().toMap()</code></pre>
 </div>
 </div>
 </div>
@@ -3390,13 +3213,13 @@ typealias ConfigurationEntries = Set&lt;ConfigurationEntry&gt;</code></pre>
 <div class="sect2">
 <h3 id="_print_bindings"><a class="anchor" href="#_print_bindings"></a>Print bindings</h3>
 <div class="paragraph">
-<p>You can easily print bindings with <code>println(di.container.tree.bindings.description)</code>.</p>
+<p>You can easily print bindings with <code>println(kodein.container.tree.bindings.description)</code>.</p>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s an example of what this prints:</p>
 </div>
 <div class="listingblock">
-<div class="title">An example of di.container.tree.bindings.description:</div>
+<div class="title">An example of kodein.container.tree.bindings.description:</div>
 <div class="content">
 <pre>        bind&lt;Dice&gt;() with factory { Int -&gt; RandomDice }
         bind&lt;DataSource&gt;() with singleton { SQLiteDataSource }
@@ -3415,7 +3238,7 @@ typealias ConfigurationEntries = Set&lt;ConfigurationEntry&gt;</code></pre>
 </td>
 <td class="content">
 Description prints type names in a "kotlin-esque" way.
-      Because <em>Kodein-DI</em> does not depend on <code>kotlin-reflect</code>, it uses java <code>Type</code> objects that do not contain nullability information.
+      Because Kodein does not depend on <code>kotlin-reflect</code>, it uses java <code>Type</code> objects that do not contain nullability information.
       As such, the type display does not include nullability. Still, it&#8217;s easier to read <code>List&lt;*&gt;</code> than <code>List&lt;? extends Object&gt;</code>.
 </td>
 </tr>
@@ -3425,13 +3248,13 @@ Description prints type names in a "kotlin-esque" way.
 <div class="sect2">
 <h3 id="_recursive_dependency_loop"><a class="anchor" href="#_recursive_dependency_loop"></a>Recursive dependency loop</h3>
 <div class="paragraph">
-<p>When it detects a recursive dependency, <em>Kodein-DI</em> will throw a <code>DI.DependencyLoopException</code>.
+<p>When it detects a recursive dependency, Kodein will throw a <code>Kodein.DependencyLoopException</code>.
 The message of the exception explains how the loop happened.</p>
 </div>
 <div class="listingblock">
 <div class="title">An example of recursive dependency loop:</div>
 <div class="content">
-<pre>DI$DependencyLoopException: Dependency recursion:
+<pre>Kodein$DependencyLoopException: Dependency recursion:
      bind&lt;Database&gt;()
     ╔╩&gt;bind&lt;User&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
     ║  ╚&gt;bind&lt;Repository&gt;(tag = "users") <i class="conum" data-value="2"></i><b>(2)</b>
@@ -3462,13 +3285,13 @@ The message of the exception explains how the loop happened.</p>
 <h2 id="_onready_callbacks"><a class="anchor" href="#_onready_callbacks"></a>OnReady callbacks</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can define callbacks to be called once the di instance is ready and all bindings are defined.
+<p>You can define callbacks to be called once the kodein instance is ready and all bindings are defined.
 This can be useful to do some "starting" jobs.</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: registering a callback at binding time</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val appModule = DI.Module(name = "app") {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val appModule = Kodein.Module(name = "app") {
     import(engineModule)
     onReady {
         val engine = instance&lt;Engine&gt;()
@@ -3484,15 +3307,15 @@ This can be useful to do some "starting" jobs.</p>
 <h2 id="_external_source"><a class="anchor" href="#_external_source"></a>External Source</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>An external source is responsible for providing an answer when <em>Kodein-DI</em> cannot find one.</p>
+<p>An external source is responsible for providing an answer when Kodein cannot find one.</p>
 </div>
 <div class="paragraph">
-<p>When <em>Kodein-DI</em> cannot find a binding for the required type/argument/context, then it calls the external source.</p>
+<p>When Kodein cannot find a binding for the required type/argument/context, then it calls the external source.</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: an external source</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
     externalSource = ExternalSource { key -&gt;
         when (key.type.jvmType) { <i class="conum" data-value="1"></i><b>(1)</b>
             Whatever::class.java -&gt; when (key.argType.jvmType) { <i class="conum" data-value="2"></i><b>(2)</b>
@@ -3569,10 +3392,26 @@ Note that if no argument is provided, the argument to the lambda will be <code>U
 <h2 id="erased-version"><a class="anchor" href="#erased-version"></a>Erased version pitfalls</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="_the_type_erasure_problem"><a class="anchor" href="#_the_type_erasure_problem"></a>The type erasure problem</h3>
+<div class="paragraph">
+<p>When using the <code>generic</code> version on the JVM, Kodein is immune to type erasure, meaning that <code>bind&lt;List&lt;String&gt;&gt;()</code> and <code>bind&lt;List&lt;Int&gt;&gt;()</code> will represent two different bindings.<br>
+Similarly, <code>kodein.instance&lt;List&lt;String&gt;&gt;()</code> and <code>kodein.instance&lt;List&lt;Int&gt;&gt;()</code> will yield two different list.</p>
+</div>
+<div class="paragraph">
+<p>To be erasure immune, the <code>generic</code> JVM version relies heavily on the <code>generic</code> function, which is known to be slow.</p>
+</div>
+<div class="paragraph">
+<p>To improve performance, you can use the <code>erased</code> JVM Kodein version, which is faster, but do suffer from type erasure!</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, on Javascript and Native platforms, there&#8217;s no choice: <code>erased</code> is the only version available!</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_using_generic_and_erased_function_forms"><a class="anchor" href="#_using_generic_and_erased_function_forms"></a>Using generic and erased function forms</h3>
 <div class="paragraph">
-<p>Each DI function that handles a type exists in two form: as inline (lowercased first letter) and as regular function (uppercased first letter).<br>
-For example, the <code>di.instance</code> function also exists as <code>di.Instance</code>.</p>
+<p>Each kodein function that handles a type exists in two form: as inline (lowercased first letter) and as regular function (uppercased first letter).<br>
+For example, the <code>kodein.instance</code> function also exists as <code>kodein.Instance</code>.</p>
 </div>
 <div class="paragraph">
 <p>The uppercase functions need <code>TypeToken</code> parameters that define the type being bound / retrieved and maybe the factory&#8217;s argument.<br>
@@ -3581,15 +3420,15 @@ You can easily use these functions with the <code>generic</code> or <code>erased
 <div class="listingblock">
 <div class="title">Example: using the <code>erased</code> function</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val ds: DataSource by di.Instance(erased())</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val ds: DataSource by kodein.Instance(erased())</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>By default, all inline functions are aliases to their uppercase counterparts using the <code>generic</code> function.<br>
-For example, the <code>di.instance()</code> function is an alias to <code>di.Instance(generic())</code></p>
+For example, the <code>kodein.instance()</code> function is an alias to <code>kodein.Instance(generic())</code></p>
 </div>
 <div class="paragraph">
-<p>So, when you know that you inject a type that is <strong>not generic</strong>, you can use <code>di.Instance(erased())</code>.</p>
+<p>So, when you know that you inject a type that is <strong>not generic</strong>, you can use <code>kodein.Instance(erased())</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -3599,14 +3438,14 @@ For example, the <code>di.instance()</code> function is an alias to <code>di.Ins
 For example, <code>erased&lt;Set&lt;String&gt;&gt;</code> will yield a <code>TypeToken</code> representing <code>Set&lt;*&gt;</code>.</p>
 </div>
 <div class="paragraph">
-<p><em>Kodein-DI</em> provides a way to represent a generic type in an erased way:</p>
+<p>Kodein provides a way to represent a generic type in an erased way:</p>
 </div>
 <div class="listingblock">
 <div class="title">Example: generic type tokens, using erased</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">erasedComp(Set::class, erased(String::class))                                               // Represents a Set&lt;String&gt;
-erasedComp(Map::class, erased(Int::class), erased(String::class))                           // Represents a Map&lt;Int, String&gt;
-erasedComp(Triple::class, erased(Int::class), erased(String::class), erased(Int::class))    // Represents a Triple&lt;Int, String, Int&gt;</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">erasedComp1&lt;Set&lt;String&gt;, String&gt;()                         // Represents a Set&lt;String&gt;
+erasedComp2&lt;Map&lt;Int, String&gt;, Int, String&gt;()               // Represents a Map&lt;Int, String&gt;
+erasedComp3&lt;Triple&lt;Int, String, Int&gt;, Int, String, Int&gt;()  // Represents a Triple&lt;Int, String, Int&gt;</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3651,15 +3490,15 @@ Please be cautious when using this knowledge, as other less thorough readers may
 <h2 id="_hack_the_container"><a class="anchor" href="#_hack_the_container"></a>Hack the container!</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The DIContainer is the sacred DI object that contains all bindings and is responsible for retrieval.
-You can access it with <code>di.container</code>.
-In it, each <code>Binding</code> is bound to a <code>DI.Key</code>.</p>
+<p>The KodeinContainer is the sacred Kodein object that contains all bindings and is responsible for retrieval.
+You can access it with <code>kodein.container</code>.
+In it, each <code>Binding</code> is bound to a <code>Kodein.Key</code>.</p>
 </div>
 <div class="paragraph">
-<p>In fact, all DI functions are proxies to this container API.</p>
+<p>In fact, all Kodein functions are proxies to this container API.</p>
 </div>
 <div class="paragraph">
-<p>When defining bindings, in the <code>DI.Builder</code>, you can access the <code>container</code> property to bind factories to a <code>DI.Key</code> or a <code>DI.Bind</code>.</p>
+<p>When defining bindings, in the <code>Kodein.Builder</code>, you can access the <code>container</code> property to bind factories to a <code>Kodein.Key</code> or a <code>Kodein.Bind</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="_tag_vs_context_vs_argument"><a class="anchor" href="#_tag_vs_context_vs_argument"></a>Tag vs context vs argument</h3>
@@ -3703,8 +3542,8 @@ In it, each <code>Binding</code> is bound to a <code>DI.Key</code>.</p>
 <div class="sect2">
 <h3 id="_explore_bindings"><a class="anchor" href="#_explore_bindings"></a>Explore bindings</h3>
 <div class="paragraph">
-<p>You can access a <strong>copy</strong> of the bindings map with <code>di.container.bindings</code>.<br>
-From this <code>Map&lt;DI.Key, Factory&lt;*, *&gt;&gt;</code>, you can explore all bindings, their keys and factories.</p>
+<p>You can access a <strong>copy</strong> of the bindings map with <code>kodein.container.bindings</code>.<br>
+From this <code>Map&lt;Kodein.Key, Factory&lt;*, *&gt;&gt;</code>, you can explore all bindings, their keys and factories.</p>
 </div>
 </div>
 </div>
