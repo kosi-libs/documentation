@@ -1,3 +1,4 @@
+= Kodein-Framework Documentation
 image::kodein-framework-logo.svg[KODEIN-FRAMEWORK, 700]
 
 IMPORTANT: TBD
