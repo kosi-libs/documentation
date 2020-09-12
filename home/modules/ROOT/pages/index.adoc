@@ -1,3 +1,3 @@
-= Kodein-Framework
+image::kodein-framework-logo.svg[KODEIN-FRAMEWORK, 700]
 
-NOTE: Painless Kotlin/Multiplatform
+IMPORTANT: TBD
