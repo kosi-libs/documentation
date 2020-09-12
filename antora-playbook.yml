@@ -1,6 +1,6 @@
 site:
   title: Kodein-Framework Documentation
-  url: https://kodein.org/documentation/
+  url: https://docs.kodein.org
   start_page: kodein-framework::index.adoc
   robots: allow
 content:
