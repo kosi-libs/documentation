@@ -19,7 +19,7 @@ content:
       start_path: home
 ui:
   bundle:
-    url: https://github.com/Kodein-Framework/documentation-ui/raw/master/build/ui-bundle.zip
+    url: https://github.com/Kodein-Framework/documentation-ui/raw/master/build/ui-bundle-v1.zip
   supplemental_files:
   - path: ui.yml
     contents: |
