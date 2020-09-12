@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DI</title>
+    <link rel="canonical" href="http://docs.kodein.org/kodein-di/7.1/core/using-environment.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="http://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-di" data-version="7.2">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein-DI</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../platform-and-genericity.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Core documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frameworks support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/android.html">Android</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/ktor.html">Ktor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/tornadofx.html">TornadoFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extensions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/configurable.html">Configurable &amp; global container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/jsr330.html">JSR-330 compatibility</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Migration guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-6to7.html">Kodein version 6 to version 7</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-4to5.html">Kodein version 4 to version 5</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-j2k.html">JSR-330 to Kodein-DI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DI</span>
+    <span class="version">7.2 dev</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-db/0.2.0/index.html">0.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">7.2 dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../7.1/index.html">7.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.0/index.html">7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.5/index.html">6.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein-DI</a></li>
+    <li><a href="install.html">Core documentation</a></li>
+    <li><a href="using-environment.html">Using the environment</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.2 dev</button>
+  <div class="version-menu">
+    <a class="version is-current" href="using-environment.html">7.2 dev</a>
+    <a class="version" href="../../7.1/core/using-environment.html">7.1</a>
+    <a class="version" href="../../7.0/core/using-environment.html">7.0</a>
+    <a class="version is-missing" href="../../6.5/index.html">6.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/antora-master/doc/modules/core/pages/using-environment.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Using the environment</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Binding functions have access to the environment where the bound type is retrieved to be able to create it accordingly.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="context"><a class="anchor" href="#context"></a>Context</h2>
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>This environment is represented as a <strong>context</strong> variable.</p>
+</div>
+<div class="paragraph">
+<p>The context is an object that is explicitly defined by the programmer for this retrieval or the receiving object when none is explicitely defined.</p>
+</div>
+<div class="paragraph">
+<p>There are two very important differences between a tag and a context:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The tag <strong>instance</strong> identifies the binding but can not be used in the binding function.</p>
+</li>
+<li>
+<p>The context <strong>type</strong> identifies the binding and it&#8217;s <strong>instance</strong> can be used in the binding function.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are also two very important differences between a factory argument and a context:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The context is defined <em>before</em> retrieving the binding function while the factory argument is the last known variable.</p>
+</li>
+<li>
+<p>A context is usually global to an entire class while a factory argument is local to a retrieval.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+When in doubt, use a factory with an argument instead of a provider with a context.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: binding in a context</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Writer&gt;() with contexted&lt;Request&gt;.provider { context.response.writer } <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>note that <code>context</code> is already of type <code>Request</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="scope"><a class="anchor" href="#scope"></a>Scope</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><em>Kodein-DI</em> provides only 1 scope by default, but:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It is easy to create your own scopes.</p>
+</li>
+<li>
+<p>All <code>kodein-framework-*</code> modules provide more scopes that are specific to the target framework.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Scopes are derived from a context variable.
+They allow a singleton or multiton objects to exist multiple times in different contexts.<br>
+They are of type <code>Scope&lt;C&gt;</code> where <code>C</code> is the context type.</p>
+</div>
+<div class="paragraph">
+<p>Think, for example, of a session object inside a web server.
+We can say that there can be only one user per session, and therefore define a <code>User</code> singleton scoped in a session.
+Therefore, the provided function will be called <strong>once per session</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: binding a User in a Session scope.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;User&gt;() with scoped(SessionScope).singleton { UserData(session.userId) } <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>note that <code>SessionScope</code> does not really exist, it is an example.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In this example, <code>SessionScope</code> is of type <code>Scope&lt;Session&gt;</code>, so to access this binding, the user will either have retrieve it inside the session object or explicitly define a <code>Session</code> context:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: binding in a context</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val user by di.on(session).instance()</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Please read the <a href="#scope-creation">Scope creation</a> section if you want to create your own scopes.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="scope-closeable"><a class="anchor" href="#scope-closeable"></a>Scope closeable</h3>
+<div class="paragraph">
+<p>By default, a Singleton or a Multiton value will never expire.
+However, the purpose of a Scope is to handle the lifecycle of a long lived value.
+Therefore, it is possible for a scoped Singleton or Multiton value to expire (most of the time because the scope itself expires).
+For example, in android&#8217;s <code>ActivityRetainedScope</code>, scoped values will only live the duration of the activity.</p>
+</div>
+<div class="paragraph">
+<p>If a value implements <code>ScopeCloseable</code>, it&#8217;s <code>close</code> function will be called when the value is removed from the scope (or when the scope itself expires).</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>ScopeCloseable.close</code> method will only be called:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>By scopes that explicitely <strong>support</strong> that feature (not all scopes do, all scopes provided by the <em>Kodein-DI</em> Framework do <strong>except WeakContextScope</strong>).</p>
+</li>
+<li>
+<p>If the value does <strong>not</strong> use <code>WeakRef</code> or <code>SoftRef</code> references.<br>
+If the value does, the close method <em>may or may not</em> be called (it will be called if the reference has not expired).</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jvm_references_in_scopes"><a class="anchor" href="#_jvm_references_in_scopes"></a>JVM references in scopes</h3>
+<div class="paragraph">
+<p>Yes, you can&#8230;&#8203;</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: JVM scoped weak references.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;User&gt;() with scoped(requestScope).singleton(ref = weakReference) {
+        instance&lt;DataSource&gt;().createUser(context.session.id)
+    } <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_weak_context_scope"><a class="anchor" href="#_weak_context_scope"></a>Weak Context Scope</h3>
+<div class="paragraph">
+<p><em>Kodein-DI</em> provides the <code>WeakContextScope</code> scope.
+This is a particular scope, as the context it holds on are weak references.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+WeakContextScope is <strong>NOT</strong> compatible with <code>ScopeCloseable</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can use this scope when it makes sense to have a scope on a context that is held by the system for the duration of its life cycle.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: controller scoped to an Activity with WeakContextScope.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Controller&gt;() with scoped(WeakContextScope.of&lt;Activity&gt;()).singleton { ControllerImpl(context) } <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>context</code> is of type <code>Activity</code> because we are using the <code>WeakContextScope.of&lt;Activity&gt;()</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><code>WeakContextScope.of</code> will always return the same scope, which you should never clean!</p>
+</div>
+<div class="paragraph">
+<p>If you need a compartimentalized scope which you can clean, you can create a new <code>WeakContextScope</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: creating a WeakContextScope.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val activityScope = WeakContextScope&lt;Activity&gt;()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_context_translators"><a class="anchor" href="#_context_translators"></a>Context translators</h3>
+<div class="paragraph">
+<p>Let&#8217;s get back to the web server example.
+There is one session per user, so we have bound a <code>User</code> singleton inside a <code>Session</code> scope.
+As each <code>Request</code> is associated with a <code>Session</code>, you can register a context translator that will make any binding that needs a <code>Session</code> context work with a <code>Request</code> context:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;User&gt;() with scoped(SessionScope).singleton { UserData(session.userId) }
+
+    registerContextTranslator { r: Request -&gt; r.session }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This allows you to retrieve a <code>User</code> instance:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When there is a global <code>Request</code> context:</p>
+<div class="listingblock">
+<div class="title">Example: retriving with a global context</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyController(override val di: DI, request: Request): DIAware {
+    override val diContext = kcontext(request)
+
+    val user: User by instance()
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>When the retrieval happens on a <code>Request</code> itself:</p>
+<div class="listingblock">
+<div class="title">Example: retriving with a global context</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MySpecialRequest(override val di: DI): Request(), DIAware {
+    val user: User by instance()
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_context_finder"><a class="anchor" href="#_context_finder"></a>Context finder</h3>
+<div class="paragraph">
+<p>A context finder is a similar to context translator, except that it gets the context from a global context.</p>
+</div>
+<div class="paragraph">
+<p>For example, if you are in a thread-based server where each request is assigned a thread (are people still doing those?!?), you could get the session from a global:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;User&gt;() with scoped(SessionScope).singleton { UserData(session.userId) }
+
+    registerContextFinder { ThreadLocalSession.get() }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This allows to access a <code>User</code> object wihout specifying a context.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Having an other type of context declared will not block from using a context finder.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="scope-creation"><a class="anchor" href="#scope-creation"></a>Scope creation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Scoped singletons/multitons are bound to a context and live while that context exists.</p>
+</div>
+<div class="paragraph">
+<p>To define a scope that can contain scoped singletons or multitons, you must define an object that implements the <code>Scope</code> interface.
+This object will be responsible for providing a <code>ScopeRegistry</code> according to a context.
+It should always return the same <code>ScopeRegistry</code> when given the same context object.
+A standard way of doing so is to use the <code>userData</code> property of the context, if it has one, or else to use a <code>WeakHashMap&lt;C, ScopeRegistry&gt;</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a simple session scope</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">object SessionScope : Scope&lt;Session&gt; { <i class="conum" data-value="1"></i><b>(1)</b>
+    override fun getRegistry(context: Session): ScopeRegistry =
+            context.userData as? ScopeRegistry
+                ?: StandardScopeRegistry().also { context.userData = it } <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The scope&#8217;s context type is <code>Session</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Creates a <code>ScopeRegistry</code> and attach it to the <code>Session</code> if there is none.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Scope providers should also provide standard context translators.<br>
+In this example, we should provide, along with <code>sessionScope</code> a module providing the <code>Request</code> to <code>Session</code> context translator.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="scope-registry"><a class="anchor" href="#scope-registry"></a>Scope registry</h3>
+<div class="paragraph">
+<p>The <code>ScopeRegistry</code> is responsible for holding value instances.
+It is also responsible for calling the <code>close</code> methods on object that are <code>ScopeCloseable</code> when they are removed from the registry.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+To have your scope compatible with <code>ScopeCloseable</code> values, make sure to <code>clean</code> the registry when the scope expires.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>There are two standard implementations of <code>ScopeRegistry</code>:</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_standardscoperegistry"><a class="anchor" href="#_standardscoperegistry"></a>StandardScopeRegistry</h3>
+<div class="paragraph">
+<p>This is the "classic" expected <code>ScopeRegistry</code> behaviour.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_singleitemscoperegistry"><a class="anchor" href="#_singleitemscoperegistry"></a>SingleItemScopeRegistry</h3>
+<div class="paragraph">
+<p>This is a particular <code>ScopeRegistry</code> implementation : it will only hold one item and replace the held item if the binding asks for an instance of another binding.</p>
+</div>
+<div class="paragraph">
+<p>This means that a Multiton scoped with a Scope that uses a <code>SingleItemScopeRegistry</code> will actually hold only one instance: the one corresponding to the last argument.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+You should NOT use this registry unless you know exactly WHAT you are doing, and WHY you are doing it.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sub_scopes"><a class="anchor" href="#_sub_scopes"></a>Sub-scopes</h3>
+<div class="paragraph">
+<p>You can define a scope to be defined inside another scope.
+This means that when the parent scope clears, so does all of its subscopes.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a simple session scope</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val requestScope = object : SubScope&lt;Request, Session&gt;(sessionScope) {
+    override fun getParentContext(context: Request) = context.session
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this simple example, when the session expires, then all of its associates request scoped values also expire.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

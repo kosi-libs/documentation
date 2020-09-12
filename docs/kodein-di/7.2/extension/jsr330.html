@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DI</title>
+    <link rel="canonical" href="http://docs.kodein.org/kodein-di/7.1/extension/jsr330.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="http://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-di" data-version="7.2">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein-DI</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../platform-and-genericity.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Core documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frameworks support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/android.html">Android</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/ktor.html">Ktor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/tornadofx.html">TornadoFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extensions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="configurable.html">Configurable &amp; global container</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="jsr330.html">JSR-330 compatibility</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Migration guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-6to7.html">Kodein version 6 to version 7</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-4to5.html">Kodein version 4 to version 5</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-j2k.html">JSR-330 to Kodein-DI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DI</span>
+    <span class="version">7.2 dev</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-db/0.2.0/index.html">0.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">7.2 dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../7.1/index.html">7.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.0/index.html">7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.5/index.html">6.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein-DI</a></li>
+    <li>Extensions</li>
+    <li><a href="jsr330.html">JSR-330 compatibility</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.2 dev</button>
+  <div class="version-menu">
+    <a class="version is-current" href="jsr330.html">7.2 dev</a>
+    <a class="version" href="../../7.1/extension/jsr330.html">7.1</a>
+    <a class="version" href="../../7.0/extension/jsr330.html">7.0</a>
+    <a class="version" href="../../6.5/extension/jsr330.html">6.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/antora-master/doc/modules/extension/pages/jsr330.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">JSR-330: Using reflexivity to auto-inject</h1>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Kodein-DI offers a module that implements reflexivity injection based on the JSR-330 <code>javax.inject.*</code> annotations.
+There are two reasons to use this module:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You are moving a code base from a Java injection library (such as Guice or Dagger) and want the Java code to work the same while there still is injected java code.</p>
+</li>
+<li>
+<p>You want to easilly use Kodein-DI in a Java code.</p>
+</li>
+<li>
+<p>That&#8217;s it!</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Using this module with Kotlin code means adding a lot of reflexivity at run-time that can easily be avoided in Kotlin (but not in Java).</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Every-thing that is described here is <strong>a lot less performant</strong> than using classic DI injection methods.
+         PLEASE DO NOT USE ON KOTLIN CLASSES.
+         Kittens <strong>will</strong> die painfully if you do!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install"><a class="anchor" href="#install"></a>Install</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_with_maven"><a class="anchor" href="#_with_maven"></a>With Maven</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.kodein.di&lt;/groupId&gt;
+    &lt;artifactId&gt;kodein-di-jxinject-jvm&lt;/artifactId&gt;
+    &lt;version&gt;7.2.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Do not remove the "kodein-generic-jvm" (or "kodein-erased-jvm") dependency.
+           Both dependencies must be declared.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_with_gradle"><a class="anchor" href="#_with_gradle"></a>With Gradle</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">compile 'org.kodein.di:kodein-di-jxinject-jvm:7.2.0'</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Do not remove the "kodein-generic-jvm" (or "kodein-erased-jvm") dependency.
+           Both dependencies must be declared.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-module"><a class="anchor" href="#import-module"></a>Import the module.</h3>
+<div class="paragraph">
+<p>In your di binding configuration add the <code>jxInjectorModule</code></p>
+</div>
+<div class="listingblock">
+<div class="title">Example: importing the JxInjector module</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    import(jxInjectorModule)
+    /* Other bindings */
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_javax_injections"><a class="anchor" href="#_javax_injections"></a>JavaX injections</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_constructor_injection"><a class="anchor" href="#_constructor_injection"></a>Constructor injection</h3>
+<div class="paragraph">
+<p>You can create a new instance of a given class, provided that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The class has only one constructor</p>
+</li>
+<li>
+<p>Or the class have one of its constructors annotated with <code>@Inject</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It is a good practice, however, to always have an <code>@Inject</code> constructor, even if it is the only constructor.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Java class that can be automatically created with injections</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
+    @Inject
+    public MyJavaController(Connection connection, FileSystem fs) {
+        /* ... */
+    }
+    /* ... */
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can then create instances of such classes by using <code>di.jx</code> in Kotlin, or <code>Jx.of(di)</code> in Java.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Creating a new instance in Kotlin</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller = di.jx.newInstance&lt;MyJavaController&gt;()</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example: Creating a new instance in Java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">MyJavaController controller = Jx.of(di).newInstance(MyJavaController.class);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_field_injection"><a class="anchor" href="#_field_injection"></a>Field injection</h3>
+<div class="paragraph">
+<p>You can inject fields of a class by annotating them with <code>@Inject</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Java class whose fields can be automatically injected.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
+    @Inject
+    Connection connection;
+
+    @Inject
+    FileSystem fs;
+
+    /* ... */
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can then inject existing instances of such classes by using <code>di.jx</code> in Kotlin, or <code>Jx.of(di)</code> in Java.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Injecting an existing instance in Kotlin</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller = MyJavaController()
+di.jx.inject(controller)</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example: Injecting an existing instance in Java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">MyJavaController controller = new MyJavaController();
+Jx.of(di).inject(controller);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_method_injection"><a class="anchor" href="#_method_injection"></a>Method injection</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Method injection is supported to be compatible with Java injection libraries.
+         It is, however, widely considered as the less semantic injection method.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can have <code>@Inject</code> annotated method be called at injection.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Java class whose method will be automatically called on injection.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
+    @Inject
+    public setIO(Connection connection, FileSystem fs) {
+        /* ... */
+    }
+    /* ... */
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You know the drill, use <code>di.jx</code> in Kotlin or <code>Jx.of(di)</code> in Java the exact same way as for field injection.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_being_specific"><a class="anchor" href="#_being_specific"></a>Being specific</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_qualifiers_annotations"><a class="anchor" href="#_qualifiers_annotations"></a>Qualifiers annotations</h3>
+<div class="paragraph">
+<p><code>javax.inject</code> libraries use the concept of "qualifier annotations", which serves the same purpose as DI&#8217;s tag system.</p>
+</div>
+<div class="paragraph">
+<p>The <code>@Named</code> annotation is a qualifier provided by default, and is supported by default in Kodein-DI-JxInject.
+In Java, any field or method / constructor parameter annotated with <code>@Named("whatever")</code> will use the <code>String</code> value as tag.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Java class which uses named injection.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
+    @Inject @Named("SQL")
+    Connection connection; <i class="conum" data-value="1"></i><b>(1)</b>
+
+    @Inject setConnection(@Named("SQL") Connection connection) { /*...*/ } <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&lt;1&gt;: Field injection.
+&lt;2&gt;: Method injection.</p>
+</div>
+<div class="paragraph">
+<p>To inject the <code>connection</code> field, DI will essentially retrieve as <code>di.instance&lt;Connection&gt;(tag = "SQL")</code>.</p>
+</div>
+<div class="paragraph">
+<p>For any other qualifier annotation, you need to provide a function that will transform a qualifier annotation to a tag.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Registering a qualifier annotation</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    import(jxInjectorModule)
+
+    /* Other bindings */
+
+    jxQualifier&lt;MyQualifier&gt; { MyTag(it.value) } <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&lt;1&gt;: Transforms a <code>MyQualifier</code> qualifier annotation into a <code>MyTag</code> DI tag.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_erased_bindings"><a class="anchor" href="#_using_erased_bindings"></a>Using erased bindings</h3>
+<div class="paragraph">
+<p>If you need to inject erased binding, you can annotate the field or method / constructor parameter with the <code>@ErasedBinding</code> annotation.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Java class which uses erased binding injection.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
+    @Inject @ErasedBinding List&lt;Connection&gt; connections;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_optionnal_injection"><a class="anchor" href="#_optionnal_injection"></a>Optionnal injection</h3>
+<div class="paragraph">
+<p>If you need to inject something only if it was bound (and set it to null otherwise), you can use the <code>@OrNull</code> annotation.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Java class which uses nullable injection.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
+    @Inject @OrNull Connection connectionOrNull;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_provider_factory_injection"><a class="anchor" href="#_provider_factory_injection"></a>Provider &amp; Factory injection</h3>
+<div class="paragraph">
+<p>You can inject a provider, either by using <code>javax.inject.Provider</code> or <code>kotlin.jvm.functions.Function0</code>.
+Note that if you are using the latter, you need to use the <code>@ProviderFun</code> annotation.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Java class which uses provider injection.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
+    @Inject Provider&lt;Connection&gt; connectionJXProvider;
+    @Inject @ProviderFun Function0&lt;Connection&gt; connectionKotlinProvider;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To inject a factory, you need to use <code>kotlin.jvm.functions.Function1</code> annotated with <code>@FactoryFun</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Java class which uses factory injection.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
+    @Inject @ProviderFun Function0&lt;String, Connection&gt; connectionFactory;
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

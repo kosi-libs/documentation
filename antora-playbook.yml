@@ -1,12 +1,12 @@
 site:
   title: Kodein-Framework Documentation
-  url: https://docs.kodein.org
+  url: http://docs.kodein.org
   start_page: kodein-framework::index.adoc
   robots: allow
 content:
   sources:
     - url: https://github.com/Kodein-Framework/Kodein-DI.git
-      branches: [master, '7.0', '6.5']
+      branches: [antora-master, 'antora-v7.1', 'antora-v7', 'antora-v6']
       start_path: doc
     - url: https://github.com/Kodein-Framework/Kodein-DB.git
       branches: [master]
@@ -19,7 +19,7 @@ content:
       start_path: home
 ui:
   bundle:
-    url: https://github.com/Kodein-Framework/documentation-ui/raw/master/build/ui-bundle-v1.zip
+    url: https://github.com/Kodein-Framework/documentation-ui/raw/master/build/ui-bundle-v1.1.zip
   supplemental_files:
   - path: ui.yml
     contents: |
