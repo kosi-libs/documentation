@@ -1,6 +1,6 @@
 site:
   title: Kodein-Framework Documentation
-  url: http://docs.kodein.org
+  url: https://docs.kodein.org
   start_page: kodein-framework::index.adoc
   robots: allow
 content:
@@ -19,7 +19,7 @@ content:
       start_path: home
 ui:
   bundle:
-    url: https://github.com/Kodein-Framework/documentation-ui/raw/master/build/ui-bundle-v1.1.zip
+    url: https://github.com/Kodein-Framework/documentation-ui/raw/master/build/ui-bundle-v1.2.zip
   supplemental_files:
   - path: ui.yml
     contents: |

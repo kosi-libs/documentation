@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <sitemap>
-<loc>http://docs.kodein.org/sitemap-kodein-db.xml</loc>
+<loc>https://docs.kodein.org/sitemap-kodein-db.xml</loc>
 </sitemap>
 <sitemap>
-<loc>http://docs.kodein.org/sitemap-kodein-di.xml</loc>
+<loc>https://docs.kodein.org/sitemap-kodein-di.xml</loc>
 </sitemap>
 <sitemap>
-<loc>http://docs.kodein.org/sitemap-kodein-framework.xml</loc>
+<loc>https://docs.kodein.org/sitemap-kodein-framework.xml</loc>
 </sitemap>
 </sitemapindex>
