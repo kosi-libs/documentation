@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DI</title>
+    <link rel="canonical" href="http://docs.kodein.org/kodein-di/7.2.0/core/bindings.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="http://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-di" data-version="7.1.0">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein-DI</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../platform-and-genericity.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Core documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frameworks support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/android.html">Android</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/ktor.html">Ktor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/tornadofx.html">TornadoFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extensions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/configurable.html">Configurable &amp; global container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/jsr330.html">JSR-330 compatibility</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Migration guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-6to7.html">Kodein version 6 to version 7</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-4to5.html">Kodein version 4 to version 5</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-j2k.html">JSR-330 to Kodein-DI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DI</span>
+    <span class="version">7.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-db/0.2.0/index.html">0.2.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../7.2.0/index.html">dev</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.0.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.5.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein-DI</a></li>
+    <li><a href="install.html">Core documentation</a></li>
+    <li><a href="bindings.html">Bindings: Declaring dependencies</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.1.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../7.2.0/core/bindings.html">dev</a>
+    <a class="version is-current" href="bindings.html">7.1.0</a>
+    <a class="version" href="../../7.0.0/core/bindings.html">7.0.0</a>
+    <a class="version is-missing" href="../../6.5.5/index.html">6.5.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/antora-v7.1/doc/modules/core/pages/bindings.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Bindings: Declaring dependencies</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Example: initialization of a DI container</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+	/* Bindings */
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bindings are declared inside a DI initialization block.</p>
+</div>
+<div class="paragraph">
+<p>A binding always starts with <code>bind&lt;TYPE&gt;() with</code>.</p>
+</div>
+<div class="paragraph lead">
+<p>There are different ways to declare bindings:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tagged-bindings"><a class="anchor" href="#tagged-bindings"></a>Tagged bindings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All bindings can be tagged to allow you to bind different instances of the same type.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: different Dice bindings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Dice&gt;() with ... <i class="conum" data-value="1"></i><b>(1)</b>
+    bind&lt;Dice&gt;(tag = "DnD10") with ... <i class="conum" data-value="2"></i><b>(2)</b>
+    bind&lt;Dice&gt;(tag = "DnD20") with ... <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Default binding (with no tag)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Bindings with tags (<code>"DnD10"</code> and <code>"DnD20"</code>)</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The tag is of type <code>Any</code>, it does not have to be a <code>String</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Whether at define, at injection or at retrieval, <code>tag</code> should always be passed as a named argument.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Tag objects must support equality &amp; hashcode comparison.
+It is therefore recommended to either use primitives (Strings, Ints, etc.) or data classes.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="provider-bindings"><a class="anchor" href="#provider-bindings"></a>Provider binding</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This binds a type to a provider function, which is a function that takes no arguments and returns an object of the bound type (eg. <code>() &#8594; T</code>).<br>
+The provided function will be called <strong>each time</strong> you need an instance of the bound type.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: creates a new 6 sided Dice entry each time you need one</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Dice&gt;() with provider { RandomDice(6) }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="singleton-bindings"><a class="anchor" href="#singleton-bindings"></a>Singleton binding</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This binds a type to an instance of this type that will lazily be created at first use via a singleton function, which is a function that takes no arguments and returns an object of the bound type (eg. <code>() &#8594; T</code>).<br>
+Therefore, the provided function will be called <strong>only once</strong>: the first time an instance is needed.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: creates a DataSource singleton that will be initialized on first access</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;DataSource&gt;() with singleton { SqliteDS.open("path/to/file") }
+}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_non_synced_singleton"><a class="anchor" href="#_non_synced_singleton"></a>Non-synced singleton</h3>
+<div class="paragraph">
+<p>By definition, there can be only one instance of a singleton, which means only one instance can be constructed.
+To achieve this certainty, <em>Kodein-DI</em> synchronizes construction.
+This means that, when a singleton instance is requested and not available, <em>Kodein-DI</em> uses a synchronization mutex to ensure that other request to the same type will wait for this instance to be constructed.</p>
+</div>
+<div class="paragraph">
+<p>While this behaviour is the only way to ensure the singleton&#8217;s correctness, it is also costly (due to the mutex) and degrades startup performance.</p>
+</div>
+<div class="paragraph">
+<p>If you need to improve startup performance, <em>if you know what you are doing</em>, you can disable this synchronization.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: creates a DataSource non synced singleton</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;DataSource&gt;() with singleton(sync = false) { SqliteDS.open("path/to/file") }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using <code>sync = false</code> means that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There will be no construction synchronicity.</p>
+</li>
+<li>
+<p>There <em>may</em> be multiple instance constructed.</p>
+</li>
+<li>
+<p>Instance will be <em>reused</em> as much as possible.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eager_singleton"><a class="anchor" href="#_eager_singleton"></a>Eager singleton</h3>
+<div class="paragraph">
+<p>This is the same as a regular singleton, except that the provided function will be called as soon as the DI instance is created and all bindings are defined.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: creates a DataSource singleton that will be initialized as soon as the binding block ends</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    // The SQLite connection will be opened as soon as the di instance is ready
+    bind&lt;DataSource&gt;() with eagerSingleton { SqliteDS.open("path/to/file") }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="factory-bindings"><a class="anchor" href="#factory-bindings"></a>Factory binding</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This binds a type to a factory function, which is a function that takes an argument of a defined type and that returns an object of the bound type (eg. <code>(A) &#8594; T</code>).<br>
+The provided function will be called <strong>each time</strong> you need an instance of the bound type.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: creates a new Dice each time you need one, according to an Int representing the number of sides</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Dice&gt;() with factory { sides: Int -&gt; RandomDice(sides) }
+}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="multi-argument-factories"><a class="anchor" href="#multi-argument-factories"></a>Multi-arguments factories</h3>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+This multi-agrument-factories mechanism is deprecated and will be removed in version <code>7.0</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A factory can take multiple (up to 5) arguments:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: creates a new Dice each time you need one, according to an Int representing the number of sides</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Dice&gt;() with factory { startNumber: Int, sides: Int -&gt; RandomDice(sides) }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We recommend to use <code>data classes</code> instead!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Regarding our users feedback, we find out that multi-arguments factories was difficult to use.</p>
+</div>
+<div class="paragraph">
+<p>Thus this mechanism will be deprecate soon. So we highly recommend that you migrate your multi-args factories to simple factories by using <strong>data classes</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: creates a new Dice each time you need one, according to multiple parameters</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class DiceParams(val startNumber: Int, val sides: Int)
+
+val di = DI {
+    bind&lt;Dice&gt;() with factory { params: DiceParams -&gt; RandomDice(params) }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_multiton_binding"><a class="anchor" href="#_multiton_binding"></a>Multiton binding</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A multiton can be thought of a "singleton factory": it guarantees to always return the same object given the same argument.
+In other words, for a given argument, the first time a multiton is called with this argument, it will call the function to create an instance; and will always yield that same instance when called with the same argument.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: creates one random generator for each value</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;RandomGenerator&gt;() with multiton { max: Int -&gt; SecureRandomGenerator(max) }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Just like a factory, a multiton can take multiple (up to 5) arguments.</p>
+</div>
+<div class="sect2">
+<h3 id="_non_synced_multiton"><a class="anchor" href="#_non_synced_multiton"></a>non-synced multiton</h3>
+<div class="paragraph">
+<p>Just like a singleton, a multiton synchronization can be disabled:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: non-synced multiton</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;RandomGenerator&gt;(sync = false) with multiton { max: Int -&gt; SecureRandomGenerator(max) }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_referenced_singleton_or_multiton_binding"><a class="anchor" href="#_referenced_singleton_or_multiton_binding"></a>Referenced singleton or multiton binding</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A referenced singleton is an object that is guaranteed to be single as long as a reference object can return it.
+A referenced multiton is an object that is guaranteed to be single for the same argument as long as a reference object can return it.</p>
+</div>
+<div class="paragraph">
+<p>A referenced singleton or multiton needs a "reference maker" in addition to the classic construction function that determines the type of reference that will be used.</p>
+</div>
+<div class="paragraph lead">
+<p><em>Kodein-DI</em> comes with three reference makers for the JVM:</p>
+</div>
+<div class="sect2">
+<h3 id="_jvm_soft_weak"><a class="anchor" href="#_jvm_soft_weak"></a>JVM: Soft &amp; weak</h3>
+<div class="paragraph">
+<p>These are objects that are guaranteed to be single in the JVM at a given time, but not guaranteed to be single during the application lifetime.
+If there are no more strong references to the instances, they may be GC&#8217;d and later, re-created.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, the provided function <strong>may or may not</strong> be called multiple times during the application lifetime.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: creates a Cache object that will exist only once at a given time</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Map&gt;() with singleton(ref = softReference) { WorldMap() } <i class="conum" data-value="1"></i><b>(1)</b>
+    bind&lt;Client&gt;() with singleton(ref = weakReference) { id -&gt; clientFromDB(id) } <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Because it&#8217;s bound by a soft reference, the JVM will GC it before any <code>OutOfMemoryException</code> can occur.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Because it&#8217;s bound by a weak reference, the JVM will GC it is no more referenced.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Weak singletons use JVM&#8217;s <code>Weak</code> while soft singletons use JVM&#8217;s <code>Soft</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jvm_thread_local"><a class="anchor" href="#_jvm_thread_local"></a>JVM: Thread local</h3>
+<div class="paragraph">
+<p>This is the same as the standard singleton binding, except that each thread gets a different instance.
+Therefore, the provided function will be called <strong>once per thread</strong> that needs the instance, the first time it is requested.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: creates a Cache object that will exist once per thread</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Cache&gt;() with singleton(ref = threadLocal) { LRUCache(16 * 1024) }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Semantically, thread local singletons should use <a href="#scoped-singletons">[scoped-singletons]</a>, the reason it uses a referenced singleton is because Java&#8217;s <code>ThreadLocal</code> acts like a reference.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Thread locals are not available in JavaScript.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instance_binding"><a class="anchor" href="#_instance_binding"></a>Instance binding</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This binds a type to an instance that <strong>already exist</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a DataSource binding to an already existing instance.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;DataSource&gt;() with instance(SqliteDataSource.open("path/to/file")) <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Instance is used <strong>with parenthesis</strong>: it is not given a function, but an instance.</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="constant-binding"><a class="anchor" href="#constant-binding"></a>Constant binding</h3>
+<div class="paragraph">
+<p>It is often useful to bind "configuration" constants.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Constants are always <a href="#tagged-bindings">tagged</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: two constants</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    constant(tag = "maxThread") with 8 <i class="conum" data-value="1"></i><b>(1)</b>
+    constant(tag = "serverURL") with "https://my.server.url" <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Note the absence of curly braces: it is not given a function, but an instance.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+You should only use constant bindings for very simple types without inheritance or interface (e.g. primitive types and data classes).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_direct_binding"><a class="anchor" href="#_direct_binding"></a>Direct binding</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sometimes, it may seem overkill to specify the type to <code>bind</code> if you are binding the same type as you are creating.</p>
+</div>
+<div class="paragraph">
+<p>For this use case, you can transform any <code>bind&lt;TYPE&gt;() with &#8230;&#8203;</code> to <code>bind() from &#8230;&#8203;</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: direct bindings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind() from singleton { RandomDice(6) }
+    bind("DnD20") from provider { RandomDice(20) }
+    bind() from instance(SqliteDataSource.open("path/to/file"))
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<strong>This should be used with care</strong> as binding a concrete class and, therefore, having concrete dependencies is an <em>anti-pattern</em> that later prevents modularisation and mocking / testing.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+When binding a generic type, the bound type will be the specialized type,<br>
+e.g. <code>bind() from singleton { listOf(1, 2, 3, 4) }</code> registers the binding to <code>List&lt;Int&gt;</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are using Kodein/Native, because of <a href="https://github.com/JetBrains/kotlin-native/issues/1290">this bug</a>, you need to use the uppercase version: <code>Bind() from</code>.
+This issue has been fixed and the <code>bind() from</code> syntax will be available to Kodein/Native as soon as Kotlin/Native 0.6 is released.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_subtypes_bindings"><a class="anchor" href="#_subtypes_bindings"></a>Subtypes bindings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Kodein-DI</em> allows you register a "subtype bindings factory".
+These are big words for a simple concept that&#8217;s best explained with an example:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: direct bindings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Controller&gt;().subtypes() with { type -&gt;
+        when (type.jvmType) { <i class="conum" data-value="1"></i><b>(1)</b>
+            MySpecialController::class.java -&gt; singleton { MySpecialController() }
+            else -&gt; provider { myControllerSystem.getController(type.jvmType) }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>As <code>type</code> is a <code>TypeToken&lt;*&gt;</code>, you can use <code>.jvmType</code> to get the JVM type (e.g. <code>Class</code> or <code>ParameterizedType</code>).</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In essence, <code>bind&lt;Whatever&gt;().subtypes() with { type &#8594; binding }</code> allows you to register, in <em>Kodein-DI</em>, a binding factory that will be called for subtypes of the provided type.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_transitive_dependencies"><a class="anchor" href="#_transitive_dependencies"></a>Transitive dependencies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With those lazily instantiated dependencies, a dependency (very) often needs another dependency.
+Such classes can have their dependencies passed to their constructor.
+Thanks to Kotlin&#8217;s <em>killer</em> type inference engine, <em>Kodein-DI</em> makes retrieval of transitive dependencies really easy.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a class that needs transitive dependencies</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class Dice(private val random: Random, private val sides: Int) {
+/*...*/
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is really easy to bind this <code>RandomDice</code> with its transitive dependencies, by simply using <code>instance()</code> or <code>instance(tag)</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: bindings of a Dice and of its transitive dependencies</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Dice&gt;() with singleton { Dice(instance(), instance(tag = "max")) } <i class="conum" data-value="1"></i><b>(1)</b>
+
+    bind&lt;Random&gt;() with provider { SecureRandom() } <i class="conum" data-value="2"></i><b>(2)</b>
+    constant(tag="max") with 5 <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Binding of <code>Dice</code>. It gets its transitive dependencies by using <code>instance()</code> and <code>instance(tag)</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Bindings of <code>Dice</code> transitive dependencies.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The order in which the bindings are declared has <strong>no importance whatsoever</strong>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The binding functions are in the same environment as the <code>newInstance</code> function described in the <a href="#injection">dependency injection section</a>.
+You can read it to learn more about the <code>instance</code>, <code>provider</code> and <code>factory</code> functions available to the function.</p>
+</div>
+<div class="sect2">
+<h3 id="_transitive_factory_dependencies"><a class="anchor" href="#_transitive_factory_dependencies"></a>Transitive factory dependencies</h3>
+<div class="paragraph">
+<p>Maybe you need a dependency to use one of its functions to create the bound type.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: using a DataSource to create a Connection.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;DataSource&gt;() with singleton { MySQLDataSource() }
+    bind&lt;Connection&gt;() with provider { instance&lt;DataSource&gt;().openConnection() } <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Using a <code>DataSource</code> as a transitive factory dependency.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_being_responsible_for_its_own_retrieval"><a class="anchor" href="#_being_responsible_for_its_own_retrieval"></a>Being responsible for its own retrieval</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If the bound class is <a href="#di-aware">DIAware</a>, you can pass the <code>di</code> object to the class so it can itself use the DI container to retrieve its own dependencies.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: bindings of Manager that is responsible for retrieving its own dependencies</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Manager&gt;() with singleton { ManagerImpl(di) } <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>ManagerImpl is given a DI instance.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

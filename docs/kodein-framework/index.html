@@ -40,17 +40,11 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="index.html">Home</a>
-  </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../kodein-di/7.1/index.html">Dependency Injection</a>
+    <a class="nav-link" href="../kodein-di/7.2.0/index.html">Dependency Injection</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../kodein-db/0.2.0/index.html">Embedded NoSQL database</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="#kodein-log::index.adoc">Multiplatform logging</a>
   </li>
 </ul>
   </li>
@@ -74,17 +68,17 @@
     <li class="component">
       <span class="title">Kodein-DI</span>
       <ul class="versions">
-        <li class="version">
-          <a href="../kodein-di/7.2/index.html">7.2 dev</a>
-        </li>
         <li class="version is-latest">
-          <a href="../kodein-di/7.1/index.html">7.1</a>
+          <a href="../kodein-di/7.2.0/index.html">dev</a>
         </li>
         <li class="version">
-          <a href="../kodein-di/7.0/index.html">7.0</a>
+          <a href="../kodein-di/7.1.0/index.html">7.1.0</a>
         </li>
         <li class="version">
-          <a href="../kodein-di/6.5/index.html">6.5</a>
+          <a href="../kodein-di/7.0.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../kodein-di/6.5.5/index.html">6.5.5</a>
         </li>
       </ul>
     </li>
@@ -107,27 +101,180 @@
 <button class="nav-toggle"></button>
   <a href="index.html" class="home-link is-current"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="index.html">Kodein-Framework</a></li>
-    <li><a href="index.html">Home</a></li>
-  </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/documentation/edit/master/home/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
-  </div>
+  <div class="edit-this-page"><a href="file:///Users/romain/workspace/kodein/documentation/site/home/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Kodein-Framework Documentation</h1>
-<div class="admonitionblock important">
+<div class="imageblock">
+<div class="content">
+<img src="_images/kodein-framework-logo.svg" alt="KODEIN-FRAMEWORK" width="700">
+</div>
+</div>
+<div class="paragraph lead">
+<p>The <strong>Kodein-Framework</strong> is a suite of libraries that aims to help you to develop Kotlin/Multiplatform (mobile) applications.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>Kodein-Framework</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>provides high level tools that enhance your Kotlin/Multiplatform experience</p>
+</li>
+<li>
+<p>help you maximize your Kotlin common code, with almost everything but the UI</p>
+</li>
+<li>
+<p>and keeps your focus on your business code.</p>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_libraries"><a class="anchor" href="#_libraries"></a>Libraries</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>Kodein-Framework</strong> libraries provide:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the ability to manage your code and isolate your tests easily, with the dependency injection pattern.</p>
+</li>
+<li>
+<p>a quick and easy way to persist data model in a performant NoSQL database, for each mobile platforms.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-TBD
+Each library can be used independently of each other.
 </td>
 </tr>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_kodein_di_dependency_injection"><a class="anchor" href="#_kodein_di_dependency_injection"></a><a href="../kodein-di/7.2.0/index.html" class="page">Kodein-DI: Dependency Injection</a></h3>
+<div class="paragraph">
+<p><em>Kodein-DI</em> is a very useful dependency injection / retrieval container, it is very easy to use and configure.</p>
+</div>
+<div class="ulist">
+<div class="title"><em>Kodein-DI</em> allows you to:</div>
+<ul>
+<li>
+<p>Lazily instantiate your dependencies when needed.</p>
+</li>
+<li>
+<p>Stop caring about dependency initialization order.</p>
+</li>
+<li>
+<p>Easily bind classes or interfaces to their instance, provider or factory.</p>
+</li>
+<li>
+<p>Easily debug your dependency bindings and recursions.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title"><em>Kodein-DI</em> is a good choice because:</div>
+<ul>
+<li>
+<p>It is small, fast and optimized (makes extensive use of <code>inline</code>).</p>
+</li>
+<li>
+<p>It proposes a very simple and readable declarative DSL.</p>
+</li>
+<li>
+<p>It is not subject to type erasure (like Java).</p>
+</li>
+<li>
+<p>It integrates nicely with Android.</p>
+</li>
+<li>
+<p>It proposes a very kotlin-esque idiomatic API.</p>
+</li>
+<li>
+<p>It (also) can be used in plain Java.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kodein_db_nosql_database"><a class="anchor" href="#_kodein_db_nosql_database"></a><a href="../kodein-db/0.2.0/index.html" class="page">Kodein-DB: NoSQL Database</a></h3>
+<div class="paragraph">
+<p>Kodein DB is a Kotlin/Multiplatform embedded NoSQL database that works on JVM, Android, Kotlin/Native and iOS.
+It is suited for client or mobile applications.</p>
+</div>
+<div class="ulist">
+<div class="title">Kodein-DB allows you to:</div>
+<ul>
+<li>
+<p>Easily store, retrieve and query kotlin objects.</p>
+</li>
+<li>
+<p>Stop carrying about schema definitions.</p>
+</li>
+<li>
+<p>Easily set up a new project.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Kodein-DB is a good choice because it:</div>
+<ul>
+<li>
+<p>proposes a very simple and readable DSL.</p>
+</li>
+<li>
+<p>integrates nicely with Android and iOS.</p>
+</li>
+<li>
+<p>offers very good performances.</p>
+</li>
+<li>
+<p>is just Kotlin!</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_support"><a class="anchor" href="#_support"></a>Support</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you need any help do not hesitate to through questions or issues:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Drop by the <a href="https://kotlinlang.slack.com/messages/kodein/">Kodein Slack channel</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/tagged/kodein">Stackoverflow</a> with the tag #kodein</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contribute"><a class="anchor" href="#_contribute"></a>Contribute</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Contributions are very welcome and greatly appreciated! The great majority of pull requests are eventually merged.</p>
+</div>
+<div class="paragraph">
+<p>To contribute, simply fork any of <a href="https://github.com/Kodein-Framework/">our projects on Github</a>, fix whatever is iching you, and submit a pull request!</p>
+</div>
+<div class="paragraph">
+<p>We are sure that there is still room for imporvement, either in code or documentation.</p>
+</div>
+</div>
 </div>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
