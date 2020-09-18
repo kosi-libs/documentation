@@ -6,7 +6,7 @@ site:
 content:
   sources:
     - url: https://github.com/Kodein-Framework/Kodein-DI.git
-      branches: [antora-master, 'antora-v7.1', 'antora-v7', 'antora-v6']
+      branches: [master, '7.1', '7.0', '6.5']
       start_path: doc
     - url: https://github.com/Kodein-Framework/Kodein-DB.git
       branches: [master]
