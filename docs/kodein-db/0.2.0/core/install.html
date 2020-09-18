@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Kodein-DB</title>
-    <link rel="canonical" href="https://docs.kodein.org/kodein-db/0.2.0/core/install.html">
     <meta name="generator" content="Antora 2.3.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
@@ -113,14 +112,14 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Kodein-DB</span>
-    <span class="version">0.2.0</span>
+    <span class="version">0.2.0 beta</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <span class="title">Kodein-DB</span>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">0.2.0</a>
+          <a href="../index.html">0.2.0 beta</a>
         </li>
       </ul>
     </li>
@@ -205,7 +204,7 @@ Kodein-DB will eventually be sync&#8217;d with JCenter, when it exits beta.
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-    implementation 'org.kodein.db:kodein-db-jvm:0.2.0'
+    implementation 'org.kodein.db:kodein-db-jvm:0.2.0-beta'
 }</code></pre>
 </div>
 </div>
@@ -216,7 +215,7 @@ Kodein-DB will eventually be sync&#8217;d with JCenter, when it exits beta.
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you are developing a library and not an application, use the artifact <code>org.kodein.db:kodein-db-api-jvm:0.2.0</code> instead, which only provides the Kodein-DB API, and not its implementation.
+If you are developing a library and not an application, use the artifact <code>org.kodein.db:kodein-db-api-jvm:0.2.0-beta</code> instead, which only provides the Kodein-DB API, and not its implementation.
 </td>
 </tr>
 </table>
@@ -229,7 +228,7 @@ When targetting JVM only, you can use <a href="https://github.com/EsotericSoftwa
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-    implementation 'org.kodein.db:kodein-db-serializer-kryo-jvm:0.2.0'
+    implementation 'org.kodein.db:kodein-db-serializer-kryo-jvm:0.2.0-beta'
 }</code></pre>
 </div>
 </div>
@@ -240,7 +239,7 @@ When targetting JVM only, you can use <a href="https://github.com/EsotericSoftwa
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-    implementation 'org.kodein.db:kodein-leveldb-jni-linux:0.2.0' // 'linux' or 'macos'
+    implementation 'org.kodein.db:kodein-leveldb-jni-linux:0.2.0-beta' // 'linux' or 'macos'
 }</code></pre>
 </div>
 </div>
@@ -319,7 +318,7 @@ Kodein-DB will eventually be sync&#8217;d with JCenter, when it exits beta.
     sourceSets {
         commonMain {
             dependencies {
-                implementation "org.kodein.db:kodein-db:0.2.0"
+                implementation "org.kodein.db:kodein-db:0.2.0-beta"
             }
         }
     }
@@ -336,7 +335,7 @@ Kodein-DB will eventually be sync&#8217;d with JCenter, when it exits beta.
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you are developing a library and not an application, use the artifact <code>org.kodein.db:kodein-db-api:0.2.0</code> instead, which only provides the Kodein-DB API, and not its implementation.
+If you are developing a library and not an application, use the artifact <code>org.kodein.db:kodein-db-api:0.2.0-beta</code> instead, which only provides the Kodein-DB API, and not its implementation.
 </td>
 </tr>
 </table>
@@ -352,7 +351,7 @@ When targetting Multiplatform, you need to use <a href="https://github.com/Kotli
     sourceSets {
         commonMain {
             dependencies {
-                implementation 'org.kodein.db:kodein-db-serializer-kotlinx:0.2.0'
+                implementation 'org.kodein.db:kodein-db-serializer-kotlinx:0.2.0-beta'
             }
         }
     }
