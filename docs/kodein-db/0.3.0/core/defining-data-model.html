@@ -415,11 +415,11 @@ val johnKey = db.put(Person("John"))
 
 val parents = listOf(janeKey, johnKey)
 db.put(Child("Jill", parents))
-db.put(Person("Jack", parents))</code></pre>
+db.put(Child("Jack", parents))</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Using the preceding code, there will be two different collections, one <code>Person</code>, one <code>Adult</code>, meaning if you were to look for all <code>Person</code> models, you would only get Jane &amp; John.</p>
+<p>Using the preceding code, there will be two different collections, one <code>Person</code>, one <code>Child</code>, meaning if you were to look for all <code>Person</code> models, you would only get Jane &amp; John.</p>
 </div>
 <div class="paragraph">
 <p>Children are person too (even when they keep asking you when&#8217;s the end of this documentation&#8230;&#8203;) so, you probably want to put every <code>Child</code> model into the <code>Person</code> collection.
