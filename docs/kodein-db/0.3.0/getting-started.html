@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DB</title>
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" href="../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-db" data-version="0.3.0">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Kodein-DB</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="core/install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/install.html#install-kmp">Kotlin/Multiplatform - Native</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/immutability.html">Immutability requirement</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/setup-database.html">Setting up the database</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/defining-data-model.html">Defining the data model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/operations.html">Read / Write operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/iteration.html">Iterate with cursors &amp; sequences</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/consistency.html">Managing consistency</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/reactive.html">Being reactive</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="core/advanced.html">Advanced usage</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#handling-cache">Handling the cache</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#using-primitives">Using primitives</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#locking-check">Locking checks and reactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#values-and-buffers">Handling Values and Buffers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#custom-serialization">Fine-graining (de)serialization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#leveldb-options">LevelDB Options</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#middleware">Embedding your logic</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DB</span>
+    <span class="version">0.3.0 beta</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">0.3.0 beta</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../kodein-di/7.2.0/index.html">dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../kodein-di/7.1.0/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../kodein-di/7.0.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../kodein-di/6.5.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Kodein-DB</a></li>
+    <li><a href="getting-started.html">Getting started with Kodein-DB</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DB/edit/master/doc/modules/ROOT/pages/getting-started.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Getting started with Kodein-DB</h1>
+
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
