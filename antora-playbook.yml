@@ -9,7 +9,7 @@ content:
       branches: [master, '7.1', '7.0', '6.5']
       start_path: doc
     - url: https://github.com/Kodein-Framework/Kodein-DB.git
-      branches: v*
+      branches: [0.*, 1.*]
       start_path: doc
 #    - url: https://github.com/Kodein-Framework/Kodein-Log.git
 #      branches: [antora-master]
@@ -25,9 +25,9 @@ ui:
     contents: |
       static_files: [ .nojekyll ]
   - path: .nojekyll
-# urls:
+urls:
 #   latest_version_segment_strategy: 'redirect:from'
 #   latest_version_segment: 'latest'
-#   redirect_facility: 'static'
+  redirect_facility: 'static'
 output:
   dir: docs

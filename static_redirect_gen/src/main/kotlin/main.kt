@@ -35,18 +35,17 @@ fun main() {
                     it.endsWith("index.html")
                 }
             val (module, version) = loc.removePrefix("https://docs.kodein.org/").removeSuffix("/index.html").split("/")
-            File("../docs/$module/latest").mkdirs()
-            File("../docs/$module/latest/index.html").writeText(
+            File("../docs/$module/index.html").writeText(
                 """
                     <!DOCTYPE html>
                     <meta charset="utf-8">
                     <link rel="canonical" href="https://docs.kodein.org/$module/$version/index.html">
-                    <script>location="../$version/index.html"</script>
-                    <meta http-equiv="refresh" content="0; url=../$version/index.html">
+                    <script>location="$version/index.html"</script>
+                    <meta http-equiv="refresh" content="0; url=$version/index.html">
                     <meta name="robots" content="noindex">
                     <title>Redirect Notice</title>
                     <h1>Redirect Notice</h1>
-                    <p>The page you requested has been relocated to <a href="../$version/index.html">https://docs.kodein.org/$module/$version/index.html</a>.</p>
+                    <p>The page you requested has been relocated to <a href="$version/index.html">https://docs.kodein.org/$module/$version/index.html</a>.</p>
                 """.trimIndent()
             )
         }
