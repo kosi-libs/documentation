@@ -219,7 +219,13 @@
       <span class="title">Kodein-DB</span>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../../kodein-db/0.3.0/index.html">0.3.0 beta</a>
+          <a href="../../../kodein-db/0.4/index.html">0.4.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.3/index.html">0.3.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.2/index.html">0.2.0 beta</a>
         </li>
       </ul>
     </li>
@@ -565,7 +571,7 @@ If you prefer your View Models to be independant from Kodein-DI, you can use a <
 <div class="listingblock">
 <div class="title">Example: using an trigger in a DIAware Android Activity</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyViewModel(app: Application) : ApplicationViewModel(app), DIAware {
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyViewModel(app: Application) : AndroidViewModel(app), DIAware {
 
     override val di by di() <i class="conum" data-value="1"></i><b>(1)</b>
 

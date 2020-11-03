@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DB</title>
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-db" data-version="0.3">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein-DB</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-kmp">Kotlin/Multiplatform - Native</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="immutability.html">Immutability requirement</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="setup-database.html">Setting up the database</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="defining-data-model.html">Defining the data model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="operations.html">Read / Write operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="iteration.html">Iterate with cursors &amp; sequences</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="consistency.html">Managing consistency</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reactive.html">Being reactive</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanced.html">Advanced usage</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#handling-cache">Handling the cache</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#using-primitives">Using primitives</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#locking-check">Locking checks and reactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#values-and-buffers">Handling Values and Buffers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#custom-serialization">Fine-graining (de)serialization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#leveldb-options">LevelDB Options</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#middleware">Embedding your logic</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DB</span>
+    <span class="version">0.3.0 beta</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../0.4/index.html">0.4.0 beta</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">0.3.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.2/index.html">0.2.0 beta</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../kodein-di/7.2.0/index.html">dev</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../../kodein-di/7.1.0/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.0.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/6.5.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein-DB</a></li>
+    <li><a href="defining-data-model.html">Defining the data model</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.3.0 beta</button>
+  <div class="version-menu">
+    <a class="version" href="../../0.4/core/defining-data-model.html">0.4.0 beta</a>
+    <a class="version is-current" href="defining-data-model.html">0.3.0 beta</a>
+    <a class="version" href="../../0.2/core/defining-data-model.html">0.2.0 beta</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DB/edit/v0.3-beta/doc/modules/core/pages/defining-data-model.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Defining the data model</h1>
+<div class="sect1">
+<h2 id="_models"><a class="anchor" href="#_models"></a>Models</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_metadata"><a class="anchor" href="#_metadata"></a>Metadata</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<strong>xref:immutability.adoc</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_id_and_indexes"><a class="anchor" href="#_id_and_indexes"></a>ID and Indexes</h4>
+<div class="paragraph">
+<p>A model <strong>may</strong> have <strong>one or more</strong> named indexes, to allow you to <em>search and/or order</em> by a specific value.</p>
+</div>
+<div class="paragraph">
+<p>A model <strong>must</strong> have <strong>one</strong> <em>unique</em> ID, which can be of any type.
+This ID defines the default ordering of the models inside the collections.
+In essence, the ID works exactly like an index, except that it is unnamed.
+You can use <code>UUID.randomUUID()</code> if your model does not have a unique value.</p>
+</div>
+<div class="paragraph">
+<p>Indexes and IDs can be composite, which means that they can contain multiple values.
+A composite index allows you to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Get models ordered by first value, then second, then third, then&#8230;&#8203;</p>
+</li>
+<li>
+<p>Look for all models with the first value, then second, then third, then&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_with_annotations"><a class="anchor" href="#_with_annotations"></a>With annotations</h4>
+<div class="paragraph">
+<p>When targeting <strong>only the JVM</strong>, you can simply use annotations:</p>
+</div>
+<div class="listingblock">
+<div class="title">A simple model</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class User(
+    @Id val uid: String,
+    val firstName: String,
+    @Index("lastName") val lastName: String
+)</code></pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+When using <code>@Id</code> or <code>@Index</code>, Kodein-DB converts <code>String</code> values to byte array using the ASCII charset.
+Therefore, only ASCII characters are allowed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Using this configuration, when getting all users by index <code>"lastName"</code>, they will be ordered first by <code>lastName</code>, then by <code>uid</code>.
+If you want the results to be ordered by <code>lastName</code> then <code>firstName</code> (then <code>uid</code>), you can use a composite index:</p>
+</div>
+<div class="listingblock">
+<div class="title">Same model with composite index</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class User(
+    @Id val uid: String,
+    val firstName: String,
+    val lastName: String
+) {
+    @Index("name") fun nameIndex() = listOf(lastName, firstName)
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_with_the_model"><a class="anchor" href="#_with_the_model"></a>With the model</h4>
+<div class="paragraph">
+<p>The model itself can define its metadata by implementing either the <code>Metadata</code> or <code>HasMetadata</code> interface:</p>
+</div>
+<div class="listingblock">
+<div class="title">Model <strong>is</strong> metadata</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class User(
+    override val id: String, <i class="conum" data-value="1"></i><b>(1)</b>
+    val firstName: String,
+    val lastName: String
+) : Metadata {
+    override fun indexes() = indexSet("lastName" to listOf(lastName, firstName)) <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>id</code> property override is mandatory</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The <code>indexes</code> function override is optional (no index by default)</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Model <strong>has</strong> metadata</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class User(
+    val id: String,
+    val firstName: String,
+    val lastName: String
+) : HasMetadata {
+    override fun getMetadata(db: ModelDB, vararg options: Options.Write) =
+            Metadata(id, "lastName" to listOf(lastName, firstName))
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_with_an_extractor"><a class="anchor" href="#_with_an_extractor"></a>With an extractor</h4>
+<div class="paragraph">
+<p>If you don&#8217;t own the models, or if you don&#8217;t want to mark them for Kodein-DB, you can use register a <code>MetadataExtractor</code> when you open the database:</p>
+</div>
+<div class="listingblock">
+<div class="title">Registering a metadata extractor</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val db = DB.open("path/to/db",
+    MetadataExtractor {
+        when (it) {
+            is User -&gt; Metadata(it.id, "lastName" to listOf(it.lastName, it.firstName))
+            else -&gt; error("Unknown model $it")
+        }
+    }
+)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="id-index"><a class="anchor" href="#id-index"></a>Using ID as an index</h4>
+<div class="paragraph">
+<p>If we consider the <code>User</code> model we have just defined, we have defined the ID to be a UUID, meaning that the order in which they will be stored and retrieved is completely random.<br>
+Because the ID must be unique, we cannot use the name to be the ID.
+However, we can create a composite ID.
+Consider this updated model:</p>
+</div>
+<div class="listingblock">
+<div class="title">Model with a composite ID</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class User(
+    val uid: String,
+    val firstName: String,
+    val lastName: String
+) : Metadata {
+    override val id get() = listOf(lastName, firstName, uid)
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Because <code>uid</code> is unique, the tuple <code>(lastName, firstName, uid)</code> is unique (if only because it contains <code>uid</code>).
+Therefore, the <code>id</code> property is always unique, but the order in which the models will be stored are defined first by <code>lastName</code>, then by <code>firstName</code>, then only by <code>id</code>.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+While using a composite ID can be very useful, it makes the <a href="operations.html#key-from-id" class="page">creation of key from ID values</a> more complex.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_key_references"><a class="anchor" href="#_key_references"></a>Key &amp; References</h3>
+<div class="paragraph">
+<p>If a model contains another model, it will be serialized into the same <em>document</em>.
+If you need to reference another document, then you need to store a <code>Key</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">A model with a reference to another model</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class User(
+    override val id: String,
+    val name: Name, <i class="conum" data-value="1"></i><b>(1)</b>
+    val address: Key&lt;Address&gt; <i class="conum" data-value="2"></i><b>(2)</b>
+) : Metadata {
+    override fun indexes() = indexSet("lastName" to listOf(name.last, name.first))
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Will be included as part of this model&#8217;s document.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>References another model with its own document.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="polymorphism"><a class="anchor" href="#polymorphism"></a>Polymorphism</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_problem"><a class="anchor" href="#_the_problem"></a>The problem</h3>
+<div class="paragraph">
+<p>By default, Kodein-DB inserts each model in the document collection that corresponds to its real type.</p>
+</div>
+<div class="paragraph">
+<p>Considering the following insertions:</p>
+</div>
+<div class="listingblock">
+<div class="title">Multiple insertions</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">open class Person(@Id val name: String)
+class Child(name: String, val parents: List&lt;Key&lt;Person&gt;&gt;): Person(name)
+
+val janeKey = db.put(Person("Jane"))
+val johnKey = db.put(Person("John"))
+
+val parents = listOf(janeKey, johnKey)
+db.put(Child("Jill", parents))
+db.put(Person("Jack", parents))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using the preceding code, there will be two different collections, one <code>Person</code>, one <code>Adult</code>, meaning if you were to look for all <code>Person</code> models, you would only get Jane &amp; John.</p>
+</div>
+<div class="paragraph">
+<p>Children are person too (even when they keep asking you when&#8217;s the end of this documentation&#8230;&#8203;) so, you probably want to put every <code>Child</code> model into the <code>Person</code> collection.
+To do that, you need to enable polymorphism: the fact that a collection can hold multiple types of models.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jvm_only_annotation"><a class="anchor" href="#_jvm_only_annotation"></a>JVM only annotation</h3>
+<div class="paragraph">
+<p>The simpler way to define a polymorphic document is to use the <code>@Polymorphic</code> annotation.
+However, as usual for annotations, <strong>it only works for the JVM</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Children are Persons</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Polymorphic(Person::class) <i class="conum" data-value="1"></i><b>(1)</b>
+class Child(name: String, val parents: List&lt;Key&lt;Person&gt;&gt;): Person(name)</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This <code>@Polymorphic</code> annotation instructs Kodein-DB to put <code>Child</code> models into the <code>Person</code> collection.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="type-table"><a class="anchor" href="#type-table"></a>Type Table</h3>
+<div class="paragraph">
+<p>In Kodein-DB, the Type Table is responsible for defining which model type belongs to which collection.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Using a Type Table is compatible with multiplatform!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can define a <code>TypeTable</code> when opening the database:</p>
+</div>
+<div class="listingblock">
+<div class="title">Defining a Type Table</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val db = DB.open("path/to/db",
+    TypeTable {
+        root&lt;Person&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
+            .sub&lt;Child&gt;() <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+)</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Defines the root collection <code>Person</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Defines that all <code>Child</code> models will be put in the <code>Person</code> collection.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
