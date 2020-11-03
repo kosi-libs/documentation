@@ -6,10 +6,10 @@ site:
 content:
   sources:
     - url: https://github.com/Kodein-Framework/Kodein-DI.git
-      branches: [master, '7.1', '7.0', '6.5']
+      branches: ['7.*', '6.5']
       start_path: doc
     - url: https://github.com/Kodein-Framework/Kodein-DB.git
-      branches: [0.*, 1.*]
+      branches: ['0.*', '1.*']
       start_path: doc
 #    - url: https://github.com/Kodein-Framework/Kodein-Log.git
 #      branches: [antora-master]
