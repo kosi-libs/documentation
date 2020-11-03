@@ -10,3 +10,6 @@ rm -rf docs
 
 cd static_redirect_gen
 ./gradlew run
+cd ..
+
+echo "docs.kodein.org" >> docs/CNAME
