@@ -1107,7 +1107,7 @@ To do that, you need to create your own <code>ViewModelProvider.Factory</code>.<
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class DIViewModelFactory(val di: DI) : ViewModelProvider.Factory {
     override fun &lt;T : ViewModel&gt; create(modelClass: Class&lt;T&gt;): T =
-            di.direct.Instance(TT(modelClass))
+            di.direct.Instance(erased(modelClass))
 }</code></pre>
 </div>
 </div>
