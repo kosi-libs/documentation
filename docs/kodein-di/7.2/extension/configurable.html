@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Kodein-DI</title>
-    <link rel="canonical" href="https://docs.kodein.org/kodein-di/7.1/extension/jsr330.html">
+    <link rel="canonical" href="https://docs.kodein.org/kodein-di/7.2/extension/configurable.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
@@ -31,7 +31,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="kodein-di" data-version="7.2.0">
+<div class="nav-container" data-component="kodein-di" data-version="7.2">
   <div class="navbar-bottom-line-linear"></div>
   <aside class="nav">
     <div class="panels">
@@ -183,10 +183,10 @@
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Extensions</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="configurable.html">Configurable &amp; global container</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="jsr330.html">JSR-330 compatibility</a>
   </li>
 </ul>
@@ -212,7 +212,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Kodein-DI</span>
-    <span class="version">dev</span>
+    <span class="version">7.2.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -232,10 +232,10 @@
     <li class="component is-current">
       <span class="title">Kodein-DI</span>
       <ul class="versions">
-        <li class="version is-current">
-          <a href="../index.html">dev</a>
+        <li class="version is-current is-latest">
+          <a href="../index.html">7.2.0</a>
         </li>
-        <li class="version is-latest">
+        <li class="version">
           <a href="../../7.1/index.html">7.1.0</a>
         </li>
         <li class="version">
@@ -268,45 +268,269 @@
   <ul>
     <li><a href="../index.html">Kodein-DI</a></li>
     <li>Extensions</li>
-    <li><a href="jsr330.html">JSR-330 compatibility</a></li>
+    <li><a href="configurable.html">Configurable &amp; global container</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">dev</button>
+  <button class="version-menu-toggle" title="Show other versions of page">7.2.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="jsr330.html">dev</a>
-    <a class="version" href="../../7.1/extension/jsr330.html">7.1.0</a>
-    <a class="version" href="../../7.0/extension/jsr330.html">7.0.0</a>
-    <a class="version" href="../../6.5/extension/jsr330.html">6.5.5</a>
+    <a class="version is-current" href="configurable.html">7.2.0</a>
+    <a class="version" href="../../7.1/extension/configurable.html">7.1.0</a>
+    <a class="version" href="../../7.0/extension/configurable.html">7.0.0</a>
+    <a class="version" href="../../6.5/extension/configurable.html">6.5.5</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/7.2/doc/modules/extension/pages/jsr330.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/7.2/doc/modules/extension/pages/configurable.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">JSR-330: Using reflexivity to auto-inject</h1>
+<h1 class="page">Global &amp; Configurable Kodein DI</h1>
 <div class="sect1">
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Kodein-DI offers a module that implements reflexivity injection based on the JSR-330 <code>javax.inject.*</code> annotations.
-There are two reasons to use this module:</p>
+<p>The Configurable DI Plugin gives you :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You are moving a code base from a Java injection library (such as Guice or Dagger) and want the Java code to work the same while there still is injected java code.</p>
+<p>A <code>ConfigurableDI</code> class that you can pass around and have different sections of your code configure its bindings.</p>
 </li>
 <li>
-<p>You want to easilly use Kodein-DI in a Java code.</p>
-</li>
-<li>
-<p>That&#8217;s it!</p>
+<p>A <code>DI.global</code> instance that allows to have "one true" source.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Using this module with Kotlin code means adding a lot of reflexivity at run-time that can easily be avoided in Kotlin (but not in Java).</p>
+<p>The Configurable DI Plugin is an extension that is not proposed  <em>by default</em>, this paradigm is in a separate module.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Using or not using this is a matter of taste and is neither recommended nor discouraged.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_install"><a class="anchor" href="#_install"></a>Install</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="install-jvm"><a class="anchor" href="#install-jvm"></a>JVM</h3>
+<div class="sect3">
+<h4 id="_with_gradle"><a class="anchor" href="#_with_gradle"></a>With Gradle</h4>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are <strong>NOT</strong> using <strong>Gradle 6+</strong>, you should declare the use of the Gradle Metadata experimental feature</p>
+</div>
+<div class="listingblock">
+<div class="title">settings.gradle.kts</div>
+<div class="content">
+<pre>enableFeaturePreview("GRADLE_METADATA")</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Add the JCenter repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">buildscript {
+    repositories {
+        jcenter()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then add the dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
+    implementation 'org.kodein.di:kodein-conf-di:7.2.0'
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_with_maven"><a class="anchor" href="#_with_maven"></a>With Maven</h4>
+<div class="paragraph">
+<p>Add the JCenter repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;jcenter&lt;/id&gt;
+      &lt;url&gt;https://jcenter.bintray.com&lt;/url&gt;
+    &lt;/repository&gt;
+&lt;/repositories&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then add the dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.kodein.di&lt;/groupId&gt;
+        &lt;artifactId&gt;kodein-di-jvm&lt;/artifactId&gt;
+        &lt;version&gt;7.2.0&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Use <code>kodein-di-conf-jvm</code>, as <em>Kotlin/Multiplatform</em> projects does not work with Maven
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="kotlin-js"><a class="anchor" href="#kotlin-js"></a>JavaScript (Gradle)</h3>
+<div class="paragraph">
+<p>Because <em>Kodein-DI</em> for JavaScript is compiled as a <a href="https://github.com/umdjs/umd">UMD module</a>, it can be imported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In a browser:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>as an AMD module (for example with RequireJS) (See index.html in the demo project).</p>
+</li>
+<li>
+<p>Directly in an HTML page with a <code>&lt;script&gt;</code> tag (See index2.html in the demo project).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>In NodeJS, as a regular CJS module.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Add the JCenter repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">buildscript {
+    repositories {
+        jcenter()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then add the dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
+    compile 'org.kodein.di:kodein-di-conf-js:7.2.0'
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="kotlin-multiplatform"><a class="anchor" href="#kotlin-multiplatform"></a>Kotlin/Multiplatform (Gradle)</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<em>Kodein-DI</em> supports the following targets:<br>
+androidArm32, androidArm64, iosArm32, iosArm64, iosX64, linuxArm32Hfp, linuxMips32, linuxMipsel32, linuxX64, macosX64, mingwX64
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><em>Kodein-DI</em> uses the new gradle native dependency model.</p>
+</div>
+<div class="paragraph">
+<p>Add the JCenter repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">buildscript {
+    repositories {
+        jcenter()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then add the dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation "org.kodein.di:kodein-di-conf:7.2.0"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configurabledi"><a class="anchor" href="#_configurabledi"></a>ConfigurableDI</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_configuring"><a class="anchor" href="#_configuring"></a>Configuring</h3>
+<div class="paragraph">
+<p>You can import modules, extend DI objects, or add bindings inside this <code>ConfigurableDI</code> using <code>addImport</code>, <code>addExtend</code> and <code>addConfig</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: adding a module inside the global DI</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">fun test() {
+    val di = ConfigurableDI()
+
+    di.addModule(aModule)
+    di.addExtend(otherDI)
+
+    di.addConfig {
+        bind&lt;Dice&gt;() with provider { RandomDice(0, 5) }
+        bind&lt;DataSource&gt;() with singleton { SqliteDS.open("path/to/file") }
+    }
+}</code></pre>
+</div>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -315,143 +539,42 @@ There are two reasons to use this module:</p>
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-Every-thing that is described here is <strong>a lot less performant</strong> than using classic DI injection methods.
-         PLEASE DO NOT USE ON KOTLIN CLASSES.
-         Kittens <strong>will</strong> die painfully if you do!
+The <code>DI</code> underlying instance will effectively be constructed on first retrieval.
+         Once it is constructed, trying to configure it will throw an <code>IllegalStateException</code>.
 </td>
 </tr>
 </table>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="install"><a class="anchor" href="#install"></a>Install</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_with_gradle"><a class="anchor" href="#_with_gradle"></a>With Gradle</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">implementation("org.kodein.di:kodein-di-jxinject-jvm:7.2.0")</code></pre>
+<h3 id="_retrieving"><a class="anchor" href="#_retrieving"></a>Retrieving</h3>
+<div class="paragraph">
+<p>You can use a <code>ConfigurableDI</code> object like any <code>DI</code> object.</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_with_maven"><a class="anchor" href="#_with_maven"></a>With Maven</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.kodein.di&lt;/groupId&gt;
-    &lt;artifactId&gt;kodein-di-jxinject-jvm&lt;/artifactId&gt;
-    &lt;version&gt;7.2.0&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
-</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Once you have retrieved the first value with a <code>ConfigurableDI</code>, trying to configure it will throw an <code>IllegalStateException</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-module"><a class="anchor" href="#import-module"></a>Import the module.</h3>
+<h3 id="_mutating"><a class="anchor" href="#_mutating"></a>Mutating</h3>
 <div class="paragraph">
-<p>In your di binding configuration add the <code>jxInjectorModule</code></p>
+<p>A <code>ConfigurableDI</code> can be mutable.</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: importing the JxInjector module</div>
+<div class="title">Example: Creating a mutable ConfigurableDI</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
-    import(jxInjectorModule)
-    /* Other bindings */
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = ConfigurableDI(mutable = true)</code></pre>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_javax_injections"><a class="anchor" href="#_javax_injections"></a>JavaX injections</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_constructor_injection"><a class="anchor" href="#_constructor_injection"></a>Constructor injection</h3>
-<div class="paragraph">
-<p>You can create a new instance of a given class, provided that:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The class has only one constructor</p>
-</li>
-<li>
-<p>Or the class have one of its constructors annotated with <code>@Inject</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>It is a good practice, however, to always have an <code>@Inject</code> constructor, even if it is the only constructor.</p>
-</div>
-<div class="listingblock">
-<div class="title">Example: Java class that can be automatically created with injections</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
-    @Inject
-    public MyJavaController(Connection connection, FileSystem fs) {
-        /* ... */
-    }
-    /* ... */
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can then create instances of such classes by using <code>di.jx</code> in Kotlin, or <code>Jx.of(di)</code> in Java.</p>
-</div>
-<div class="listingblock">
-<div class="title">Example: Creating a new instance in Kotlin</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller = di.jx.newInstance&lt;MyJavaController&gt;()</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example: Creating a new instance in Java</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">MyJavaController controller = Jx.of(di).newInstance(MyJavaController.class);</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_field_injection"><a class="anchor" href="#_field_injection"></a>Field injection</h3>
-<div class="paragraph">
-<p>You can inject fields of a class by annotating them with <code>@Inject</code>.</p>
-</div>
-<div class="listingblock">
-<div class="title">Example: Java class whose fields can be automatically injected.</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
-    @Inject
-    Connection connection;
-
-    @Inject
-    FileSystem fs;
-
-    /* ... */
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can then inject existing instances of such classes by using <code>di.jx</code> in Kotlin, or <code>Jx.of(di)</code> in Java.</p>
-</div>
-<div class="listingblock">
-<div class="title">Example: Injecting an existing instance in Kotlin</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controller = MyJavaController()
-di.jx.inject(controller)</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example: Injecting an existing instance in Java</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">MyJavaController controller = new MyJavaController();
-Jx.of(di).inject(controller);</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_method_injection"><a class="anchor" href="#_method_injection"></a>Method injection</h3>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -459,133 +582,93 @@ Jx.of(di).inject(controller);</code></pre>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Method injection is supported to be compatible with Java injection libraries.
-         It is, however, widely considered as the less semantic injection method.
+<div class="paragraph">
+<p>Using a mutable <code>ConfigurableDI</code> can lead to <strong>very bad code practice</strong> and <strong>very difficult bugs</strong>.<br>
+Therefore, using a mutable <code>ConfigurableDI</code> <strong>IS discouraged</strong>.<br>
+Note that every time a <code>ConfigurableDI</code> is mutated, its cache is entirely flushed, meaning that it has a real impact on performance!<br>
+Please use the mutating feature only if you truly need it, know what you&#8217;re doing, and see no other way.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>You can have <code>@Inject</code> annotated method be called at injection.</p>
+<p>A mutable <code>ConfigurableDI</code> can be configured even <em>after first retrieval</em>.</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: Java class whose method will be automatically called on injection.</div>
+<div class="title">Example: mutating a mutable ConfigurableDI</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
-    @Inject
-    public setIO(Connection connection, FileSystem fs) {
-        /* ... */
-    }
-    /* ... */
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">fun test() {
+    val di = ConfigurableDI(mutable = true)
+
+    di.addModule(aModule)
+
+    val ds: DataSource by di.instance()
+
+    di.addModule(anotherModule) <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
 </div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This would have failed if the ConfigurableDI was not mutable.</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>You know the drill, use <code>di.jx</code> in Kotlin or <code>Jx.of(di)</code> in Java the exact same way as for field injection.</p>
+<p>You can also use the <code>clear</code> method to remove all bindings.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_being_specific"><a class="anchor" href="#_being_specific"></a>Being specific</h2>
+<h2 id="_the_god_complex_one_true_di"><a class="anchor" href="#_the_god_complex_one_true_di"></a>The god complex: One True DI</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_qualifiers_annotations"><a class="anchor" href="#_qualifiers_annotations"></a>Qualifiers annotations</h3>
 <div class="paragraph">
-<p><code>javax.inject</code> libraries use the concept of "qualifier annotations", which serves the same purpose as DI&#8217;s tag system.</p>
+<p>Sometimes, you want one static DI for your entire application.
+E.g. you don&#8217;t want to have to hold &amp; pass a DI instance throughout your application.</p>
 </div>
 <div class="paragraph">
-<p>The <code>@Named</code> annotation is a qualifier provided by default, and is supported by default in Kodein-DI-JxInject.
-In Java, any field or method / constructor parameter annotated with <code>@Named("whatever")</code> will use the <code>String</code> value as tag.</p>
+<p>For these cases, the <code>di-conf</code> module proposes a static <code>DI.global</code> instance.</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: Java class which uses named injection.</div>
+<div class="title">Example creating, configuring and using the global one true DI.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
-    @Inject @Named("SQL")
-    Connection connection; <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">fun test() {
+    DI.global.addModule(apiModule)
+    DI.global.addModule(dbModule)
 
-    @Inject setConnection(@Named("SQL") Connection connection) { /*...*/ } <i class="conum" data-value="2"></i><b>(2)</b>
+    val ds: DataSource by DI.global.instance()
 }</code></pre>
 </div>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>&lt;1&gt;: Field injection.
-&lt;2&gt;: Method injection.</p>
+<p>Just like any <code>ConfigurableDI</code>, <code>DI.global</code> must be configured <strong>before</strong> being used for retrieval, or an <code>IllegalStateException</code> will be thrown.
+It is possible to set <code>DI.global</code> to be mutable by setting <code>DI.global.mutable = true</code> but it <strong>must</strong> be set <strong>before</strong> any retrieval!</p>
 </div>
-<div class="paragraph">
-<p>To inject the <code>connection</code> field, DI will essentially retrieve as <code>di.instance&lt;Connection&gt;(tag = "SQL")</code>.</p>
-</div>
-<div class="paragraph">
-<p>For any other qualifier annotation, you need to provide a function that will transform a qualifier annotation to a tag.</p>
-</div>
-<div class="listingblock">
-<div class="title">Example: Registering a qualifier annotation</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
-    import(jxInjectorModule)
-
-    /* Other bindings */
-
-    jxQualifier&lt;MyQualifier&gt; { MyTag(it.value) } <i class="conum" data-value="1"></i><b>(1)</b>
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>&lt;1&gt;: Transforms a <code>MyQualifier</code> qualifier annotation into a <code>MyTag</code> DI tag.</p>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
-<h3 id="_using_erased_bindings"><a class="anchor" href="#_using_erased_bindings"></a>Using erased bindings</h3>
+<h3 id="_being_globally_aware"><a class="anchor" href="#_being_globally_aware"></a>Being globally aware</h3>
 <div class="paragraph">
-<p>If you need to inject erased binding, you can annotate the field or method / constructor parameter with the <code>@ErasedBinding</code> annotation.</p>
+<p>You can use the <code>GlobalDIAware</code> interface that needs no implementation to be aware of the global di.</p>
 </div>
 <div class="listingblock">
-<div class="title">Example: Java class which uses erased binding injection.</div>
+<div class="title">Example: a DIGlobalAware class</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
-    @Inject @ErasedBinding List&lt;Connection&gt; connections;
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_optionnal_injection"><a class="anchor" href="#_optionnal_injection"></a>Optionnal injection</h3>
-<div class="paragraph">
-<p>If you need to inject something only if it was bound (and set it to null otherwise), you can use the <code>@OrNull</code> annotation.</p>
-</div>
-<div class="listingblock">
-<div class="title">Example: Java class which uses nullable injection.</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
-    @Inject @OrNull Connection connectionOrNull;
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_provider_factory_injection"><a class="anchor" href="#_provider_factory_injection"></a>Provider &amp; Factory injection</h3>
-<div class="paragraph">
-<p>You can inject a provider, either by using <code>javax.inject.Provider</code> or <code>kotlin.jvm.functions.Function0</code>.
-Note that if you are using the latter, you need to use the <code>@ProviderFun</code> annotation.</p>
-</div>
-<div class="listingblock">
-<div class="title">Example: Java class which uses provider injection.</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
-    @Inject Provider&lt;Connection&gt; connectionJXProvider;
-    @Inject @ProviderFun Function0&lt;Connection&gt; connectionKotlinProvider;
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>To inject a factory, you need to use <code>kotlin.jvm.functions.Function1</code> annotated with <code>@FactoryFun</code>.</p>
-</div>
-<div class="listingblock">
-<div class="title">Example: Java class which uses factory injection.</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
-    @Inject @ProviderFun Function0&lt;String, Connection&gt; connectionFactory;
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager() : DIGlobalAware {
+    val ds: DataSource by instance()
 }</code></pre>
 </div>
 </div>

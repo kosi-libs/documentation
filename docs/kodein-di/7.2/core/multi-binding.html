@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Kodein-DI</title>
-    <link rel="canonical" href="https://docs.kodein.org/kodein-di/7.1/core/install.html">
+    <link rel="canonical" href="https://docs.kodein.org/kodein-di/7.2/core/multi-binding.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
@@ -31,7 +31,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="kodein-di" data-version="7.2.0">
+<div class="nav-container" data-component="kodein-di" data-version="7.2">
   <div class="navbar-bottom-line-linear"></div>
   <aside class="nav">
     <div class="panels">
@@ -54,22 +54,22 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="install.html">Core documentation</a>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="install.html">Install</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#install-jvm">JVM</a>
+    <a class="nav-link" href="install.html#install-jvm">JVM</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#kotlin-js">Kotlin/JS</a>
+    <a class="nav-link" href="install.html#kotlin-js">Kotlin/JS</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#kotlin-multiplatform">Kotlin/Multiplatform</a>
+    <a class="nav-link" href="install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
   </li>
 </ul>
   </li>
@@ -133,7 +133,7 @@
   </li>
 </ul>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="multi-binding.html">Multi-binding</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -212,7 +212,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Kodein-DI</span>
-    <span class="version">dev</span>
+    <span class="version">7.2.0</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -232,10 +232,10 @@
     <li class="component is-current">
       <span class="title">Kodein-DI</span>
       <ul class="versions">
-        <li class="version is-current">
-          <a href="../index.html">dev</a>
+        <li class="version is-current is-latest">
+          <a href="../index.html">7.2.0</a>
         </li>
-        <li class="version is-latest">
+        <li class="version">
           <a href="../../7.1/index.html">7.1.0</a>
         </li>
         <li class="version">
@@ -268,120 +268,71 @@
   <ul>
     <li><a href="../index.html">Kodein-DI</a></li>
     <li><a href="install.html">Core documentation</a></li>
+    <li><a href="multi-binding.html">Multi-binding</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">dev</button>
+  <button class="version-menu-toggle" title="Show other versions of page">7.2.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="install.html">dev</a>
-    <a class="version" href="../../7.1/core/install.html">7.1.0</a>
-    <a class="version" href="../../7.0/core/install.html">7.0.0</a>
+    <a class="version is-current" href="multi-binding.html">7.2.0</a>
+    <a class="version" href="../../7.1/core/multi-binding.html">7.1.0</a>
+    <a class="version" href="../../7.0/core/multi-binding.html">7.0.0</a>
     <a class="version is-missing" href="../../6.5/index.html">6.5.5</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/7.2/doc/modules/core/pages/install.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/7.2/doc/modules/core/pages/multi-binding.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Install</h1>
-<div class="sect1">
-<h2 id="install-jvm"><a class="anchor" href="#install-jvm"></a>JVM</h2>
+<h1 class="page">Multi-binding</h1>
+<div id="preamble">
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_with_gradle"><a class="anchor" href="#_with_gradle"></a>With Gradle</h3>
 <div class="paragraph">
-<p>Add the JCenter repository:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">buildscript {
-    repositories {
-        jcenter()
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Then add the dependency:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-    implementation 'org.kodein.di:kodein-di:7.2.0'
-}</code></pre>
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you are <strong>NOT</strong> using <strong>Gradle 6+</strong>, you should declare the use of the Gradle Metadata experimental feature</p>
-</div>
-<div class="listingblock">
-<div class="title">settings.gradle.kts</div>
-<div class="content">
-<pre>enableFeaturePreview("GRADLE_METADATA")</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Or, import the JVM binaries with <code>implementation("org.kodein.di:kodein-di-jvm:7.2.0")</code>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_with_maven"><a class="anchor" href="#_with_maven"></a>With Maven</h3>
-<div class="paragraph">
-<p>Add the JCenter repository:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;repositories&gt;
-    &lt;repository&gt;
-      &lt;id&gt;jcenter&lt;/id&gt;
-      &lt;url&gt;https://jcenter.bintray.com&lt;/url&gt;
-    &lt;/repository&gt;
-&lt;/repositories&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Then add the dependency:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.kodein.di&lt;/groupId&gt;
-        &lt;artifactId&gt;kodein-di-jvm&lt;/artifactId&gt;
-        &lt;version&gt;7.2.0&lt;/version&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;</code></pre>
-</div>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Use <code>kodein-di-jvm</code>, as <em>Kotlin/Multiplatform</em> projects does not work with Maven
-</td>
-</tr>
-</table>
-</div>
+<p><em>Kodein-DI</em> allows multi bindings via a binding set.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="kotlin-multiplatform"><a class="anchor" href="#kotlin-multiplatform"></a>Kotlin/Multiplatform (Gradle)</h2>
+<h2 id="set-bindings"><a class="anchor" href="#set-bindings"></a>In a Set</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_binding_in_a_set"><a class="anchor" href="#_binding_in_a_set"></a>Binding in a Set</h3>
+<div class="paragraph">
+<p>To have multiple bindings in a set, you need to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Declare that you are using a set binding for a particular bound type.</p>
+</li>
+<li>
+<p>Add bindings to the set.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Example creating a set of <code>Configuration</code> bindings.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind() from setBinding&lt;Configuration&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
+
+    bind&lt;Configuration&gt;().inSet() with provider { FooConfiguration() } <i class="conum" data-value="2"></i><b>(2)</b>
+    bind&lt;Configuration&gt;().inSet() with singleton { BarConfiguration() } <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Creating a set binding of <code>Configuration</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Binding multiple <code>Configuration</code> implementations.</td>
+</tr>
+</table>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -389,111 +340,100 @@ Use <code>kodein-di-jvm</code>, as <em>Kotlin/Multiplatform</em> projects does n
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<em>Kodein-DI</em> supports the following targets:<br>
-androidArm32, androidArm64, iosArm32, iosArm64, iosX64, linuxArm32Hfp, linuxMips32, linuxMipsel32, linuxX64, macosX64, mingwX64
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
-<p><em>Kodein-DI</em> uses the new gradle native dependency model.</p>
+<p>You can:</p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you are <strong>NOT</strong> using <strong>Gradle 6+</strong>, you must declare the use of the Gralde Metadata experimental feature</p>
-</div>
-<div class="listingblock">
-<div class="title">settings.gradle.kts</div>
-<div class="content">
-<pre>enableFeaturePreview("GRADLE_METADATA")</pre>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use different binding types (such as <code>provider</code> or <code>singleton</code>) in the same set.</p>
+</li>
+<li>
+<p>Add bindings to the same set in different modules, provided that the set has been declared first.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Add the JCenter repository:</p>
+<p>You can also bind multiple bindings with arguments (such as <code>factory</code> or <code>multiton</code>) in a set <strong>as long as all bindings share the same argument type</strong>.</p>
 </div>
 <div class="listingblock">
+<div class="title">Example creating a set of <code>Result</code> bindings.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">buildscript {
-    repositories {
-        jcenter()
-    }
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind() from argSetBinding&lt;Query, Result&gt;()
+
+    bind&lt;Result&gt;().inSet() with factory { q: Query -&gt; Foo.query(q) }
+    bind&lt;Result&gt;().inSet() with multiton { q: Query -&gt; Bar.query(q) }
 }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_retrieving_from_a_set"><a class="anchor" href="#_retrieving_from_a_set"></a>Retrieving from a Set</h3>
+<div class="paragraph">
+<p>Note that the type being bound is <code>Set&lt;T&gt;</code>, not <code>T</code>.<br>
+Therefore, you need to retrieve a <code>Set</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example retrieving set of <code>Configuration</code> with the generic version.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val configurations: Set&lt;Configuration&gt; by di.instance()</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Then add the dependency:</p>
+<p>if you are using the <code>erased</code> version, you need to retrieve thusly:</p>
 </div>
 <div class="listingblock">
+<div class="title">Example retrieving set of <code>Configuration</code> with the erased version.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">kotlin {
-    sourceSets {
-        commonMain {
-            dependencies {
-                implementation "org.kodein.di:kodein-di:7.2.0"
-            }
-        }
-    }
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val configurations: Set&lt;Configuration&gt; by di.Instance(erasedSet())</code></pre>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="kotlin-js"><a class="anchor" href="#kotlin-js"></a>JavaScript (Gradle)</h2>
+<h2 id="_in_a_map"><a class="anchor" href="#_in_a_map"></a>In a map</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Because <em>Kodein-DI</em> for JavaScript is compiled as a <a href="https://github.com/umdjs/umd">UMD module</a>, it can be imported:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>In a browser:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>as an AMD module (for example with RequireJS) (See index.html in the demo project).</p>
-</li>
-<li>
-<p>Directly in an HTML page with a <code>&lt;script&gt;</code> tag (See index2.html in the demo project).</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>In NodeJS, as a regular CJS module.</p>
-</li>
-</ul>
+<p><em>Kodein-DI</em> does not directly support map multi-binding.
+However, it is very easy to create a binding map by using a binding set.</p>
 </div>
 <div class="paragraph">
-<p>Add the JCenter repository:</p>
+<p>First, create the following primitive:</p>
 </div>
 <div class="listingblock">
+<div class="title">Example of the type alias for a map multi-binding as <code>Map&lt;String, Configuration&gt;</code>.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">buildscript {
-    repositories {
-        jcenter()
-    }
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">typealias ConfigurationEntry = Pair&lt;String, Configuration&gt;
+typealias ConfigurationEntries = Set&lt;ConfigurationEntry&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, bind with keys:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example binding as in a map multibinding.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind() from setBinding&lt;ConfigurationEntry&gt;()
+
+    bind&lt;ConfigurationEntry&gt;().inSet() with factory { "foo" to FooConfiguration() }
+    bind&lt;ConfigurationEntry&gt;().inSet() with multiton { "bar" to BarConfiguration() }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Then add the dependency:</p>
+<p>Finally, retrieve the map:</p>
 </div>
 <div class="listingblock">
+<div class="title">Example retrieving a map multibinding.</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-    compile 'org.kodein.di:kodein-di-js:7.2.0'
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val configurations by di.instance&lt;ConfigurationEntries&gt;().toMap()</code></pre>
 </div>
 </div>
 </div>
