@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DB</title>
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-db" data-version="0.5">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein-DB</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-kmp">Kotlin/Multiplatform</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-android">Android only</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-jvm">Desktop JVM</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="immutability.html">Immutability requirement</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="setup-database.html">Setting up the database</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="defining-data-model.html">Defining the data model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="operations.html">Read / Write operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="iteration.html">Iterate with cursors &amp; sequences</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="consistency.html">Managing consistency</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reactive.html">Being reactive</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tests.html">Test your DB code</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanced.html">Advanced usage</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#handling-cache">Handling the cache</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#using-primitives">Using primitives</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#locking-check">Locking checks and reactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#custom-serialization">Fine-graining (de)serialization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#leveldb-options">LevelDB Options</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#middleware">Embedding your logic</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DB</span>
+    <span class="version">0.5.0 beta</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.5.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.4/index.html">0.4.1 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.3/index.html">0.3.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.2/index.html">0.2.0 beta</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-di/7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein-DB</a></li>
+    <li><a href="advanced.html">Advanced usage</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.5.0 beta</button>
+  <div class="version-menu">
+    <a class="version is-current" href="advanced.html">0.5.0 beta</a>
+    <a class="version" href="../../0.4/core/advanced.html">0.4.1 beta</a>
+    <a class="version" href="../../0.3/core/advanced.html">0.3.0 beta</a>
+    <a class="version" href="../../0.2/core/advanced.html">0.2.0 beta</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DB/edit/0.5-beta/doc/modules/core/pages/advanced.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Advanced usage</h1>
+<div class="sect1">
+<h2 id="handling-cache"><a class="anchor" href="#handling-cache"></a>Handling the cache</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_definition"><a class="anchor" href="#_definition"></a>Definition</h3>
+<div class="paragraph">
+<p>Kodein-DB provides an object-cache that reflects the data that is serialized inside the database.<br>
+When querying for a data (either by <code>DB.get</code> or <code>DB.find</code>) if the needed data is already in the cache, then instead of de-serializing it, Kodein-DB immediately returns the cached value.</p>
+</div>
+<div class="paragraph">
+<p>Kodein-DB updates the cache:
+- at every <code>put</code> (both the database and the cache save the model)
+- at every <code>get</code> or <code>find</code> (if the model is not in the cache, then the cache saves the model to prevent any future deserialization).</p>
+</div>
+<div class="paragraph">
+<p>This enhances performances as deserialization is one of the most expensive operations.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_at_open"><a class="anchor" href="#_configuring_at_open"></a>Configuring at open</h3>
+<div class="paragraph">
+<p>Kodein-DB allows you to pass multiple configuration values that modify cache behaviour when opening a database.</p>
+</div>
+<div class="paragraph">
+<p>You may want to define the maximum size of the cache:</p>
+</div>
+<div class="listingblock">
+<div class="title">Opening a database:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val db = DB.open(
+    "path/to/db",
+    ModelCache.MaxSize(Runtime.getRuntime().totalMemory() / 8) <i class="conum" data-value="1"></i><b>(1)</b>
+)</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Default on JVM &amp; Android.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The cache also works on snapshots (remember: Kodein-DB automatically uses a snapshot when using a cursor or a sequence).
+When you create a snapshot (or a cursor), it uses the same cache.<br>
+However, if you mutate the database while holding a snapshot, than the cache must be copied in order for the snapshot to use a cache that only reflects the database when it was created.
+This is a rare case (if you correctly close your cursors / snapshots) and only object references are copied, so the process itself is as optimised as can be.
+However, you may need to handle the size of these snapshot-specific copies.</p>
+</div>
+<div class="listingblock">
+<div class="title">Opening a database:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val cacheSize = Runtime.getRuntime().totalMemory() / 8
+val db = DB.open(
+    "path/to/db",
+    ModelCache.MaxSize(cacheSize),
+    ModelCache.CopyMaxSize(cacheSize / 4) <i class="conum" data-value="1"></i><b>(1)</b>
+)</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Default on JVM &amp; Android.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Of course, if you don&#8217;t want any caching, you can simply disable the cache:</p>
+</div>
+<div class="listingblock">
+<div class="title">Disabling the cache:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val db = DB.open(
+    "path/to/db",
+    ModelCache.Disable
+)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_model_skip_refresh"><a class="anchor" href="#_model_skip_refresh"></a>Model skip &amp; refresh</h3>
+<div class="paragraph">
+<p>There are times when you may want to bypass the cache for a specific operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When you <strong>put</strong> a model you won&#8217;t need in the future:</p>
+<div class="listingblock">
+<div class="title">Bypassing the cache:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.put(model, ModelCache.Skip)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>When you <strong>get</strong> a model you won&#8217;t query again in the future:</p>
+<div class="listingblock">
+<div class="title">Bypassing the cache:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val m1 = db.get(model, ModelCache.Skip) <i class="conum" data-value="1"></i><b>(1)</b>
+val m2 = db.get(model, ModelCache.Refresh) <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Skips the cache (and removes any cached value).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Forces the cache to refresh from the serialized model in DB.</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="using-primitives"><a class="anchor" href="#using-primitives"></a>Using primitives</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want a simple key-value collection, Kodein-DB provides optimized primitives for <code>Int</code>, <code>Long</code>, <code>Double</code> and <code>String</code>.
+This can be useful for configuration-like values.</p>
+</div>
+<div class="listingblock">
+<div class="title">Using a primitive:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.put(Primitive(id = "name", value = "John Doe"))
+/*...*/
+val name = db.getById&lt;StringPrimitive&gt;("name")?.value</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="locking-check"><a class="anchor" href="#locking-check"></a>Locking checks and reactions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Both <code>Anticipate</code> and <code>React</code> can allow you to run the provided callback in a locked database (through the <code>needsLock</code> optional parameter).
+Using this means that the database will be completely write-locked for the duration of the callback execution.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+This can be very useful for things like transactions but can lead to dead locks and/or performance degradations.
+Be extra-careful when using this feature !
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="custom-serialization"><a class="anchor" href="#custom-serialization"></a>Fine-graining (de)serialization</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_writing_your_own_optimised_deserializers"><a class="anchor" href="#_writing_your_own_optimised_deserializers"></a>Writing your own optimised (de)serializers</h3>
+<div class="paragraph">
+<p>If you want to handle a specific class serialization by yourself you can write your own serializer with the <code>org.kodein.db.model.orm.Serializer</code> interface:</p>
+</div>
+<div class="listingblock">
+<div class="title">Using specific serializer:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class User(@Id val id: String, val name: String) {
+    object S : Serializer&lt;User&gt; {
+        override fun serialize(model: User, output: Writeable, vararg options: Options.Write) { <i class="conum" data-value="1"></i><b>(1)</b>
+            output.putSizeAndString(model.id, Charset.ASCII)
+            output.putSizeAndString(model.name, Charset.UTF8)
+        }
+        override fun deserialize(type: KClass&lt;out User&gt;, transientId: ReadMemory, input: ReadBuffer, vararg options: Options.Read): User { <i class="conum" data-value="1"></i><b>(1)</b>
+            val id = input.readSizeAndString(Charset.UTF8)
+            val name = input.readSizeAndString(Charset.UTF8)
+            return User(id, name)
+        }
+    }
+}
+val db = DB.open("path/to/db",
+        +User.S <i class="conum" data-value="2"></i><b>(2)</b>
+)</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>You can use <a href="reactive.html#context" class="page">context</a> or specific options with the array of <code>Options.Write</code> options.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Don&#8217;t forget to <strong>register the listener</strong> when opening the database!</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="leveldb-options"><a class="anchor" href="#leveldb-options"></a>LevelDB Options</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As Kodein-DB uses LevelDB underneath, you can pass various LevelDB specific configuration values:</p>
+</div>
+<div class="listingblock">
+<div class="title">Using LevelDB options:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val db = DB.open(
+    "path/to/db",
+    LevelDBOptions.PrintLogs(true)
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Have a look at the <code>org.kodein.db.ldb.LevelDBOptions</code> sealed class for an overview of all available options.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="middleware"><a class="anchor" href="#middleware"></a>Embedding your logic</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_layered_architecture"><a class="anchor" href="#_layered_architecture"></a>Layered architecture</h3>
+<div class="paragraph">
+<p>Kodein-DB uses a layered architecture: each layer transforms an operation into a "simpler" operation that can be then handled by a lower layer.</p>
+</div>
+<div class="paragraph">
+<p>Here are the layers, from top to bottom:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>API</strong>: creates a nice API that can be used in a MPP application. This is the API you are using.</p>
+</li>
+<li>
+<p><strong>Cache</strong>: Intercepts queries that would create a model already in cache and return that model instead.</p>
+</li>
+<li>
+<p><strong>Model</strong>: Transforms a model into a document (a.k.a. serialized bytes and associated metadata) and vice versa.</p>
+</li>
+<li>
+<p><strong>Data</strong>: Handles the document, its metadata and its indexes, transforming it to LevelDB entries.</p>
+</li>
+<li>
+<p><strong>LevelDB</strong>: Stores and retrieves entries.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Kodein-DB allows you to add your own layers in this stack.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Most layer methods receive an array of options, which means that a middleware can recieve context or configuration the same way <a href="reactive.html#context" class="page">a listener receives it</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_model_middleware"><a class="anchor" href="#_model_middleware"></a>Model middleware</h3>
+<div class="paragraph">
+<p>A model middleware sits between the <strong>API</strong> and the <strong>Cache</strong>.
+In fact, the cache is itself a model middleware (added by default, unless disabled).</p>
+</div>
+<div class="paragraph">
+<p>To implement a model middleware, use the <code>org.kodein.db.model.ModelDB</code> interface and the <code>org.kodein.db.Middleware.Model</code> container.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">typealias ModelMiddleware = ((ModelDB) -&gt; ModelDB)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s a very simple model middleware that counts how many models you&#8217;ve put inside the database:</p>
+</div>
+<div class="listingblock">
+<div class="title">A put counter model middleware</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class PutCountModelDB(val base: ModelDB, val count: AtomicInt) : ModelDB by base { <i class="conum" data-value="1"></i><b>(1)</b>
+    override fun &lt;M : Any&gt; put(key: Key&lt;M&gt;, model: M, vararg options: Options.Write): Int {
+        val ret = base.put(key, model, *options)
+        count.incrementAndGet() <i class="conum" data-value="2"></i><b>(2)</b>
+        return ret
+    }
+
+    override fun &lt;M : Any&gt; put(model: M, vararg options: Options.Write): KeyAndSize&lt;M&gt; {
+        val ret = base.put(model, *options)
+        count.incrementAndGet() <i class="conum" data-value="2"></i><b>(2)</b>
+        return ret
+    }
+
+    override fun newBatch(): ModelBatch = PutCountModelBatch(base.newBatch(), count)
+}
+
+class PutCountModelBatch(val base: ModelBatch, val count: AtomicInt) : ModelBatch by base { <i class="conum" data-value="1"></i><b>(1)</b>
+    private var willAdd = 0 <i class="conum" data-value="3"></i><b>(3)</b>
+
+    override fun &lt;M : Any&gt; put(key: Key&lt;M&gt;, model: M, vararg options: Options.Write): Int {
+        val ret = base.put(key, model, *options)
+        willAdd += 1 <i class="conum" data-value="2"></i><b>(2)</b>
+        return ret
+    }
+
+    override fun &lt;M : Any&gt; put(model: M, vararg options: Options.Write): KeyAndSize&lt;M&gt; {
+        val ret = base.put(model, *options)
+        willAdd += 1 <i class="conum" data-value="2"></i><b>(2)</b>
+        return ret
+    }
+
+    override fun write(afterErrors: MaybeThrowable, vararg options: Options.Write) {
+        base.write(afterErrors, *options)
+        repeat(willAdd) { count.incrementAndGet() } <i class="conum" data-value="3"></i><b>(3)</b>
+    }
+}
+
+fun putCountModelMiddleware(count: AtomicInt) =
+        Middleware.Model { base -&gt; PutCountModelDB(base, count) } <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Delegates every non-overloaded methods to the underneath layer</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Increment <strong>after</strong> the put operation, because it may fail</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Actually report the put operations only once the batch has been writen</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The middleware itself, that encapsulates the ModelDB layer inside the decorator.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Counting count would be a lot easier with a simple <a href="reactive.html#reaction" class="page">listener</a>.
+This is only a silly example!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t forget to actually add the middleware to the database when opening it!</p>
+</div>
+<div class="listingblock">
+<div class="title">Using LevelDB options:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val putCount = atomic(0)
+val db = DB.open(
+    "path/to/db",
+    putCountModelMiddleware(putCount)
+)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_middleware"><a class="anchor" href="#_data_middleware"></a>Data middleware</h3>
+<div class="paragraph">
+<p>A data middleware sits between the <strong>Data</strong> and the <strong>Model</strong> layers.
+It works exactly like a model middleware, except that you manipulate <a href="defining-data-model.html#values" class="page">Values</a> and Kodein-Memory KBuffers instead of models and objects.</p>
+</div>
+<div class="paragraph">
+<p>To implement a data middleware, use the <code>org.kodein.db.data.DataDB</code> interface and the <code>org.kodein.db.Middleware.Data</code> container.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_leveldb_middleware"><a class="anchor" href="#_leveldb_middleware"></a>LevelDB middleware</h3>
+<div class="paragraph">
+<p>A LevelDB middleware sits between the <strong>LevelDB</strong> and the <strong>Data</strong> layers.
+It works exactly like a data middleware, except that you manipulate raw data instead of documents, which means that a simple operation in Kodein-DB will probably lead to multiple operations at the LevelDB layer.</p>
+</div>
+<div class="paragraph">
+<p>To implement a LevelDB middleware, use the <code>org.kodein.db.leveldb.LevelDB</code> interface and the <code>org.kodein.db.Middleware.Level</code> container.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

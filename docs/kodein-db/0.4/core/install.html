@@ -118,14 +118,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Kodein-DB</span>
-    <span class="version">0.4.0 beta</span>
+    <span class="version">0.4.1 beta</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <span class="title">Kodein-DB</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
-          <a href="../index.html">0.4.0 beta</a>
+        <li class="version is-latest">
+          <a href="../../0.5/index.html">0.5.0 beta</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">0.4.1 beta</a>
         </li>
         <li class="version">
           <a href="../../0.3/index.html">0.3.0 beta</a>
@@ -177,9 +180,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.4.0 beta</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.4.1 beta</button>
   <div class="version-menu">
-    <a class="version is-current" href="install.html">0.4.0 beta</a>
+    <a class="version" href="../../0.5/core/install.html">0.5.0 beta</a>
+    <a class="version is-current" href="install.html">0.4.1 beta</a>
     <a class="version" href="../../0.3/core/install.html">0.3.0 beta</a>
     <a class="version" href="../../0.2/core/install.html">0.2.0 beta</a>
   </div>
@@ -224,7 +228,7 @@ Kodein-DB will eventually be sync&#8217;d with JCenter, when it exits beta.
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-    implementation("org.kodein.db:kodein-db-jvm:0.4.0-beta")
+    implementation("org.kodein.db:kodein-db-jvm:0.4.1-beta")
 }</code></pre>
 </div>
 </div>
@@ -235,7 +239,7 @@ Kodein-DB will eventually be sync&#8217;d with JCenter, when it exits beta.
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you are developing a library and not an application, use the artifact <code>org.kodein.db:kodein-db-api-jvm:0.4.0-beta</code> instead, which only provides the Kodein-DB API, and not its implementation.
+If you are developing a library and not an application, use the artifact <code>org.kodein.db:kodein-db-api-jvm:0.4.1-beta</code> instead, which only provides the Kodein-DB API, and not its implementation.
 </td>
 </tr>
 </table>
@@ -248,7 +252,7 @@ When targetting JVM only, you can use <a href="https://github.com/EsotericSoftwa
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-    implementation("org.kodein.db:kodein-db-serializer-kryo-jvm:0.4.0-beta")
+    implementation("org.kodein.db:kodein-db-serializer-kryo-jvm:0.4.1-beta")
 }</code></pre>
 </div>
 </div>
@@ -259,7 +263,7 @@ When targetting JVM only, you can use <a href="https://github.com/EsotericSoftwa
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-    implementation("org.kodein.db:kodein-leveldb-jni-jvm-linux:0.4.0-beta")
+    implementation("org.kodein.db:kodein-leveldb-jni-jvm-linux:0.4.1-beta")
     //                                                  -linux, -macos or -windows
 }</code></pre>
 </div>
@@ -332,7 +336,7 @@ Kodein-DB will eventually be sync&#8217;d with JCenter, when it exits beta.
     sourceSets {
         commonMain {
             dependencies {
-                implementation("org.kodein.db:kodein-db:0.4.0-beta")
+                implementation("org.kodein.db:kodein-db:0.4.1-beta")
             }
         }
     }
@@ -349,7 +353,7 @@ Kodein-DB will eventually be sync&#8217;d with JCenter, when it exits beta.
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you are developing a library and not an application, use the artifact <code>org.kodein.db:kodein-db-api:0.4.0-beta</code> instead, which only provides the Kodein-DB API, and not its implementation.
+If you are developing a library and not an application, use the artifact <code>org.kodein.db:kodein-db-api:0.4.1-beta</code> instead, which only provides the Kodein-DB API, and not its implementation.
 </td>
 </tr>
 </table>
@@ -365,7 +369,7 @@ When targeting Multiplatform, you need to use <a href="https://github.com/Kotlin
     sourceSets {
         commonMain {
             dependencies {
-                implementation("org.kodein.db:kodein-db-serializer-kotlinx:0.4.0-beta")
+                implementation("org.kodein.db:kodein-db-serializer-kotlinx:0.4.1-beta")
             }
         }
     }
