@@ -234,16 +234,16 @@
 <h2 id="_use"><a class="anchor" href="#_use"></a>Use</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To create an in-memory database, use the <code>DB.inmemory</code> factory:</p>
+<p>To create an in-memory database, use the <code>DB.inMemory</code> factory:</p>
 </div>
 <div class="listingblock">
 <div class="title">Opening an in-memory test database</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val db = DB.inmemory.open("my-db-name", options)</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val db = DB.inMemory.open("my-db-name", options)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><code>DB.inmemory</code> implements the <code>DBFactory&lt;DB&gt;</code> interface, which means that you can easily create a factory function that abstracts your database configuration:</p>
+<p><code>DB.inMemory</code> implements the <code>DBFactory&lt;DB&gt;</code> interface, which means that you can easily create a factory function that abstracts your database configuration:</p>
 </div>
 <div class="listingblock">
 <div class="title">Opening an in-memory test database</div>
@@ -263,7 +263,7 @@
     )
 
 val realDb = createDatabase(DB.default, getApplicationDirectory())
-val testDb = createDatabase(DB.inmemory, "fake")</code></pre>
+val testDb = createDatabase(DB.inMemory, "fake")</code></pre>
 </div>
 </div>
 </div>
