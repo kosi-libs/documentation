@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DI</title>
+    <link rel="canonical" href="https://docs.kodein.org/kodein-di/7.4/core/advanced.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-di" data-version="7.4">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein-DI</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../platform-and-genericity.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Core documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frameworks support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/android.html">Android</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/ktor.html">Ktor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/tornadofx.html">TornadoFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extensions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/configurable.html">Configurable &amp; global container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/jsr330.html">JSR-330 compatibility</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Migration guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-6to7.html">Kodein version 6 to version 7</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-4to5.html">Kodein version 4 to version 5</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-j2k.html">JSR-330 to Kodein-DI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DI</span>
+    <span class="version">7.4.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-db/0.6/index.html">0.6.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.5/index.html">0.5.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.4/index.html">0.4.1 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.3/index.html">0.3.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.2/index.html">0.2.0 beta</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein-DI</a></li>
+    <li><a href="install.html">Core documentation</a></li>
+    <li><a href="advanced.html">Advanced knowledge</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.4.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="advanced.html">7.4.0</a>
+    <a class="version" href="../../7.3/core/advanced.html">7.3.1</a>
+    <a class="version" href="../../7.2/core/advanced.html">7.2.0</a>
+    <a class="version" href="../../7.1/core/advanced.html">7.1.0</a>
+    <a class="version" href="../../7.0/core/advanced.html">7.0.0</a>
+    <a class="version is-missing" href="../../6.5/index.html">6.5.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/7.4/doc/modules/core/pages/advanced.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Advanced knowledge</h1>
+<div class="sect1">
+<h2 id="debugging"><a class="anchor" href="#debugging"></a>Debugging</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_print_bindings"><a class="anchor" href="#_print_bindings"></a>Print bindings</h3>
+<div class="paragraph">
+<p>You can easily print bindings with <code>println(di.container.tree.bindings.description)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of what this prints:</p>
+</div>
+<div class="listingblock">
+<div class="title">An example of di.container.tree.bindings.description:</div>
+<div class="content">
+<pre>        bind&lt;Dice&gt;() with factory { Int -&gt; RandomDice }
+        bind&lt;DataSource&gt;() with singleton { SQLiteDataSource }
+        bind&lt;Random&gt;() with provider { SecureRandom }
+        bind&lt;String&gt;(tag = "answer") with instance ( Int )</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As you can see, it&#8217;s really easy to understand which type with which tag is bound to which implementation inside which scope.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Description prints type names in a "kotlin-esque" way.
+Because <em>Kodein-DI</em> does not depend on <code>kotlin-reflect</code>, it uses java <code>Type</code> objects that do not contain nullability information.
+As such, the type display does not include nullability. Still, it&#8217;s easier to read <code>List&lt;*&gt;</code> than <code>List&lt;? extends Object&gt;</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_recursive_dependency_loop"><a class="anchor" href="#_recursive_dependency_loop"></a>Recursive dependency loop</h3>
+<div class="paragraph">
+<p>When it detects a recursive dependency, <em>Kodein-DI</em> will throw a <code>DI.DependencyLoopException</code>.
+The message of the exception explains how the loop happened.</p>
+</div>
+<div class="listingblock">
+<div class="title">An example of recursive dependency loop:</div>
+<div class="content">
+<pre>DI$DependencyLoopException: Dependency recursion:
+     bind&lt;Database&gt;()
+    ╔╩&gt;bind&lt;User&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
+    ║  ╚&gt;bind&lt;Repository&gt;(tag = "users") <i class="conum" data-value="2"></i><b>(2)</b>
+    ║    ╚&gt;bind&lt;Database&gt;() <i class="conum" data-value="3"></i><b>(3)</b>
+    ╚══════╝</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>Database</code> depends on <code>User</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>User</code> depends on <code>Repository</code> with the tag "users"</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>Repository</code> with the tag "users" depends on <code>Database</code>, <strong>we have found the dependency loop!</strong>.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="NotFoundException"><a class="anchor" href="#NotFoundException"></a>Dependency not found</h3>
+<div class="paragraph">
+<p>When you try to inject / retrieve a dependency that does not exists, <em>Kodein-DI</em> will throw a <code>DI.NotFoundException</code>.
+The message of the exception explains what is the binding the container is looking for.</p>
+</div>
+<div class="listingblock">
+<div class="title">An example of a not found exception:</div>
+<div class="content">
+<pre>No binding found for bind&lt;Person&gt;() with ? { ? }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you need to trace what are the different bindings available in the container you can use the option <code>fullContainerTreeOnError = true</code>, to log them all.</p>
+</div>
+<div class="listingblock">
+<div class="title">Enabling logging all the bindings available on a <code>DI.NotFoundException</code>.</div>
+<div class="content">
+<pre>val di = DI.direct {
+    fullContainerTreeOnError = true <i class="conum" data-value="1"></i><b>(1)</b>
+    bind&lt;A&gt;() with singleton { A(instance()) } <i class="conum" data-value="2"></i><b>(2)</b>
+}
+di.instance&lt;B&gt;() <i class="conum" data-value="3"></i><b>(3)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Enables the option.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Any bindings.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Try to retrieve an unbound type</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">And the trace associated to the code above:</div>
+<div class="content">
+<pre>No binding found for bind&lt;B&gt;() with ? { ? }
+Registered in this DI container:
+        bind&lt;A&gt;() with singleton { A }</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="onready-callbacks"><a class="anchor" href="#onready-callbacks"></a>OnReady callbacks</h3>
+<div class="paragraph">
+<p>You can define callbacks to be called once the di instance is ready and all bindings are defined.
+This can be useful to do some "starting" jobs.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: registering a callback at binding time</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val appModule = DI.Module(name = "app") {
+    import(engineModule)
+    onReady {
+        val engine = instance&lt;Engine&gt;()
+        instance&lt;Logger&gt;().info("Starting engine version ${engine.version}")
+        engine.start()
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="erased-version"><a class="anchor" href="#erased-version"></a>Erased version pitfalls</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_using_generic_and_erased_function_forms"><a class="anchor" href="#_using_generic_and_erased_function_forms"></a>Using generic and erased function forms</h3>
+<div class="paragraph">
+<p>Each DI function that handles a type exists in two form: as inline (lowercased first letter) and as regular function (uppercased first letter).<br>
+For example, the <code>di.instance</code> function also exists as <code>di.Instance</code>.</p>
+</div>
+<div class="paragraph">
+<p>The uppercase functions need <code>TypeToken</code> parameters that define the type being bound / retrieved and maybe the factory&#8217;s argument.<br>
+You can easily use these functions with the <code>generic</code> or <code>erased</code> functions:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: using the <code>erased</code> function</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val ds: DataSource by di.Instance(erased())</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, all inline functions are aliases to their uppercase counterparts using the <code>generic</code> function.<br>
+For example, the <code>di.instance()</code> function is an alias to <code>di.Instance(generic())</code></p>
+</div>
+<div class="paragraph">
+<p>So, when you know that you inject a type that is <strong>not generic</strong>, you can use <code>di.Instance(erased())</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_erased_parameterized_generic_types"><a class="anchor" href="#_erased_parameterized_generic_types"></a>Erased parameterized generic types</h3>
+<div class="paragraph">
+<p>When using the <code>erased</code> function or using erased by default (either by choice on the JVM or by necessity elsewhere), you cannot represent a generic type.<br>
+For example, <code>erased&lt;Set&lt;String&gt;&gt;</code> will yield a <code>TypeToken</code> representing <code>Set&lt;*&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p><em>Kodein-DI</em> provides a way to represent a generic type in an erased way:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: generic type tokens, using erased</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">erasedComp(Set::class, erased(String::class))                                               // Represents a Set&lt;String&gt;
+erasedComp(Map::class, erased(Int::class), erased(String::class))                           // Represents a Map&lt;Int, String&gt;
+erasedComp(Triple::class, erased(Int::class), erased(String::class), erased(Int::class))    // Represents a Triple&lt;Int, String, Int&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The type parameter themselves are erased, meaning that you cannot represent a multi-level generic type.
+You can, however, construct your own <code>CompositeTypeToken</code> to represent such a type.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="bind-same-type-to-different-factories"><a class="anchor" href="#bind-same-type-to-different-factories"></a>Bind the same type to different factories</h3>
+<div class="paragraph">
+<p>Yeah, when I said earlier that "you can have multiple bindings of the same type, as long as they are bound with different tags", I lied.
+Because each binding is actually a <em>factory</em>, the binding tuples are not <code>([BindType], [Tag])</code> but actually <code>([ContextType], [BindType], [ArgType], [Tag])</code> (note that providers and singletons are bound as <code>([BindType], Unit, [Tag])</code>).
+This means that any combination of these three information can be bound to it&#8217;s own factory, which in turns means that you can bind the same type without tagging to different factories.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Please be cautious when using this knowledge, as other less thorough readers may get confused with it.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="hack-the-container"><a class="anchor" href="#hack-the-container"></a>Hack the container!</h3>
+<div class="paragraph">
+<p>The DIContainer is the sacred DI object that contains all bindings and is responsible for retrieval.
+You can access it with <code>di.container</code>.
+In it, each <code>Binding</code> is bound to a <code>DI.Key</code>.</p>
+</div>
+<div class="paragraph">
+<p>In fact, all DI functions are proxies to this container API.</p>
+</div>
+<div class="paragraph">
+<p>When defining bindings, in the <code>DI.Builder</code>, you can access the <code>container</code> property to bind factories to a <code>DI.Key</code> or a <code>DI.Bind</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tag_vs_context_vs_argument"><a class="anchor" href="#_tag_vs_context_vs_argument"></a>Tag vs context vs argument</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">&nbsp;</th>
+<th class="tableblock halign-left valign-top">Binding identification</th>
+<th class="tableblock halign-left valign-top">accessible by the binding <em>itself</em>*</th>
+<th class="tableblock halign-left valign-top">accessible by the binding function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tag</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">instance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>context</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>argument</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_explore_bindings"><a class="anchor" href="#_explore_bindings"></a>Explore bindings</h3>
+<div class="paragraph">
+<p>You can access a <strong>copy</strong> of the bindings map with <code>di.container.bindings</code>.<br>
+From this <code>Map&lt;DI.Key, Factory&lt;*, *&gt;&gt;</code>, you can explore all bindings, their keys and factories.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

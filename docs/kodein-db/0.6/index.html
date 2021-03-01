@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DB</title>
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" href="../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-db" data-version="0.6">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Kodein-DB</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="core/install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/install.html#install-kmp">Kotlin/Multiplatform</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/install.html#install-android">Android only</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/install.html#install-jvm">Desktop JVM</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/immutability.html">Immutability requirement</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/setup-database.html">Setting up the database</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/defining-data-model.html">Defining the data model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/operations.html">Read / Write operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/iteration.html">Iterate with cursors &amp; sequences</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/consistency.html">Managing consistency</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/reactive.html">Being reactive</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="core/tests.html">Test your DB code</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="core/advanced.html">Advanced usage</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#handling-cache">Handling the cache</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#using-primitives">Using primitives</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#locking-check">Locking checks and reactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#custom-serialization">Fine-graining (de)serialization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#leveldb-options">LevelDB Options</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/advanced.html#middleware">Embedding your logic</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DB</span>
+    <span class="version">0.6.0 beta</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">0.6.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../0.5/index.html">0.5.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../0.4/index.html">0.4.1 beta</a>
+        </li>
+        <li class="version">
+          <a href="../0.3/index.html">0.3.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../0.2/index.html">0.2.0 beta</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../kodein-di/7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../kodein-di/7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../kodein-di/7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../kodein-di/7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../kodein-di/7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../kodein-di/6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Kodein-DB</a></li>
+    <li><a href="index.html">Introduction</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.6.0 beta</button>
+  <div class="version-menu">
+    <a class="version is-current" href="index.html">0.6.0 beta</a>
+    <a class="version" href="../0.5/index.html">0.5.0 beta</a>
+    <a class="version" href="../0.4/index.html">0.4.1 beta</a>
+    <a class="version" href="../0.3/index.html">0.3.0 beta</a>
+    <a class="version" href="../0.2/index.html">0.2.0 beta</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DB/edit/0.6-beta/doc/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<div class="imageblock">
+<div class="content">
+<img src="_images/kodein-db-logo.svg" alt="KODIEN-DB" width="700">
+</div>
+</div>
+<div class="paragraph lead">
+<p><em><strong>Kodein-DB</strong></em> is a Kotlin/Multiplatform embedded NoSQL database that works on JVM, Android, Kotlin/Native and iOS.
+It is suited for client or mobile applications.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Under no circumstances should it be used in a server!
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title"><em><strong>Kodein-DB</strong></em> allows you to:</div>
+<ul>
+<li>
+<p>Easily store, retrieve and query kotlin objects.</p>
+</li>
+<li>
+<p>Stop carrying about schema definitions.</p>
+</li>
+<li>
+<p>Easily set up a new project.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title"><em><strong>Kodein-DB</strong></em> is a good choice because it:</div>
+<ul>
+<li>
+<p>proposes a very simple and readable DSL.</p>
+</li>
+<li>
+<p>integrates nicely with Android and iOS.</p>
+</li>
+<li>
+<p>offers very good performances.</p>
+</li>
+<li>
+<p>is just Kotlin!</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Kodein-DB is in beta.</strong></p>
+</div>
+<div class="paragraph">
+<p>Although, we do use Kodein-DB in production, this means we cannot ensure the library&#8217;s correctness and stability.
+Therefore, we ask that you first try Kodein-DB in non-critical applications, and report any mis-behaviour you may encounter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect1">
+<h2 id="_example"><a class="anchor" href="#_example"></a>Example</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">A simple example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val db = DB.open("path/to/db")
+
+db.put(User("John", "Doe"))
+db.put(User("Jane", "Doe"))
+db.put(User("Someone", "Else"))
+
+val does = db.find&lt;User&gt;().byIndex("lastName", "Doe").models()
+println(does.joinToString()) // Jane, John</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_support"><a class="anchor" href="#_support"></a>Support</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Drop by the <a href="https://kotlinlang.slack.com/messages/kodein/">Kodein Slack channel</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/tagged/kodein">Stackoverflow</a> with the tag #kodein</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contribute"><a class="anchor" href="#_contribute"></a>Contribute</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Contributions are very welcome and greatly appreciated! The great majority of pull requests are eventually merged.</p>
+</div>
+<div class="paragraph">
+<p>To contribute, simply fork <a href="https://github.com/Kodein-Framework/Kodein-DB">the project on Github</a>, fix whatever is iching you, and submit a pull request!</p>
+</div>
+<div class="paragraph">
+<p>I am sure that this documentation contains typos, inaccuracies and languages error (English is not my mother tongue).
+If you feel like enhancing this document, you can propose a pull request that modifies <a href="https://github.com/Kodein-Framework/Kodein-DB/tree/master/doc">the documentation documents</a>.
+(Documentation is auto-generated from those).</p>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

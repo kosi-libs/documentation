@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DI</title>
+    <link rel="canonical" href="https://docs.kodein.org/kodein-di/7.4/framework/android.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-di" data-version="7.4">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein-DI</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../platform-and-genericity.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Core documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frameworks support</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="android.html">Android</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ktor.html">Ktor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tornadofx.html">TornadoFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extensions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/configurable.html">Configurable &amp; global container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/jsr330.html">JSR-330 compatibility</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Migration guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-6to7.html">Kodein version 6 to version 7</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-4to5.html">Kodein version 4 to version 5</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-j2k.html">JSR-330 to Kodein-DI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DI</span>
+    <span class="version">7.4.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-db/0.6/index.html">0.6.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.5/index.html">0.5.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.4/index.html">0.4.1 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.3/index.html">0.3.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.2/index.html">0.2.0 beta</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein-DI</a></li>
+    <li>Frameworks support</li>
+    <li><a href="android.html">Android</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.4.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="android.html">7.4.0</a>
+    <a class="version" href="../../7.3/framework/android.html">7.3.1</a>
+    <a class="version" href="../../7.2/framework/android.html">7.2.0</a>
+    <a class="version" href="../../7.1/framework/android.html">7.1.0</a>
+    <a class="version" href="../../7.0/framework/android.html">7.0.0</a>
+    <a class="version" href="../../6.5/framework/android.html">6.5.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/7.4/doc/modules/framework/pages/android.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Kodein-DI on Android</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use Kodein-DI as-is in your Android project or use the util library <code>kodein-di-android</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Kodein-DI does work on Android as-is.
+      The <code>kodein-di-android</code> extension adds multiple android-specific utilities to Kodein-DI.<br>
+      Using or not using this extension really depends on your needs.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Have a look at the <a href="https://github.com/Kodein-Framework/Kodein-Samples/tree/master/di/coffee-maker/android">Android demo project</a>!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install"><a class="anchor" href="#install"></a>Install</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<div class="title">How to use <code>kodein-di-android</code>:</div>
+<ol class="arabic">
+<li>
+<p>Add this line in your <code>dependencies</code> block in your application <code>build.gradle</code> file:</p>
+<div class="listingblock">
+<div class="content">
+<pre>implementation 'org.kodein.di:kodein-di-framework-android-???:7.4.0'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Kodein-DI offers support for:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Barebone Android</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-di-framework-android-core</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Android + Support library</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-di-framework-android-support</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Android + AndroidX library</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-di-framework-android-x</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+From <code>6.3.0</code> On the JVM, you must be targeting <code>JDK 1.8</code> minimum!
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you are using <code>SupportFragment</code> in your application, then you <strong>must</strong> use either the <code>-support</code> or the <code>-x</code> package.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Declare the dependency bindings in the Android <code>Application</code>, having it implements <code>DIAware</code>.</p>
+<div class="listingblock">
+<div class="title">Example: an Android Application class that implements DIAware</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyApp : Application(), DIAware {
+	override val di by DI.lazy { <i class="conum" data-value="1"></i><b>(1)</b>
+	    /* bindings */
+	}
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Using <code>DI.lazy</code> allows you to access the <code>Context</code> at binding time.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Don&#8217;t forget to declare the Application in the <code>AndroidManifest.xml</code> file!
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>In your Activities, Fragments, and other context aware android classes, retrieve the <code>DI</code> object with the <code>di</code> function.</p>
+</li>
+<li>
+<p>Retrieve your dependencies!</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_retrieving"><a class="anchor" href="#_retrieving"></a>Retrieving</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Injection does not work on Android classes that are reified by the system (<code>Activity</code>, <code>Fragment</code>, etc.) due the fact that&#8230;&#8203; they are reified by the system!
+Therefore, on such classes, you can either use retrieval, or if you want these classes to be independent of Kodein-DI, use the <a href="#dependency-holder">dependency holder pattern</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_getting_a_di_object"><a class="anchor" href="#_getting_a_di_object"></a>Getting a DI object</h3>
+<div class="paragraph">
+<p>You can always get the <code>DI</code> object by using:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>di()</code> inside an Android class (such as <code>Context</code>, <code>Activity</code>, <code>Fragment</code>, etc.)</p>
+</li>
+<li>
+<p><code>di(context)</code> or <code>di { context }</code> inside another class</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+The <code>di</code> function will only work if your Android <code>Application</code> class implements the <code>DIAware</code> interface.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The <code>di</code> result should be cached and not used multiple times in a row.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_being_diaware"><a class="anchor" href="#_being_diaware"></a>Being DIAware</h3>
+<div class="paragraph">
+<p>It is very simple to have your Android classes be <code>DIAware</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a DIAware Android Activity</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), DIAware {
+
+    override val di by di() <i class="conum" data-value="1"></i><b>(1)</b>
+
+    val ds: DataSource by instance()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        ds.connect() <i class="conum" data-value="2"></i><b>(2)</b>
+        /* ... */
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Retrieving the application DI instance via context.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Because everything is lazy, the <code>di</code> AND <code>ds</code> instances will both be retrieved only when needed, which is at that time.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_a_trigger"><a class="anchor" href="#_using_a_trigger"></a>Using a Trigger</h3>
+<div class="paragraph">
+<p>If you want all dependencies to be retrieved at <code>onCreate</code>, you can very easily use a trigger:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: using an trigger in a DIAware Android Activity</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), DIAware {
+
+    override val di by di()
+
+    override val diTrigger = DITrigger() <i class="conum" data-value="1"></i><b>(1)</b>
+
+    val ds: DataSource by instance()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        diTrigger.trigger() <i class="conum" data-value="2"></i><b>(2)</b>
+        /* ... */
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Just create a trigger, and Kodein-DI will automatically use it.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The <code>di</code> AND all dependencies will both be retrieved at that time.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Using this approach has an important advantage: as all dependencies are retrieved in <code>onCreate</code>, you can be sure that all your dependencies have correctly been retrieved, meaning that there were no non-declared dependency.<br>
+      If you only use <code>instance</code> (no <code>provider</code> or <code>factory</code>), you can also be sure that there were no dependency loop.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_view_models"><a class="anchor" href="#_view_models"></a>View Models</h3>
+<div class="paragraph">
+<p>To use Kodein-DI, you need an Android context.
+For that, View Models need to implement <code>AndroidViewModel</code>.</p>
+</div>
+<div class="paragraph">
+<p>It is very easy to use Kodein-DI inside View Models:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you prefer your View Models to be independant from Kodein-DI, you can use a <a href="#view-model-factory">View  Model Factory</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: using an trigger in a DIAware Android Activity</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyViewModel(app: Application) : AndroidViewModel(app), DIAware {
+
+    override val di by di() <i class="conum" data-value="1"></i><b>(1)</b>
+
+    val repository : Repository by instance()
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Retrieving the application&#8217;s DI container.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_android_module"><a class="anchor" href="#_android_module"></a>Android module</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Kodein-DI-Android proposes a <code>Module</code> that enables easy retrieval of a lot of standard android services.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This module is absolutely <strong>optional</strong>, you are free to use it or leave it ;).
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: importing the android module</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyApplication : Application(), DIAware {
+    override val di by DI.lazy {
+        import(androidXModule(this@MyApplication)) <i class="conum" data-value="1"></i><b>(1)</b>
+	    /* bindings */
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Can either be <code>androidXModule</code> or <code>androidSupportModule</code> or <code>androidCoreModule</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can see everything that this module proposes in the Kodein-Android <a href="https://github.com/Kodein-Framework/Kodein-DI/blob/{branch}/framework/android/kodein-di-framework-android-core/src/main/java/org/kodein/di/android/module.kt">module.kt</a> file.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: using kodein-DI to retrieve a LayoutInflater</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), DIAware {
+    override val di by di()
+    val inflater: LayoutInflater by instance() <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you are retrieving these classes inside a non-Android class, you need to define an Android <code>Context</code> as a DI context:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: using DI with a context to retrieve a LayoutInflater</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val inflater: LayoutInflater by di.on(getActivity()).instance()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: using DI with a class context to retrieve a LayoutInflater</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyUtility(androidContext: Context) : DIAware {
+
+    override val di by androidContext.di()
+
+    override val kodeinContext = diContext(androidContext) <i class="conum" data-value="1"></i><b>(1)</b>
+
+    val inflater: LayoutInflater by instance()
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Defining the default context: the Android context to use to retrieve Android system services.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_android_context_translators"><a class="anchor" href="#_android_context_translators"></a>Android context translators</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The android module provides a number of <a href="../core/using-environment.html#_context_translators" class="page">context translators</a>.
+For example, they allow you to retrieve an activity scoped singleton inside a fragment, without manually specifying the activity.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The android modules automatically register these translators.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>However, if you don&#8217;t want to use the android modules, but still need these translators, you can register them easily:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: importing the android module</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyApplication : Application(), DIAware {
+    override val di by DI.lazy {
+        import(androidXContextTranslators) <i class="conum" data-value="1"></i><b>(1)</b>
+	    /* bindings */
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Can either be <code>androidXContextTranslators</code> or <code>androidSupportContextTranslators</code> or <code>androidCoreContextTranslators</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_android_scopes"><a class="anchor" href="#_android_scopes"></a>Android scopes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_component_scopes"><a class="anchor" href="#_component_scopes"></a>Component scopes</h3>
+<div class="paragraph">
+<p>Kodein-DI provides a standard scope for any component (Android or not).
+The <code>WeakContextScope</code> will keep singleton and multiton instances as long as the context (= component) lives.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: using an Activity scope</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Controller&gt;() with scoped(WeakContextScope.of&lt;Activity&gt;()).singleton { ControllerImpl(context) } <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>context</code> is of type <code>Activity</code> because we are using the <code>WeakContextScope.of&lt;Activity&gt;()</code>.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+WeakContextScope is <strong>NOT</strong> compatible with <code>ScopeCloseable</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_activity_retained_scope"><a class="anchor" href="#_activity_retained_scope"></a>Activity retained scope</h3>
+<div class="paragraph">
+<p>Kodein-DI-Android provides the <code>ActivityRetainedScope</code>, which is a scope that allows activity-scoped singletons or multitons that are independent from the activity restart.</p>
+</div>
+<div class="paragraph">
+<p>This means that for the same activity, you&#8217;ll get the same instance, even if the activity restarts.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+This means that you <strong>should never retain the activity</strong> passed at creation because it may have been restarted and not valid anymore!
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: using an Activity retained scope</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Controller&gt;() with scoped(ActivityRetainedScope).singleton { ControllerImpl() }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This scope <strong>IS</strong> compatible with <code>ScopeCloseable</code>: <a href="../core/using-environment.html#scope-closeable" class="page">see documentation</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lifecycle_scope"><a class="anchor" href="#_lifecycle_scope"></a>Lifecycle scope</h3>
+<div class="paragraph">
+<p>Kodein-DI-Android provides the <code>AndroidLifecycleScope</code>, which is a scope that allows activity-scoped singletons or multitons that are bound to a component lifecycle.
+It uses Android support Lifecycle, so you need to use Android support&#8217;s <code>LifecycleOwner</code> components.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: using an Activity retained scope</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Controller&gt;() with scoped(AndroidLifecycleScope&lt;Fragment&gt;()).singleton { ControllerImpl(context) }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These lifecycles are <strong>NOT</strong> immune to activity restart due to configuration change.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This scope <strong>IS</strong> compatible with <code>ScopeCloseable</code>: <a href="../core/using-environment.html#scope-closeable" class="page">see documentation</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_layered_dependencies"><a class="anchor" href="#_layered_dependencies"></a>Layered dependencies</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_closest_di_pattern"><a class="anchor" href="#_the_closest_di_pattern"></a>The closest DI pattern</h3>
+<div class="paragraph">
+<p>Android components can be thought as layers.
+For example, a <code>View</code> defines a layer, on top of an <code>Activity</code> layer, itself on top of the <code>Application</code> layer.</p>
+</div>
+<div class="paragraph">
+<p>The <code>di</code> function will always return the DI container of the closest parent layer.
+In a <code>View</code> or a <code>Fragment</code>, for example, it will return the containing Activity&#8217;s DI container, if it defines one, else it will return the "global" Application DI container.</p>
+</div>
+<div class="paragraph">
+<p>In the following code example, if <code>MyActivity</code> contains Fragments, and that these fragments get their DI object via <code>di()</code>, they will receive the <code>MyActivity</code> DI object, instead of the Application one.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_component_based_sub_di"><a class="anchor" href="#_component_based_sub_di"></a>Component based sub DI</h3>
+<div class="paragraph">
+<p>In Android, each component has its own lifecycle, much like a "mini application".
+You may need to have dependencies that are defined only inside a specific component and its subcomponents (such as an activity).
+Kodein-DI allows you to create a <code>DI</code> instance that lives only inside one of your components:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: defining an Activity specific DI container</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), DIAware {
+
+    override val di by subDI(di()) { <i class="conum" data-value="1"></i><b>(1)</b>
+        /* activity specific bindings */
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Creating a sub DI container that is valid for this activity and all components of this activity.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>By default all bindings are cached. You can also define the way the parent DI container is extended by defining the <a href="../core/modules-inheritance.html#overridden_access_from_parent" class="page">copy mode</a>. In below example each instance of activity will store a copy of the DI module (all bindings including <code>singleton</code> will be recreated per activity instance).</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: defining an Activity specific DI container that copies all parent bindings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">override val di by subDI(di(), copy = Copy.All) {
+    /* component specific bindings */
+}</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_activity_retained_sub_di_container"><a class="anchor" href="#_activity_retained_sub_di_container"></a>Activity retained sub DI container</h3>
+<div class="paragraph">
+<p>Kodein-DI-Android provides <code>retainedSubDI</code> for Activities.
+It creates a DI object that is <strong>immune to activity restarts</strong>.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+This means that you <strong>should never access the containing activity</strong> it may have been restarted and not valid anymore!
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: defining an Activity specific DI container</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), DIAware {
+
+    override val di: DI by retainedSubDI(di()) { <i class="conum" data-value="1"></i><b>(1)</b>
+        /* activity specific bindings */
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Using <code>retainedSubDI</code> instead of <code>subDI</code> ensures that the DI object is retained and not recreated between activity restarts.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can define the way the parent DI container is extended by defining the <a href="../core/modules-inheritance.html#overridden_access_from_parent" class="page">copy mode</a>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: defining an Activity specific DI container that copies all parent bindings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">override val di by retainedSubDI(di(), copy = Copy.All) {
+    /* component specific bindings */
+}</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_independant_activity_retained_di_container"><a class="anchor" href="#_independant_activity_retained_di_container"></a>Independant Activity retained DI container</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Kodein-DI provides the <code>retainedDI</code> function that creates a DI instance that is <em>independendant from the parent</em>.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+This means that all bindings in the application context are NOT available through this new DI container.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: defining an independant DI Container.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity() {
+
+    val activityKodein: DI by retainedDI { <i class="conum" data-value="1"></i><b>(1)</b>
+        /* activity specific bindings */
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kodein_di_in_android_without_the_extension"><a class="anchor" href="#_kodein_di_in_android_without_the_extension"></a>Kodein-DI in Android without the extension</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_being_diaware_2"><a class="anchor" href="#_being_diaware_2"></a>Being DIAware</h3>
+<div class="paragraph">
+<p>It is quite easy to have your Android components being <code>DIAware</code> (provided that your <code>Application</code> class is <code>DIAware</code>).</p>
+</div>
+<div class="sect3">
+<h4 id="_using_lazy"><a class="anchor" href="#_using_lazy"></a>Using lazy</h4>
+<div class="listingblock">
+<div class="title">Example: a DIAware Activity</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), DIAware {
+    override val di: DI by lazy { (applicationContext as DIAware).di }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_lateinit"><a class="anchor" href="#_using_lateinit"></a>Using lateinit</h4>
+<div class="listingblock">
+<div class="title">Example: a DIAware Activity</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), DIAware {
+    override lateinit var di: DI
+    override fun onCreate(savedInstanceState: Bundle?) {
+        di = (applicationContext as DIAware).di
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_lateinitdi"><a class="anchor" href="#_using_lateinitdi"></a>Using LateInitDI</h3>
+<div class="paragraph">
+<p>If you don&#8217;t want the component classes to be DIAware, you can use a <code>LateInitDI</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: an Activity with LateInitDI</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity() {
+    val di = LateInitDI()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        di.baseKodein = (applicationContext as DIAware).di
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_being_kodein_di_independant"><a class="anchor" href="#_being_kodein_di_independant"></a>Being Kodein-DI independant</h3>
+<div class="sect3">
+<h4 id="dependency-holder"><a class="anchor" href="#dependency-holder"></a>The dependency holder pattern</h4>
+<div class="paragraph">
+<p>If you want your components to be Kodein-DI independent, you can use the dependency holder pattern:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: The dependency holder pattern</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity() {
+
+    class Deps(
+            val ds: DataSource,
+            val ctrl: controller
+    )
+
+    val deps by lazy { (applicationContext as MyApplication).creator.myActivity() }
+
+    val ds by lazy { deps.ds }
+    val ctrl by lazy { deps.ctrl }
+
+    /* ... */
+}
+
+class MyApplication : Application() {
+
+	interface Creator {
+	    fun myActivity(): MyActivity.Deps
+	}
+
+	val creator: Creator = DICreator()
+
+    /* ... */
+}
+
+class DICreator : MyApplication.Creator {
+
+    private val di = DI {
+        /* bindings */
+    }.direct
+
+    override fun myActivity() = di.newInstance { MyActivity.Deps(instance(), instance()) }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-model-factory"><a class="anchor" href="#view-model-factory"></a>View Model Factory</h4>
+<div class="paragraph">
+<p>If you want your view models to be independant from Kodein-DI, then you need to inject them (meaning passing their dependencies by constructor).
+To do that, you need to create your own <code>ViewModelProvider.Factory</code>.</p>
+</div>
+<div class="paragraph">
+<p>Here is a simple one:</p>
+</div>
+<div class="listingblock">
+<div class="title">A DI View Model Factory</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class DIViewModelFactory(val di: DI) : ViewModelProvider.Factory {
+    override fun &lt;T : ViewModel&gt; create(modelClass: Class&lt;T&gt;): T =
+            di.direct.Instance(erased(modelClass))
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
