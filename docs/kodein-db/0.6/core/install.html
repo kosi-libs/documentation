@@ -118,14 +118,14 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Kodein-DB</span>
-    <span class="version">0.6.0 beta</span>
+    <span class="version">0.6.1 beta</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <span class="title">Kodein-DB</span>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">0.6.0 beta</a>
+          <a href="../index.html">0.6.1 beta</a>
         </li>
         <li class="version">
           <a href="../../0.5/index.html">0.5.0 beta</a>
@@ -189,9 +189,9 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.6.0 beta</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.6.1 beta</button>
   <div class="version-menu">
-    <a class="version is-current" href="install.html">0.6.0 beta</a>
+    <a class="version is-current" href="install.html">0.6.1 beta</a>
     <a class="version" href="../../0.5/core/install.html">0.5.0 beta</a>
     <a class="version" href="../../0.4/core/install.html">0.4.1 beta</a>
     <a class="version" href="../../0.3/core/install.html">0.3.0 beta</a>
@@ -231,8 +231,6 @@ iosArm32, iosArm64, iosX64, linuxX64, macosX64, mingwX64
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">buildscript {
     repositories {
         mavenCentral()
-        // Needed until KotlinX.DateTime is published to Maven Central.
-        maven(url = "https://kotlin.bintray.com/kotlinx")
     }
 }</code></pre>
 </div>
@@ -247,7 +245,7 @@ iosArm32, iosArm64, iosX64, linuxX64, macosX64, mingwX64
     sourceSets {
         named("commonMain") {
             dependencies {
-                implementation("org.kodein.db:kodein-db:0.6.0-beta")
+                implementation("org.kodein.db:kodein-db:0.6.1-beta")
             }
         }
     }
@@ -269,7 +267,7 @@ iosArm32, iosArm64, iosX64, linuxX64, macosX64, mingwX64
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">implementation("org.kodein.db:kodein-db-api:0.6.0-beta")</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">implementation("org.kodein.db:kodein-db-api:0.6.1-beta")</code></pre>
 </div>
 </div>
 </td>
@@ -287,7 +285,7 @@ When targeting Multiplatform, you can only use <a href="https://github.com/Kotli
     sourceSets {
         named("commonMain") {
             dependencies {
-                implementation("org.kodein.db:kodein-db-serializer-kotlinx:0.6.0-beta")
+                implementation("org.kodein.db:kodein-db-serializer-kotlinx:0.6.1-beta")
             }
         }
     }
@@ -307,9 +305,7 @@ When targeting Multiplatform, you can only use <a href="https://github.com/Kotli
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">buildscript {
     repositories {
-        maven(url = "https://dl.bintray.com/kodein-framework/Kodein-DB")
-        // Needed until KotlinX.DateTime is published to MavenCentral.
-        maven(url = "https://kotlin.bintray.com/kotlinx")
+        mavenCentral()
     }
 }</code></pre>
 </div>
@@ -321,8 +317,8 @@ When targeting Multiplatform, you can only use <a href="https://github.com/Kotli
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-    debugImplementation("org.kodein.db:kodein-db-android-debug:0.6.0-beta")
-    releaseImplementation("org.kodein.db:kodein-db-android:0.6.0-beta")
+    debugImplementation("org.kodein.db:kodein-db-android-debug:0.6.1-beta")
+    releaseImplementation("org.kodein.db:kodein-db-android:0.6.1-beta")
 }</code></pre>
 </div>
 </div>
@@ -338,7 +334,7 @@ When targeting Multiplatform, you can only use <a href="https://github.com/Kotli
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">implementation("org.kodein.db:kodein-db-api-jvm:0.6.0-beta")</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">implementation("org.kodein.db:kodein-db-api-jvm:0.6.1-beta")</code></pre>
 </div>
 </div>
 </td>
@@ -353,7 +349,7 @@ When targetting Android only, you can use either <a href="https://github.com/Kot
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-    implementation("org.kodein.db:kodein-db-serializer-kotlinx:0.6.0-beta")
+    implementation("org.kodein.db:kodein-db-serializer-kotlinx:0.6.1-beta")
 }</code></pre>
 </div>
 </div>
@@ -364,7 +360,7 @@ When targetting Android only, you can use either <a href="https://github.com/Kot
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-    implementation("org.kodein.db:kodein-db-serializer-kryo-jvm:0.6.0-beta")
+    implementation("org.kodein.db:kodein-db-serializer-kryo-jvm:0.6.1-beta")
 }</code></pre>
 </div>
 </div>
@@ -381,9 +377,7 @@ When targetting Android only, you can use either <a href="https://github.com/Kot
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">buildscript {
     repositories {
-        maven(url = "https://dl.bintray.com/kodein-framework/Kodein-DB")
-        // Needed until KotlinX.DateTime is published to MavenCentral.
-        maven(url = "https://kotlin.bintray.com/kotlinx")
+        mavenCentral()
     }
 }</code></pre>
 </div>
@@ -394,7 +388,7 @@ When targetting Android only, you can use either <a href="https://github.com/Kot
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">implementation("org.kodein.db:kodein-db-jvm:0.6.0-beta")</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">implementation("org.kodein.db:kodein-db-jvm:0.6.1-beta")</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -410,7 +404,7 @@ When targetting Android only, you can use either <a href="https://github.com/Kot
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-    implementation("org.kodein.db:kodein-db-api-jvm:0.6.0-beta")
+    implementation("org.kodein.db:kodein-db-api-jvm:0.6.1-beta")
 }</code></pre>
 </div>
 </div>
@@ -426,7 +420,7 @@ When targetting JVM only, you can use either <a href="https://github.com/Kotlin/
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-    implementation("org.kodein.db:kodein-db-serializer-kotlinx:0.6.0-beta")
+    implementation("org.kodein.db:kodein-db-serializer-kotlinx:0.6.1-beta")
 }</code></pre>
 </div>
 </div>
@@ -437,7 +431,7 @@ When targetting JVM only, you can use either <a href="https://github.com/Kotlin/
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-    implementation("org.kodein.db:kodein-db-serializer-kryo-jvm:0.6.0-beta")
+    implementation("org.kodein.db:kodein-db-serializer-kryo-jvm:0.6.1-beta")
 }</code></pre>
 </div>
 </div>
@@ -448,7 +442,7 @@ When targetting JVM only, you can use either <a href="https://github.com/Kotlin/
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
-    implementation("org.kodein.db:kodein-leveldb-jni-jvm-linux:0.6.0-beta")
+    implementation("org.kodein.db:kodein-leveldb-jni-jvm-linux:0.6.1-beta")
     //                                                  -linux, -macos or -windows
 }</code></pre>
 </div>
