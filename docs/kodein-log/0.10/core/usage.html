@@ -187,25 +187,318 @@
   <div class="content">
 <article class="doc">
 <h1 class="page">Kodein-Log usage</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong><em>Kodein-Log</em></strong> allows to easily log any message, with a simple API.
+This guide is meant to walk you through all you need to know and use <strong><em>Kodein-Log</em></strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong><em>Kodein-Log</em></strong> API is the same for all the Kotlin/Multiplatform targets.
+      However, under the hood each platform uses its own implementation (see <a href="#default-frontends">default frontends</a>).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="logger"><a class="anchor" href="#logger"></a><code>Logger</code></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Creating a logger is really simple. Before logging a message you need to express some parameters to help the logger to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>identify the logged entry, with a <a href="#tags"><code>Tag</code></a>, like <code>org.kodein.documentation.MyController</code></p>
+</li>
+<li>
+<p>send the logged entry to the right output: console / file / platform specific logging system</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">create a simple Logger</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Logger(
+    tag = Logger.Tag("org.kodein.log.documentation", "MyController"), <i class="conum" data-value="1"></i><b>(1)</b>
+    frontEnds = listOf(defaultLogFrontend) <i class="conum" data-value="2"></i><b>(2)</b>
+). info { "Hey!" } <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>will identify any message logged with this <code>Logger</code> by prefixing them with this tag</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>defines on which outputs the logged messages should be sent.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>log the following line: <code>INFO: 2021-04-01T12:20:37.648603 | org.kodein.log.documentation.MyController: Hey!</code></td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also use the companion function <code>Logger.from&lt;T&gt;</code> to create a logger.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Logger.from(defaultLogFrontend) <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Type receiver is inferred at compile time and automatically passed as <code>tag</code> argument to a new <code>Logger</code> instance.</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can share the configuration of your application&#8217;s loggers by using a <a href="#logger-factory">factory</a>.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect2">
 <h3 id="tags"><a class="anchor" href="#tags"></a>Tags</h3>
-
+<div class="paragraph">
+<p>We just saw that a <code>Tag</code> help us identify our logged message.
+A <code>Tag</code> is always shaped in two parts, a <em>package</em> and a <em>class name</em>.</p>
+</div>
+<div class="paragraph">
+<p>There are two ways of creating a <code>Tag</code>, you can either create it manually using String arguments, or a given <code>KClass</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Create a <code>Tag</code> manually</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Tag(pckg = "org.kodein.log.documentation", name = "MyController")</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Create a <code>Tag</code> from a class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Tag(MyController::class)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>Tag</code> can be inferred by Kotlin type system when using one of the extension functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Logger.from(vararg frontends: LogFrontend)</code></p>
+</li>
+<li>
+<p><code>LoggerFactory.newLogger()</code></p>
+</li>
+<li>
+<p><code>T.newLogger(factory: LoggerFactory)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>More details in <a href="#logger-factory">factory</a> section.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="default-frontends"><a class="anchor" href="#default-frontends"></a>Default frontends</h3>
-
+<div class="paragraph">
+<p><strong><em>Kodein-Log</em></strong> is lightweight because it is just a facade that we plug on top of logging systems.
+<em>Frontends</em> represent the implementations of the logging systems that <strong><em>Kodein-Log</em></strong> relies on to output your logs, depending on the platform your application is running on.</p>
+</div>
+<div class="paragraph">
+<p>The main reason behind <strong><em>Kodein-Log</em></strong> existence is that we want to provide an easy way of logging for Kotlin/Multiplatform developers, without worrying about the platform specifics. Therefore, <strong><em>Kodein-Log</em></strong> has the notion of default frontends, that hide behind the <em>expect/actual</em> mechanism, sending the logs to the right output, depending on the actual platform. Those implementations are accessible with the property <code>defaultLogFrontend</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">use default log frontend</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Logger.from(defaultLogFrontend) <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Use the specific frontend defined by <strong><em>Kodein-Log</em></strong></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is a table that expose which implementation are used, by
+targeted platform.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Targeted platform</th>
+<th class="tableblock halign-center valign-middle">Frontend implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JVM</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="http://www.slf4j.org">SLF4J</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Android</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="https://developer.android.com/reference/android/util/Log">Android Log</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Apple</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>iOS</p>
+</li>
+<li>
+<p>macOS</p>
+</li>
+<li>
+<p>watchOS</p>
+</li>
+<li>
+<p>tvOS</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="https://developer.apple.com/documentation/oslog">Apple OSLog</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Other Kotlin/Native targets</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Linux</p>
+</li>
+<li>
+<p>Windows</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">System standard output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kotlin/JS</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/log">JavaScript console log</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Remember that you can define your own <a href="advanced.html#custom-frontends" class="page">frontends</a>.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
-<h3 id="levels"><a class="anchor" href="#levels"></a>Logging levels</h3>
-
+<h3 id="severity"><a class="anchor" href="#severity"></a>Severity</h3>
+<div class="paragraph">
+<p>As for any logging library <strong><em>Kodein-Log</em></strong> provide different severities to log messages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>logger.debug("Hey!")</code> &#8594; <code>DEBUG: &lt;TIME&gt; | &lt;TAG&gt;: Hey!</code></p>
+</li>
+<li>
+<p><code>logger.info("Hey!")</code> &#8594; <code>INFO: &lt;TIME&gt; | &lt;TAG&gt;: Hey!</code></p>
+</li>
+<li>
+<p><code>logger.warning("Hey!")</code> &#8594; <code>WARNING: &lt;TIME&gt; | &lt;TAG&gt;: Hey!</code></p>
+</li>
+<li>
+<p><code>logger.error("Hey!")</code> &#8594; <code>ERROR: &lt;TIME&gt; | &lt;TAG&gt;: Hey!</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can filter the level of log output by using a <code>LogFilter</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val logger = Logger.from(
+    frontends = listOf(defaultLogFrontend),
+    filters = listOf(minimumLevel(Logger.Level.WARNING)), <i class="conum" data-value="1"></i><b>(1)</b>
+)
+logger.info { "Hey!" } <i class="conum" data-value="2"></i><b>(2)</b>
+logger.warning { "Its me." } <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>define the minimum severity to <code>WARNING</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>WON&#8217;T be logged</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>WILL be logged</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="logger-factory"><a class="anchor" href="#logger-factory"></a><code>LoggerFactory</code></h2>
+<h2 id="logfilter"><a class="anchor" href="#logfilter"></a>Filter the outputs  (<code>LogFilter</code>)</h2>
 <div class="sectionbody">
 
 </div>
@@ -217,7 +510,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="logfilter"><a class="anchor" href="#logfilter"></a>Filter the outputs  (<code>LogFilter</code>)</h2>
+<h2 id="logger-factory"><a class="anchor" href="#logger-factory"></a><code>LoggerFactory</code></h2>
 <div class="sectionbody">
 
 </div>
