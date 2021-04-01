@@ -9,4 +9,7 @@
 <sitemap>
 <loc>https://docs.kodein.org/sitemap-kodein-framework.xml</loc>
 </sitemap>
+<sitemap>
+<loc>https://docs.kodein.org/sitemap-kodein-log.xml</loc>
+</sitemap>
 </sitemapindex>

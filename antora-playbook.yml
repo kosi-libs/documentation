@@ -11,9 +11,9 @@ content:
     - url: https://github.com/Kodein-Framework/Kodein-DB.git
       branches: ['0.*', '1.*']
       start_path: doc
-#    - url: https://github.com/Kodein-Framework/Kodein-Log.git
-#      branches: [antora-master]
-#      start_path: doc
+    - url: https://github.com/Kodein-Framework/Kodein-Log.git
+      branches: ['0.*', '1.*', 'documentation']
+      start_path: doc
     - url: https://github.com/Kodein-Framework/documentation.git
       branches: master
       start_path: home
