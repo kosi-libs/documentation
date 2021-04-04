@@ -247,7 +247,7 @@ to define the format of your logs and on which frontend they should be sent.</p>
 <p>create a <code>LoggerFactory</code></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val loggerFactory = LoggerFactory(defaultLogFrontend) <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val loggerFactory = LoggerFactory.default <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -263,8 +263,8 @@ to define the format of your logs and on which frontend they should be sent.</p>
 <p>create a <code>Logger</code></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyController(private val loggerFactory: LoggerFactory) {
-    private val logger = loggerFactory.newLogger&lt;MyController&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyController {
+    private val logger = LoggerFactory.default.newLogger&lt;MyController&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
 </div>
