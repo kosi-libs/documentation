@@ -190,7 +190,83 @@
 <div class="sect1">
 <h2 id="custom-frontends"><a class="anchor" href="#custom-frontends"></a>Working with custom frontends</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><strong><em>Kodein-Log</em></strong> is a facade for multiplatform developers that need an easy way to log without worrying about platform specific implementation. For that we provide <a href="usage.html#default-frontends" class="page">[default frontends</a>] that are default output capacities, for each possible target of Kotlin/Multiplatform.</p>
+</div>
+<div class="paragraph">
+<p>However, we can think of a lot of use cases that might not covered by default frontends, ike saving the logs into a file, sending the logs to an upstream system, etc.</p>
+</div>
+<div class="paragraph">
+<p>If you want to use a custom implementation to handle your logs, you can create your own by using the interface <code>LogFrontend</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title"><code>logFrontend</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">public fun interface LogFrontend {
+    public fun getReceiverFor(tag: Logger.Tag): LogReceiver <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>You only have to override <code>getReceiverFor</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>getReceiverFor</code> function will define what we should do of every logged entry. The rest depends on your use case. Here is an example of a frontend that will stack every log into a list:</p>
+</div>
+<div class="listingblock">
+<div class="title">custom frontend</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MemoryFrontend : LogFrontend { <i class="conum" data-value="1"></i><b>(1)</b>
+    val entries: MutableList&lt;Triple&lt;Logger.Tag, Logger.Entry, String?&gt;&gt; = ArrayList() <i class="conum" data-value="2"></i><b>(2)</b>
 
+    override fun getReceiverFor(tag: Logger.Tag): LogReceiver = <i class="conum" data-value="3"></i><b>(3)</b>
+        LogReceiver { entry, message -&gt; <i class="conum" data-value="4"></i><b>(4)</b>
+            entries += Triple(tag, entry, message) <i class="conum" data-value="5"></i><b>(5)</b>
+        }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>implement <code>LogFrontend</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>create a mutable list that will carry the logs</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>override <code>getReceiveFor</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>create a <code>LogReceiver</code> &#8230;&#8203;</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>&#8230;&#8203; that populate the <code>entries</code> with each log received</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We could use this example to periodically send our stack to an upstream server.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </article>
