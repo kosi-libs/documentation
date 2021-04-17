@@ -614,7 +614,7 @@ Note that if you are using the latter, you need to use the <code>@ProviderFun</c
 <div class="title">Example: Java class which uses factory injection.</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyJavaController {
-    @Inject @ProviderFun Function0&lt;String, Connection&gt; connectionFactory;
+    @Inject @ProviderFun Function1&lt;String, Connection&gt; connectionFactory;
 }</code></pre>
 </div>
 </div>
