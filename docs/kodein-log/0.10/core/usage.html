@@ -182,7 +182,7 @@
     <li><a href="#logger">Create and use a <code>Logger</code></a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-Log/edit/documentation/doc/modules/core/pages/usage.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-Log/edit/master/doc/modules/core/pages/usage.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
@@ -230,7 +230,7 @@ This guide is meant to walk you through all you need to know and use <strong><em
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Logger(
     tag = Logger.Tag("org.kodein.log.documentation", "MyController"), <i class="conum" data-value="1"></i><b>(1)</b>
     frontEnds = listOf(defaultLogFrontend) <i class="conum" data-value="2"></i><b>(2)</b>
-). info { "Hey!" } <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+). info { "Hey!" }</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -243,11 +243,13 @@ This guide is meant to walk you through all you need to know and use <strong><em
 <td><i class="conum" data-value="2"></i><b>2</b></td>
 <td>defines on which outputs the logged messages should be sent.</td>
 </tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>log the following line: <code>INFO: 2021-04-01T12:20:37.648603 | org.kodein.log.documentation.MyController: Hey!</code></td>
-</tr>
 </table>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre>INFO: 2021-04-01T12:20:37.648603 | org.kodein.log.documentation.MyController: Hey!</pre>
+</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -291,7 +293,7 @@ You can share the configuration of your application&#8217;s loggers by using a <
 <div class="sect2">
 <h3 id="tags"><a class="anchor" href="#tags"></a>Tags</h3>
 <div class="paragraph">
-<p>As define above we know that a <code>Tag</code> help us identify our logged message.
+<p>As define above we know that a <code>Tag</code> helps us identify our logged message.
 A <code>Tag</code> is always shaped in two parts, a <em>package</em> and a <em>class name</em>.</p>
 </div>
 <div class="paragraph">
@@ -322,10 +324,10 @@ A <code>Tag</code> is always shaped in two parts, a <em>package</em> and a <em>c
 <div class="ulist">
 <ul>
 <li>
-<p><code>Logger.from(vararg frontends: LogFrontend)</code></p>
+<p><code>Logger.from&lt;T&gt;(vararg frontends: LogFrontend)</code></p>
 </li>
 <li>
-<p><code>LoggerFactory.newLogger()</code></p>
+<p><code>LoggerFactory.newLogger&lt;T&gt;()</code></p>
 </li>
 <li>
 <p><code>T.newLogger(factory: LoggerFactory)</code></p>
@@ -347,7 +349,7 @@ A <code>Tag</code> is always shaped in two parts, a <em>package</em> and a <em>c
 <em>Frontends</em> represent the implementations of the logging systems that <strong><em>Kodein-Log</em></strong> relies on to output your logs, depending on the platform your application is running on.</p>
 </div>
 <div class="paragraph">
-<p>The main reason behind <strong><em>Kodein-Log</em></strong> existence is that we want to provide an easy way of logging for Kotlin/Multiplatform developers, without worrying about the platform specifics. Therefore, <strong><em>Kodein-Log</em></strong> has the notion of default frontends, that hide behind the <em>expect/actual</em> mechanism, sending the logs to the right output, depending on the actual platform. Those implementations are accessible with the property <code>defaultLogFrontend</code>.</p>
+<p>The main reason behind <strong><em>Kodein-Log</em></strong> existence is that we want to provide an easy way of logging for Kotlin/Multiplatform developers, without worrying about the platform specifics. Therefore, <strong><em>Kodein-Log</em></strong> has the notion of default frontends, that uses the <em>expect/actual</em> mechanism, sending the logs to the right output, depending on the actual platform. Those default implementations are accessible with the property <code>defaultLogFrontend</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">use default log frontend</div>
@@ -502,7 +504,7 @@ logger.warning { "Its me." } <i class="conum" data-value="3"></i><b>(3)</b></cod
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section is for you if you intend to use <strong><em>Kodein-Log</em></strong> for more than one <code>Logger</code> using the same configuration.
-Having multiple loggers with identical configuration in you codebase could end like in the following snippet:</p>
+Having multiple loggers with identical configuration in your codebase could end like in the following snippet:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -514,7 +516,7 @@ val repoLogger = Logger(Logger.Tag(MyRepository::class), listOf(defaultLogFronte
 </div>
 </div>
 <div class="paragraph">
-<p>This can be easily fixed this by using a <code>LoggerFactory</code>.</p>
+<p>This can be easily handled by using a <code>LoggerFactory</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Create a LoggerFactory with a shared configuration</div>
@@ -619,7 +621,7 @@ factory.newLogger&lt;Int&gt;().error { "I know an Int." } <i class="conum" data-
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><code>allowList</code> will block every log but the ones that match the tag / package filters.</td>
+<td><code>allowList</code> will block every log except the ones that match the tag / package filters.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
@@ -668,7 +670,7 @@ factory.newLogger&lt;Int&gt;().error { "I know an Int." } <i class="conum" data-
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><code>blockList</code> will allow every log but the ones that match the tag / package filters.</td>
+<td><code>blockList</code> will allow every log except the ones that match the tag / package filters.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
@@ -830,7 +832,7 @@ factory.newLogger&lt;String&gt;().warning { "It's me." } <i class="conum" data-v
 <div class="sect2">
 <h3 id="_package_shortener"><a class="anchor" href="#_package_shortener"></a>Package shortener</h3>
 <div class="paragraph">
-<p>We usally don&#8217;t need to bloat our logs with an infinite chain of package names.
+<p>We usually don&#8217;t need to bloat our logs with an infinite chain of package names.
 Let&#8217;s take an example, where we don&#8217;t shrink the package names.</p>
 </div>
 <div class="listingblock">
