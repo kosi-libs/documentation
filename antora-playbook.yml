@@ -12,7 +12,7 @@ content:
       branches: ['0.*', '1.*']
       start_path: doc
     - url: https://github.com/Kodein-Framework/Kodein-Log.git
-      branches: ['0.*', '1.*', 'master']
+      branches: ['0.*', '1.*']
       start_path: doc
     - url: https://github.com/Kodein-Framework/documentation.git
       branches: master
