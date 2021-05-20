@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DB</title>
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-db" data-version="0.8">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein-DB</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-kmp">Kotlin/Multiplatform</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-android">Android only</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-jvm">Desktop JVM</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="immutability.html">Immutability requirement</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="setup-database.html">Setting up the database</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="defining-data-model.html">Defining the data model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="operations.html">Read / Write operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="iteration.html">Iterate with cursors &amp; sequences</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="consistency.html">Managing consistency</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reactive.html">Being reactive</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tests.html">Test your DB code</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="encryption.html">Using encryption</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanced.html">Advanced usage</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#handling-cache">Handling the cache</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#locking-check">Locking checks and reactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#custom-serialization">Fine-graining (de)serialization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#leveldb-options">LevelDB Options</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#middleware">Embedding your logic</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DB</span>
+    <span class="version">0.8.0 beta</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.8.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.6/index.html">0.6.1 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.5/index.html">0.5.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.4/index.html">0.4.1 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.3/index.html">0.3.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.2/index.html">0.2.0 beta</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-di/7.5/index.html">7.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Log</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-log/0.11/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-log/0.10/index.html">0.10.2</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein-DB</a></li>
+    <li><a href="encryption.html">Using encryption</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.8.0 beta</button>
+  <div class="version-menu">
+    <a class="version is-current" href="encryption.html">0.8.0 beta</a>
+    <a class="version is-missing" href="../../0.6/index.html">0.6.1 beta</a>
+    <a class="version is-missing" href="../../0.5/index.html">0.5.0 beta</a>
+    <a class="version is-missing" href="../../0.4/index.html">0.4.1 beta</a>
+    <a class="version is-missing" href="../../0.3/index.html">0.3.0 beta</a>
+    <a class="version is-missing" href="../../0.2/index.html">0.2.0 beta</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DB/edit/0.8-beta/doc/modules/core/pages/encryption.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Using encryption</h1>
+<div class="sect1">
+<h2 id="_configuring_encryption"><a class="anchor" href="#_configuring_encryption"></a>Configuring encryption</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Encryption is enabled with the <code>Encryption</code> middleware, and configured with <code>EncryptOptions</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Opening a database with encryption</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Create an array backed memory space
+val key = Memory.array("My-key", Charset.UTF8)
+
+val db = DB.open("path/to/db",
+    Encryption(
+        defaultOptions = EncryptOptions.Encrypt(key)
+    )
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can add <code>EncryptOptions</code> for specific model types:</p>
+</div>
+<div class="listingblock">
+<div class="title">Specifying specific encryption options for specific types:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Create an array backed memory space
+val key = Memory.array("My-key", Charset.UTF8)
+
+val db = DB.open("path/to/db",
+    Encryption(
+        defaultOptions = EncryptOptions.Encrypt(key),
+        byType = mapOf(
+            Book::class to EncryptOptions.Encrypt(key, hashDocumentID = false),
+            Extract::class to EncryptOptions.Encrypt(key,
+                hashIndexValues = EncryptOptions.indexes.AllBut("tokens")
+            )
+        )
+    )
+)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="impact"><a class="anchor" href="#impact"></a>Features impact</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Encryption option</th>
+<th class="tableblock halign-left valign-top">Possible values</th>
+<th class="tableblock halign-left valign-top">Database feature impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>hashDocumentID</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>true</code> <em>default</em></p>
+</li>
+<li>
+<p><code>false</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Ordering becomes random with <code>find&lt;T&gt;().all()</code> <em>(instead of by ID)</em>.</p>
+</li>
+<li>
+<p>Disables search by ID <em>(Exception thrown when using <code>find&lt;T&gt;().byId()</code>)</em></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>hashIndexValues</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>All</code> <em>default</em></p>
+</li>
+<li>
+<p><code>AllBut(names)</code></p>
+</li>
+<li>
+<p><code>Only(names)</code></p>
+</li>
+<li>
+<p><code>None</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Ordering becomes random with <code>find&lt;T&gt;().byIndex()</code> <em>(instead of by Index value)</em>.</p>
+</li>
+<li>
+<p>Disables search by Index with open value <em>(Exception thrown when using <code>find&lt;T&gt;().byIndex(name, value, isOpen = true)</code>)</em>.</p>
+</li>
+<li>
+<p>Composite value only work with exact match (search with incomplete composite value returns empty cursor).</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_strategy"><a class="anchor" href="#_data_strategy"></a>Data strategy</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_adapting_your_models"><a class="anchor" href="#_adapting_your_models"></a>Adapting your models</h3>
+<div class="paragraph">
+<p>Let&#8217;s say you defined the following <code>Contact</code> model:</p>
+</div>
+<div class="listingblock">
+<div class="title">A simple contact model</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class Contact(
+    val firstName: String,
+    val lastName: String,
+    val phoneNumber: String,
+    val address: List&lt;String&gt; // Country, City, Street
+): Metadata {
+    override val id = listOf(lastName, firstName)
+    override val indexes = mapOf(
+        "firstName" to firstName,
+        "phoneNumber" to phoneNumber,
+        "address" to address // Composite value!
+    )
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By enabling encryption and full hashing, you forfeit the ability to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>search by ID (you therefore cannot search contacts by last name)</p>
+</li>
+<li>
+<p>search by composite index value (you therefore cannot search contacts by country)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>With encryption enabled, if you need these searches, you need to create extra indexes:</p>
+</div>
+<div class="listingblock">
+<div class="title">The contact model adapted for encryption</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class Contact(
+    val firstName: String,
+    val lastName: String,
+    val phoneNumber: String,
+    val address: List&lt;String&gt; // Country, City, Street
+): Metadata {
+    override val id = listOf(lastName, firstName)
+    override val indexes = mapOf(
+        "firstName" to firstName,
+        "lastName" to lastName,
+        "phoneNumber" to phoneNumber,
+        "address-country" to address[0],
+        "address-country&amp;city" to address.subList(0, 2) <i class="conum" data-value="1"></i><b>(1)</b>
+    )
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>As encryption disables incomplete composite value search,
+if we want to search by [country, city], we need an index containing exactly that tuple.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_index_metadata_relationships"><a class="anchor" href="#_index_metadata_relationships"></a>Index metadata &amp; relationships</h3>
+<div class="paragraph">
+<p>Before enabling encryption in Kodein-DB, you need to understand what is encrypted, what is hashed, and what is left clear.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ENCRYPTED</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Document body (= serialized models)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>HASHED</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Document ID</p>
+</li>
+<li>
+<p>Index values</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>LEFT CLEAR</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Index names</p>
+</li>
+<li>
+<p>Document list of index</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say you have 3 <code>Contact</code> models (as defined earlier) in your encrypted database.
+The contacts are a maried couple linving in Paris Jean Dupont &amp; Jeanne Dupont, as well as a friend living in Lyon Pierre Bidule.</p>
+</div>
+<div class="paragraph">
+<p>Without the key for the <code>Contact</code> type, an attacker accessing the raw database would be able to know:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>that there are three models of type <code>Contact</code> in this database</p>
+</li>
+<li>
+<p>that each of them have index values for <code>firstName</code>, <code>lastName</code>, <code>phoneNumber</code>, <code>address-country</code>, and <code>address-country&amp;city</code>.</p>
+</li>
+<li>
+<p>that all three contacts have the same <code>address-country</code> value.</p>
+</li>
+<li>
+<p>That two contacts share the same <code>lastName</code> and <code>address-country&amp;city</code> values.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The content of each contact model is ciphered, while the ID &amp; index values are hashed, so the attacker cannot get the content &amp; values.
+However, in some cases, accessing metadata &amp; relationships can be sufficient for a motivated attacker to create an attack vector (especially using social engineering).</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+You can obfuscate the index names by naming them <code>A</code>, <code>B</code>, <code>C</code>, <code>D</code> &amp; <code>E</code>.
+         This is discouraged because it would be quite easy for an attacker to decompile your code and find out the actual name matching.
+         Even without name matching, an attacker would see, for example, that two models share <code>B</code>, <code>D</code> &amp; <code>E</code>, so he would easily deduct it.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You should remember this: <strong>the more a model has indexes, the more you expose metadata &amp; relationships to an attacker</strong>.<br>
+If you want a truly opaque model, make it without any index.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_algorithm_specifications"><a class="anchor" href="#_algorithm_specifications"></a>Algorithm specifications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>In these specs, the <code>typeKey</code> is the variable-length key provided by the user for the specific type of document being processed. It may be the default key, or a type-specific key.</em></p>
+</div>
+<div class="paragraph">
+<p><em>These specs use pseudo-Kotlin. This is not the real code</em>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Document body encryption</strong>:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val aesKey = PBKDF2(
+    algorithm = HMAC_SHA256,
+    password = typeKey,
+    salt = document.key,
+    rounds = 1024,
+    derivedKeyLength = 32
+)
+val iv = secureRandomBytes(length = 16)
+val cipherText = AES.encrypt(
+    mode = CBC,
+    padding = PKCS7,
+    key = aesKey,
+    initializationVector = iv,
+    clearText = document.body
+)
+return iv + cipherText</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Document ID hashing</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val hmacKey = PBKDF2(
+    algorithm = HMAC_SHA256,
+    password = typeKey,
+    salt = "DocumentID",
+    rounds = 1024,
+    derivedKeyLength = 32
+)
+return HMAC_SHA256(key = hmacKey, clearText = document.id)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Index value hashing</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val hmacKey = PBKDF2(
+    algorithm = HMAC_SHA256,
+    password = typeKey,
+    salt = "Index",
+    rounds = 1024,
+    derivedKeyLength = 32
+)
+return HMAC_SHA256(key = hmacKey, clearText = value)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

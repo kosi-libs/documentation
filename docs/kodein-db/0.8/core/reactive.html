@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DB</title>
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-db" data-version="0.8">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein-DB</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-kmp">Kotlin/Multiplatform</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-android">Android only</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-jvm">Desktop JVM</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="immutability.html">Immutability requirement</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="setup-database.html">Setting up the database</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="defining-data-model.html">Defining the data model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="operations.html">Read / Write operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="iteration.html">Iterate with cursors &amp; sequences</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="consistency.html">Managing consistency</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="reactive.html">Being reactive</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tests.html">Test your DB code</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="encryption.html">Using encryption</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanced.html">Advanced usage</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#handling-cache">Handling the cache</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#locking-check">Locking checks and reactions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#custom-serialization">Fine-graining (de)serialization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#leveldb-options">LevelDB Options</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced.html#middleware">Embedding your logic</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DB</span>
+    <span class="version">0.8.0 beta</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.8.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.6/index.html">0.6.1 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.5/index.html">0.5.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.4/index.html">0.4.1 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.3/index.html">0.3.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../0.2/index.html">0.2.0 beta</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-di/7.5/index.html">7.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-di/6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Log</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-log/0.11/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-log/0.10/index.html">0.10.2</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein-DB</a></li>
+    <li><a href="reactive.html">Being reactive</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.8.0 beta</button>
+  <div class="version-menu">
+    <a class="version is-current" href="reactive.html">0.8.0 beta</a>
+    <a class="version" href="../../0.6/core/reactive.html">0.6.1 beta</a>
+    <a class="version" href="../../0.5/core/reactive.html">0.5.0 beta</a>
+    <a class="version" href="../../0.4/core/reactive.html">0.4.1 beta</a>
+    <a class="version" href="../../0.3/core/reactive.html">0.3.0 beta</a>
+    <a class="version" href="../../0.2/core/reactive.html">0.2.0 beta</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DB/edit/0.8-beta/doc/modules/core/pages/reactive.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Being reactive</h1>
+<div class="sect1">
+<h2 id="_listeners_and_subscriptions"><a class="anchor" href="#_listeners_and_subscriptions"></a>Listeners and subscriptions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Kodein-DB supports the reactive pattern.
+You can use Kodein-DB as a data event hub, so that you can react to the addition or suppression of documents.</p>
+</div>
+<div class="paragraph">
+<p>A listener is responsible for reacting to an operation.<br>
+Once you have registered it, you can get a subscription <code>Closeable</code>, which will stop the listener from being called if you <code>close</code> it.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_the_dsl"><a class="anchor" href="#_using_the_dsl"></a>Using the DSL</h3>
+<div class="paragraph">
+<p>You can easily register a listener using the ad-hoc DSL:</p>
+</div>
+<div class="listingblock">
+<div class="title">DSL listeners</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.on&lt;User&gt;().register { <i class="conum" data-value="1"></i><b>(1)</b>
+}
+db.onAll().register { <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Registers a listener on the <code>User</code> collection.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Registers a global listener to the entire database.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A DSL listener can access its own subscription (this can be useful if you want the listener to cancel its own subscription after reacting to a certain event) in the context of the callbacks:</p>
+</div>
+<div class="listingblock">
+<div class="title">Accessing the subscription</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.on&lt;User&gt;().register {
+    didPut { user -&gt;
+        if (whatever) this.subscription.close()
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_the_dblistener_interface"><a class="anchor" href="#_using_the_dblistener_interface"></a>Using the <code>DBListener</code> interface</h3>
+<div class="paragraph">
+<p>You can have one of your classes implement the <code>DBListener</code> interface and then register it:</p>
+</div>
+<div class="listingblock">
+<div class="title">Class listeners</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class UserListener : DBListener&lt;User&gt; {}
+class GlobalListener : DBListener&lt;Any&gt; {}
+
+val uSub = db.on&lt;User&gt;().register(UserListener()) <i class="conum" data-value="1"></i><b>(1)</b>
+val aSub = db.onAll().register(GlobalListener()) <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Registers a listener on the <code>User</code> collection.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Registers a global listener to the entire database.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A class listener receives its own subscription (this can be useful if you want the listener to cancel its own subscription after reacting to a certain event) just after registration:</p>
+</div>
+<div class="listingblock">
+<div class="title">Receiving the subscription</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class UserListener : DBListener&lt;User&gt; {
+    lateinit var subscription: Closeable
+    override fun setSubscription(subscription: Closeable) {
+        this.subscription = subscription
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_before_an_operation"><a class="anchor" href="#_before_an_operation"></a>Before an operation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_simple_check"><a class="anchor" href="#_simple_check"></a>simple check</h3>
+<div class="paragraph">
+<p>You can use the event system to act <em>before</em> an operation.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Any exception thrown in a <code>will*</code> callback cancels the operation (or batch of operation) and prevents subsequent callbacks to be called.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Reacting before an operation can be useful to ensure that the operation satisfies certain prerequisites, or to throw an exception to interrupt the operation if it isn&#8217;t.</p>
+</div>
+<div class="listingblock">
+<div class="title">A DSL check</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.on&lt;User&gt;().register {
+    willPut { user -&gt;
+        check(user.name.isNotBlank()) { "User firstName and lastName must not be blank" }
+    }
+    willDelete {
+        val pictureCount = db.find&lt;Picture&gt;().byIndex("userKey", key).entries().count()
+        check(pictureCount == 0) { "User has pictures, delete them first" }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">A class check</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class UserListener : DBListener&lt;User&gt; {
+    override fun willPut(model: User, typeName: ReadMemory, metadata: Metadata, options: Array&lt;out Options.Write&gt;) {
+        check(model.name.isNotBlank()) { "User firstName and lastName must not be blank" }
+    }
+    override fun willDelete(key: Key&lt;User&gt;, getModel: () -&gt; User?, typeName: ReadMemory, options: Array&lt;out Options.Write&gt;) {
+        val pictureCount = db.find&lt;Picture&gt;().byIndex("userKey", key).entries().count()
+        check(pictureCount == 0) { "User has pictures, delete them first" }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_accessing_the_deleted_model"><a class="anchor" href="#_accessing_the_deleted_model"></a>Accessing the deleted model</h3>
+<div class="paragraph">
+<p>You may have noticed in the preceding example that the <code>willDelete</code> callback do not access the deleted model.
+That&#8217;s because it is not given to the <code>willDelete</code> DSL callback.<br>
+Because the deletion of a document uses its key, and not its model, you need to instruct the system to get the document before deleting it.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using the DSL, use the <code>willDeleteIt</code> method:</p>
+<div class="listingblock">
+<div class="title">DSL delete check with model</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.on&lt;User&gt;().register {
+    willDeleteIt { user -&gt;
+        val pictureCount = db.find&lt;Picture&gt;().byIndex("userId", user.id).entries().count()
+        check(pictureCount == 0) { "User has pictures, delete them first" }
+    }
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Using the class method, call the <code>getModel</code> function argument:</p>
+<div class="listingblock">
+<div class="title">DSL delete check with model</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class UserListener : DBListener&lt;User&gt; {
+    override fun willDelete(key: Key&lt;User&gt;, getModel: () -&gt; User?, typeName: ReadMemory, options: Array&lt;out Options.Write&gt;) {
+        val user = getModel()
+        val pictureCount = db.find&lt;Picture&gt;().byIndex("userId", user.id).entries().count()
+        check(pictureCount == 0) { "User has pictures, delete them first" }
+    }
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_after_an_operation"><a class="anchor" href="#_after_an_operation"></a>After an operation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="reaction"><a class="anchor" href="#reaction"></a>simple reaction</h3>
+<div class="paragraph">
+<p>You can react after an operation, this can be useful:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Locally if you want to keep or a local state (such as a UI) up to date:</p>
+</li>
+<li>
+<p>Globally if you want to keep a global state (such as the database itself) up to date.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Any exception thrown from a <code>did*</code> callback will <strong>not</strong> prevent other listeners to be called.
+Kodein-DB ensures that all <code>did*</code> listeners are called when an operation has suceeded.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">A DSL reaction</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.on&lt;User&gt;().register {
+    didPut { user -&gt; ui.add(user) }
+    didDelete { ui.reload() }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">A class reaction</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class UserListener : DBListener&lt;User&gt; {
+    override fun didPut(model: User, key: Key&lt;User&gt;, typeName: ReadMemory, metadata: Metadata, size: Int, options: Array&lt;out Options.Write&gt;) {
+        ui.add(model)
+    }
+    override fun didDelete(key: Key&lt;User&gt;, model: User?, typeName: ReadMemory, options: Array&lt;out Options.Write&gt;) {
+        ui.reload()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that all arguments of the listener&#8217;s methods are available in the DSL in the <code>this</code> context.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can use <code>didDelete</code> to simulate cascading in a global listener:</p>
+</div>
+<div class="listingblock">
+<div class="title">DSL delete reaction with model</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.on&lt;User&gt;().register {
+    didDelete {
+        db.find&lt;Picture&gt;().byIndex("userKey", key).entries().forEach {
+            db.delete(it.key)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_accessing_the_deleted_model_2"><a class="anchor" href="#_accessing_the_deleted_model_2"></a>Accessing the deleted model</h3>
+<div class="paragraph">
+<p>You may have noticed in the preceding example that the <code>didDelete</code> callback do not access the deleted model.
+That&#8217;s because it is not given to the <code>didDelete</code> DSL callback, and will probably be null in the <code>didDelete</code> class method.<br>
+Because the deletion of a document uses its key, and not its model, you need to instruct the system to get the document before deleting it.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using the DSL, simply use the <code>didDeleteIt</code> method:</p>
+<div class="listingblock">
+<div class="title">DSL delete reaction with model</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.on&lt;User&gt;().register {
+    didDeleteIt { user -&gt; ui.remove(user) }
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Using the class method, call the <code>getModel</code> function argument in <code>willDelete</code>:</p>
+<div class="listingblock">
+<div class="title">DSL delete reaction with model</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class UserListener : DBListener&lt;User&gt; {
+    override fun willDelete(key: Key&lt;User&gt;, getModel: () -&gt; User?, typeName: ReadMemory, options: Array&lt;out Options.Write&gt;) {
+        getModel()
+    }
+    override fun didDelete(key: Key&lt;User&gt;, model: User?, typeName: ReadMemory, options: Array&lt;out Options.Write&gt;) {
+        ui.remove(model)
+    }
+}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="context"><a class="anchor" href="#context"></a>Informing listeners</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sometimes, you need to pass some context to the listener(s).
+Things like "Where is the operation coming from?" or "Why is this operation happening?".
+In short, you may need to inform your listeners about <em>context</em>.</p>
+</div>
+<div class="paragraph">
+<p>For example, you may want to know if you are creating a new <code>User</code>, or updating one.</p>
+</div>
+<div class="paragraph">
+<p>Doing so is easy.
+First, create a class that will hold the context and have it implement <code>Options.Write</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">A context class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">enum class UserContext : Options.Write {
+    NEW, UPDATE
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, recover it from your listener:</p>
+</div>
+<div class="listingblock">
+<div class="title">Reading context in a listener</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.on&lt;User&gt;().register {
+    didPut {
+        val context = options.filterIsInstance&lt;UserContext&gt;().firstOrNull()
+        when (context) {
+            UserContext.NEW -&gt; { /* insertion */ }
+            UserContext.UPDATE -&gt; { /* update */ }
+            null -&gt; { /* unknown */ }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, don&#8217;t forget to add the context option when you perform the operation:</p>
+</div>
+<div class="listingblock">
+<div class="title">Adding context to a put.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.put(newUser, UserContext.NEW)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_local_reactions"><a class="anchor" href="#_local_reactions"></a>Local reactions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You may need to attach a callback to a specific operation or batch of operation.
+For that, Kodein-DB provides the <code>Anticipate</code> and <code>React</code> options.</p>
+</div>
+<div class="sect2">
+<h3 id="_regular"><a class="anchor" href="#_regular"></a>Regular</h3>
+<div class="paragraph">
+<p>You can easily add a check that will run before an operation is performed (this is especially usefull for a batch):</p>
+</div>
+<div class="listingblock">
+<div class="title">Adding context to a put.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">db.put(newUser,
+        Anticipate { println("Will put a user!") },
+        React { println("Did put a user!") }
+)
+
+db.newBatch().use { batch -&gt;
+    batch.addOptions(
+            Anticipate { println("Will write batch!") },
+            React { println("Did write batch!") }
+    )
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
