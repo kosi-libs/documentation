@@ -803,13 +803,13 @@ This means that can access the current DI container and its bindings with one of
 <div class="ulist">
 <ul>
 <li>
-<p><code>val t: TYPE by instance()</code></p>
+<p><code>val t: TYPE by rememberInstance()</code></p>
 </li>
 <li>
-<p><code>val f: (ARG_TYPE) &#8594; TYPE by factory()</code></p>
+<p><code>val f: (ARG_TYPE) &#8594; TYPE by rememberFactory()</code></p>
 </li>
 <li>
-<p><code>val p: () &#8594; TYPE by provider()</code></p>
+<p><code>val p: () &#8594; TYPE by rememberProvider()</code></p>
 </li>
 </ul>
 </div>
@@ -820,7 +820,7 @@ This means that can access the current DI container and its bindings with one of
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you are not familiar with these declaration you can explore the detailed documentation on <a href="../core/bindings.html" class="page">bindings</a> and <a href="../core/injection-retrieval.html" class="page">injection/retrieval</a>.
+If you are not familiar with these declarations you can explore the detailed documentation on <a href="../core/bindings.html" class="page">bindings</a> and <a href="../core/injection-retrieval.html" class="page">injection/retrieval</a>.
 </td>
 </tr>
 </table>
