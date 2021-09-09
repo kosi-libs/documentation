@@ -885,7 +885,7 @@ It adds to some Android specific objects, an extension function <code>di()</code
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>A <code>@Composable</code> function <code>contextDI</code> that uses the closest DI pattern to get a DI container by using the <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal">CompositionLocal</a> <code>LocalContext</code>, from <strong><em>Jetpack Compose</em></strong>.</p>
+<p>A <code>@Composable</code> function <code>androidContextDI</code> that uses the closest DI pattern to get a DI container by using the <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal">CompositionLocal</a> <code>LocalContext</code>, from <strong><em>Jetpack Compose</em></strong>.</p>
 </li>
 </ol>
 </div>
@@ -905,7 +905,7 @@ It adds to some Android specific objects, an extension function <code>di()</code
 
 @Composable
 fun App() {
-    val di = contextDI() <i class="conum" data-value="3"></i><b>(3)</b>
+    val di = androidContextDI() <i class="conum" data-value="3"></i><b>(3)</b>
     val dataSource: DataSource by rememberInstance()
     Text(text = "Hello ${dataSource.getUsername()}!")
 }</code></pre>
@@ -923,7 +923,7 @@ fun App() {
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>the <code>contextDI</code> function retrieve the <code>di</code> property from the closest <code>DIAware</code> object.
+<td>the <code>androidContextDI</code> function retrieve the <code>di</code> property from the closest <code>DIAware</code> object.
 <div class="ulist">
 <ul>
 <li>
@@ -935,7 +935,7 @@ fun App() {
 </table>
 </div>
 <div class="paragraph">
-<p>This uses the <code>contextDI</code> function to provide a DI container as the <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal">CompositionLocal</a> <code>LocalDI</code>.</p>
+<p>This uses the <code>androidContextDI</code> function to provide a DI container as the <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal">CompositionLocal</a> <code>LocalDI</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Android context</div>
