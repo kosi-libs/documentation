@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DI</title>
+    <link rel="canonical" href="https://docs.kodein.org/kodein-di/7.11/core/install.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://docs.kodein.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 700;">KODEIN</div>
+            <div style="font-weight: 300; opacity:0.8;">Framework</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-di" data-version="7.11">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein-DI</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../platform-and-genericity.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Core documentation</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frameworks support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/android.html">Android</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/compose.html">Compose (Android / Desktop / JavaScript)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/ktor.html">Ktor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/tornadofx.html">TornadoFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extensions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/configurable.html">Configurable &amp; global container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/jsr330.html">JSR-330 compatibility</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Migration guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-6to7.html">Kodein version 6 to version 7</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-4to5.html">Kodein version 4 to version 5</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-j2k.html">JSR-330 to Kodein-DI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DI</span>
+    <span class="version">7.11.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Kodein-DB</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-db/0.8/index.html">0.8.1 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.6/index.html">0.6.1 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.5/index.html">0.5.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.4/index.html">0.4.1 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.3/index.html">0.3.0 beta</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-db/0.2/index.html">0.2.0 beta</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">7.11.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.10/index.html">7.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.9/index.html">7.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.8/index.html">7.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.7/index.html">7.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.6/index.html">7.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.5/index.html">7.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Framework</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-framework/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Log</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-log/0.12/index.html">0.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-log/0.11/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-log/0.10/index.html">0.10.2</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kodein-framework/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein-DI</a></li>
+    <li><a href="install.html">Core documentation</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.11.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="install.html">7.11.0</a>
+    <a class="version" href="../../7.10/core/install.html">7.10.0</a>
+    <a class="version" href="../../7.9/core/install.html">7.9.0</a>
+    <a class="version" href="../../7.8/core/install.html">7.8.0</a>
+    <a class="version" href="../../7.7/core/install.html">7.7.0</a>
+    <a class="version" href="../../7.6/core/install.html">7.6.0</a>
+    <a class="version" href="../../7.5/core/install.html">7.5.0</a>
+    <a class="version" href="../../7.4/core/install.html">7.4.0</a>
+    <a class="version" href="../../7.3/core/install.html">7.3.1</a>
+    <a class="version" href="../../7.2/core/install.html">7.2.0</a>
+    <a class="version" href="../../7.1/core/install.html">7.1.0</a>
+    <a class="version" href="../../7.0/core/install.html">7.0.0</a>
+    <a class="version is-missing" href="../../6.5/index.html">6.5.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/Kodein-Framework/Kodein-DI/edit/7.11/doc/modules/core/pages/install.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Install</h1>
+<div class="sect1">
+<h2 id="install-jvm"><a class="anchor" href="#install-jvm"></a>JVM</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_with_gradle"><a class="anchor" href="#_with_gradle"></a>With Gradle</h3>
+<div class="paragraph">
+<p>Add the MavenCentral repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">buildscript {
+    repositories {
+        mavenCentral()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then add the dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
+    implementation 'org.kodein.di:kodein-di:7.11.0'
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are <strong>NOT</strong> using <strong>Gradle 6+</strong>, you should declare the use of the Gradle Metadata experimental feature</p>
+</div>
+<div class="listingblock">
+<div class="title">settings.gradle.kts</div>
+<div class="content">
+<pre>enableFeaturePreview("GRADLE_METADATA")</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or, import the JVM binaries with <code>implementation("org.kodein.di:kodein-di-jvm:7.11.0")</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Add the dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.kodein.di&lt;/groupId&gt;
+        &lt;artifactId&gt;kodein-di-jvm&lt;/artifactId&gt;
+        &lt;version&gt;7.11.0&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Use <code>kodein-di-jvm</code>, as <em>Kotlin/Multiplatform</em> projects does not work with Maven
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="kotlin-multiplatform"><a class="anchor" href="#kotlin-multiplatform"></a>Kotlin/Multiplatform (Gradle)</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<em>Kodein-DI</em> supports the following targets:<br>
+androidArm32, androidArm64, iosArm32, iosArm64, iosX64, linuxArm32Hfp, linuxMips32, linuxMipsel32, linuxX64, macosX64, mingwX64
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><em>Kodein-DI</em> uses the new gradle native dependency model.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are <strong>NOT</strong> using <strong>Gradle 6+</strong>, you must declare the use of the Gradle Metadata experimental feature</p>
+</div>
+<div class="listingblock">
+<div class="title">settings.gradle.kts</div>
+<div class="content">
+<pre>enableFeaturePreview("GRADLE_METADATA")</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Add the MavenCentral repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">buildscript {
+    repositories {
+        mavenCentral()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then add the dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation "org.kodein.di:kodein-di:7.11.0"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="kotlin-js"><a class="anchor" href="#kotlin-js"></a>JavaScript (Gradle)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Because <em>Kodein-DI</em> for JavaScript is compiled as a <a href="https://github.com/umdjs/umd">UMD module</a>, it can be imported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In a browser:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>as an AMD module (for example with RequireJS) (See index.html in the demo project).</p>
+</li>
+<li>
+<p>Directly in an HTML page with a <code>&lt;script&gt;</code> tag (See index2.html in the demo project).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>In NodeJS, as a regular CJS module.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Add the MavenCentral repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">buildscript {
+    repositories {
+        mavenCentral()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then add the dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
+    compile 'org.kodein.di:kodein-di-js:7.11.0'
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
