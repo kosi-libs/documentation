@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <sitemap>
-<loc>https://docs.kodein.org/sitemap-kodein-db.xml</loc>
+<loc>https://kosi-libs.org/sitemap-kodein-db.xml</loc>
 </sitemap>
 <sitemap>
-<loc>https://docs.kodein.org/sitemap-kodein-di.xml</loc>
+<loc>https://kosi-libs.org/sitemap-kodein-di.xml</loc>
 </sitemap>
 <sitemap>
-<loc>https://docs.kodein.org/sitemap-kodein-framework.xml</loc>
+<loc>https://kosi-libs.org/sitemap-kodein-log.xml</loc>
 </sitemap>
 <sitemap>
-<loc>https://docs.kodein.org/sitemap-kodein-log.xml</loc>
+<loc>https://kosi-libs.org/sitemap-kosi-libs.xml</loc>
 </sitemap>
 </sitemapindex>

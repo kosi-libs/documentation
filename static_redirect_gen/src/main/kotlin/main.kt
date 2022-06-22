@@ -25,7 +25,7 @@ inline fun <reified T : Node> NodeList.toList(): List<T> {
 fun main() {
     File("../docs").listFiles()!!
         .filter { it.name.startsWith("sitemap-") && it.name.endsWith(".xml") }
-        .filterNot { it.name == "sitemap-kodein-framework.xml" }
+        .filterNot { it.name == "sitemap-kosi-libs.xml" }
         .forEach {
             val loc = readXml(it)
                 .getElementsByTagName("url")
@@ -34,18 +34,18 @@ fun main() {
                 .first {
                     it.endsWith("index.html")
                 }
-            val (module, version) = loc.removePrefix("https://docs.kodein.org/").removeSuffix("/index.html").split("/")
+            val (module, version) = loc.removePrefix("https://kosi-libs.org/").removeSuffix("/index.html").split("/")
             File("../docs/$module/index.html").writeText(
                 """
                     <!DOCTYPE html>
                     <meta charset="utf-8">
-                    <link rel="canonical" href="https://docs.kodein.org/$module/$version/index.html">
+                    <link rel="canonical" href="https://kosi-libs.org/$module/$version/index.html">
                     <script>location="$version/index.html"</script>
                     <meta http-equiv="refresh" content="0; url=$version/index.html">
                     <meta name="robots" content="noindex">
                     <title>Redirect Notice</title>
                     <h1>Redirect Notice</h1>
-                    <p>The page you requested has been relocated to <a href="$version/index.html">https://docs.kodein.org/$module/$version/index.html</a>.</p>
+                    <p>The page you requested has been relocated to <a href="$version/index.html">https://kosi-libs.org/$module/$version/index.html</a>.</p>
                 """.trimIndent()
             )
         }
