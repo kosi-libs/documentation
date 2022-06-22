@@ -1,5 +1,5 @@
-name: kodein-framework
-title: Kodein-Framework
+name: kosi-libs
+title: Kodein Open Source Initiative
 version: master
 nav:
   - modules/ROOT/nav.adoc

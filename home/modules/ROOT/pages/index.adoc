@@ -1,9 +1,9 @@
-image::kodein-framework-logo.svg[KODEIN-FRAMEWORK, 700]
+image::kodein-framework-logo.svg[KOSI-LIBS, 700]
 
 [.lead]
-The *Kodein-Framework* is a suite of libraries that aims to help you to develop Kotlin/Multiplatform (mobile) applications.
+The *Kodein Open Source Initiative* is a suite of libraries that aims to help you to develop Kotlin Multiplatform (mobile) applications.
 
-The *Kodein-Framework*:
+The *Kodein Open Source Initiative*:
 
 - provides high level tools that enhance your Kotlin/Multiplatform experience
 - help you maximize your Kotlin common code, with almost everything but the UI
@@ -11,7 +11,7 @@ The *Kodein-Framework*:
 
 == Libraries
 
-The *Kodein-Framework* libraries provide:
+The *Kodein Open Source Initiative* libraries provide:
 
 - the ability to manage your code and isolate your tests easily, with the dependency injection pattern.
 - a quick and easy way to persist data model in a performant NoSQL database, for each mobile platforms.
@@ -63,6 +63,6 @@ If you need any help do not hesitate to through questions or issues:
 
 Contributions are very welcome and greatly appreciated! The great majority of pull requests are eventually merged.
 
-To contribute, simply fork any of https://github.com/Kodein-Framework/[our projects on Github], fix whatever is iching you, and submit a pull request!
+To contribute, simply fork any of https://github.com/kosi-libs/[our projects on Github], fix whatever is iching you, and submit a pull request!
 
 We are sure that there is still room for imporvement, either in code or documentation.
