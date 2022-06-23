@@ -1,4 +1,4 @@
-image::kodein-framework-logo.svg[KOSI-LIBS, 700]
+= Kodein Open Source Initiative documentation
 
 [.lead]
 The *Kodein Open Source Initiative* is a suite of libraries that aims to help you to develop Kotlin Multiplatform (mobile) applications.
