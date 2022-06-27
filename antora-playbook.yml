@@ -5,13 +5,13 @@ site:
   robots: allow
 content:
   sources:
-    - url: https://github.com/kosi-libs/Kodein-DI.git
+    - url: https://github.com/kosi-libs/Kodein.git
       branches: ['7.*', '6.5']
       start_path: doc
-    - url: https://github.com/kosi-libs/Kodein-DB.git
-      branches: ['0.*', '1.*']
-      start_path: doc
-    - url: https://github.com/kosi-libs/Kodein-Log.git
+    # - url: https://github.com/kosi-libs/Kodein-DB.git
+    #   branches: ['0.*', '1.*']
+    #   start_path: doc
+    - url: https://github.com/kosi-libs/Canard.git
       branches: ['0.*', '1.*']
       start_path: doc
     - url: https://github.com/kosi-libs/documentation.git
