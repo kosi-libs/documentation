@@ -1,3 +1,2 @@
 * xref:kodein::index.adoc[Dependency Injection]
-* xref:kodein-db::index.adoc[Embedded NoSQL database (deprecated)]
 * xref:canard::index.adoc[Multiplatform logging]
