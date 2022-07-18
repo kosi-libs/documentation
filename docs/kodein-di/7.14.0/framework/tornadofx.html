@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DI</title>
+    <link rel="canonical" href="https://kosi-libs.org/kodein-di/7.14.0/framework/tornadofx.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://kosi-libs.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 300;">Kodein Open Source Initiative</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein-di" data-version="7.14.0">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein-DI</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../platform-and-genericity.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Core documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frameworks support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="android.html">Android</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="compose.html">Compose (Android / Desktop / JavaScript)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ktor.html">Ktor</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="tornadofx.html">TornadoFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extensions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/configurable.html">Configurable &amp; global container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/jsr330.html">JSR-330 compatibility</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Migration guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-6to7.html">Kodein version 6 to version 7</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-4to5.html">Kodein version 4 to version 5</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-j2k.html">JSR-330 to Kodein-DI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein-DI</span>
+    <span class="version">7.14.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Canard</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../canard/0.15/index.html">0.15.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.14/index.html">0.14.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein Open Source Initiative</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kosi-libs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Kodein-DI</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">7.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.13.1/index.html">7.13.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.12.0/index.html">7.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.11/index.html">7.11.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.10/index.html">7.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.9/index.html">7.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.8/index.html">7.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.7/index.html">7.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.6/index.html">7.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.5/index.html">7.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein-Log</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein-log/0.13/index.html">0.13.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-log/0.12/index.html">0.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-log/0.11/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein-log/0.10/index.html">0.10.2</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kosi-libs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein-DI</a></li>
+    <li>Frameworks support</li>
+    <li><a href="tornadofx.html">TornadoFX</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.14.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="tornadofx.html">7.14.0</a>
+    <a class="version" href="../../7.13.1/framework/tornadofx.html">7.13.1</a>
+    <a class="version" href="../../7.12.0/framework/tornadofx.html">7.12.0</a>
+    <a class="version" href="../../7.11/framework/tornadofx.html">7.11.0</a>
+    <a class="version" href="../../7.10/framework/tornadofx.html">7.10.0</a>
+    <a class="version" href="../../7.9/framework/tornadofx.html">7.9.0</a>
+    <a class="version" href="../../7.8/framework/tornadofx.html">7.8.0</a>
+    <a class="version" href="../../7.7/framework/tornadofx.html">7.7.0</a>
+    <a class="version" href="../../7.6/framework/tornadofx.html">7.6.0</a>
+    <a class="version" href="../../7.5/framework/tornadofx.html">7.5.0</a>
+    <a class="version" href="../../7.4/framework/tornadofx.html">7.4.0</a>
+    <a class="version" href="../../7.3/framework/tornadofx.html">7.3.1</a>
+    <a class="version" href="../../7.2/framework/tornadofx.html">7.2.0</a>
+    <a class="version" href="../../7.1/framework/tornadofx.html">7.1.0</a>
+    <a class="version" href="../../7.0/framework/tornadofx.html">7.0.0</a>
+    <a class="version" href="../../6.5/framework/tornadofx.html">6.5.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/kosi-libs/Kodein/edit/7.14/doc/modules/framework/pages/tornadofx.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Kodein-DI on TornadoFX</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use Kodein-DI as-is in your TornadoFX project, but you can level-up your game by using the libraries <code>kodein-di-framework-tornadofx-jvm</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Kodein-DI does work on TornadoFX as-is.
+      The <code>kodein-di-framework-tornadofx-jvm</code> extensions add multiple TornadoFX-specific utilities to Kodein-DI.<br>
+      Using or not using this extension really depends on your needs.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Have a look at the <a href="https://github.com/Kodein-Framework/Kodein-Samples/tree/master/di/tornadofx">TornadoFX demo project</a> to help you going further!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install"><a class="anchor" href="#install"></a>Install</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<div class="title">How to quickly get into <code>kodein-di-framework-tornadofx-jvm</code>:</div>
+<ol class="arabic">
+<li>
+<p>Add those lines in your <code>dependencies</code> block in your application <code>build.gradle</code> file:</p>
+<div class="listingblock">
+<div class="title">Gradle Groovy script</div>
+<div class="content">
+<pre>implementation 'org.kodein.di:kodein-di-framework-tornadofx-jvm:7.14.0'</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Gradle Kotlin script</div>
+<div class="content">
+<pre>implementation("org.kodein.di:kodein-di-framework-tornadofx-jvm:7.14.0")</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Declare your <code>App</code> as <code>DIAware</code> and implement a DI container</p>
+<div class="listingblock">
+<div class="title">Example: a TornadoFX Application declaration, <code>DIAware</code>, using TornadoFX DI as external source</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class TornadoApplication : App(MainView::class), DIAware { <i class="conum" data-value="1"></i><b>(1)</b>
+    override val di: DI get() = DI { <i class="conum" data-value="2"></i><b>(2)</b>
+        installTornadoSource() <i class="conum" data-value="3"></i><b>(3)</b>
+     }
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Setting the <code>App</code> as <code>DIAware</code> will help you define a global DI container</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Define a DI container, accessible from almost anywhere in your application</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Branch DI upon TornadoFX dependency injection, to be able to access those dependencies through your DI container (see <a href="#external-source">documentation</a>)</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+In order to leverage the power of DI and the helpers we made, you should really consider making your <code>App</code> as <code>DIAware</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="retrieving"><a class="anchor" href="#retrieving"></a>Retrieving</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you defined your <code>App</code> as <code>DIAware</code>, you will normally be able to retrieve a DI container, and dependencies, from almost anywhere in your code.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+You may also want to access your TornadoFX components (such as <code>View</code>, <code>Fragment</code>, <code>Controller</code>, etc) through a DI container, to help you with that check the <a href="#external-source">external source</a> section.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="closest-di"><a class="anchor" href="#closest-di"></a>Closest DI pattern</h3>
+<div class="paragraph">
+<p>The idea behind this concept, is to be able to retrieve a DI container, from an outer class. For example, making our <code>App</code> as <code>DIAware</code> give us the ability to have a global DI container that can be retrieve from multiple places, like:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Components (<code>View</code>, <code>Fragment</code>, <code>Controller</code>, etc)</p>
+</li>
+<li>
+<p>Nodes, graphical object of the <code>App</code></p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="closest-tfx"><a class="anchor" href="#closest-tfx"></a>From a TornadoFX perspective</h4>
+<div class="paragraph">
+<p>In TornadoFX there is no hierarchy between the different components. In fact, their is no bound between <code>View</code>, <code>Fragment</code>, <code>Controller</code> or <code>ViewModel</code>, except if you handle it yourself. However, they are available through the DI container of TornadoFX (and the one of DI if you use <a href="#external-source">external source</a> helper), and they all have a reference to the <code>App</code>.</p>
+</div>
+<div class="paragraph">
+<p>So, if we made our <code>App</code> as <code>DIAware</code>, we can get the global <code>DI</code> container from any <code>Component</code> thanks to:</p>
+</div>
+<div class="listingblock">
+<div class="title">Code: Extension function on <code>Component</code> that get the DI container from the <code>App</code>, if its <code>DIAware</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">fun Component.kodeinDI() = kodeinDI { app }</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>TornadoFX <code>Component</code> are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>View</p>
+</li>
+<li>
+<p>Fragment</p>
+</li>
+<li>
+<p>Controller</p>
+</li>
+<li>
+<p>ViewModel</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In your code you can access the global DI container like the following snippets.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: retrieving dependency through closest DI container from a <code>Controller</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class PersonController : Controller() {
+    val repository: PersonRepository by kodeinDI().instance() <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>kodeinDI()</code> function that will get the nearest DI container, from the <code>App</code></td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: retrieving dependency through the closest DI container from a <code>View</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class PersonEditorView : View() {
+    val controller: PersonController by kodeinDI().instance() <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>kodeinDI()</code> function will get the nearest DI container, from the <code>App</code></td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+All TornadoFX <code>Component</code> can access the global DI container ) by calling the function <code>kodeinDI()</code>,
+but in order to do that your <code>App</code> <strong>must</strong> be <code>DIAware</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="closest-jfx"><a class="anchor" href="#closest-jfx"></a>From a JavaFX perspective</h4>
+<div class="paragraph">
+<p>In JavaFX, an <code>Application</code> is made of a <code>Stage</code> (the window), a <code>Scene</code> (the container for all content) and a graph of <code>Node</code>. All <code>Node</code> are grouped by view (in the case of TornadoFX: <code>View</code> or <code>Fragment</code>).</p>
+</div>
+<div class="paragraph">
+<p>So, the <code>Node</code> hierarchy can apply to the closest DI pattern, limited to the scope of a <code>View</code> or <code>Fragment</code> for now. If none of the parent <code>Node</code> have a <code>DI</code> container, thanks to the TornadoFX facilities, we can fallback onto the global DI container from the <code>App</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: retrieving dependency through the closest DI container from a <code>Node</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class EditorTabFragment : Fragment() {
+    override val root = hbox {
+        form {
+            val author: String by kodeinDI().instance("author") <i class="conum" data-value="1"></i><b>(1)</b>
+            label { author }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>kodeinDI()</code> function will get the nearest DI container, from the parent <code>Node</code>, or from the <code>App</code></td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+If none of the parent nodes have a DI container, we try to get to the one in the <code>App</code>, only if this <code>App</code> is <code>DIAware</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="DIAware"><a class="anchor" href="#DIAware"></a>Being DIAware</h4>
+<div class="paragraph">
+<p>Having your classes set as <code>DIAware</code> have multiple advantages. For example this allow to cache the DI container or simplify the way we retrieve our dependencies.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: A DIAware TornadoFX Controller</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class PersonListController : Controller(), DIAware { <i class="conum" data-value="1"></i><b>(1)</b>
+    override val di: DI = kodeinDI() <i class="conum" data-value="2"></i><b>(2)</b>
+
+    val personEditorController: PersonEditorController by instance() <i class="conum" data-value="3"></i><b>(3)</b>
+
+    fun editPerson(person: Person) {
+        personEditorController.editPerson(person) <i class="conum" data-value="4"></i><b>(4)</b>
+    }
+    /*...*/
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Set the Controller as <code>DIAware</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Retrieve the <code>App</code> DI container from the <code>kodeinDI()</code> extension function</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Retrieve dependency using the <code>instance()</code> function, as the DI container is part of the context</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Use the dependency</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Because DI is lazy, the container and the dependencies will be retrieve at call site only.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To benefit from the DI optimization, and the facilities we provide, we highly recommend
+that you make your classes <code>DIAware</code> when its possible.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="di-extension"><a class="anchor" href="#di-extension"></a>Extension of Kodein-DI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section will cover how we can extend the use of DI container in a TornadoFX application, like:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Getting control of dependency injection over TornadoFX</p>
+</li>
+<li>
+<p>Defining specific DI containers in a TornadoFX / JavaFX graph</p>
+</li>
+<li>
+<p>Overriding a parent DI container in a TornadoFX component / JavaFX node</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="external-source"><a class="anchor" href="#external-source"></a>Using TornadoFX Dependency Injection as external source</h3>
+<div class="paragraph">
+<p>TornadoFX integrates a dependency injection mechanism to work with its <code>Component</code>.
+This section will show you how you can interact with the Tornado DI container, by using Kodein-DI.
+Our goal is to provide you some tools to be able to integrate Kodein-DI as your main DI container,
+thus by learning and knowing only one mechanism.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Defining the external source</p>
+<div class="paragraph">
+<p>In order to use Kodein-DI upon TornadoFX you should make your <code>App</code> as <code>DIAware</code>,
+then by using the <code>installTornadoSource()</code> extension function, in your <code>di</code> property override,
+you&#8217;ll be able to get through the external source from anywhere in your <code>App</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Installing the TornadoFX DI container as external source for Kodein-DI</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class TornadoApplication : App(MainView::class), DIAware {
+    override val di: DI = DI {
+        installTornadoSource() <i class="conum" data-value="1"></i><b>(1)</b>
+     }
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Branch DI upon TornadoFX dependency injection, to be able to access those dependencies through your DI container</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+We highly recommend that you make your <code>App</code> as <code>DIAware</code> in order to benefit from the use of Kodein-DI upon TornadoFX DI container.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Retrieving TornadoFX <code>Component</code> through Kodein-DI</p>
+<div class="paragraph">
+<p>Once you&#8217;ll have installed the TornadoFX source, you will be able to retrieve transparently TornadoFX <code>Component</code> through Kodein-DI,
+as it were one of your own dependencies.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Retrieving a Component from DI</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class PersonListController : Controller() { ... } <i class="conum" data-value="1"></i><b>(1)</b>
+class PersonListView : View() {
+    private val listController: PersonListController by kodeinDI().instance() <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>PersonListController</code> is not bound on the DI container, but as a <code>Controller</code> its accessible from TornadoFX DI container</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Retrieve <code>PersonListController</code> through the DI external source</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Using TornadoFX scopes to retrieve binding through the external source</p>
+<div class="paragraph">
+<p>Like Kodein-DI, TornadoFX as scopes to contextualize and attach state to its dependencies.
+As we can retrieve TornadoFX dependencies through DI external source,
+we also can retrieve them using scopes with DI.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Retrieving a Component from DI with a Scope</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class PersonScope(person: Person) : Scope() { <i class="conum" data-value="1"></i><b>(1)</b>
+    val model = PersonModel(person)
+}
+//...
+class EditorTabFragment : Fragment() {
+    override val scope = super.scope as PersonScope <i class="conum" data-value="2"></i><b>(2)</b>
+}
+//...
+val editor: EditorTabFragment by kodeinDI().on(personScope).instance() <i class="conum" data-value="3"></i><b>(3)</b>
+//...</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Define a <code>Scope</code> that will help contextualize <code>Component</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Every <code>Component</code> has a scope that can be override, this allow TornadoFX to handle multiple instances with multiple contexts</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>We can retrieve a scoped instance of <code>EditorTabFragment</code> with the function <code>on(personScope)</code>, where personScope is a <code>PersonScope</code></td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fx-container"><a class="anchor" href="#fx-container"></a>Defining DI container in FX&#8217;s <code>Node</code></h3>
+<div class="paragraph">
+<p>For some need we could want to define DI containers into the <code>Node</code> hierarchy. To do so we provide an extension function to create a DI container attached to a <code>Node</code>. This is done by adding the DI container to the properties of the <code>Node</code>, thus we will be able to access it from any child in the hierarchy.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Defining and using a DI container from a <code>Node</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyView : View() {
+    override val root = hbox { <i class="conum" data-value="1"></i><b>(1)</b>
+        kodeinDI { <i class="conum" data-value="2"></i><b>(2)</b>
+            bind&lt;Random&gt;() { singleton { SecureRandom() } }
+        }
+
+        form { <i class="conum" data-value="3"></i><b>(3)</b>
+            val random by kodeinDI().instance&lt;Random&gt;() <i class="conum" data-value="4"></i><b>(4)</b>
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Defining the root <code>Node</code> for a <code>View</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Declaring a <strong>new</strong> DI container into the root <code>Node</code>, with its binding</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Defining a child <code>Node</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Calling the <code>kodeinDI()</code> extension function to access the nearest DI container, in this case the one defined at &lt;2&gt;, then retrieve a dependency</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This feature will provide a <strong>new</strong> DI container, meaning it won&#8217;t be linked to other DI container, such as your global one.
+To keep your binding from the global DI container you can use <a href="#kodein-extension">extension</a> or following the next about <a href="#sub-kodein">subDI</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sub-di"><a class="anchor" href="#sub-di"></a>Extending the nearest DI container</h3>
+<div class="paragraph">
+<p>Some times, we might want to extend an existing DI container in a dedicated area, without impacting the whole application. For example, in a login form, we might want to have credentials binding, that would be only available on this form and its children.</p>
+</div>
+<div class="paragraph">
+<p>To do so, we have facilities to extend a DI container by calling the <code>subDI</code> extension function, available on <code>Component</code> and <code>Node</code> classes.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the case of a <code>Component</code></p>
+<div class="listingblock">
+<div class="title">Example: Extending the nearest DI container for a <code>Component</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class LoginController : Controller(), DIAware { <i class="conum" data-value="1"></i><b>(1)</b>
+    override val di: DI = subDI { <i class="conum" data-value="2"></i><b>(2)</b>
+            bind&lt;CredentialsDao&gt; { singleton { CredentialsDao() } } <i class="conum" data-value="3"></i><b>(3)</b>
+    }
+
+    // ...
+
+    val dao by instance&lt;CredentialsDao&gt;() <i class="conum" data-value="4"></i><b>(4)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Defining your <code>Component</code> as <code>DIAware</code> will help keeping track of your extended DI container</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Extending the nearest DI container, here the <code>App</code> one</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Defining binding only available for the extended DI container</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Retrieve the <code>CredentialsDao</code> from the local DI container</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Making your <code>Component</code> as <code>DIAware</code> is <strong>optional</strong>, but it will help you keeping track of your extended container. Otherwise, you might want to store a reference of your extended container in a local variable.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>In the case of a <code>Node</code> hierarchy</p>
+<div class="listingblock">
+<div class="title">Example: Extending the nearest DI container for a <code>Node</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class LoginView : View() {
+    override val root = hbox { <i class="conum" data-value="1"></i><b>(1)</b>
+        subDI { <i class="conum" data-value="2"></i><b>(2)</b>
+            bind&lt;LoginController&gt;() { singleton { instance() } } <i class="conum" data-value="3"></i><b>(3)</b>
+        }
+
+        form {
+            val controller by kodeinDI().instance&lt;LoginController&gt;() <i class="conum" data-value="4"></i><b>(4)</b>
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Defining the root <code>Node</code> for a <code>View</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Extending the nearest DI container, here the <code>App</code> one, but stored in the <code>Node</code> properties</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Defining binding only available for the extended DI container</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Retrieve the <code>CredentialsDao</code> from the nearest DI container, in that case the extended container stored in the <strong>hbox</strong> properties</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+In the case of a <code>Component</code> you have to handle the reference of the extended container yourself. But, in the case of a <code>Node</code> the <code>subDI</code> will manage it, by storing the reference to the extended container, into the <code>Node</code> properties, like for the <a href="#fx-container">FX container feature</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="scopes"><a class="anchor" href="#scopes"></a>TornadoFX scopes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>DI-DI provides a standard scope for any object (TornadoFX or not).
+The <code>WeakContextScope</code> will keep singleton and multiton instances as long as the context (= object) lives.</p>
+</div>
+<div class="paragraph">
+<p>That&#8217;s why the <code>ComponentScope</code> and <code>NodeScope</code> are just wrappers upon <code>WeakContextScope</code> with the respective targets <code>Component</code> and <code>Node</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ComponentScope</code></p>
+<div class="listingblock">
+<div class="title">Example: Defining <code>Component</code> scoped dependencies</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;EditingState&gt;() { scoped(ComponentScope).singleton { EditingState() } } <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A <code>EditingState</code> object will be created for each Component that will ask for.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: Retrieving `Component scoped dependencies</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class EditorTabFragment : Fragment() {
+    private val editingState: EditingState by kodeinDI().on(this).instance() <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Scope is <code>this</code></td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>NodeScope</code></p>
+<div class="listingblock">
+<div class="title">Example: Defining <code>Node</code> scoped dependencies</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;EditingState&gt;() with scoped(NodeScope).singleton { EditingState() } <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A <code>EditingState</code> object will be created for each <code>Node</code> that will ask for.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: Retrieving `Node scoped dependencies</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class PersonEditorController : Controller() {
+    val personEditorView: PersonEditorView by kodeinDI().instance()
+
+    fun editPerson(person: Person) {
+        val tab = personEditorView.tabPane.tab("Tab Title")
+        val editingState: EditingState by kodeinDI().on(tab).instance() <i class="conum" data-value="1"></i><b>(1)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Scope is <strong>tab</strong> a <code>Node</code> element, every <code>Tab</code> would have a different instance of <code>EditingState</code></td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
