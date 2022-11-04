@@ -7,12 +7,6 @@
 <loc>https://kosi-libs.org/sitemap-kodein.xml</loc>
 </sitemap>
 <sitemap>
-<loc>https://kosi-libs.org/sitemap-kodein-di.xml</loc>
-</sitemap>
-<sitemap>
-<loc>https://kosi-libs.org/sitemap-kodein-log.xml</loc>
-</sitemap>
-<sitemap>
 <loc>https://kosi-libs.org/sitemap-kosi-libs.xml</loc>
 </sitemap>
 </sitemapindex>

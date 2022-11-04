@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein</title>
+    <link rel="canonical" href="https://kosi-libs.org/kodein/7.15/framework/compose.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://kosi-libs.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 300;">Kodein Open Source Initiative</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein" data-version="7.10">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Kodein</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../platform-and-genericity.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Core documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frameworks support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="android.html">Android</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="compose.html">Compose (Android / Desktop / JavaScript)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ktor.html">Ktor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tornadofx.html">TornadoFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extensions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/configurable.html">Configurable &amp; global container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/jsr330.html">JSR-330 compatibility</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Migration guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-6to7.html">Kodein version 6 to version 7</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-4to5.html">Kodein version 4 to version 5</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-j2k.html">JSR-330 to Kodein-DI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein</span>
+    <span class="version">7.10.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Canard</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../canard/0.16/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.15/index.html">0.15.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.14/index.html">0.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.13/index.html">0.13.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.12/index.html">0.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.11/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.10/index.html">0.10.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">Kodein</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../7.15/index.html">7.15.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.14/index.html">7.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.13/index.html">7.13.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.12/index.html">7.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.11/index.html">7.11.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">7.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.9/index.html">7.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.8/index.html">7.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.7/index.html">7.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.6/index.html">7.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.5/index.html">7.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein Open Source Initiative</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kosi-libs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kosi-libs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein</a></li>
+    <li>Frameworks support</li>
+    <li><a href="compose.html">Compose (Android / Desktop / JavaScript)</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.10.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../7.15/framework/compose.html">7.15.1</a>
+    <a class="version" href="../../7.14/framework/compose.html">7.14.0</a>
+    <a class="version" href="../../7.13/framework/compose.html">7.13.1</a>
+    <a class="version" href="../../7.12/framework/compose.html">7.12.0</a>
+    <a class="version" href="../../7.11/framework/compose.html">7.11.0</a>
+    <a class="version is-current" href="compose.html">7.10.0</a>
+    <a class="version" href="../../7.9/framework/compose.html">7.9.0</a>
+    <a class="version" href="../../7.8/framework/compose.html">7.8.0</a>
+    <a class="version" href="../../7.7/framework/compose.html">7.7.0</a>
+    <a class="version" href="../../7.6/framework/compose.html">7.6.0</a>
+    <a class="version" href="../../7.5/framework/compose.html">7.5.0</a>
+    <a class="version is-missing" href="../../7.4/index.html">7.4.0</a>
+    <a class="version is-missing" href="../../7.3/index.html">7.3.1</a>
+    <a class="version is-missing" href="../../7.2/index.html">7.2.0</a>
+    <a class="version is-missing" href="../../7.1/index.html">7.1.0</a>
+    <a class="version is-missing" href="../../7.0/index.html">7.0.0</a>
+    <a class="version is-missing" href="../../6.5/index.html">6.5.5</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/kosi-libs/Kodein/edit/7.10/doc/modules/framework/pages/compose.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Kodein-DI and <em>Compose</em> (Android, Desktop, or JS)</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use <strong><em>Kodein-DI</em></strong> as-is in your Android / Desktop / JS project, but you can level-up your game by using the library <code>kodein-di-framework-compose</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong><em>Kodein-DI</em></strong> is compatible with both <strong>Jetpack</strong> and <strong>JetBrains</strong> <em>Compose</em>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>kodein-di-framework-compose</code> relies and only few stable APIs that have some good chance to stay (like <code>@Composable</code>).
+            This means that <code>kodein-di-framework-compose</code> doesn&#8217;t lock you with a specific version of <strong>Jetpack</strong> and <strong>JetBrains</strong> <em>Compose</em>.
+            You can use the one that works for you, <strong>as long as your kotlin version aligns with the version used to build the Compose version your are using</strong>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is a table containing the version compatibility:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kodein-DI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compose compiler</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kotlin</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.10.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.1-rc2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.6.10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.7.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.0-alpha1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.30</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.6.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.0-beta08</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.21</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.5.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.0-beta07</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4.32</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7.5.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.0-beta06</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4.31</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install"><a class="anchor" href="#install"></a>Install</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong><em>Kodein-DI</em></strong> for <em>Compose</em> can be used for Android, Desktop, or JavaScript projects with the same approach (thanks to Gradle&#8217;s metadata).</p>
+</div>
+<div class="paragraph">
+<p>Start by adding the correct dependency to your Gradle build script:</p>
+</div>
+<div class="listingblock">
+<div class="title">Gradle Groovy script</div>
+<div class="content">
+<pre>implementation 'org.kodein.di:kodein-di-framework-compose:7.10.0'</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Gradle Kotlin script</div>
+<div class="content">
+<pre>implementation("org.kodein.di:kodein-di-framework-compose:7.10.0")</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Using <code>kodein-di-framework-compose</code>, whatever your platform target, will transitively add the <strong><em>Kodein-DI</em></strong> core module <code>kodein-di</code> to your dependencies.</p>
+</div>
+<div class="paragraph">
+<p>On <strong>Android</strong> it will transitively add the specific module <code>kodein-di-framework-android-x</code> (see <a href="android.html" class="page">Android modules</a>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_di_capabilities_in_a_composable_tree"><a class="anchor" href="#_di_capabilities_in_a_composable_tree"></a>DI capabilities in a <code>@Composable</code> tree</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong><em>Kodein-DI</em></strong> fully integrates with <em>Compose</em> by providing:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>an easy way to make your DI containers accessible from anywhere in your <code>@Composable</code> tree.</p>
+</li>
+<li>
+<p>some helper functions to directly retrieve your bindings in your <code>@Composable</code> functions.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_using_the_composable_hierarchy"><a class="anchor" href="#_using_the_composable_hierarchy"></a>Using the <code>@Composable</code> hierarchy</h3>
+<div class="paragraph">
+<p>Compose provides a way of exposing objects and instances to the <code>@Composable</code> hierarchy without passing arguments through every <code>@Composable</code> functions, it is called <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal">CompositionLocal</a>.
+This is what <strong><em>Kodein-DI</em></strong> uses under the hood to help you access your DI containers transparently.</p>
+</div>
+<div class="sect3">
+<h4 id="with-di"><a class="anchor" href="#with-di"></a>Share a DI reference inside a <code>@Composable</code> tree</h4>
+<div class="paragraph">
+<p>You can easily use <strong><em>Kodein-DI</em></strong> to expose a DI container within a <code>@Composable</code> tree, using the <code>withDI</code> functions.
+These functions accept either, a DI builder, a DI reference or <a href="../core/modules-inheritance.html" class="page">DI modules</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">sharing a DI container within a <code>@Composable</code> tree</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bindProvider&lt;Dice&gt; { RandomDice(0, 5) }
+    bindSingleton&lt;DataSource&gt; { SqliteDS.open("path/to/file") }
+}
+
+@Composable
+fun App() = withDI(di) { <i class="conum" data-value="1"></i><b>(1)</b>
+    MyView { <i class="conum" data-value="2"></i><b>(2)</b>
+        ContentView() <i class="conum" data-value="2"></i><b>(2)</b>
+        BottomView() <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>attaches the container <code>di</code> to the current <code>@Composable</code> node</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>every underlying <code>@Composable</code> element can access the bindings declared in <code>di</code></td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Creating a DI container with DI modules within a <code>@Composable</code> tree</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val diceModule = DI.Module("diceModule") {
+    bindProvider&lt;Dice&gt; { RandomDice(0, 5) }
+}
+val persistenceModule = DI.Module("persistenceModule") {
+    bindSingleton&lt;DataSource&gt; { SqliteDS.open("path/to/file") }
+}
+
+@Composable
+fun App() = withDI(diceModule, persistenceModule) { <i class="conum" data-value="1"></i><b>(1)</b>
+    MyView { <i class="conum" data-value="2"></i><b>(2)</b>
+        ContentView() <i class="conum" data-value="2"></i><b>(2)</b>
+        BottomView() <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>creates a DI container with the given modules before attaching it to the current <code>@Composable</code> node</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>every underlying <code>@Composable</code> element can access the bindings declared in <code>diceModule</code> and <code>persistenceModule</code></td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Creating a DI container and expose it to a <code>@Composable</code> tree</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Composable
+fun App() = withDI({ <i class="conum" data-value="1"></i><b>(1)</b>
+    bindProvider&lt;Dice&gt; { RandomDice(0, 5) }
+    bindSingleton&lt;DataSource&gt; { SqliteDS.open("path/to/file") }
+}) {
+    MyView { <i class="conum" data-value="2"></i><b>(2)</b>
+        ContentView() <i class="conum" data-value="2"></i><b>(2)</b>
+        BottomView() <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>DI builder that will be invoked and attached to the current <code>@Composable</code> node</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>every underlying <code>@Composable</code> element can access the bindings attached to the current <code>@Composable</code> node</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+It&#8217;s important to understand that the bindings can&#8217;t be accessed with the <code>CompositionLocal</code> mechanism from the sibling or upper nodes.
+         The DI reference si only available inside the <code>content</code> lambda and for underlying <code>@Composable</code> element of the <code>withDI</code> functions.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="localdi"><a class="anchor" href="#localdi"></a>Access a DI container from <code>@Composable</code> functions</h4>
+<div class="paragraph">
+<p>This assumes you have already gone through the <a href="#with-di">share DI within a <code>@Composable</code> tree</a> section and that you have a DI container attached to your current <code>@Composable</code> hierarchy.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Kodein-DI</em></strong> uses the <em>Compose</em> notion of <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal">CompositionLocal</a>
+to share your DI references via the <a href="#with-di"><code>withDI</code></a> and <a href="#with-di"><code>subDI</code></a> functions.
+Therefore, in any underlying <code>@Composable</code> function you can access the DI attached to the context with the function <code>localDI()</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Getting the DI container from parent nodes</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Composable
+fun ContentView() {
+    val di = localDI() <i class="conum" data-value="1"></i><b>(1)</b>
+    val dice: Dice by di.instance() <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Get the DI container attache to a parent node</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Standard <strong><em>Kodein-DI</em></strong> binding retrieval</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Using <code>localDI()</code> in a tree where there is no DI container will throw a runtime exception: <code>IllegalStateException: Missing DI container!</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_extend_an_existing_di_container"><a class="anchor" href="#_extend_an_existing_di_container"></a>Extend an existing DI container</h4>
+<div class="paragraph">
+<p>In some cases we might want to extend our application DI container for local needs.</p>
+</div>
+<div class="listingblock">
+<div class="title">Extend a DI container from the <em>Compose</em> context</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Composable
+fun ContentView() {
+    subDI({ <i class="conum" data-value="1"></i><b>(1)</b>
+        bindSingleton { PersonService() } <i class="conum" data-value="2"></i><b>(2)</b>
+    }) {
+        ItemList() <i class="conum" data-value="3"></i><b>(3)</b>
+        ActionView() <i class="conum" data-value="3"></i><b>(3)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Extend the current DI from <code>LocalDI</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Add specific bindings for the underlying tree</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>every underlying <code>@Composable</code> element can access the bindings declared in the parent&#8217;s DI container + the local bindings added in <strong>2</strong>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can also extend an existing global DI container, like in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="title">Extend a DI container from its reference</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Composable
+fun ContentView() {
+    subDI(parentDI = globalDI, <i class="conum" data-value="1"></i><b>(1)</b>
+    diBuilder = {
+        bindSingleton { PersonService() } <i class="conum" data-value="2"></i><b>(2)</b>
+    }) {
+        ItemList() <i class="conum" data-value="3"></i><b>(3)</b>
+        ActionView() <i class="conum" data-value="3"></i><b>(3)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The DI container to extend</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Add specific bindings for the underlying tree</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>every underlying <code>@Composable</code> element can access the bindings declared in the parent&#8217;s DI container + the local bindings added in <strong>2</strong>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title"><strong>Copying bindings</strong></div>
+<p>With this feature we can extend our DI container. This extension is made by copying the none singleton / multiton,
+but we have the possibility to copy all the binding (including singleton / multiton).</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Copying all the bindings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Composable
+fun ContentView() {
+    subDI(copy = Copy.All, <i class="conum" data-value="1"></i><b>(1)</b>
+    diBuilder = {
+        /** new bindings / overrides **/
+    }) {
+        ItemList() <i class="conum" data-value="2"></i><b>(2)</b>
+        ActionView() <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Copying all the bindings, with the singletons / multitons</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>every underlying <code>@Composable</code> element can access the bindings declared in the parent&#8217;s DI container + the local bindings.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+By doing a <code>Copy.All</code> your original singleton / multiton won&#8217;t be available anymore, in the new DI container, they will exist as new instances.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title"><strong>Overriding bindings</strong></div>
+<p>Sometimes, It might be interesting to replace an existing dependency (by overriding it).</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: overriding bindings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Composable
+fun App() = withDI({
+        bindProvider&lt;Dice&gt; { RandomDice(0, 5) }
+        bindSingleton&lt;DataSource&gt; { SqliteDS.open("path/to/file") }
+    }) {
+    MyView {
+        ContentView()
+    }
+}
+
+@Composable
+fun ContentView() {
+    subDI(allowSilentOverrides = true, <i class="conum" data-value="1"></i><b>(1)</b>
+    diBuilder = {
+        bindProvider&lt;Dice&gt; { RandomDice(0, 10) } <i class="conum" data-value="2"></i><b>(2)</b>
+    }) {
+        ItemList() <i class="conum" data-value="3"></i><b>(3)</b>
+        ActionView() <i class="conum" data-value="3"></i><b>(3)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Overriding in the <code>subDI</code> will be implicit</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Silently overrides the <code>Dice</code> provider define in an upper node</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>every underlying <code>@Composable</code> element can access the bindings declared in the parent&#8217;s DI container + the local bindings added in <strong>2</strong>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_retrieve_bindings_from_composable_functions"><a class="anchor" href="#_retrieve_bindings_from_composable_functions"></a>Retrieve bindings from <code>@Composable</code> functions</h3>
+<div class="paragraph">
+<p>If you have defined a DI container in a <a href="#localdi"><code>LocalDI</code></a>, you can consider every underlying <code>@Composable</code> as DI aware.
+This means that can access the current DI container and its bindings with one of the following function delegates:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>val t: TYPE by rememberInstance()</code></p>
+</li>
+<li>
+<p><code>val f: (ARG_TYPE) &#8594; TYPE by rememberFactory()</code></p>
+</li>
+<li>
+<p><code>val p: () &#8594; TYPE by rememberProvider()</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you are not familiar with these declarations you can explore the detailed documentation on <a href="../core/bindings.html" class="page">bindings</a> and <a href="../core/injection-retrieval.html" class="page">injection/retrieval</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here are some examples on how to retrieve instances, factories or providers within a <code>@Composable</code> function.</p>
+</div>
+<div class="listingblock">
+<div class="title">Retrieve instances</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Composable
+fun ContentView() {
+    val dice: Dice by rememberInstance() <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Retrieve factories</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Composable
+fun ContentView() {
+    val diceFactory: (Int) -&gt; Dice by rememberFactory() <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Retrieve providers</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Composable
+fun ContentView() {
+    val diceProvider: () -&gt; Dice by rememberProvider() <i class="conum" data-value="1"></i><b>(1)</b>
+    val personProvider: () -&gt; Person by rememberProvider(arg = "Romain") <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Under the hood these functions are using <code>LocalDI</code>. If there is no DI container define in the <code>@Composable</code> current hierarchy, you will get a runtime exception: <code>IllegalStateException: Missing DI container!</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_android_specific_usage"><a class="anchor" href="#_android_specific_usage"></a>Android specific usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>kodein-di-framework-compose</code> Android source set adds the transitive dependencies <code>kodein-di</code> and <code>kodein-di-framework-android-x</code>.
+This gives us the ability to combine two important concepts that are <a href="../core/injection-retrieval.html#di-aware" class="page"><code>DIAware</code></a> and the <a href="android.html#closest-di" class="page">closest DI pattern</a>.
+It adds to some Android specific objects, an extension function <code>di()</code>, that is capable of exploring the context hierarchy until it finds a DI container, hence the name of the pattern.</p>
+</div>
+<div class="paragraph">
+<p>Thanks to these mechanisms we can provide two specifics functions for <strong><em>Jetpack Compose</em></strong> users.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A <code>@Composable</code> function <code>androidContextDI</code> that uses the closest DI pattern to get a DI container by using the <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal">CompositionLocal</a> <code>LocalContext</code>, from <strong><em>Jetpack Compose</em></strong>.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="title">Getting the closest DI context from the Android&#8217;s context</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MainActivity : ComponentActivity(), DIAware {  <i class="conum" data-value="1"></i><b>(1)</b>
+    override val di: DI = DI.lazy {  <i class="conum" data-value="2"></i><b>(2)</b>
+        bindSingleton&lt;DataSource&gt; { SqliteDS.open("path/to/file") }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent { App() }
+    }
+}
+
+@Composable
+fun App() {
+    val di = androidContextDI() <i class="conum" data-value="3"></i><b>(3)</b>
+    val dataSource: DataSource by rememberInstance()
+    Text(text = "Hello ${dataSource.getUsername()}!")
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Your Android context <strong>must</strong> be <code>DIAware</code> &#8230;&#8203;</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>&#8230;&#8203; and override the <code>di</code> property.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>the <code>androidContextDI</code> function retrieve the <code>di</code> property from the closest <code>DIAware</code> object.
+<div class="ulist">
+<ul>
+<li>
+<p>A specific version of the <a href="#with-di"><code>withDI</code></a></p>
+</li>
+</ul>
+</div></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This uses the <code>androidContextDI</code> function to provide a DI container as the <a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal">CompositionLocal</a> <code>LocalDI</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Android context</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MainActivity : ComponentActivity(), DIAware {  <i class="conum" data-value="1"></i><b>(1)</b>
+    override val di: DI = DI.lazy {  <i class="conum" data-value="2"></i><b>(2)</b>
+        bindSingleton&lt;DataSource&gt; { SqliteDS.open("path/to/file") }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent { App() }
+    }
+}
+
+@Composable
+fun App() = withDI { <i class="conum" data-value="3"></i><b>(3)</b>
+    MyContentView()
+}
+
+@Composable
+fun MyContentView() {
+    val dataSource: DataSource by rememberInstance() <i class="conum" data-value="4"></i><b>(4)</b>
+    Text(text = "Hello ${dataSource.getUsername()}!")
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Your Android context <strong>must</strong> be <code>DIAware</code> &#8230;&#8203;</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>&#8230;&#8203; and override the <code>di</code> property.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Add the closest DI container to the <code>@Composable</code> hierarchy</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Underlying <code>@Composable</code> can transparently access to the DI container defined in the closest Android&#8217;s context.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
