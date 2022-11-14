@@ -458,42 +458,6 @@ val di = DI {
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You can also do the same with <code>addInBindSet</code> function to add bindings to an existing:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
-    bindSet&lt;Configuration&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
-    addInBindSet&lt;Configuration&gt;() { provider { FooConfiguration() } } <i class="conum" data-value="2"></i><b>(2)</b>
-    addInBindSet&lt;Configuration&gt;() { singleton { BarConfiguration() } } <i class="conum" data-value="2"></i><b>(2)</b>
-
-}</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Creating a set binding of <code>Configuration</code>.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>add multiple <code>Configuration</code> binding implementation.</td>
-</tr>
-</table>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>You can also bind multiple bindings with arguments (such as <code>factory</code> or <code>multiton</code>) in a set <strong>as long as all bindings share the same argument type</strong>.</p>
 </div>
