@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "generate",
+            "program": "./generate.sh",
+        },
+        
+    ]
+}
