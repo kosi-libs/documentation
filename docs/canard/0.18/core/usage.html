@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Canard</title>
+    <link rel="canonical" href="https://kosi-libs.org/canard/0.18/core/usage.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://kosi-libs.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 300;">Kodein Open Source Initiative</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="canard" data-version="0.18">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Canard</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-kmp">Kotlin/Multiplatform</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-jvm">JVM &amp; Android only</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="install.html#install-js">JavaScript</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#logger">Create and use a <code>Logger</code></a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#tags">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#default-frontends">Default frontends</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#levels">Logging levels</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#logger-factory">Share the logger configuration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#logmapper">Transform the outputs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#logfilter">Filter the outputs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="advanced.html#custom-frontends">Working with custom frontends</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Canard</span>
+    <span class="version">0.18.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Canard</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.17/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.16/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.15/index.html">0.15.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.14/index.html">0.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.13/index.html">0.13.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.12/index.html">0.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.11/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.10/index.html">0.10.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kodein/7.19/index.html">7.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.18/index.html">7.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.17/index.html">7.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.16/index.html">7.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.15/index.html">7.15.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.14/index.html">7.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.13/index.html">7.13.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.12/index.html">7.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.11/index.html">7.11.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.10/index.html">7.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.9/index.html">7.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.8/index.html">7.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.7/index.html">7.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.6/index.html">7.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.5/index.html">7.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein Open Source Initiative</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kosi-libs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kosi-libs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Canard</a></li>
+    <li><a href="#logger">Create and use a <code>Logger</code></a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.18.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="usage.html">0.18.0</a>
+    <a class="version" href="../../0.17/core/usage.html">0.17.0</a>
+    <a class="version" href="../../0.16/core/usage.html">0.16.0</a>
+    <a class="version" href="../../0.15/core/usage.html">0.15.0</a>
+    <a class="version" href="../../0.14/core/usage.html">0.14.0</a>
+    <a class="version" href="../../0.13/core/usage.html">0.13.0</a>
+    <a class="version" href="../../0.12/core/usage.html">0.12.0</a>
+    <a class="version" href="../../0.11/core/usage.html">0.11.1</a>
+    <a class="version" href="../../0.10/core/usage.html">0.10.2</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/kosi-libs/Canard/edit/0.18/doc/modules/core/pages/usage.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Canard usage</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong><em>Canard</em></strong> allows to easily log any message, with a simple API.
+This guide is meant to walk you through all you need to know and use <strong><em>Canard</em></strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong><em>Canard</em></strong> API is the same for all the Kotlin/Multiplatform targets.
+      However, under the hood each platform uses its own implementation (see <a href="#default-frontends">default frontends</a>).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="logger"><a class="anchor" href="#logger"></a><code>Logger</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Creating a logger is really simple. Before logging a message you need to express some parameters to help the logger to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>identify the logged entry, with a <a href="#tags"><code>Tag</code></a>, like <code>org.kodein.documentation.MyController</code></p>
+</li>
+<li>
+<p>send the logged entry to the right output: console / file / platform specific logging system</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">create a simple Logger</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Logger(
+    tag = Logger.Tag("org.kodein.log.documentation", "MyController"), <i class="conum" data-value="1"></i><b>(1)</b>
+    frontEnds = listOf(defaultLogFrontend) <i class="conum" data-value="2"></i><b>(2)</b>
+). info { "Hey!" }</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>will identify any message logged with this <code>Logger</code> by prefixing them with this tag</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>defines on which outputs the logged messages should be sent.</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre>INFO: 2021-04-01T12:20:37.648603 | org.kodein.log.documentation.MyController: Hey!</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also use the companion function <code>Logger.from&lt;T&gt;</code> to create a logger.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Logger.from(defaultLogFrontend) <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Type receiver is inferred at compile time and automatically passed as <code>tag</code> argument to a new <code>Logger</code> instance.</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can share the configuration of your application&#8217;s loggers by using a <a href="#logger-factory">factory</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="tags"><a class="anchor" href="#tags"></a>Tags</h3>
+<div class="paragraph">
+<p>As define above we know that a <code>Tag</code> helps us identify our logged message.
+A <code>Tag</code> is always shaped in two parts, a <em>package</em> and a <em>class name</em>.</p>
+</div>
+<div class="paragraph">
+<p>There are two ways of creating a <code>Tag</code>, you can either create it manually using String arguments, or a given <code>KClass</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Create a <code>Tag</code> manually</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Tag(pckg = "org.kodein.log.documentation", name = "MyController")</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Create a <code>Tag</code> from a class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Tag(MyController::class)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>Tag</code> can be inferred by Kotlin type system when using one of the extension functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Logger.from&lt;T&gt;(vararg frontends: LogFrontend)</code></p>
+</li>
+<li>
+<p><code>LoggerFactory.newLogger&lt;T&gt;()</code></p>
+</li>
+<li>
+<p><code>T.newLogger(factory: LoggerFactory)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>More details in <a href="#logger-factory">factory</a> section.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="default-frontends"><a class="anchor" href="#default-frontends"></a>Default frontends</h3>
+<div class="paragraph">
+<p><strong><em>Canard</em></strong> is lightweight because it is just a facade that we plug on top of logging systems.
+<em>Frontends</em> represent the implementations of the logging systems that <strong><em>Canard</em></strong> relies on to output your logs, depending on the platform your application is running on.</p>
+</div>
+<div class="paragraph">
+<p>The main reason behind <strong><em>Canard</em></strong> existence is that we want to provide an easy way of logging for Kotlin/Multiplatform developers, without worrying about the platform specifics. Therefore, <strong><em>Canard</em></strong> has the notion of default frontends, that uses the <em>expect/actual</em> mechanism, sending the logs to the right output, depending on the actual platform. Those default implementations are accessible with the property <code>defaultLogFrontend</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">use default log frontend</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Logger.from(defaultLogFrontend) <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Use the specific frontend defined by <strong><em>Canard</em></strong></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is a table that expose which implementation are used, by
+targeted platform.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Targeted platform</th>
+<th class="tableblock halign-center valign-middle">Frontend implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JVM</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="http://www.slf4j.org">SLF4J</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Android</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="https://developer.android.com/reference/android/util/Log">Android Log</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Apple</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>iOS</p>
+</li>
+<li>
+<p>macOS</p>
+</li>
+<li>
+<p>watchOS</p>
+</li>
+<li>
+<p>tvOS</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="https://developer.apple.com/documentation/oslog">Apple OSLog</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Other Kotlin/Native targets</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Linux</p>
+</li>
+<li>
+<p>Windows</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">System standard output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kotlin/JS</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/log">JavaScript console log</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Remember that you can define your own <a href="advanced.html#custom-frontends" class="page">frontends</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="severity"><a class="anchor" href="#severity"></a>Severity</h3>
+<div class="paragraph">
+<p>As for any logging library <strong><em>Canard</em></strong> provide different severities to log messages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>logger.debug("Hey!")</code> &#8594; <code>DEBUG: &lt;TIME&gt; | &lt;TAG&gt;: Hey!</code></p>
+</li>
+<li>
+<p><code>logger.info("Hey!")</code> &#8594; <code>INFO: &lt;TIME&gt; | &lt;TAG&gt;: Hey!</code></p>
+</li>
+<li>
+<p><code>logger.warning("Hey!")</code> &#8594; <code>WARNING: &lt;TIME&gt; | &lt;TAG&gt;: Hey!</code></p>
+</li>
+<li>
+<p><code>logger.error("Hey!")</code> &#8594; <code>ERROR: &lt;TIME&gt; | &lt;TAG&gt;: Hey!</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can filter the level of log output by using a <code>LogFilter</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val logger = Logger.from(
+    frontends = listOf(defaultLogFrontend),
+    filters = listOf(minimumLevel(Logger.Level.WARNING)), <i class="conum" data-value="1"></i><b>(1)</b>
+)
+logger.info { "Hey!" } <i class="conum" data-value="2"></i><b>(2)</b>
+logger.warning { "Its me." } <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>define the minimum severity to <code>WARNING</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>WON&#8217;T be logged</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>WILL be logged</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="logger-factory"><a class="anchor" href="#logger-factory"></a>Share a configuration across your application&#8217;s loggers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section is for you if you intend to use <strong><em>Canard</em></strong> for more than one <code>Logger</code> using the same configuration.
+Having multiple loggers with identical configuration in your codebase could end like in the following snippet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// MyController.kt
+val ctrlLogger = Logger(Logger.Tag(MyController::class), listOf(defaultLogFrontend))
+// MyRepository.kt
+val repoLogger = Logger(Logger.Tag(MyRepository::class), listOf(defaultLogFrontend))
+// ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This can be easily handled by using a <code>LoggerFactory</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Create a LoggerFactory with a shared configuration</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val factory = LoggerFactory(listOf(defaultLogFrontend), /* filters = listOf(...), mappers = listOf(...) */ ) <i class="conum" data-value="1"></i><b>(1)</b>
+//        or  LoggerFactory(defaultLogFrontend) <i class="conum" data-value="1"></i><b>(1)</b>
+//        or  LoggerFactory.default <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>You can use your own frontends, filters and mappers.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Quick access to a LoggerFactory via the <a href="#default-frontends">defaultLogFrontend</a>.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Like for the <code>Logger</code>, the <code>LoggerFactory</code> can work with multiple <a href="#default-frontends">frontends</a>, <a href="#logfilter">filters</a> and <a href="#logmapper">mappers</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Then, you can create as many <code>Logger</code> as needed with the different <code>newLogger</code> functions.</p>
+</div>
+<div class="listingblock">
+<div class="title">Create a Logger from a LoggerFactory</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">        factory.newLogger(Logger.Tag(MyRepository::class)) <i class="conum" data-value="1"></i><b>(1)</b>
+//  or  factory.newLogger(MyRepository::class) <i class="conum" data-value="2"></i><b>(2)</b>
+//  or  factory.newLogger&lt;MyRepository&gt;() <i class="conum" data-value="3"></i><b>(3)</b>
+/*  or
+        class MyRepository(loggerFactory: LoggerFactory) {
+            val logger = newLogger(loggerFactory) <i class="conum" data-value="4"></i><b>(4)</b>
+        }
+*/</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Creates and passes a <code>Tag</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Uses a <code>KClass</code> that will be mapped as a <code>Tag</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Uses a type parameter, that will be mapped as a <code>Tag</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Type parameter is inferred by Kotlin at compile time and used to create a <code>Tag</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="logfilter"><a class="anchor" href="#logfilter"></a>Filter the log outputs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sometimes you may need to control what message should or should not be logged.
+In that regard we provide a simple API, <code>LogFilter</code>, that will help to either restrain some outputs, or even add some extra information.</p>
+</div>
+<div class="paragraph">
+<p>You can use pre-package features or declare <a href="#custom-filter">custom filters</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_allow_or_block_a_list_of_tags_packages"><a class="anchor" href="#_allow_or_block_a_list_of_tags_packages"></a>Allow or block a list of tags / packages</h3>
+<div class="paragraph">
+<p>To output only some messages, or just block some of them we can use the functions <code>allowList</code> or <code>bockList</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Allow tags / packages</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val allowList = allowList( <i class="conum" data-value="1"></i><b>(1)</b>
+      listOf(Logger.Tag(String::class)), <i class="conum" data-value="2"></i><b>(2)</b>
+      listOf("org.kodein.log"), <i class="conum" data-value="3"></i><b>(3)</b>
+)
+val factory = LoggerFactory(listOf(defaultLogFrontend), listOf(allowList)) <i class="conum" data-value="4"></i><b>(4)</b>
+
+newLogger(factory).info { "Hey!" } <i class="conum" data-value="5"></i><b>(5)</b>
+factory.newLogger&lt;String&gt;().warning { "I know a String." } <i class="conum" data-value="5"></i><b>(5)</b>
+factory.newLogger&lt;Int&gt;().error { "I know an Int." } <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>allowList</code> will block every log except the ones that match the tag / package filters.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Logs with the given tags can be sent to the log output.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Logs with the given packages can be sent to the log output.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Add the filter to a <code>LoggerFactory</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Match the filters; WILL be logged</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Doesn&#8217;t match the filters; WON&#8217;T be logged</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre>   INFO: 2021-04-02T13:27:06.460152 | org.kodein.log.MyController: Hey!
+WARNING: 2021-04-02T13:27:06.485639 | java.lang.String: I know a String.</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Block tags / packages</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val blockList = blockList( <i class="conum" data-value="1"></i><b>(1)</b>
+      listOf(Logger.Tag(String::class)), <i class="conum" data-value="2"></i><b>(2)</b>
+      listOf("org.kodein.log"), <i class="conum" data-value="3"></i><b>(3)</b>
+)
+val factory = LoggerFactory(listOf(defaultLogFrontend), listOf(blockList)) <i class="conum" data-value="4"></i><b>(4)</b>
+
+newLogger(factory).info { "Hey!" } <i class="conum" data-value="5"></i><b>(5)</b>
+factory.newLogger&lt;String&gt;().warning { "I know a String." } <i class="conum" data-value="5"></i><b>(5)</b>
+factory.newLogger&lt;Int&gt;().error { "I know an Int." } <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>blockList</code> will allow every log except the ones that match the tag / package filters.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Logs with the given tags won&#8217;t be sent to the log output.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Logs with the given packages won&#8217;t be sent to the log output.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Add the filter to a <code>LoggerFactory</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Match the filters; WON&#8217;T be logged</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Doesn&#8217;t match the filters; WILL be logged</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre>ERROR: 2021-04-02T13:28:54.201783 | java.lang.Integer: I know an Int.</pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+By filtering a <code>Tag</code> or a package, <strong><em>Canard</em></strong> might ignore WARNING and ERROR messages.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adding_the_stacktrace_for_each_log"><a class="anchor" href="#_adding_the_stacktrace_for_each_log"></a>Adding the stacktrace for each log</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<em>In case of emergency: Break glass.</em>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>While debugging your application you might need some extra information to really understand what&#8217;s going on.
+Adding the filter <code>logStackTrace</code> to your logger configuration will print out the current stack trace that goes with EVERY logging message of your application. Even if it can appear as an handy feature, it is very sloooow! So you should not use is in production.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val factory = LoggerFactory(listOf(defaultLogFrontend), listOf(logStackTrace)) <i class="conum" data-value="1"></i><b>(1)</b>
+newLogger(factory).info { "Hey!" } <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Activate the <code>logStackTrace</code> filter.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Prints "Hey!" with its accompanying stack trace.</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre>   INFO: 2021-04-02T13:42:51.593390 | org.kodein.log.MyController: Hey!
+                                      logStackTrace: org.kodein.log.filter.entry.StacktraceKt$logStackTrace$1.filter(stacktrace.kt:7)
+org.kodein.log.Logger.createEntry(Logger.kt:52)
+org.kodein.log.MyController.run(MyController.kt:51)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.base/java.lang.reflect.Method.invoke(Method.java:566)
+      [...]</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This MUST NOT be used in production, its purpose is for debug only!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="custom-filter"><a class="anchor" href="#custom-filter"></a>Create your own filters</h3>
+<div class="paragraph">
+<p>If existing filters do not fit your needs you can create your own.
+For example, let&#8217;s create a filter that will ignore every log that match a certain <code>Tag</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">ignore every logging entry for tags that contains "Controller"</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val controllerFilter = LogFilter { tag, entry -&gt;  <i class="conum" data-value="1"></i><b>(1)</b>
+    if (tag.name.contains("Controller")) null else entry
+}
+
+val factory = LoggerFactory(listOf(defaultLogFrontend), listOf(controllerFilter)) <i class="conum" data-value="2"></i><b>(2)</b>
+factory.newLogger&lt;MyController&gt;().info { "Hey!" } <i class="conum" data-value="3"></i><b>(3)</b>
+factory.newLogger&lt;String&gt;().warning { "It's me." } <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Create a LogFilter.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Add the filter to the <code>LoggerFactory</code> configuraiton.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>WON&#8217;T be logged as the tag name contains "Controller".</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>WILL be logged.</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre>WARNING: 2021-04-02T13:55:17.876630 | java.lang.String: It's me.</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="logmapper"><a class="anchor" href="#logmapper"></a>Transform the log outputs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In some cases we need to transform the outputs to reduce the load of the logs, add some extras, or even shrink some sensitive information.</p>
+</div>
+<div class="sect2">
+<h3 id="_package_shortener"><a class="anchor" href="#_package_shortener"></a>Package shortener</h3>
+<div class="paragraph">
+<p>We usually don&#8217;t need to bloat our logs with an infinite chain of package names.
+Let&#8217;s take an example, where we don&#8217;t shrink the package names.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val factory = LoggerFactory(
+    listOf(defaultLogFrontend),
+)
+factory.newLogger&lt;MyController&gt;().info { "Hey!" }</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">This will output the following line</div>
+<div class="content">
+<pre>INFO: 2021-04-02T14:56:22.145831 | org.kodein.log.MyController: Hey!</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Considering our context, we clearly know that we are working on <code>org.kodein</code> libraries,
+so we could reduce those package names, by keeping only the last one, <code>log</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">shrink every package names execpet the last one</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val factory = LoggerFactory(
+    listOf(defaultLogFrontend.withShortPackageKeepLast(1)),
+)
+factory.newLogger&lt;MyController&gt;().info { "Hey!" }</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre>INFO: 2021-04-02T14:57:41.825104 | o.k.log.MyController: Hey!</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On the contrary you might want to drop only the first package names:</p>
+</div>
+<div class="listingblock">
+<div class="title">shrink only the first package name</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val factory = LoggerFactory(
+    listOf(defaultLogFrontend.withShortPackageShortenFirst(1)),
+)
+factory.newLogger&lt;MyController&gt;().info { "Hey!" }</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre>INFO: 2021-04-02T14:57:23.595224 | o.kodein.log.MyController: Hey!</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or, we also can reduce our logs by narrowing all the package names.</p>
+</div>
+<div class="listingblock">
+<div class="title">shrink every pacakge name</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val factory = LoggerFactory(
+    listOf(defaultLogFrontend.withShortPackages()),
+)
+factory.newLogger&lt;MyController&gt;().info { "Hey!" }</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre>INFO: 2021-04-02T14:56:50.371374 | o.k.l.MyController: Hey!</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prefix"><a class="anchor" href="#_prefix"></a>Prefix</h3>
+<div class="paragraph">
+<p>If you work with multiple instances of a class, you might want to distinguish every instances by adding a prefix to its outputs.</p>
+</div>
+<div class="listingblock">
+<div class="title">adding a prefix in the log configuration</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val factory = LoggerFactory(
+    listOf(defaultLogFrontend.withShortPackage()),
+    mappers = listOf(prefix("API 1 - ")) <i class="conum" data-value="1"></i><b>(1)</b>
+)
+factory.newLogger&lt;MyController&gt;().apply {
+    info { "User says hello!" } <i class="conum" data-value="2"></i><b>(2)</b>
+    debug { "User created secret key." } <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>"API 1 - "  will be added as a prefix of each log</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>will be prefixed</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre> INFO: 2021-04-02T14:53:56.599228 | o.k.l.MyController: API 1 - User says hello!
+DEBUG: 2021-04-02T14:53:56.630881 | o.k.l.MyController: API 1 - User created secret key.</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_replace"><a class="anchor" href="#_replace"></a>Replace</h3>
+<div class="paragraph">
+<p>This one is handy, as you can replace any <code>String</code> or any pattern in all your logs.
+For example, you can avoid leaking secrets:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val factory = LoggerFactory(
+    listOf(defaultLogFrontend.withShortPackage()),
+    mappers = listOf(replace("0123456789abcedf", "[SECRET]")) <i class="conum" data-value="1"></i><b>(1)</b>
+)
+factory.newLogger&lt;MyController&gt;().apply {
+      info { "User says hello!" } <i class="conum" data-value="2"></i><b>(2)</b>
+      debug { "User created secret key 0123456789abcedf." } <i class="conum" data-value="3"></i><b>(3)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>the given password should be replace by a proper placeholder</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>logged as usual</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>actual secret will be replaced by "[SECRET]"</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre> INFO: 2021-04-02T14:51:19.343563 | o.k.l.MyController: User says hello!
+DEBUG: 2021-04-02T14:51:19.365966 | o.k.l.MyController: User created secret key [SECRET].</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_your_own_mappers"><a class="anchor" href="#_create_your_own_mappers"></a>Create your own mappers</h3>
+<div class="paragraph">
+<p>Again, if existing mappers does not work for you, you can create your own.
+Here is an example of a secret mapper, that will hide a given list of secrets in the output logs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val secretMapper: (Collection&lt;String&gt;) -&gt; LogMapper = { secrets -&gt;
+      LogMapper { _, _, message -&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+          secrets.fold(message) { m, s -&gt;
+              m.replace(s, "******") <i class="conum" data-value="2"></i><b>(2)</b>
+          }
+      }
+}
+
+val factory = LoggerFactory(
+    listOf(defaultLogFrontend.withShortPackage()),
+    mappers = listOf(secretMapper(listOf("p4ssw0rd", "0123456789abcedf", "#12345#"))) <i class="conum" data-value="3"></i><b>(3)</b>
+)
+factory.newLogger&lt;MyController&gt;().apply {
+    info { "User says hello!" } <i class="conum" data-value="4"></i><b>(4)</b>
+    debug { "User created secret key 0123456789abcedf." } <i class="conum" data-value="5"></i><b>(5)</b>
+    warning { "User changed secret key p4ssw0rd." } <i class="conum" data-value="5"></i><b>(5)</b>
+    error { "User failed login with secret key #12345#." } <i class="conum" data-value="5"></i><b>(5)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>create the <code>LogMapper</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>replace every secret by <code><strong><strong></strong></strong></code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>apply the filter with a given list of secrets</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>logged as usual</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>every secrets are hidden (see output below)</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="title">Output</div>
+<div class="content">
+<pre>   INFO: 2021-04-02T14:49:49.670548 | o.k.l.MyController: User says hello!
+  DEBUG: 2021-04-02T14:49:49.693085 | o.k.l.MyController: User created secret key ******.
+WARNING: 2021-04-02T14:49:49.693454 | o.k.l.MyController: User changed secret key ******.
+  ERROR: 2021-04-02T14:49:49.694518 | o.k.l.MyController: User failed login with secret key ******.</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
