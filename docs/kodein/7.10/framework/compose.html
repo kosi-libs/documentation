@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Kodein</title>
-    <link rel="canonical" href="https://kosi-libs.org/kodein/7.19/framework/compose.html">
-    <meta name="generator" content="Antora 2.3.4">
+    <link rel="canonical" href="https://kosi-libs.org/kodein/7.21/framework/compose.html">
+    <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
   </head>
@@ -220,7 +220,13 @@
     <li class="component">
       <span class="title">Canard</span>
       <ul class="versions">
-        <li class="version is-latest">
+        <li class="version">
+          <a href="../../../canard/1.1/index.html">1.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.0/index.html">1.0.1</a>
+        </li>
+        <li class="version">
           <a href="../../../canard/0.18/index.html">0.18.0</a>
         </li>
         <li class="version">
@@ -252,7 +258,13 @@
     <li class="component is-current">
       <span class="title">Kodein</span>
       <ul class="versions">
-        <li class="version is-latest">
+        <li class="version">
+          <a href="../../7.21/index.html">7.21.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.20/index.html">7.20.2</a>
+        </li>
+        <li class="version">
           <a href="../../7.19/index.html">7.19.0</a>
         </li>
         <li class="version">
@@ -320,7 +332,7 @@
     <li class="component">
       <span class="title">Kodein Open Source Initiative</span>
       <ul class="versions">
-        <li class="version is-latest">
+        <li class="version">
           <a href="../../../kosi-libs/index.html">master</a>
         </li>
       </ul>
@@ -345,6 +357,8 @@
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">7.10.0</button>
   <div class="version-menu">
+    <a class="version" href="../../7.21/framework/compose.html">7.21.1</a>
+    <a class="version" href="../../7.20/framework/compose.html">7.20.2</a>
     <a class="version" href="../../7.19/framework/compose.html">7.19.0</a>
     <a class="version" href="../../7.18/framework/compose.html">7.18.0</a>
     <a class="version" href="../../7.17/framework/compose.html">7.17.0</a>
@@ -480,7 +494,7 @@
 <p>Using <code>kodein-di-framework-compose</code>, whatever your platform target, will transitively add the <strong><em>Kodein-DI</em></strong> core module <code>kodein-di</code> to your dependencies.</p>
 </div>
 <div class="paragraph">
-<p>On <strong>Android</strong> it will transitively add the specific module <code>kodein-di-framework-android-x</code> (see <a href="android.html" class="page">Android modules</a>).</p>
+<p>On <strong>Android</strong> it will transitively add the specific module <code>kodein-di-framework-android-x</code> (see <a href="android.html" class="xref page">Android modules</a>).</p>
 </div>
 </td>
 </tr>
@@ -514,7 +528,7 @@ This is what <strong><em>Kodein-DI</em></strong> uses under the hood to help you
 <h4 id="with-di"><a class="anchor" href="#with-di"></a>Share a DI reference inside a <code>@Composable</code> tree</h4>
 <div class="paragraph">
 <p>You can easily use <strong><em>Kodein-DI</em></strong> to expose a DI container within a <code>@Composable</code> tree, using the <code>withDI</code> functions.
-These functions accept either, a DI builder, a DI reference or <a href="../core/modules-inheritance.html" class="page">DI modules</a>.</p>
+These functions accept either, a DI builder, a DI reference or <a href="../core/modules-inheritance.html" class="xref page">DI modules</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">sharing a DI container within a <code>@Composable</code> tree</div>
@@ -848,7 +862,7 @@ This means that can access the current DI container and its bindings with one of
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you are not familiar with these declarations you can explore the detailed documentation on <a href="../core/bindings.html" class="page">bindings</a> and <a href="../core/injection-retrieval.html" class="page">injection/retrieval</a>.
+If you are not familiar with these declarations you can explore the detailed documentation on <a href="../core/bindings.html" class="xref page">bindings</a> and <a href="../core/injection-retrieval.html" class="xref page">injection/retrieval</a>.
 </td>
 </tr>
 </table>
@@ -904,7 +918,7 @@ Under the hood these functions are using <code>LocalDI</code>. If there is no DI
 <div class="sectionbody">
 <div class="paragraph">
 <p><code>kodein-di-framework-compose</code> Android source set adds the transitive dependencies <code>kodein-di</code> and <code>kodein-di-framework-android-x</code>.
-This gives us the ability to combine two important concepts that are <a href="../core/injection-retrieval.html#di-aware" class="page"><code>DIAware</code></a> and the <a href="android.html#closest-di" class="page">closest DI pattern</a>.
+This gives us the ability to combine two important concepts that are <a href="../core/injection-retrieval.html#di-aware" class="xref page"><code>DIAware</code></a> and the <a href="android.html#closest-di" class="xref page">closest DI pattern</a>.
 It adds to some Android specific objects, an extension function <code>di()</code>, that is capable of exploring the context hierarchy until it finds a DI container, hence the name of the pattern.</p>
 </div>
 <div class="paragraph">

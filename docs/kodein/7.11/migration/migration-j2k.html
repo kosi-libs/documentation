@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Kodein</title>
-    <link rel="canonical" href="https://kosi-libs.org/kodein/7.19/migration/migration-j2k.html">
-    <meta name="generator" content="Antora 2.3.4">
+    <link rel="canonical" href="https://kosi-libs.org/kodein/7.21/migration/migration-j2k.html">
+    <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
 <link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
   </head>
@@ -220,7 +220,13 @@
     <li class="component">
       <span class="title">Canard</span>
       <ul class="versions">
-        <li class="version is-latest">
+        <li class="version">
+          <a href="../../../canard/1.1/index.html">1.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.0/index.html">1.0.1</a>
+        </li>
+        <li class="version">
           <a href="../../../canard/0.18/index.html">0.18.0</a>
         </li>
         <li class="version">
@@ -252,7 +258,13 @@
     <li class="component is-current">
       <span class="title">Kodein</span>
       <ul class="versions">
-        <li class="version is-latest">
+        <li class="version">
+          <a href="../../7.21/index.html">7.21.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.20/index.html">7.20.2</a>
+        </li>
+        <li class="version">
           <a href="../../7.19/index.html">7.19.0</a>
         </li>
         <li class="version">
@@ -320,7 +332,7 @@
     <li class="component">
       <span class="title">Kodein Open Source Initiative</span>
       <ul class="versions">
-        <li class="version is-latest">
+        <li class="version">
           <a href="../../../kosi-libs/index.html">master</a>
         </li>
       </ul>
@@ -345,6 +357,8 @@
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">7.11.0</button>
   <div class="version-menu">
+    <a class="version" href="../../7.21/migration/migration-j2k.html">7.21.1</a>
+    <a class="version" href="../../7.20/migration/migration-j2k.html">7.20.2</a>
     <a class="version" href="../../7.19/migration/migration-j2k.html">7.19.0</a>
     <a class="version" href="../../7.18/migration/migration-j2k.html">7.18.0</a>
     <a class="version" href="../../7.17/migration/migration-j2k.html">7.17.0</a>
@@ -409,13 +423,13 @@ This is for Java only!</p>
 <p>Remove the previous library dependency. Good riddance ;)</p>
 </li>
 <li>
-<p><a href="../core/install.html" class="page">Add the Kodein dependency</a>.</p>
+<p><a href="../core/install.html" class="xref page">Add the Kodein dependency</a>.</p>
 </li>
 <li>
-<p>Replace the previous bindings with <a href="../core/bindings.html" class="page">Kodein&#8217;s bindings</a>.</p>
+<p>Replace the previous bindings with <a href="../core/bindings.html" class="xref page">Kodein&#8217;s bindings</a>.</p>
 </li>
 <li>
-<p><a href="../extension/jsr330.html#install" class="page">Add the Kodein JxInject dependency</a> (don&#8217;t forget to <a href="https://salomonbrys.github.io/Kodein/?/jsr330#import-module">import the <code>jxInjectorModule</code></a>).</p>
+<p><a href="../extension/jsr330.html#install" class="xref page">Add the Kodein JxInject dependency</a> (don&#8217;t forget to <a href="https://salomonbrys.github.io/Kodein/?/jsr330#import-module">import the <code>jxInjectorModule</code></a>).</p>
 </li>
 </ol>
 </div>
@@ -529,7 +543,7 @@ Jx.of(kodein).inject(controller);</code></pre>
 <h2 id="_qualifiers"><a class="anchor" href="#_qualifiers"></a>Qualifiers</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>JavaX dependency injection libraries use the concept of qualifier annotations while Kodein uses the very similar concept of <a href="../core/bindings.html#tagged-bindings" class="page">tag</a>.</p>
+<p>JavaX dependency injection libraries use the concept of qualifier annotations while Kodein uses the very similar concept of <a href="../core/bindings.html#tagged-bindings" class="xref page">tag</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>

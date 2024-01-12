@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Canard</title>
+    <link rel="canonical" href="https://kosi-libs.org/canard/1.1/core/install.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://kosi-libs.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 300;">Kodein Open Source Initiative</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="canard" data-version="1.1">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Canard</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#install-kmp">Kotlin/Multiplatform</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#install-jvm">JVM &amp; Android only</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#install-js">JavaScript</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="usage.html#logger">Create and use a <code>Logger</code></a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage.html#tags">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage.html#default-frontends">Default frontends</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage.html#levels">Logging levels</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="usage.html#logger-factory">Share the logger configuration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="usage.html#logmapper">Transform the outputs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="usage.html#logfilter">Filter the outputs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="advanced.html#custom-frontends">Working with custom frontends</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Canard</span>
+    <span class="version">1.1.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Canard</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">1.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.18/index.html">0.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.17/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.16/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.15/index.html">0.15.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.14/index.html">0.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.13/index.html">0.13.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.12/index.html">0.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.11/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.10/index.html">0.10.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein</span>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../kodein/7.21/index.html">7.21.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.20/index.html">7.20.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.19/index.html">7.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.18/index.html">7.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.17/index.html">7.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.16/index.html">7.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.15/index.html">7.15.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.14/index.html">7.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.13/index.html">7.13.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.12/index.html">7.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.11/index.html">7.11.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.10/index.html">7.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.9/index.html">7.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.8/index.html">7.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.7/index.html">7.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.6/index.html">7.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.5/index.html">7.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein Open Source Initiative</span>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../kosi-libs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kosi-libs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Canard</a></li>
+    <li><a href="install.html">Install</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.1.1</button>
+  <div class="version-menu">
+    <a class="version is-current" href="install.html">1.1.1</a>
+    <a class="version" href="../../1.0/core/install.html">1.0.1</a>
+    <a class="version" href="../../0.18/core/install.html">0.18.0</a>
+    <a class="version" href="../../0.17/core/install.html">0.17.0</a>
+    <a class="version" href="../../0.16/core/install.html">0.16.0</a>
+    <a class="version" href="../../0.15/core/install.html">0.15.0</a>
+    <a class="version" href="../../0.14/core/install.html">0.14.0</a>
+    <a class="version" href="../../0.13/core/install.html">0.13.0</a>
+    <a class="version" href="../../0.12/core/install.html">0.12.0</a>
+    <a class="version" href="../../0.11/core/install.html">0.11.1</a>
+    <a class="version" href="../../0.10/core/install.html">0.10.2</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/kosi-libs/Canard/edit/1.1/doc/modules/core/pages/install.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Install</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<strong><em>Canard</em></strong> uses the new Gradle native dependency model.
+            Thus, we highly recommend using Gradle 6 or higher.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install-kmp"><a class="anchor" href="#install-kmp"></a>Kotlin/Multiplatform</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Canard supports the following targets:<br>
+jvm, iosArm32, iosArm64, iosX64, JS, tvosarm64, tvosx64, watchosarm32, watchosarm64, watchosx86, linuxArm32Hfp, linuxMips32, linuxMipsel32, linuxX64, macosX64, mingwX64, wasmJs.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since Kotlin 1.8, legacy backend has been deprecated, thus starting from 0.17.0, Canard is only available for JS-IR.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In your <code>build.gradle.kts</code> file, add the Maven Central repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">repositories {
+    mavenCentral()
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then add the dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation("org.kodein.log:canard:1.1.1")
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are <strong>NOT</strong> using <strong>Gradle 6+</strong>, you should declare the use of the Gradle Metadata experimental feature</p>
+</div>
+<div class="listingblock">
+<div class="title">settings.gradle.kts</div>
+<div class="content">
+<pre>enableFeaturePreview("GRADLE_METADATA")</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install-jvm"><a class="anchor" href="#install-jvm"></a>JVM &amp; Android</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>On the JVM, <strong><em>Canard</em></strong> is compatible with both standard JVM and Android environments, with the same configuration.</p>
+</div>
+<div class="paragraph">
+<p>First, add the Maven Central repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">repositories {
+    mavenCentral()
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then add the dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
+    implementation("org.kodein.log:canard-jvm:1.1.1")
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install-js"><a class="anchor" href="#install-js"></a>JavaScript</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Add the Maven Central repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">repositories {
+    mavenCentral()
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then add the dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
+    implementation("org.kodein.log:canard-js:1.1.1")
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
