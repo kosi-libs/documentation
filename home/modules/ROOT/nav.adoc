@@ -1,2 +1,3 @@
 * xref:kodein::index.adoc[Dependency Injection]
-* xref:canard::index.adoc[Multiplatform logging]
+* xref:canard::index.adoc[Logging]
+* xref:mockmp::index.adoc[Mocking for tests]

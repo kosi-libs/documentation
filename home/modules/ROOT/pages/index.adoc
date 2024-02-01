@@ -9,6 +9,7 @@ The *Kodein Open Source Initiative*:
 - help you maximize your Kotlin common code, with almost everything but the UI
 - and keeps your focus on your business code.
 
+
 == Libraries
 
 The *Kodein Open Source Initiative* libraries provide:
@@ -18,7 +19,8 @@ The *Kodein Open Source Initiative* libraries provide:
 
 NOTE: Each library can be used independently of each other.
 
-=== xref:kodein-di:ROOT:index.adoc[Kodein-DI: Dependency Injection]
+
+=== xref:kodein::index.adoc[Kodein-DI: Dependency Injection]
 
 _Kodein-DI_ is a very useful dependency injection / retrieval container, it is very easy to use and configure.
 
@@ -36,21 +38,34 @@ _Kodein-DI_ is a very useful dependency injection / retrieval container, it is v
 - It proposes a very kotlin-esque idiomatic API.
 - It (also) can be used in plain Java.
 
-=== xref:kodein-db:ROOT:index.adoc[Kodein-DB: NoSQL Database]
 
-Kodein DB is a Kotlin/Multiplatform embedded NoSQL database that works on JVM, Android, Kotlin/Native and iOS.
-It is suited for client or mobile applications.
+=== xref:canard::index.adoc[Canard: Logging]
 
-.Kodein-DB allows you to:
-- Easily store, retrieve and query kotlin objects.
-- Stop carrying about schema definitions.
-- Easily set up a new project.
+_Canard_ is a lightweight logging library with a simple API.
 
-.Kodein-DB is a good choice because it:
-- proposes a very simple and readable DSL.
-- integrates nicely with Android and iOS.
-- offers very good performances.
-- is just Kotlin!
+._Canard_ allows you to:
+- Easily set up logging in a Kotlin Multiplatform project.
+- Log what you need on different levels.
+- Avoid worrying about platform-specific frontend implementations.
+
+._Canard_ is a good choice because:
+- It integrates nicely with all Kotlin/Multiplatform targets.
+- It has a straightforward design with a user-friendly and comprehensible API.
+
+
+=== xref:mockmp::index.adoc[MocKMP: Mocking for tests]
+
+_MocKMP_ is a Kotlin Symbol Processor that generates Mocks & Fakes for your test classes.
+
+._MocKMP_ allows you to:
+- Generate interface mocks & configure their behaviour.
+- Instantiate data classes with fake data.
+- Verify calls in order and exhaustively.
+
+._MocKMP_ is a good choice because:
+- It mimics, as much as possible, the API of other JVM-only mocking frameworks.
+- It offers a clean and easy-to-understand API
+
 
 == Support
 
@@ -59,10 +74,11 @@ If you need any help do not hesitate to through questions or issues:
 - Drop by the https://kotlinlang.slack.com/messages/kodein/[Kodein Slack channel]
 - https://stackoverflow.com/questions/tagged/kodein[Stackoverflow] with the tag #kodein
 
+
 == Contribute
 
 Contributions are very welcome and greatly appreciated! The great majority of pull requests are eventually merged.
 
 To contribute, simply fork any of https://github.com/kosi-libs/[our projects on Github], fix whatever is iching you, and submit a pull request!
 
-We are sure that there is still room for imporvement, either in code or documentation.
+We are sure that there is still room for improvement, either in code or documentation.

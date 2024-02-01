@@ -5,18 +5,18 @@ site:
   robots: allow
 content:
   sources:
-    - url: https://github.com/kosi-libs/Kodein.git
-      branches: ['7.*', '6.5']
-      start_path: doc
-    # - url: https://github.com/kosi-libs/Kodein-DB.git
-    #   branches: ['0.*', '1.*']
-    #   start_path: doc
-    - url: https://github.com/kosi-libs/Canard.git
-      branches: ['0.*', '1.*']
-      start_path: doc
     - url: https://github.com/kosi-libs/documentation.git
       branches: master
       start_path: home
+    - url: https://github.com/kosi-libs/Kodein.git
+      branches: ['7.*', '6.5']
+      start_path: doc
+    - url: https://github.com/kosi-libs/Canard.git
+      branches: ['0.*', '1.*']
+      start_path: doc
+    - url: https://github.com/kosi-libs/MocKMP.git
+      branches: ['1.*']
+      start_path: doc
 ui:
   bundle:
     url: https://github.com/kosi-libs/documentation-ui/raw/master/build/ui-bundle-v1.3.zip
@@ -26,8 +26,6 @@ ui:
       static_files: [ .nojekyll ]
   - path: .nojekyll
 urls:
-#   latest_version_segment_strategy: 'redirect:from'
-#   latest_version_segment: 'latest'
   redirect_facility: 'static'
 output:
   dir: docs
