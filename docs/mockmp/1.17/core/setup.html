@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MocKMP</title>
+    <link rel="canonical" href="https://kosi-libs.org/mockmp/1.17/core/setup.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://kosi-libs.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 300;">Kodein Open Source Initiative</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mockmp" data-version="1.17">
+  <div class="navbar-bottom-line-linear"></div>
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">MocKMP</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Getting Started</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="setup.html">Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="mocking.html">Mocking interfaces</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="facking.html">Faking concrete classes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="injection.html">Injecting your test classes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="helper.html">The test class helper</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">MocKMP</span>
+    <span class="version">1.17.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Canard</span>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../canard/1.1/index.html">1.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.0/index.html">1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.18/index.html">0.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.17/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.16/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.15/index.html">0.15.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.14/index.html">0.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.13/index.html">0.13.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.12/index.html">0.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.11/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.10/index.html">0.10.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein</span>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../kodein/7.21/index.html">7.21.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.20/index.html">7.20.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.19/index.html">7.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.18/index.html">7.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.17/index.html">7.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.16/index.html">7.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.15/index.html">7.15.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.14/index.html">7.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.13/index.html">7.13.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.12/index.html">7.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.11/index.html">7.11.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.10/index.html">7.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.9/index.html">7.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.8/index.html">7.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.7/index.html">7.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.6/index.html">7.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.5/index.html">7.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../kodein/6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">Kodein Open Source Initiative</span>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../kosi-libs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">MocKMP</span>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">1.17.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kosi-libs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">MocKMP</a></li>
+    <li><a href="setup.html">Setup</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/kosi-libs/MocKMP/edit/1.17/doc/modules/core/pages/setup.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">MocKMP Setup</h1>
+<div class="sect1">
+<h2 id="_setup_mockmp_with_the_official_plugin"><a class="anchor" href="#_setup_mockmp_with_the_official_plugin"></a>Setup MocKMP with the official plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The MocKMP Gradle plugin configures your project to use the Kotlin Symbol Processor using a workaround to a current KSP limitation.</p>
+</div>
+<div class="paragraph">
+<p>Once KSP properly supports hierarchical Multiplatform, this plugin will apply MocKMP "normally".</p>
+</div>
+<div class="listingblock">
+<div class="title">build.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
+    kotlin("multiplatform")
+    id("org.kodein.mock.mockmp") version "1.17.0" <i class="conum" data-value="1"></i><b>(1)</b>
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+    jvm()
+    ios()
+    js(IR) {
+        browser()
+    }
+
+    sourceSets {
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
+    }
+}
+
+mockmp {
+    // OPTIONAL!
+    usesHelper = true <i class="conum" data-value="2"></i><b>(2)</b>
+
+    // REQUIRED!
+    installWorkaround() <i class="conum" data-value="3"></i><b>(3)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Applying the MocKMP plugin.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Requesting the <strong>optional</strong> <code>test-helper</code> dependency</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><strong>Must</strong> be called <strong>after</strong> the <code>kotlin</code> configuration and <strong>must be the last line</strong> of the <code>mockmp</code> block.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The plugin takes care of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Applying the KSP Gradle plugin</p>
+</li>
+<li>
+<p>Declaring the MocKMP KSP dependency</p>
+</li>
+<li>
+<p>Declaring the MocKMP runtime dependencies</p>
+</li>
+<li>
+<p>Applying the incomplete multiplatform support workaround:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Using Android if the Android plugin is applied</p>
+</li>
+<li>
+<p>Using the JVM otherwise</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are not using the same Kotlin version than the plugin, then you&#8217;ll need to manually apply the KSP plugin <strong>before</strong> applying MocKMP:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
+    id("com.google.devtools.ksp") version "1.7.22-1.0.8"
+    id("org.kodein.mock.mockmp") version "{version}"
+}</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_applying_to_main_source_sets"><a class="anchor" href="#_applying_to_main_source_sets"></a>Applying to main source sets</h3>
+<div class="paragraph">
+<p>In some cases, you may need to apply the processor to the common-main source-set instead of common-test.</p>
+</div>
+<div class="listingblock">
+<div class="title">build.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">mockmp {
+    targetSourceSet = CommonMain
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setup_mockmp_manually_with_ksp_and_its_incomplete_multiplatform_support"><a class="anchor" href="#_setup_mockmp_manually_with_ksp_and_its_incomplete_multiplatform_support"></a>Setup MocKMP manually with KSP and its incomplete multiplatform support</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>KSP for multiplatform is in beta, and <strong><a href="https://github.com/google/ksp/issues/567">KSP for common tests is not supported</a></strong> (yet).</p>
+</div>
+<div class="paragraph">
+<p>To have IDEA completion, here&#8217;s a trick that you can use (in fact, that&#8217;s what the MocKMP plugin does):</p>
+</div>
+<div class="listingblock">
+<div class="title">build.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
+    kotlin("multiplatform")
+    id("com.google.devtools.ksp") version "1.9.22-1.0.17" <i class="conum" data-value="1"></i><b>(1)</b>
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+    jvm()
+    ios()
+    js(IR) {
+        browser()
+    }
+
+    sourceSets {
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation("org.kodein.mock:mockmp-runtime:1.17.0") <i class="conum" data-value="2"></i><b>(2)</b>
+                // OPTIONAL!
+                implementation("org.kodein.mock:mockmp-test-helper:1.17.0") <i class="conum" data-value="2"></i><b>(2)</b>
+            }
+            kotlin.srcDir("build/generated/ksp/jvm/jvmTest/kotlin") <i class="conum" data-value="3"></i><b>(3)</b>
+        }
+    }
+}
+
+dependencies {
+    "kspJvmTest"("org.kodein.mock:mockmp-processor:1.17.0") <i class="conum" data-value="4"></i><b>(4)</b>
+}
+
+tasks.withType&lt;org.jetbrains.kotlin.gradle.dsl.KotlinCompile&lt;*&gt;&gt;().all {
+    if (name.startsWith("compileTestKotlin")) {
+        dependsOn("kspTestKotlinJvm") <i class="conum" data-value="5"></i><b>(5)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Applying the KSP plugin.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Adding the dependencies to the MocKMP runtime and the <strong>optional</strong> test helper.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Use KSP generated JVM sources on all targets.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Apply the processor only on the JVM target.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Make compilation of all targets dependant on the JVM KSP processor.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_generated_classes_functions_visibility"><a class="anchor" href="#_generated_classes_functions_visibility"></a>Generated classes &amp; functions visibility</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, every generated class or function is <strong><code>internal</code></strong>.</p>
+</div>
+<div class="paragraph">
+<p>If you wish to have it <strong><code>public</code></strong> (because you need to share it across modules), then you can configure the processor to generate public classes &amp; functions:</p>
+</div>
+<div class="listingblock">
+<div class="title">build.gradle.kts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// When using the MocKMP plugin:
+mockmp {
+    public = true
+}
+
+// When using KSP directly:
+ksp {
+    arg("org.kodein.mock.visibility", "public")
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
+<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
+<!--    <div style="font-weight: 700;">KODEIN</div>-->
+<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
+<!--  </a>-->
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -44,7 +44,10 @@
     <a class="nav-link" href="../kodein/7.21/index.html">Dependency Injection</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../canard/1.1/index.html">Multiplatform logging</a>
+    <a class="nav-link" href="../canard/1.1/index.html">Logging</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../mockmp/1.17/index.html">Mocking for tests</a>
   </li>
 </ul>
   </li>
@@ -177,6 +180,14 @@
         </li>
       </ul>
     </li>
+    <li class="component">
+      <span class="title">MocKMP</span>
+      <ul class="versions">
+        <li class="version">
+          <a href="../mockmp/1.17/index.html">1.17.0</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </div>
     </div>
@@ -250,7 +261,7 @@ Each library can be used independently of each other.
 </table>
 </div>
 <div class="sect2">
-<h3 id="_kodein_di_dependency_injection"><a class="anchor" href="#_kodein_di_dependency_injection"></a><a href="#kodein-di:ROOT:index.adoc" class="xref unresolved">Kodein-DI: Dependency Injection</a></h3>
+<h3 id="_kodein_di_dependency_injection"><a class="anchor" href="#_kodein_di_dependency_injection"></a><a href="../kodein/7.21/index.html" class="xref page">Kodein-DI: Dependency Injection</a></h3>
 <div class="paragraph">
 <p><em>Kodein-DI</em> is a very useful dependency injection / retrieval container, it is very easy to use and configure.</p>
 </div>
@@ -296,39 +307,63 @@ Each library can be used independently of each other.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_kodein_db_nosql_database"><a class="anchor" href="#_kodein_db_nosql_database"></a><a href="#kodein-db:ROOT:index.adoc" class="xref unresolved">Kodein-DB: NoSQL Database</a></h3>
+<h3 id="_canard_logging"><a class="anchor" href="#_canard_logging"></a><a href="../canard/1.1/index.html" class="xref page">Canard: Logging</a></h3>
 <div class="paragraph">
-<p>Kodein DB is a Kotlin/Multiplatform embedded NoSQL database that works on JVM, Android, Kotlin/Native and iOS.
-It is suited for client or mobile applications.</p>
+<p><em>Canard</em> is a lightweight logging library with a simple API.</p>
 </div>
 <div class="ulist">
-<div class="title">Kodein-DB allows you to:</div>
+<div class="title"><em>Canard</em> allows you to:</div>
 <ul>
 <li>
-<p>Easily store, retrieve and query kotlin objects.</p>
+<p>Easily set up logging in a Kotlin Multiplatform project.</p>
 </li>
 <li>
-<p>Stop carrying about schema definitions.</p>
+<p>Log what you need on different levels.</p>
 </li>
 <li>
-<p>Easily set up a new project.</p>
+<p>Avoid worrying about platform-specific frontend implementations.</p>
 </li>
 </ul>
 </div>
 <div class="ulist">
-<div class="title">Kodein-DB is a good choice because it:</div>
+<div class="title"><em>Canard</em> is a good choice because:</div>
 <ul>
 <li>
-<p>proposes a very simple and readable DSL.</p>
+<p>It integrates nicely with all Kotlin/Multiplatform targets.</p>
 </li>
 <li>
-<p>integrates nicely with Android and iOS.</p>
+<p>It has a straightforward design with a user-friendly and comprehensible API.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mockmp_mocking_for_tests"><a class="anchor" href="#_mockmp_mocking_for_tests"></a><a href="../mockmp/1.17/index.html" class="xref page">MocKMP: Mocking for tests</a></h3>
+<div class="paragraph">
+<p><em>MocKMP</em> is a Kotlin Symbol Processor that generates Mocks &amp; Fakes for your test classes.</p>
+</div>
+<div class="ulist">
+<div class="title"><em>MocKMP</em> allows you to:</div>
+<ul>
+<li>
+<p>Generate interface mocks &amp; configure their behaviour.</p>
 </li>
 <li>
-<p>offers very good performances.</p>
+<p>Instantiate data classes with fake data.</p>
 </li>
 <li>
-<p>is just Kotlin!</p>
+<p>Verify calls in order and exhaustively.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title"><em>MocKMP</em> is a good choice because:</div>
+<ul>
+<li>
+<p>It mimics, as much as possible, the API of other JVM-only mocking frameworks.</p>
+</li>
+<li>
+<p>It offers a clean and easy-to-understand API</p>
 </li>
 </ul>
 </div>
@@ -363,7 +398,7 @@ It is suited for client or mobile applications.</p>
 <p>To contribute, simply fork any of <a href="https://github.com/kosi-libs/">our projects on Github</a>, fix whatever is iching you, and submit a pull request!</p>
 </div>
 <div class="paragraph">
-<p>We are sure that there is still room for imporvement, either in code or documentation.</p>
+<p>We are sure that there is still room for improvement, either in code or documentation.</p>
 </div>
 </div>
 </div>
