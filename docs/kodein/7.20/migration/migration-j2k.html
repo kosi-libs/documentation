@@ -3,11 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kodein</title>
+    <title>Migrating from JavaX to Kodein DI :: Kodein Open Source Initiative Documentation</title>
     <link rel="canonical" href="https://kosi-libs.org/kodein/7.21/migration/migration-j2k.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
-<link rel="icon" href="../../../_/img/favicon.png" sizes="96x96" type="image/png">
   </head>
   <body class="article">
 <header class="header">
@@ -36,6 +35,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
     <h3 class="title"><a href="../index.html">Kodein</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
@@ -218,9 +218,9 @@
   </div>
   <ul class="components">
     <li class="component">
-      <span class="title">Canard</span>
+      <div class="title"><a href="../../../canard/1.1/index.html">Canard</a></div>
       <ul class="versions">
-        <li class="version">
+        <li class="version is-latest">
           <a href="../../../canard/1.1/index.html">1.1.1</a>
         </li>
         <li class="version">
@@ -256,9 +256,9 @@
       </ul>
     </li>
     <li class="component is-current">
-      <span class="title">Kodein</span>
+      <div class="title"><a href="../../7.21/index.html">Kodein</a></div>
       <ul class="versions">
-        <li class="version">
+        <li class="version is-latest">
           <a href="../../7.21/index.html">7.21.1</a>
         </li>
         <li class="version is-current">
@@ -330,17 +330,17 @@
       </ul>
     </li>
     <li class="component">
-      <span class="title">Kodein Open Source Initiative</span>
+      <div class="title"><a href="../../../kosi-libs/index.html">Kodein Open Source Initiative</a></div>
       <ul class="versions">
-        <li class="version">
+        <li class="version is-latest">
           <a href="../../../kosi-libs/index.html">master</a>
         </li>
       </ul>
     </li>
     <li class="component">
-      <span class="title">MocKMP</span>
+      <div class="title"><a href="../../../mockmp/1.17/index.html">MocKMP</a></div>
       <ul class="versions">
-        <li class="version">
+        <li class="version is-latest">
           <a href="../../../mockmp/1.17/index.html">1.17.0</a>
         </li>
       </ul>
@@ -390,9 +390,12 @@
     <a class="version" href="../../6.5/migration/migration-j2k.html">6.5.5</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/kosi-libs/Kodein/edit/7.20/doc/modules/migration/pages/migration-j2k.adoc">Edit this Page</a></div>
-  </div>
+<div class="edit-this-page"><a href="https://github.com/kosi-libs/Kodein/edit/7.20/doc/modules/migration/pages/migration-j2k.adoc">Edit this Page</a></div>
+</div>
   <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
 <article class="doc">
 <h1 class="page">Migrating from JavaX to Kodein DI</h1>
 <div class="sect1">
@@ -598,20 +601,14 @@ If you are transforming Java code into Kotlin, than take the time to migrate the
 </div>
 </div>
 </article>
-<aside class="toc sidebar" data-title="Contents" data-levels="2">
-  <div class="toc-menu"></div>
-</aside>
   </div>
 </main>
 </div>
 <footer class="footer">
-<!--  <a class="navbar-item" href="https://kodein.net" target="_blank">-->
-<!--    <div style="padding: 0.5rem;opacity:0.8;">by</div>-->
-<!--    <div style="font-weight: 700;">KODEIN</div>-->
-<!--    <div style="font-weight: 300;opacity:0.8;">Koders</div>-->
-<!--  </a>-->
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
 </footer>
-<script src="../../../_/js/site.js"></script>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
 <script async src="../../../_/js/vendor/highlight.js"></script>
   </body>
 </html>
