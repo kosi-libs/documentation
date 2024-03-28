@@ -995,10 +995,7 @@ subDI(allowSilentOverrides = true) { <i class="conum" data-value="2"></i><b>(2)<
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>clear the session and remove the <code>ScopeRegistry</code> linked to the session</td>
-</tr>
-</table>
-</div>
+<td>clear the session and remove the <code>ScopeRegistry</code> linked to the session
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -1010,6 +1007,9 @@ A Ktor session is cleared by calling the function <code>CurrentSession.clear&lt;
             To clear the session combine to the scope removal you <strong>MUST</strong> use the extension function <code>CurrentSession.clearSessionScope&lt;Session&gt;()</code>,
             thus the session will be cleared and the <code>ScopeRegistry</code> removed.
 </td>
+</tr>
+</table>
+</div></td>
 </tr>
 </table>
 </div>
@@ -1259,13 +1259,13 @@ controller("/protected") { MySecondDIController(instance()) } <i class="conum" d
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>install the routes of <code>MyFirstDIController</code> inside the routing system, as child of a <code>Route</code>, under "/protected"</td>
-</tr>
-</table>
-</div>
+<td>install the routes of <code>MyFirstDIController</code> inside the routing system, as child of a <code>Route</code>, under "/protected"
 <div class="paragraph">
 <p>Doing that the <code>MyFirstDIController</code> and <code>MyFirstDIController</code> will added to the routing system but not autowired, neither bound to the DI container.
 Only their routes defined in the <code>Route.getRoutes</code> will be reachable on the web server (e.g. <code><a href="http://localhost:8080/version" class="bare">http://localhost:8080/version</a></code>).</p>
+</div></td>
+</tr>
+</table>
 </div>
 </li>
 </ul>
@@ -1292,11 +1292,5 @@ Declaring controllers in the <code>Route.controller</code> extension functions a
   </div>
 </main>
 </div>
-<footer class="footer">
-  <p>This page was built using the Antora default UI.</p>
-  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
-</footer>
-<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
-<script async src="../../../_/js/vendor/highlight.js"></script>
   </body>
 </html>

@@ -673,10 +673,7 @@ you&#8217;ll be able to get through the external source from anywhere in your <c
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Branch Kodein upon TornadoFX dependency injection, to be able to access those dependencies through your Kodein container</td>
-</tr>
-</table>
-</div>
+<td>Branch Kodein upon TornadoFX dependency injection, to be able to access those dependencies through your Kodein container
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -686,6 +683,9 @@ you&#8217;ll be able to get through the external source from anywhere in your <c
 <td class="content">
 We highly recommend that you make your <code>App</code> as <code>KodeinAware</code> in order to benefit from the use of Kodein upon TornadoFX DI container.
 </td>
+</tr>
+</table>
+</div></td>
 </tr>
 </table>
 </div>
@@ -857,10 +857,7 @@ To keep your binding from the global Kodein container you can use <a href="#kode
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Retrieve the <code>CredentialsDao</code> from the local Kodein container</td>
-</tr>
-</table>
-</div>
+<td>Retrieve the <code>CredentialsDao</code> from the local Kodein container
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -870,6 +867,9 @@ To keep your binding from the global Kodein container you can use <a href="#kode
 <td class="content">
 Making your <code>Component</code> as <code>KodeinAware</code> is <strong>optional</strong>, but it will help you keeping track of your extended container. Otherwise, you might want to store a reference of your extended container in a local variable.
 </td>
+</tr>
+</table>
+</div></td>
 </tr>
 </table>
 </div>
@@ -956,10 +956,7 @@ The <code>WeakContextScope</code> will keep singleton and multiton instances as 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>A <code>EditingState</code> object will be created for each Component that will ask for.</td>
-</tr>
-</table>
-</div>
+<td>A <code>EditingState</code> object will be created for each Component that will ask for.
 <div class="listingblock">
 <div class="title">Example: Retrieving `Component scoped dependencies</div>
 <div class="content">
@@ -967,11 +964,10 @@ The <code>WeakContextScope</code> will keep singleton and multiton instances as 
     private val editingState: EditingState by kodein().on(this).instance() <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
-</div>
-<div class="colist arabic">
-<table>
+</div></td>
+</tr>
 <tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
 <td>Scope is <code>this</code></td>
 </tr>
 </table>
@@ -991,10 +987,7 @@ The <code>WeakContextScope</code> will keep singleton and multiton instances as 
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>A <code>EditingState</code> object will be created for each <code>Node</code> that will ask for.</td>
-</tr>
-</table>
-</div>
+<td>A <code>EditingState</code> object will be created for each <code>Node</code> that will ask for.
 <div class="listingblock">
 <div class="title">Example: Retrieving `Node scoped dependencies</div>
 <div class="content">
@@ -1007,11 +1000,10 @@ The <code>WeakContextScope</code> will keep singleton and multiton instances as 
     }
 }</code></pre>
 </div>
-</div>
-<div class="colist arabic">
-<table>
+</div></td>
+</tr>
 <tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
 <td>Scope is <strong>tab</strong> a <code>Node</code> element, every <code>Tab</code> would have a different instance of <code>EditingState</code></td>
 </tr>
 </table>
@@ -1025,11 +1017,5 @@ The <code>WeakContextScope</code> will keep singleton and multiton instances as 
   </div>
 </main>
 </div>
-<footer class="footer">
-  <p>This page was built using the Antora default UI.</p>
-  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
-</footer>
-<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
-<script async src="../../../_/js/vendor/highlight.js"></script>
   </body>
 </html>
