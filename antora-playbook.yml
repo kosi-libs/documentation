@@ -19,7 +19,7 @@ content:
       start_path: doc
 ui:
   bundle:
-    url: https://github.com/kosi-libs/documentation-ui/raw/kosi/build/ui-bundle-v1.5.zip
+    url: https://github.com/kosi-libs/documentation-ui/raw/kosi/build/ui-bundle-v1.4.2.zip
   supplemental_files:
   - path: ui.yml
     contents: |
