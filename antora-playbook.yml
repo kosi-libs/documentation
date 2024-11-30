@@ -15,7 +15,7 @@ content:
       branches: ['0.*', '1.*']
       start_path: doc
     - url: https://github.com/kosi-libs/MocKMP.git
-      branches: ['1.*']
+      branches: ['1.*', '2.*']
       start_path: doc
 ui:
   bundle:
