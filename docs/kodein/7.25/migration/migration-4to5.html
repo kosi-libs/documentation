@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Changes &amp; Migration from Kodein 4 to Kodein DI 5 :: Kodein Open Source Initiative Documentation</title>
+    <link rel="canonical" href="https://kosi-libs.org/kodein/7.25/migration/migration-4to5.html">
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://kosi-libs.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 300;">Kodein Open Source Initiative</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein" data-version="7.25">
+  <aside class="nav">
+    <div class="navbar-bottom-line-linear"></div>
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Kodein</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../platform-and-genericity.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Core documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frameworks support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/android.html">Android</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/compose.html">Compose (Android / Desktop / JavaScript)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/ktor.html">Ktor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/tornadofx.html">TornadoFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extensions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/configurable.html">Configurable &amp; global container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/jsr330.html">JSR-330 compatibility</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Migration guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="migration-6to7.html">Kodein version 6 to version 7</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="migration-4to5.html">Kodein version 4 to version 5</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="migration-j2k.html">JSR-330 to Kodein-DI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein</span>
+    <span class="version">7.25.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../canard/1.3/index.html">Canard</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../canard/1.3/index.html">1.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.2/index.html">1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.1/index.html">1.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.0/index.html">1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.18/index.html">0.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.17/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.16/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.15/index.html">0.15.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.14/index.html">0.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.13/index.html">0.13.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.12/index.html">0.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.11/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.10/index.html">0.10.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">Kodein</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">7.25.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.24/index.html">7.24.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.23/index.html">7.23.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.22/index.html">7.22.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.21/index.html">7.21.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.20/index.html">7.20.2</a>
+        </li>
+        <li class="version">
+          <a href="../../7.19/index.html">7.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.18/index.html">7.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.17/index.html">7.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.16/index.html">7.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.15/index.html">7.15.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.14/index.html">7.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.13/index.html">7.13.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.12/index.html">7.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.11/index.html">7.11.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.10/index.html">7.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.9/index.html">7.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.8/index.html">7.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.7/index.html">7.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.6/index.html">7.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.5/index.html">7.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../kosi-libs/index.html">Kodein Open Source Initiative</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kosi-libs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../mockmp/2.0/index.html">MocKMP</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../mockmp/2.0/index.html">2.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../mockmp/1.17/index.html">1.17.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kosi-libs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein</a></li>
+    <li>Migration guides</li>
+    <li><a href="migration-4to5.html">Kodein version 4 to version 5</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.25.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="migration-4to5.html">7.25.0</a>
+    <a class="version" href="../../7.24/migration/migration-4to5.html">7.24.0</a>
+    <a class="version" href="../../7.23/migration/migration-4to5.html">7.23.1</a>
+    <a class="version" href="../../7.22/migration/migration-4to5.html">7.22.0</a>
+    <a class="version" href="../../7.21/migration/migration-4to5.html">7.21.1</a>
+    <a class="version" href="../../7.20/migration/migration-4to5.html">7.20.2</a>
+    <a class="version" href="../../7.19/migration/migration-4to5.html">7.19.0</a>
+    <a class="version" href="../../7.18/migration/migration-4to5.html">7.18.0</a>
+    <a class="version" href="../../7.17/migration/migration-4to5.html">7.17.0</a>
+    <a class="version" href="../../7.16/migration/migration-4to5.html">7.16.0</a>
+    <a class="version" href="../../7.15/migration/migration-4to5.html">7.15.1</a>
+    <a class="version" href="../../7.14/migration/migration-4to5.html">7.14.0</a>
+    <a class="version" href="../../7.13/migration/migration-4to5.html">7.13.1</a>
+    <a class="version" href="../../7.12/migration/migration-4to5.html">7.12.0</a>
+    <a class="version" href="../../7.11/migration/migration-4to5.html">7.11.0</a>
+    <a class="version" href="../../7.10/migration/migration-4to5.html">7.10.0</a>
+    <a class="version" href="../../7.9/migration/migration-4to5.html">7.9.0</a>
+    <a class="version" href="../../7.8/migration/migration-4to5.html">7.8.0</a>
+    <a class="version" href="../../7.7/migration/migration-4to5.html">7.7.0</a>
+    <a class="version" href="../../7.6/migration/migration-4to5.html">7.6.0</a>
+    <a class="version" href="../../7.5/migration/migration-4to5.html">7.5.0</a>
+    <a class="version" href="../../7.4/migration/migration-4to5.html">7.4.0</a>
+    <a class="version" href="../../7.3/migration/migration-4to5.html">7.3.1</a>
+    <a class="version" href="../../7.2/migration/migration-4to5.html">7.2.0</a>
+    <a class="version" href="../../7.1/migration/migration-4to5.html">7.1.0</a>
+    <a class="version" href="../../7.0/migration/migration-4to5.html">7.0.0</a>
+    <a class="version" href="../../6.5/migration/migration-4to5.html">6.5.5</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/kosi-libs/Kodein/edit/7.25/doc/modules/migration/pages/migration-4to5.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Changes &amp; Migration from Kodein 4 to Kodein DI 5</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide will help you migrate from Kodein 4 to Kodein 5+.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The first part explains the changes and their reasoning.</p>
+</li>
+<li>
+<p>The second part gives steps to follow to port your code to Kodein 5+.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_changes"><a class="anchor" href="#_changes"></a>Changes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_new_repository_jcenter"><a class="anchor" href="#_new_repository_jcenter"></a>New repository: JCenter</h3>
+<div class="paragraph">
+<p>Kodein has moved from MavenCentral to JCenter.</p>
+</div>
+<div class="paragraph">
+<p>The main reason for this move is that I need download statistics for professional reasons.<br>
+Also, JCenter is a CDN.<br>
+Also, JCenter allows me to manage a dedicated repo for beta releases.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Kodein is an open-source product and will always remain so.
+           There will never be a "pro" paid version!
+           The statistics are just to give me an "argument" in my future projects ;)
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To you, it means that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You need to add the JCenter repository to your build system (Gradle or Maven).</p>
+</li>
+<li>
+<p>If you are using a beta version of Kodein, you need to add the Kodein specific repository.</p>
+</li>
+<li>
+<p>That&#8217;s all ;)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_new_modules"><a class="anchor" href="#_new_modules"></a>New modules</h3>
+<div class="paragraph">
+<p>Also, the module name have changed to reflect:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The platform</p>
+</li>
+<li>
+<p>The generic / erased choice</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_new_package_org_kodein_di"><a class="anchor" href="#_new_package_org_kodein_di"></a>New package: org.kodein.di</h3>
+<div class="paragraph">
+<p>First and foremost, Kodein now has its dedicated domain name: <a href="http://kodein.org">kodein.org</a>.</p>
+</div>
+<div class="paragraph">
+<p>Kodein is now located inside the package <code>org.kodein.di</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_laziness"><a class="anchor" href="#_laziness"></a>laziness</h3>
+<div class="paragraph">
+<p>The biggest change in Kodein 5 is that everything in Kodein 5 is lazy.<br>
+This is because:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You shouldn&#8217;t know whether the instance you are asking for will be easy to retrieve or hard to construct.</p>
+</li>
+<li>
+<p>Some classes (such as Android or TornadoFX components) are created before being "attached" to their context.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Furthermore, the use of Kotlin&#8217;s delegated properties allows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Factories to access context &amp; receiver (very useful for TornadoFX &amp; Android integration).</p>
+</li>
+<li>
+<p>The use of a trigger (previously known as injector) a lot easier.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The use of delegated properties does <strong>not</strong> significantly impact performance!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>However, if you don&#8217;t want all those benefits and still want direct access, Kodein 5 provides <code>DKodein</code> and <code>DKodeinAware</code> (D is for Direct), which works exactly like Kodein 4&#8217;s <code>Kodein</code> and <code>KodeinAware</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_currying"><a class="anchor" href="#_currying"></a>Currying</h3>
+<div class="paragraph">
+<p>In Kodein 4, you would curry a factory into an instance by using <code>kodein.with(argument).instance()</code>, which is not really readable / understandable.</p>
+</div>
+<div class="paragraph">
+<p>In Kodein 5, you curry via the <code>arg</code> parameter: <code>kodein.instance(arg = argument)</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_injector"><a class="anchor" href="#_injector"></a>Injector</h3>
+<div class="paragraph">
+<p>Kodein 5 radically changes the way the "injector" works.</p>
+</div>
+<div class="paragraph">
+<p>In version 4, you would create a <code>KodeinInjector</code> and use it to retrieve dependencies.</p>
+</div>
+<div class="paragraph">
+<p>In version 5, Kodein offers the <code>KodeinTrigger</code> and the <code>LateinitKodein</code> that each take a role of the previous <code>KodeinInjector</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>KodeinTrigger</code> allows you to define when you want your dependencies to be retrieved (rather than at first access)</p>
+</li>
+<li>
+<p><code>LateInitKodein</code> allows you to use a Kodein-like shallow object and to define the location of a real Kodein object later.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In most cases, you won&#8217;t need either of these classes, even if you were using a <code>KodeinInjector</code>.
+     Because Kodein 5 is lazy by default, it eliminates most of the injector needs.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scope_contexts"><a class="anchor" href="#_scope_contexts"></a>Scope &amp; contexts</h3>
+<div class="paragraph">
+<p>In Kodein 4, scopes used the factory argument as scope context.</p>
+</div>
+<div class="paragraph">
+<p>In Kodein 5, there are a few new variable that Kodein uses to find binding &amp; call factories.
+Scopes now use a <code>context</code> value, which means that there can now be some scoped multiton (the scope uses the context while the multiton uses the argument).</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Kodein 5 also allows the binding factories to access the receiver of the property.
+     This is very useful for framework integration such as Android &amp; TornadoFX.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>Singleton</code> binding is now supercharged.
+It handles scopes AND references, which means that it is now possible for weird stuff such as "weakened scoped singleton".</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The <code>multiton</code> binding is the same!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Finally, there are no more such things as "auto-scopes".
+They are replaced by scopes that do not need a particular provided context, e.g. <code>Scope&lt;Any?, *&gt;</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_android"><a class="anchor" href="#_android"></a>Android</h3>
+<div class="paragraph">
+<p>The Android specific scopes and types have been entirely rewritten to be lighter and less intrusive.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_migration"><a class="anchor" href="#_migration"></a>Migration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_new_repository_jcenter_2"><a class="anchor" href="#_new_repository_jcenter_2"></a>New repository: JCenter</h3>
+<div class="paragraph">
+<p>You need to add the jcenter repository to your project (if it is not already).</p>
+</div>
+<div class="sect3">
+<h4 id="_with_maven"><a class="anchor" href="#_with_maven"></a>With Maven</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;jcenter&lt;/id&gt;
+      &lt;url&gt;https://jcenter.bintray.com&lt;/url&gt;
+    &lt;/repository&gt;
+&lt;/repositories&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_with_gradle"><a class="anchor" href="#_with_gradle"></a>With Gradle</h4>
+<div class="paragraph">
+<p>Add the JCenter repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">buildscript {
+    repositories {
+        jcenter()
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_new_modules_2"><a class="anchor" href="#_new_modules_2"></a>New modules</h3>
+<div class="paragraph">
+<p>Module names have changed:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 60%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Old name</th>
+<th class="tableblock halign-left valign-top">New name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-di-generic-jvm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-erased</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-di-erased-jvm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-conf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-di-conf-jvm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-jxinject</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-di-jxinject-jvm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-android</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-di-framework-android</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-js</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-di-erased-js</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-conf-js</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kodein-di-conf-js</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_new_package_org_kodein_di_2"><a class="anchor" href="#_new_package_org_kodein_di_2"></a>New package: org.kodein.di</h3>
+<div class="paragraph">
+<p>Well, the new package is now <code>org.kodein.di</code>. So, you know, update the imports ;)</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 70%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Old name</th>
+<th class="tableblock halign-left valign-top">New name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>com.github.salomonbrys.kodein</code> *</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.kodein.di</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>com.github.salomonbrys.kodein</code> *</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.kodein.di.generic</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>com.github.salomonbrys.kodein.erased</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.kodein.di.erased</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>com.github.salomonbrys.kodein.conf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.kodein.di.conf</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>com.github.salomonbrys.kodein.jxinject</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.kodein.di.jxinject</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>com.github.salomonbrys.kodein.android</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.kodein.di.android</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>The <code>com.github.salomonbrys.kodein</code> package has been split up between core and generic code.
+This allows Kodein to be used with Java 9.</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_laziness_2"><a class="anchor" href="#_laziness_2"></a>Laziness</h3>
+<div class="paragraph">
+<p>This is by far the most important change in your migration.</p>
+</div>
+<div class="sect3">
+<h4 id="_for_jvm_server"><a class="anchor" href="#_for_jvm_server"></a>For JVM / Server</h4>
+<div class="paragraph">
+<p>You now have a choice : either you embrace this new laziness philosophy, or you fight it ;)
+In fact, both choice are pretty easy to make!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Injection, a.k.a. <code>kodein.newInstance { }</code>, is not impacted.
+      Only retrieval is.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_lazy_by_default"><a class="anchor" href="#_lazy_by_default"></a>Lazy by default</h5>
+<div class="paragraph">
+<p>If you want to use laziness by default, as Kodein now does, simply replace all <code>=</code> with <code>by</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: updating retrieval code to use Kodein&#8217;s laziness</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Kodein 4
+val ds: DataSource = kodein.instance()
+
+// Kodein 5
+val ds: DataSource by kodein.instance()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>However, if you don&#8217;t want to use laziness, you need to update your code to</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_direct_by_default"><a class="anchor" href="#_direct_by_default"></a>Direct by default</h5>
+<div class="paragraph">
+<p>If you want to keep Kodein 4&#8217;s direct retrieval by default, you simply need to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>handle <code>DKodein</code> objects instead of <code>Kodein</code></p>
+</li>
+<li>
+<p>have your classes being <code>DKodeinAware</code> instead of <code>KodeinAware</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Example: creating a <code>DKodein</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein.direct { <i class="conum" data-value="1"></i><b>(1)</b>
+    /* bindings */
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This <code>.direct</code> will return a <code>DKodein</code></td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: a <code>DKodeinAware</code> class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyController(override val dkodein: DKodein) : DKodeinAware</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_for_android"><a class="anchor" href="#_for_android"></a>For Android</h4>
+<div class="paragraph">
+<p>In Android, the laziness by default is actually a very good thing, as you don&#8217;t need things like <code>KodeinInjector</code> or <code>LazyKodein</code>:</p>
+</div>
+<div class="paragraph">
+<p>Also, <code>appKodein()</code> is replaced by <code>closestKodein()</code></p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a <code>KodeinAware</code> Activity</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity() : Activity(), KodeinAware {
+    override val kodein by closestKodein()
+    private val usersManagers: UsersManagers by instance()
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you were using Android specific types (such as <code>KodeinActivity</code>), you should read the <a href="#android">Android</a> section.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_currying_2"><a class="anchor" href="#_currying_2"></a>Currying</h3>
+<div class="paragraph">
+<p>There&#8217;s a new currying syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: new currying syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Kodein 4
+val dice: Dice = kodein.with(6).instance()
+
+// Kodein 5
+val ds: DataSource by kodein.instance(arg = 6)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Much like the <code>tag</code> argument, the <code>arg</code> argument should always be named.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_injector_2"><a class="anchor" href="#_injector_2"></a>Injector</h3>
+<div class="paragraph">
+<p>If you were using a <code>KodeinInjector</code>, you now need to use a <code>KodeinTrigger</code> and/or a <code>LateInitKodein</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_trigger"><a class="anchor" href="#_trigger"></a>Trigger</h4>
+<div class="paragraph">
+<p>The <code>KodeinTrigger</code> class allows you to define when the dependencies will be retrieved (as opposed to lazily when needed).</p>
+</div>
+<div class="sect4">
+<h5 id="_by_itself"><a class="anchor" href="#_by_itself"></a>By itself</h5>
+<div class="paragraph">
+<p>You can use the <code>on</code> function to create a <code>Kodein</code> object that is bound to a <code>KodeinTrigger</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a Kodein bound to a KodeinTrigger</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val tk = kodein.on(trigger = KodeinTrigger())
+val ds: DataSource by tk.instance()
+tk.kodeinTrigger!!.trigger()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_in_kodeinaware"><a class="anchor" href="#_in_kodeinaware"></a>In KodeinAware</h5>
+<div class="paragraph">
+<p>It is really easy to use a <code>KodeinTrigger</code> in a KodeinAware class:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a KodeinAware class with a trigger</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager(override val kodein: Kodein) : KodeinAware {
+    override val kodeinTrigger = KodeinTrigger() <i class="conum" data-value="1"></i><b>(1)</b>
+    val ds: DataSource by tk.instance()
+    init {
+        kodeinTrigger.trigger() <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>kodeinTrigger</code> property of a KodeinAware class</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_late_init"><a class="anchor" href="#_late_init"></a>Late init</h4>
+<div class="sect4">
+<h5 id="_in_kodeinaware_2"><a class="anchor" href="#_in_kodeinaware_2"></a>In KodeinAware</h5>
+<div class="paragraph">
+<p>In a <code>KodeinAware</code> class, you can set the <code>kodein</code> value to be <code>late init</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a KodeinAware class with a late init kodein</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyManager : KodeinAware {
+    override late init var kodein: Kodein <i class="conum" data-value="1"></i><b>(1)</b>
+    val ds: DataSource by instance()
+    init {
+        kodein = applicationGlobals.kodein <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>kodein</code> property is <code>late init</code>, which is not a problem as long as you set it before <em>accessing</em> a dependency.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>You can access dependencies after setting the <code>kodein</code> variable.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_by_itself_2"><a class="anchor" href="#_by_itself_2"></a>By itself</h5>
+<div class="paragraph">
+<p>For classes that are <em>not</em> <code>KodeinAware</code>, Kodein offers the <code>LateInitKodein</code> class, which acts very similarly:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: use of LateInitKodein</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val lk = LateInitKodein()
+val ds: DataSource by lk.instance()
+lk.baseKodein = applicationGlobals.kodein</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scope_contexts_2"><a class="anchor" href="#_scope_contexts_2"></a>Scope contexts</h3>
+<div class="paragraph">
+<p>Scopes now use the <code>context</code> variable, instead of the factory argument <code>arg</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_binding_with_a_scope"><a class="anchor" href="#_binding_with_a_scope"></a>Binding with a scope</h4>
+<div class="paragraph">
+<p>The syntax to bind a scoped singleton has evolved:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: binding with a scope</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
+    // Kodein 4
+    bind&lt;Session&gt;() with scopedSingleton(requestScope) { /* ... */ }
+
+    // Kodein 5
+    bind&lt;Session&gt;() with scoped(requestScope).singleton { /* ... */ }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_getting_a_scoped_singleton_instance"><a class="anchor" href="#_getting_a_scoped_singleton_instance"></a>Getting a scoped singleton instance</h4>
+<div class="sect4">
+<h5 id="_retrieval_context"><a class="anchor" href="#_retrieval_context"></a>Retrieval context</h5>
+<div class="paragraph">
+<p>A scope is now defined function of a <code>context</code>, rather than of an <code>arg</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: getting an instance of a scoped singleton</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
+    // Kodein 4
+    val session by kodein.with(request).instance()
+
+    // Kodein 5
+    val session by kodein.on(context = request).instance()
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_kodeinaware_context"><a class="anchor" href="#_kodeinaware_context"></a>KodeinAware context</h5>
+<div class="paragraph">
+<p>You can define a context that works for an entire <code>KodeinAware</code> class.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a context for the entire KodeinAware class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyController(request: Request) : KodeinAware {
+    override val kodeinContext = kcontext(request)
+    val session by instance()
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Setting a <code>kodeinContext</code> still allows you to access bindings without scopes!
+      The <code>kodeinContext</code> is the context <em>by default</em>, but will not be used if there is no need for a context.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="android"><a class="anchor" href="#android"></a>Android</h3>
+<div class="paragraph">
+<p>The Kodein Android extension has radically changed.
+It is therefore advised to read <a href="../framework/android.html" class="xref page">the new Kodein on Android documentation</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_laziness_3"><a class="anchor" href="#_laziness_3"></a>Laziness</h4>
+<div class="paragraph">
+<p>Because everything is lazy be default, it is now very easy to use <code>KodeinAware</code> with Android components (note that <code>closestKodein</code> replaces <code>appKodein</code>):</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a context for the entire KodeinAware class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), KodeinAware {
+    override val kodein by closestKodein() <i class="conum" data-value="1"></i><b>(1)</b>
+    val ds: DataSource by instance()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        ds.connect() <i class="conum" data-value="2"></i><b>(2)</b>
+        /* ... */
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>closestKodein</code> function replaces the <code>appKodein</code> v4 function.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Because everything is lazy, the kodein AND ds instances will both be retrieved only when needed, which is at that time.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_layered_dependencies"><a class="anchor" href="#_layered_dependencies"></a>Layered dependencies</h4>
+<div class="paragraph">
+<p>The <code>KodeinActivity</code> class, <code>KodeinInjector</code> interface, and all their component equivalent are gone.
+what they did was:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provide an injector, which is no longer needed since Kodein 5 is lazy by default.</p>
+</li>
+<li>
+<p>Allowed to create a "sub-kodein" with some new or overriding bindings, which this guide explains how to do.</p>
+</li>
+<li>
+<p>Provide a Kodein object that reflects those new or overriding bindings, which is what <code>closestKodein</code> does.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To create a component that creates it&#8217;s own Kodein object, simply override the <code>kodein</code> value, create a new Kodein object, and extend the parent kodein in it:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a context for the entire KodeinAware class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyActivity : Activity(), KodeinAware {
+    private val _parentKodein by closestKodein()  <i class="conum" data-value="1"></i><b>(1)</b>
+    override val kodein: Kodein by Kodein {
+        extend(_parentKodein)  <i class="conum" data-value="2"></i><b>(2)</b>
+        /* activity specific bindings */
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Get the "global" application kodein.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Extends the "global" application kodein, to be able to access, with this new Kodein object, all bindings defined at the application level.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_scopes"><a class="anchor" href="#_scopes"></a>Scopes</h4>
+<div class="paragraph">
+<p>All android scopes are replaced by the <code>androidScope</code> function:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: binding with an activity scope</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val kodein = Kodein {
+    // Kodein 4
+    bind&lt;Whatever&gt;() with scopedSingleton(activityScope) { /* ... */ }
+
+    // Kodein 5
+    bind&lt;Whatever&gt;() with scoped(androidScope&lt;Activity&gt;()).singleton { /* ... */ }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_modules"><a class="anchor" href="#_modules"></a>Modules</h4>
+<div class="paragraph">
+<p>The <code>androidModule</code> still exists but now need the application context:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: importing the android module</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyApplication : Application(), KodeinAware {
+    override val kodein = Kodein.lazy {
+        import(androidModule(this@MyApplication))
+	    /* bindings */
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>autoAndroidModule</code> is gone and will not return!
+Its implementation was far too messy and leak-prone.
+To find the "closest" context, Kodein uses either the receiver or the context, which you must provide if the <code>KodeinAware</code> class is not an Android component:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: defining the android context as the kodein context</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyController(override val kodein: Kodein, val context: Context) : KodeinAware {
+    override val kodeinContext = kcontext(context)
+    private val vibrator: Vibrator by instance()
+}</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <p>This page was built using the Antora default UI.</p>-->
+<!--  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>-->
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

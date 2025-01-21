@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kodein-DI on Ktor :: Kodein Open Source Initiative Documentation</title>
+    <link rel="canonical" href="https://kosi-libs.org/kodein/7.25/framework/ktor.html">
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://kosi-libs.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 300;">Kodein Open Source Initiative</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein" data-version="7.23">
+  <aside class="nav">
+    <div class="navbar-bottom-line-linear"></div>
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Kodein</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../platform-and-genericity.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Core documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/bindings.html#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/using-environment.html#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../core/advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../core/advanced.html#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frameworks support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="android.html">Android</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="compose.html">Compose (Android / Desktop / JavaScript)</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="ktor.html">Ktor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tornadofx.html">TornadoFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extensions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/configurable.html">Configurable &amp; global container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/jsr330.html">JSR-330 compatibility</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Migration guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-6to7.html">Kodein version 6 to version 7</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-4to5.html">Kodein version 4 to version 5</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-j2k.html">JSR-330 to Kodein-DI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein</span>
+    <span class="version">7.23.1</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../canard/1.3/index.html">Canard</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../canard/1.3/index.html">1.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.2/index.html">1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.1/index.html">1.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.0/index.html">1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.18/index.html">0.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.17/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.16/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.15/index.html">0.15.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.14/index.html">0.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.13/index.html">0.13.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.12/index.html">0.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.11/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.10/index.html">0.10.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../7.25/index.html">Kodein</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../7.25/index.html">7.25.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.24/index.html">7.24.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">7.23.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.22/index.html">7.22.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.21/index.html">7.21.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.20/index.html">7.20.2</a>
+        </li>
+        <li class="version">
+          <a href="../../7.19/index.html">7.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.18/index.html">7.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.17/index.html">7.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.16/index.html">7.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.15/index.html">7.15.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.14/index.html">7.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.13/index.html">7.13.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.12/index.html">7.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.11/index.html">7.11.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.10/index.html">7.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.9/index.html">7.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.8/index.html">7.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.7/index.html">7.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.6/index.html">7.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.5/index.html">7.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../kosi-libs/index.html">Kodein Open Source Initiative</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kosi-libs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../mockmp/2.0/index.html">MocKMP</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../mockmp/2.0/index.html">2.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../mockmp/1.17/index.html">1.17.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kosi-libs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein</a></li>
+    <li>Frameworks support</li>
+    <li><a href="ktor.html">Ktor</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.23.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../7.25/framework/ktor.html">7.25.0</a>
+    <a class="version" href="../../7.24/framework/ktor.html">7.24.0</a>
+    <a class="version is-current" href="ktor.html">7.23.1</a>
+    <a class="version" href="../../7.22/framework/ktor.html">7.22.0</a>
+    <a class="version" href="../../7.21/framework/ktor.html">7.21.1</a>
+    <a class="version" href="../../7.20/framework/ktor.html">7.20.2</a>
+    <a class="version" href="../../7.19/framework/ktor.html">7.19.0</a>
+    <a class="version" href="../../7.18/framework/ktor.html">7.18.0</a>
+    <a class="version" href="../../7.17/framework/ktor.html">7.17.0</a>
+    <a class="version" href="../../7.16/framework/ktor.html">7.16.0</a>
+    <a class="version" href="../../7.15/framework/ktor.html">7.15.1</a>
+    <a class="version" href="../../7.14/framework/ktor.html">7.14.0</a>
+    <a class="version" href="../../7.13/framework/ktor.html">7.13.1</a>
+    <a class="version" href="../../7.12/framework/ktor.html">7.12.0</a>
+    <a class="version" href="../../7.11/framework/ktor.html">7.11.0</a>
+    <a class="version" href="../../7.10/framework/ktor.html">7.10.0</a>
+    <a class="version" href="../../7.9/framework/ktor.html">7.9.0</a>
+    <a class="version" href="../../7.8/framework/ktor.html">7.8.0</a>
+    <a class="version" href="../../7.7/framework/ktor.html">7.7.0</a>
+    <a class="version" href="../../7.6/framework/ktor.html">7.6.0</a>
+    <a class="version" href="../../7.5/framework/ktor.html">7.5.0</a>
+    <a class="version" href="../../7.4/framework/ktor.html">7.4.0</a>
+    <a class="version" href="../../7.3/framework/ktor.html">7.3.1</a>
+    <a class="version" href="../../7.2/framework/ktor.html">7.2.0</a>
+    <a class="version" href="../../7.1/framework/ktor.html">7.1.0</a>
+    <a class="version" href="../../7.0/framework/ktor.html">7.0.0</a>
+    <a class="version" href="../../6.5/framework/ktor.html">6.5.5</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/kosi-libs/Kodein/edit/7.23/doc/modules/framework/pages/ktor.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Kodein-DI on Ktor</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use Kodein-DI as-is in your Ktor project, but you can level-up your game by using the libraries <code>kodein-di-framework-ktor-server-jvm</code> or <code>kodein-di-framework-ktor-server-controller-jvm</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Kodein-DI does work on Ktor as-is.
+      The <code>kodein-di-framework-ktor-server-jvm</code> / <code>kodein-di-framework-ktor-server-controller-jvm</code> extensions add multiple ktor-specific utilities to Kodein.<br>
+      Using or not using this extension really depends on your needs.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Ktor is a multi-platform project, meaning you can use it for JVM, JS and Native projects.
+      Please note that, at the moment, Kodein-DI utilities are only available for the JVM platform, for the server cases precisely.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Have a look at the <a href="https://github.com/Kodein-Framework/Kodein-Samples/tree/master/di/standalone/ktor">Ktor demo project</a> to help you to go further!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install"><a class="anchor" href="#install"></a>Install</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<div class="title">How to quickly get into <code>kodein-di-framework-ktor-server-jvm</code>:</div>
+<ol class="arabic">
+<li>
+<p>Add this line in your <code>dependencies</code> block in your application <code>build.gradle</code> file:</p>
+<div class="listingblock">
+<div class="title">Gradle Groovy script</div>
+<div class="content">
+<pre>implementation 'org.kodein.di:kodein-di-framework-ktor-server-jvm:7.23.1'</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Gradle Kotlin script</div>
+<div class="content">
+<pre>implementation("org.kodein.di:kodein-di-framework-ktor-server-jvm:7.23.1")</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Declare a DI container in your application or use the <a href="#diplugin"><code>DIPlugin</code></a></p>
+<div class="listingblock">
+<div class="title">Example: a Ktor Application declaration, installing the <code>DIPlugin</code> (via the extension function <code>Application.closestDI()</code>).</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">fun main(args: Array&lt;String&gt;) {
+    embeddedServer(Netty, port = 8080) {
+        di {
+            /* bindings */
+        }
+   }.start(true)
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In your application, routes, etc. retrieve your DI object!</p>
+</li>
+<li>
+<p>Retrieve your dependencies!</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="diplugin"><a class="anchor" href="#diplugin"></a><code>DIPlugin</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As a Ktor <a href="https://ktor.io/docs/a-ktor-application.html">Application</a> is based on extensions and plugins we cannot use the <code>DIAware</code> mechanism on it.
+So, we had to find another, elegant, way to provide a global DI container. That&#8217;s where the <code>DIPlugin</code> stands.
+It allows developers to create an instance of a DI container, that will be available from anywhere in their Ktor app.</p>
+</div>
+<div class="paragraph">
+<p>To help with that, the <code>kodein-di-framework-ktor-server-jvm</code> provides a <a href="https://ktor.io/docs/creating-custom-plugins.html">custom plugin</a>
+that will create and register an instance of a DI container in the application&#8217;s <a href="https://ktor.io/docs/attributes.html">attributes</a>.
+Thus, the DI will be reachable from multiple places in your Ktor application.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a Ktor Application declaration, installing the <code>DIPlugin</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">fun main(args: Array&lt;String&gt;) {
+    embeddedServer(Netty, port = 8080) {
+        di { <i class="conum" data-value="1"></i><b>(1)</b>
+            bind&lt;Random&gt; { singleton { SecureRandom() } } <i class="conum" data-value="2"></i><b>(2)</b>
+        }
+   }.start(true)
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Install the <code>DIPlugin</code> (under the hood we are applying <code>install(DIPlugin, configuration)</code>)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Lambda that represent a DI builder, accepting DI core features</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+You cannot install multiple <code>DIPlugin</code> on the same Ktor <code>Application</code> (throws a <code>DuplicatePluginException</code>).
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_closest_di_pattern"><a class="anchor" href="#_closest_di_pattern"></a>Closest DI pattern</h3>
+<div class="paragraph">
+<p>The idea behind this concept, is to be able to retrieve a DI container, from an outer class. The <code>DIPlugin</code>
+help us with that by defining a DI container that can be retrieve from multiple places, like:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Application</p>
+</li>
+<li>
+<p>ApplicationCall</p>
+</li>
+<li>
+<p>Routing / Routes</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Example: a Ktor Application declaration, installing the <code>DIPlugin</code>, and retrieving it from routes</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">fun main(args: Array&lt;String&gt;) {
+    embeddedServer(Netty, port = 8080) {
+        di { <i class="conum" data-value="1"></i><b>(1)</b>
+            bind&lt;Random&gt; { singleton { SecureRandom() } } <i class="conum" data-value="2"></i><b>(2)</b>
+        }
+
+        routing {
+            get("/") {
+                val random by closestDI().instance&lt;Random&gt;() <i class="conum" data-value="3"></i><b>(3)</b>
+                /* logic here */
+            }
+        }
+   }.start(true)
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Install the <code>DIPlugin</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Lambda that represent a DI builder, accepting DI core features</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>retrieving the DI container from the Application by calling <code>PipelineContext&lt;*, ApplicationCall&gt;.di</code> extension function</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Available <code>closestDI()</code> extension function receivers</div>
+<ul>
+<li>
+<p><a href="https://ktor.io/docs/a-ktor-application.html">Application</a></p>
+<div class="literalblock">
+<div class="content">
+<pre>fun Application.main() {
+    /* usage */
+    val di = closestDI()</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>    /* other usage */
+    val random by closestDI().instance&lt;Random&gt;()
+}</pre>
+</div>
+</div>
+</li>
+<li>
+<p><a href="https://ktor.io/docs/pipelines.html">PipelineContext&lt;*, ApplicationCall&gt;</a></p>
+<div class="literalblock">
+<div class="content">
+<pre>get {
+    /* usage */
+    val di = closestDI()</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>    /* other usage */
+    val random by closestDI().instance&lt;Random&gt;()
+}</pre>
+</div>
+</div>
+</li>
+<li>
+<p><a href="https://ktor.io/servers/calls.html">ApplicationCall</a></p>
+<div class="literalblock">
+<div class="content">
+<pre>get("/") {
+    /* usage */
+    val di = call.closestDI()</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>    /* other usage */
+    val random by call.closestDI().instance&lt;Random&gt;()
+}</pre>
+</div>
+</div>
+</li>
+<li>
+<p><a href="https://ktor.io/docs/routing-in-ktor.html">Routing</a></p>
+<div class="literalblock">
+<div class="content">
+<pre>routing {
+    /* usage */
+    val di = closestDI()</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>    /* other usage */
+    val random by closestDI().instance&lt;Random&gt;()
+}</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Because of those extension functions you can always get the DI object by using:
+    - <code>closestDI()</code> inside a Ktor class (such as <code>Application</code>, <code>ApplicationCall</code>, <code>Route</code>, etc.)
+    - <code>di { application }</code> inside another class, where application is the running Ktor application.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The <code>closestDI()</code> extension function will only work if your Ktor <code>Application</code> has the <code>DIPlugin</code> installed, or if you handle the installation manually.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_extending_the_nearest_di_container"><a class="anchor" href="#_extending_the_nearest_di_container"></a>Extending the nearest DI container</h3>
+<div class="paragraph">
+<p>In some cases we might want to extend our global DI container for local needs. For example, we could extend the DI container for a login <code>Route</code>, by adding credentials bindings, thus they would be only available in the login <code>Route</code> and its children.</p>
+</div>
+<div class="paragraph">
+<p>We can easily achieve this goal, as we have facilities to retrieve our DI container with the previously defined extension functions,
+To do so we have a function <code>subDI</code> available for the <code>Routing</code> / <code>Route</code> classes.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: a Ktor Application declaration, installing the <code>DIPlugin</code>, and retrieving it from routes</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">fun main(args: Array&lt;String&gt;) {
+    embeddedServer(Netty, port = 8080) {
+        di { <i class="conum" data-value="1"></i><b>(1)</b>
+            bind&lt;Random&gt;() { singleton { SecureRandom() } } <i class="conum" data-value="2"></i><b>(2)</b>
+        }
+
+        routing {
+            route("/login") {
+                subDI {
+                    bind&lt;CredentialsDao&gt; { singleton { CredentialsDao() } } <i class="conum" data-value="3"></i><b>(3)</b>
+                }
+
+                post {
+                    val dao by closestDI().instance&lt;CredentialsDao&gt;() <i class="conum" data-value="4"></i><b>(4)</b>
+                    /* logic here */
+                }
+            }
+        }
+   }.start(true)
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Install the <code>DIPlugin</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Lambda that represent a DI builder, accepting DI core features</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Adding new binding that will be only available for the children of the <code>/login</code> route</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Retrieve the <code>CredentialsDao</code> from the nearest DI container</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you define multiple <code>routing { }</code> features, Ktor have a specific way of joining the different routing definition, finally there is only one <code>Routing</code> object. Thus, if you define multiple <code>subDI { }</code> in your different <code>routing { }</code> declaration, only one <code>subDI</code> will be taking into account.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The <code>subDI</code> mechanism will only work if your Ktor <code>Application</code> has the <code>DIPlugin</code> installed, or if you handle the installation manually.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+On the contrary you can define a <code>subDI { }</code> object for each of your `Route`s as each of them will be able to embed a DI instance.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title"><strong>Copying bindings</strong></div>
+<p>With this feature we can extend our DI container. This extension is made by copying the none singleton / multiton,
+but we have the possibility to copy all the binding (including singleton / multiton).</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Copying all the bindings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">DI {
+    bind&lt;Foo&gt; { provider { Foo("rootFoo") } }
+    bind&lt;Bar&gt; { singleton { Bar(instance()) } }
+}
+
+subDI(copy = Copy.All) { <i class="conum" data-value="1"></i><b>(1)</b>
+    /** new bindings / overrides **/
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Copying all the bindings, with the singletons / multitons</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+By doing a <code>Copy.All</code> your original singleton / multiton won&#8217;t be available anymore, in the new DI container, they will exist as new instances.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title"><strong>Overriding bindings</strong></div>
+<p>Sometimes, It might be interesting to replace an existing dependency (by overriding it).</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: overriding bindings</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">DI {
+    bind&lt;Foo&gt;() { provider { Foo("rootFoo") } }
+    bind&lt;Bar&gt;() { singleton { Bar(instance()) } }
+}
+
+subDI {
+    bind&lt;Foo&gt;(overrides = true) { provider { Foo("explicitFoo") } } <i class="conum" data-value="1"></i><b>(1)</b>
+}
+subDI(allowSilentOverrides = true) { <i class="conum" data-value="2"></i><b>(2)</b>
+    bind&lt;Foo&gt; { provider { Foo("implicitFoo") } }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Overriding the <code>Foo</code> binding</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Overriding in the <code>subDI</code> will be implicit</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This feature is restricted to the <code>Routing</code> / <code>Route</code> and can be used like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: extend from multiple places</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// https://ktor.io/docs/routing-in-ktor.html[Routing]
+    routing {
+        /* usage */
+        val subDI = subDI { /** new bindings / overrides **/ } <i class="conum" data-value="1"></i><b>(1)</b>
+
+        route("/books") {
+            /* usage */
+            subDI { /** new bindings / overrides **/ } <i class="conum" data-value="2"></i><b>(2)</b>
+
+            route("/author") {
+                /* usage */
+                subDI { /** new bindings / overrides **/ } <i class="conum" data-value="3"></i><b>(3)</b>
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>extending the nearest DI instance, most likely the Application&#8217;s one</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>extending the nearest DI instance, the one created in &lt;1&gt;</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>extending the nearest DI instance, the one created in &lt;2&gt;</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ktor_scopes"><a class="anchor" href="#_ktor_scopes"></a>Ktor scopes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_session_scopes"><a class="anchor" href="#_session_scopes"></a>Session scopes</h3>
+<div class="paragraph">
+<p>With the <code>kodein-di-framework-ktor-server-jvm</code> utils you can scope your dependencies upon your Ktor sessions. To do that you&#8217;ll have to follow the steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Defining your session by implementing <code>DISession</code></p>
+<div class="listingblock">
+<div class="title">Example: Defining the session</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">data class UserSession(val user: User) : DISession { <i class="conum" data-value="1"></i><b>(1)</b>
+    override fun getSessionId() = user.id <i class="conum" data-value="2"></i><b>(2)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Create session object that implements <code>KtorSession</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Implement the function <code>getSessionId()</code></td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Defining your scoped dependencies</p>
+<div class="listingblock">
+<div class="title">Example: Defining the session scoped dependencies</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">fun main(args: Array&lt;String&gt;) {
+    embeddedServer(Netty, port = 8000) {
+        install(Sessions) { <i class="conum" data-value="1"></i><b>(1)</b>
+            cookie&lt;UserSession&gt;("SESSION_FEATURE_SESSION_ID") <i class="conum" data-value="2"></i><b>(2)</b>
+        }
+        di {
+            bind&lt;Random&gt; { scoped(SessionScope).singleton { SecureRandom() } } <i class="conum" data-value="3"></i><b>(3)</b>
+            /* binding */
+        }
+    }.start(true)
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Install the <code>Sessions</code> plugin</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Declaring a session cookie represented by <code>UserSession</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Bind <code>Random</code> object scoped by <code>SessionScope</code></td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Retrieving your scoped dependencies</p>
+<div class="listingblock">
+<div class="title">Example: Retrieving session scoped dependencies</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">embeddedServer(Netty, port = 8000) {
+    /* configurations */
+    routing {
+        get("/random") {
+            val session = call.sessions.get&lt;UserSession&gt;() ?: error("no session found!") <i class="conum" data-value="1"></i><b>(1)</b>
+            val random by closestDI().on(session).instance&lt;Random&gt;() <i class="conum" data-value="2"></i><b>(2)</b>
+            call.responText("Hello ${session.user.name}, your random number is ${random.nextInt()}")
+        }
+    }
+}.start(true)</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Retrieve the <code>session</code> from the request context or fail</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>retrieve a <code>Random</code> object from the <code>DI</code> object scoped by <code>session</code></td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Clear the scope as long as the sessions are no longer used</p>
+<div class="listingblock">
+<div class="title">Example: Clear the session and scope</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">get("/clear") {
+    call.sessions.clearSessionScope&lt;UserSession&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>clear the session and remove the <code>ScopeRegistry</code> linked to the session
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+A Ktor session is cleared by calling the function <code>CurrentSession.clear&lt;Session&gt;()</code>.
+            To clear the session combine to the scope removal you <strong>MUST</strong> use the extension function <code>CurrentSession.clearSessionScope&lt;Session&gt;()</code>,
+            thus the session will be cleared and the <code>ScopeRegistry</code> removed.
+</td>
+</tr>
+</table>
+</div></td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<div class="title">When working with multiple server instances you should be careful of what you are doing.</div>
+<p>You should be aware that using the same session over multiple servers won&#8217;t give you the same instance of your scoped dependencies.
+In that context you might consider using a mechanism that always redirect a session request on the same server.
+This mechanism will not be provided by Ktor or Kodein-DI.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_call_scope"><a class="anchor" href="#_call_scope"></a>Call scope</h3>
+<div class="paragraph">
+<p>Kodein-DI provides a standard scope for any object (Ktor or not).
+The <code>WeakContextScope</code> will keep singleton and multiton instances as long as the context (= object) lives.</p>
+</div>
+<div class="paragraph">
+<p>That&#8217;s why the <code>CallScope</code> is just a wrapper upon <code>WeakContextScope</code> with the target <code>ApplicationCall</code>, that lives only along the Request (HTTP or Websocket).</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Defining call scoped dependencies</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bind&lt;Random&gt; { scoped(CallScope).singleton { SecureRandom() } } <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A <code>Random</code> object will be created for each Request (HTTP or Websocket) and will be retrieved as long as the Request lives.</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: Retrieving call scoped dependencies</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin"> get {
+    val random by closestDI().on(context).instance&lt;Random&gt;()
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_di_controllers"><a class="anchor" href="#_di_controllers"></a>DI Controllers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To help those who want to implement a Ktor application base on a "MVC-like" architecture, we provide a <a href="https://ktor.io/docs/creating-custom-plugins.html">custom plugin</a>. This plugin is a specific module called <code>kodein-di-framework-ktor-server-controller-jvm</code>. To enable it, add this line in your <code>dependencies</code> block in your application <code>build.gradle(.kts)</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="title">Gradle Groovy script</div>
+<div class="content">
+<pre>implementation 'org.kodein.di:kodein-di-framework-ktor-server-controller-jvm:7.23.1'</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Gradle Kotlin script</div>
+<div class="content">
+<pre>implementation("org.kodein.di:kodein-di-framework-ktor-server-controller-jvm:7.23.1")</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+the <code>kodein-di-framework-ktor-server-controller-jvm</code> already have  the <code>kodein-di-framework-ktor-server-jvm</code> as transitive dependency, so you don&#8217;t need to declare both.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_defining_your_controllers_by_implementing_dicontroller_or_extending_abstractdicontroller"><a class="anchor" href="#_defining_your_controllers_by_implementing_dicontroller_or_extending_abstractdicontroller"></a>Defining your controllers, by implementing <code>DIController</code>, or extending <code>AbstractDIController</code></h3>
+<div class="paragraph">
+<p>+
+To define your controllers you need, either to implement the interface <code>DIController</code>, or to extend the class <code>AbstractDIController</code> and implement the function <code>Route.getRoutes()</code>.</p>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Implementing DIController</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyController(application: Application) : DIController { <i class="conum" data-value="1"></i><b>(1)</b>
+    override val di by di { application } <i class="conum" data-value="2"></i><b>(2)</b>
+    private val repository: DataRepository by instance("dao") <i class="conum" data-value="3"></i><b>(3)</b>
+
+    override fun Route.getRoutes() { <i class="conum" data-value="4"></i><b>(4)</b>
+        get("/version") {
+            val version: String by instance("version") <i class="conum" data-value="5"></i><b>(5)</b>
+            call.respondText(version)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Implement <code>DIController</code> and provide a <code>Application</code> instance (from constructor)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Override the <code>DI</code> container, from the provided <code>Application</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Use your <code>DI</code> container as in any <code>DIAware</code> class</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Override the function <code>Route.getRoutes</code> and define some routes</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Use your <code>DI</code> container as in any <code>DIAware</code> class</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example: Extending AbstractDIController</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyController(application: Application) : AbstractDIController(application) { <i class="conum" data-value="1"></i><b>(1)</b>
+    private val repository: DataRepository by instance("dao") <i class="conum" data-value="2"></i><b>(2)</b>
+
+    override fun Routing.installRoutes() { <i class="conum" data-value="3"></i><b>(3)</b>
+        get("/version") {
+            val version: String by instance("version") <i class="conum" data-value="4"></i><b>(4)</b>
+            call.respondText(version)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Extend <code>AbstractDIController</code> and provide a <code>Application</code> instance (from constructor)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Use your <code>DI</code> container as in any <code>DIAware</code> class</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Override the function <code>Routing.installRoutes</code> and define some routes</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Use your <code>DI</code> container as in any <code>DIAware</code> class</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Using <code>DIController</code> or <code>AbstractDIController</code> depends on your needs.
+       <br>
+        If you don&#8217;t need to use inheritance on your controllers, then you could benefit from using <code>AbstractDIController</code>.
+       <br>
+        On the contrary, if you want to use inheritance for your controllers you should implement <code>DIController</code> and override the <code>DI</code> container by yourself.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install your `DIController`s routes directly into the routing system</p>
+<div class="paragraph">
+<p>To leverage the use of <code>DIController</code>, you <strong>could</strong> use the <code>Route.controller</code> extension functions.
+Those functions will automatically install the routes defined in your <code>DIController</code> into the Ktor routing system.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: Route.controller extension functions</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">routing {
+// ...
+controller { MyFirstDIController(instance()) } <i class="conum" data-value="1"></i><b>(1)</b>
+controller("/protected") { MySecondDIController(instance()) } <i class="conum" data-value="2"></i><b>(2)</b>
+// ...
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>install the routes of MyFirstDIController` inside the routing system</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>install the routes of <code>MyFirstDIController</code> inside the routing system, as child of a <code>Route</code>, under "/protected"
+<div class="paragraph">
+<p>Doing that the <code>MyFirstDIController</code> and <code>MyFirstDIController</code> will added to the routing system but not autowired, neither bound to the DI container.
+Only their routes defined in the <code>Route.getRoutes</code> will be reachable on the web server (e.g. <code><a href="http://localhost:8080/version" class="bare">http://localhost:8080/version</a></code>).</p>
+</div></td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <p>This page was built using the Antora default UI.</p>-->
+<!--  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>-->
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

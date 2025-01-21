@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Multi-binding :: Kodein Open Source Initiative Documentation</title>
+    <link rel="canonical" href="https://kosi-libs.org/kodein/7.25/core/multi-binding.html">
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://kosi-libs.org">
+            <div class="navbar-brand-logo"></div>
+            <div style="font-weight: 300;">Kodein Open Source Initiative</div>
+          </a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="https://kodein.net" target="_blank">
+              <div style="font-weight: 300;opacity:0.8;padding-right: 0.5rem">by</div>
+              <div style="font-weight: 700;">KODEIN</div>
+              <div style="font-weight: 300;opacity:0.8;">Koders</div>
+            </a>
+          </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="kodein" data-version="7.23">
+  <aside class="nav">
+    <div class="navbar-bottom-line-linear"></div>
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Kodein</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../getting-started.html">Quick start guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../platform-and-genericity.html">Platform compatibility &amp; Genericity</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Core documentation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="install.html">Install</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#install-jvm">JVM</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#kotlin-js">Kotlin/JS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="install.html#kotlin-multiplatform">Kotlin/Multiplatform</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="bindings.html">Bindings: Declaring dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#tagged-bindings">Tagged</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#provider-bindings">Provider</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#singleton-bindings">Singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="bindings.html#factory-bindings">Factory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="modules-inheritance.html">Modules &amp; inheritance</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="modules-inheritance.html#modules">Modules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="modules-inheritance.html#extension-composition">Extension (composition)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="injection-retrieval.html">Injection &amp; retrieval</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#injection">Injection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#retrieval-di-container">Retrieval</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="injection-retrieval.html#di-aware">Being <code>DIAware</code></a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="using-environment.html">Using the environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#context">Context</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#scope">Scope</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-environment.html#scope-creation">Scope creation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="multi-binding.html">Multi-binding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="external-sources.html">External sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanced.html">Advanced knowledge</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#debugging">Debugging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#onready-callbacks">OnReady callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#erased-version">Erased version pitfalls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#bind-same-type-to-different-factories">Bind the same type to different factories</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced.html#hack-the-container">Hack the container!</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Frameworks support</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/android.html">Android</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/compose.html">Compose (Android / Desktop / JavaScript)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/ktor.html">Ktor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../framework/tornadofx.html">TornadoFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Extensions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/configurable.html">Configurable &amp; global container</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../extension/jsr330.html">JSR-330 compatibility</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Migration guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-6to7.html">Kodein version 6 to version 7</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-4to5.html">Kodein version 4 to version 5</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migration/migration-j2k.html">JSR-330 to Kodein-DI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Kodein</span>
+    <span class="version">7.23.1</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../canard/1.3/index.html">Canard</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../canard/1.3/index.html">1.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.2/index.html">1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.1/index.html">1.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/1.0/index.html">1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.18/index.html">0.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.17/index.html">0.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.16/index.html">0.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.15/index.html">0.15.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.14/index.html">0.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.13/index.html">0.13.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.12/index.html">0.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.11/index.html">0.11.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../canard/0.10/index.html">0.10.2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../7.25/index.html">Kodein</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../7.25/index.html">7.25.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.24/index.html">7.24.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">7.23.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.22/index.html">7.22.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.21/index.html">7.21.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.20/index.html">7.20.2</a>
+        </li>
+        <li class="version">
+          <a href="../../7.19/index.html">7.19.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.18/index.html">7.18.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.17/index.html">7.17.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.16/index.html">7.16.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.15/index.html">7.15.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.14/index.html">7.14.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.13/index.html">7.13.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.12/index.html">7.12.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.11/index.html">7.11.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.10/index.html">7.10.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.9/index.html">7.9.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.8/index.html">7.8.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.7/index.html">7.7.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.6/index.html">7.6.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.5/index.html">7.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.4/index.html">7.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.3/index.html">7.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../7.2/index.html">7.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.1/index.html">7.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../7.0/index.html">7.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.5/index.html">6.5.5</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../kosi-libs/index.html">Kodein Open Source Initiative</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../kosi-libs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../mockmp/2.0/index.html">MocKMP</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../mockmp/2.0/index.html">2.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../mockmp/1.17/index.html">1.17.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+  <div class="navbar-bottom-line-gradient"></div>
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../kosi-libs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Kodein</a></li>
+    <li><a href="install.html">Core documentation</a></li>
+    <li><a href="multi-binding.html">Multi-binding</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">7.23.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../7.25/core/multi-binding.html">7.25.0</a>
+    <a class="version" href="../../7.24/core/multi-binding.html">7.24.0</a>
+    <a class="version is-current" href="multi-binding.html">7.23.1</a>
+    <a class="version" href="../../7.22/core/multi-binding.html">7.22.0</a>
+    <a class="version" href="../../7.21/core/multi-binding.html">7.21.1</a>
+    <a class="version" href="../../7.20/core/multi-binding.html">7.20.2</a>
+    <a class="version" href="../../7.19/core/multi-binding.html">7.19.0</a>
+    <a class="version" href="../../7.18/core/multi-binding.html">7.18.0</a>
+    <a class="version" href="../../7.17/core/multi-binding.html">7.17.0</a>
+    <a class="version" href="../../7.16/core/multi-binding.html">7.16.0</a>
+    <a class="version" href="../../7.15/core/multi-binding.html">7.15.1</a>
+    <a class="version" href="../../7.14/core/multi-binding.html">7.14.0</a>
+    <a class="version" href="../../7.13/core/multi-binding.html">7.13.1</a>
+    <a class="version" href="../../7.12/core/multi-binding.html">7.12.0</a>
+    <a class="version" href="../../7.11/core/multi-binding.html">7.11.0</a>
+    <a class="version" href="../../7.10/core/multi-binding.html">7.10.0</a>
+    <a class="version" href="../../7.9/core/multi-binding.html">7.9.0</a>
+    <a class="version" href="../../7.8/core/multi-binding.html">7.8.0</a>
+    <a class="version" href="../../7.7/core/multi-binding.html">7.7.0</a>
+    <a class="version" href="../../7.6/core/multi-binding.html">7.6.0</a>
+    <a class="version" href="../../7.5/core/multi-binding.html">7.5.0</a>
+    <a class="version" href="../../7.4/core/multi-binding.html">7.4.0</a>
+    <a class="version" href="../../7.3/core/multi-binding.html">7.3.1</a>
+    <a class="version" href="../../7.2/core/multi-binding.html">7.2.0</a>
+    <a class="version" href="../../7.1/core/multi-binding.html">7.1.0</a>
+    <a class="version" href="../../7.0/core/multi-binding.html">7.0.0</a>
+    <a class="version is-missing" href="../../6.5/index.html">6.5.5</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/kosi-libs/Kodein/edit/7.23/doc/modules/core/pages/multi-binding.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Multi-binding</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Kodein-DI</em> allows multi bindings via a binding set.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="set-bindings"><a class="anchor" href="#set-bindings"></a>In a Set</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_binding_in_a_set"><a class="anchor" href="#_binding_in_a_set"></a>Binding in a Set</h3>
+<div class="paragraph">
+<p>To have multiple bindings in a set, you need to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Declare that you are using a set binding for a particular bound type.</p>
+</li>
+<li>
+<p>Add bindings to the set.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Example creating a set of <code>Configuration</code> bindings.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bindSet&lt;Configuration&gt; { <i class="conum" data-value="1"></i><b>(1)</b>
+        add { provider { FooConfiguration() } } <i class="conum" data-value="2"></i><b>(2)</b>
+        bind { singleton { BarConfiguration() } } <i class="conum" data-value="3"></i><b>(3)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Creating a set binding of <code>Configuration</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>adds a <code>Configuration</code> binding implementation.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>adds a <code>Configuration</code> binding and attaches it to the DI container.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use different binding types (such as <code>provider</code> or <code>singleton</code>) in the same set.</p>
+</li>
+<li>
+<p>Add bindings to the same set in different modules if the set has been declared first.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Example creating a set of <code>Configuration</code> bindings and populates it from modules.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val module1 by DI.Module {
+    inBindSet&lt;Configuration&gt; {
+        add { provider { FooConfiguration() } } <i class="conum" data-value="2"></i><b>(2)</b>
+        add { singleton { BarConfiguration() } } <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+}
+val di = DI {
+    bindSet&lt;Configuration&gt;() <i class="conum" data-value="1"></i><b>(1)</b>
+    importAll(module1)
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Creating a set binding of <code>Configuration</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>add multiple <code>Configuration</code> binding implementation.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can also bind multiple bindings with arguments (such as <code>factory</code> or <code>multiton</code>) in a set <strong>as long as all bindings share the same argument type</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example creating a set of <code>Result</code> bindings.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bindArgSet&lt;Query, Result&gt; { <i class="conum" data-value="1"></i><b>(1)</b>
+        add { factory { q: Query -&gt; Foo.query(q) } } <i class="conum" data-value="2"></i><b>(2)</b>
+        add { multiton { q: Query -&gt; Bar.query(q) } } <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Creating an argument set binding of <code>Result</code> for arguments of type <code>Query</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Binding multiple <code>Result</code> factories implementations.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_retrieving_from_a_set"><a class="anchor" href="#_retrieving_from_a_set"></a>Retrieving from a Set</h3>
+<div class="paragraph">
+<p>Note that the type being bound is <code>Set&lt;T&gt;</code>, not <code>T</code>.<br>
+Therefore, you need to retrieve a <code>Set</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example retrieving set of <code>Configuration</code>.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val configurations: Set&lt;Configuration&gt; by di.instance()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To retrieve a <code>Set</code> with argument, thus going through a <code>factory</code> or a <code>multiton</code>, you need to pass the needed argument to the instance function.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example retrieving set of <code>Result</code> with <code>Query</code> argument.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val result: Set&lt;Result&gt; by di.instance(arg = Query("SELECT * FROM USER;"))</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_in_a_map"><a class="anchor" href="#_in_a_map"></a>In a map</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Kodein-DI</em> does not directly support map multi-binding.
+However, it is very easy to create a binding map by using a binding set.</p>
+</div>
+<div class="paragraph">
+<p>First, create the following primitive:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of the type alias for a map multi-binding as <code>Map&lt;String, Configuration&gt;</code>.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">typealias ConfigurationEntry = Pair&lt;String, Configuration&gt;
+typealias ConfigurationEntries = Set&lt;ConfigurationEntry&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, bind with keys:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example binding as in a map multibinding.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val di = DI {
+    bindSet&lt;ConfigurationEntry&gt; {
+        add { singleton { "foo" to FooConfiguration() } }
+        add { provider { "bar" to BarConfiguration() } }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, retrieve the map:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example retrieving a map multibinding.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val configurations by di.instance&lt;ConfigurationEntries&gt;().toMap()</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+<!--  <p>This page was built using the Antora default UI.</p>-->
+<!--  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>-->
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
