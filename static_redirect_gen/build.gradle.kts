@@ -1,18 +1,18 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.4.10"
+    kotlin("jvm") version "2.0.0"
     application
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "11"
+kotlin {
+    jvmToolchain(17)
 }
 
 application {
-    mainClassName = "MainKt"
+    mainClass = "MainKt"
 }
