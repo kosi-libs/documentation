@@ -1,84 +1,78 @@
 = Kodein Open Source Initiative documentation
 
 [.lead]
-The *Kodein Open Source Initiative* is a suite of libraries that aims to help you to develop Kotlin Multiplatform (mobile) applications.
-
-The *Kodein Open Source Initiative*:
-
-- provides high level tools that enhance your Kotlin/Multiplatform experience
-- help you maximize your Kotlin common code, with almost everything but the UI
-- and keeps your focus on your business code.
+The *Kodein Open Source Initiative* is a suite of libraries that aims to help you to develop Kotlin Multiplatform applications.
 
 
 == Libraries
 
-The *Kodein Open Source Initiative* libraries provide:
+=== xref:inara::index.adoc[Inara: Dependency Injection]
 
-- the ability to manage your code and isolate your tests easily, with the dependency injection pattern.
-- a quick and easy way to persist data model in a performant NoSQL database, for each mobile platforms.
+Inara turns a plain Kotlin interface into a dependency-injection module. You declare _what_ a module offers as ordinary interface members; you decide _how_ each member is produced by supplying a `Binding` at construction time.
+Inara plugs and validates everything at compile time, then gets out of your way.
 
-NOTE: Each library can be used independently of each other.
+There is no separate "component" type, no qualifier annotations, no `get<T>()` lookups.
+Consumers call `module.httpClient()` — a normal method on a normal interface.
 
+* *Opinionated, by design.*
+No global context, no mutable context, and business code is always independent from the DI layer — it has no notion that Inara even exists.
+`@DIFactory` takes that further still, generating a class with zero imports from Inara at all.
 
-=== xref:kodein::index.adoc[Kodein-DI: Dependency Injection]
+* *Wiring is a value, not a configuration language.*
+A module instance is built by calling a generated function with one `Binding` per member.
+Bindings are ordinary values you can pass around, store, and swap.
 
-_Kodein-DI_ is a very useful dependency injection / retrieval container, it is very easy to use and configure.
+* *Every dependency is checked by the compiler.*
+Forget a binding and the builder call doesn't compile.
+There is no runtime "unresolved dependency" failure mode.
 
-._Kodein-DI_ allows you to:
-- Lazily instantiate your dependencies when needed.
-- Stop caring about dependency initialization order.
-- Easily bind classes or interfaces to their instance, provider or factory.
-- Easily debug your dependency bindings and recursions.
+* *Bodies see the whole module.*
+A ``Binding``'s lambda runs with the module as its receiver, so any member can reach any sibling member — including inherited ones — without you wiring anything up:
++
+[source,kotlin]
+----
+Binding.single { HttpClient(this.baseUrl) }   // `baseUrl` is this module's own member
+----
 
-._Kodein-DI_ is a good choice because:
-- It is small, fast and optimized (makes extensive use of `inline`).
-- It proposes a very simple and readable declarative DSL.
-- It is not subject to type erasure (like Java).
-- It integrates nicely with Android.
-- It proposes a very kotlin-esque idiomatic API.
-- It (also) can be used in plain Java.
+* *`suspend` members are native.*
+Mark a member `suspend` and it is bound with a `SuspendBinding`, whose every factory takes a suspending body.
+The generated override is itself `suspend`, so asynchronous construction propagates the way it should instead of hiding behind `runBlocking` or a`Deferred` you have to unwrap at every call site.
++
+[source,kotlin]
+----
+suspend fun token(): Token   // bound with SuspendBinding.single { authClient.fetchToken() }
+----
 
+* *Overriding is first-class.*
+Every module gets generated `copy(...)` overloads, so building a test variant means overriding one member and inheriting the rest.
 
-=== xref:canard::index.adoc[Canard: Logging]
-
-_Canard_ is a lightweight logging library with a simple API.
-
-._Canard_ allows you to:
-- Easily set up logging in a Kotlin Multiplatform project.
-- Log what you need on different levels.
-- Avoid worrying about platform-specific frontend implementations.
-
-._Canard_ is a good choice because:
-- It integrates nicely with all Kotlin/Multiplatform targets.
-- It has a straightforward design with a user-friendly and comprehensible API.
+* *Multiplatform, with no platform-specific surprises.*
+Inara targets every platform it supports and behaves *exactly* the same on each of them — the sole exception is the JS/Wasm targets, where thread synchronization is a no-op, since there is no thread to synchronize.
 
 
 === xref:mockmp::index.adoc[MocKMP: Mocking for tests]
 
-_MocKMP_ is a Kotlin Symbol Processor that generates Mocks & Fakes for your test classes.
+MocKMP turns a plain interface or abstract class into a mock or a fake for your tests.
+You ask for what a test needs with an annotation — `@Mock`, `@Fake`, `@UsesMocks`, `@UsesFakes` — and a KSP processor generates the implementation, ready to inject.
 
-._MocKMP_ allows you to:
-- Generate interface mocks & configure their behaviour.
-- Instantiate data classes with fake data.
-- Verify calls in order and exhaustively.
+* *Compile-time, not reflection.*
+A KSP processor generates a real class implementing the interface or abstract class you asked to mock or fake, so it behaves identically on every target — including the ones with no runtime reflection at all, like iOS, JS and Wasm.
 
-._MocKMP_ is a good choice because:
-- It mimics, as much as possible, the API of other JVM-only mocking frameworks.
-- It offers a clean and easy-to-understand API
+* *Mocking and faking answer different questions.*
+A ``mock``'s behaviour is defined per test, and every call on it can be verified; a ``fake``'s data is inert and zero-valued, and nothing about it is checked.
+Reach for a fake when a collaborator only needs to *exist*, and a mock when the test needs to configure or verify it.
 
+* *Nothing is generated until you ask for it.*
+`@UsesMocks` / `@UsesFakes` — or a `@Mock` / `@Fake` property — requests exactly the types a given test needs, so an interface used across a large codebase doesn't grow generated code everywhere it's declared, only where it's actually mocked or faked.
 
-== Support
+* *Injection kills the constructor boilerplate.*
+Annotate properties `@Mock` or `@Fake` and call`mocker.injectMocks(this)`; inherited properties are injected too, so a shared base test class works exactly as if its mocks had been declared locally.
 
-If you need any help do not hesitate to through questions or issues:
+* *The `TestsWithMocks` helper collapses the ceremony further.*
+Inherit it and get a `Mocker`, an automatic reset before every test, `withMocks` property delegates rebuilt fresh each time, and `every` / `everySuspending` / `verify` / `verifyWithSuspend` callable without the `mocker.` prefix.
 
-- Drop by the https://kotlinlang.slack.com/messages/kodein/[Kodein Slack channel]
-- https://stackoverflow.com/questions/tagged/kodein[Stackoverflow] with the tag #kodein
+* *Constraints read the same in a definition and in a verification.*
+`isAny`, `isEqual`, `isNotNull`, `isInstanceOf`, and any custom constraint you write with `isValid`, work identically whether they appear inside `every` or inside `verify` — one matcher vocabulary, not two.
 
-
-== Contribute
-
-Contributions are very welcome and greatly appreciated! The great majority of pull requests are eventually merged.
-
-To contribute, simply fork any of https://github.com/kosi-libs/[our projects on Github], fix whatever is iching you, and submit a pull request!
-
-We are sure that there is still room for improvement, either in code or documentation.
+* *Multiplatform, with no platform-specific surprises.*
+`mockmp-runtime` targets every platform MocKMP supports and behaves the same on each of them.

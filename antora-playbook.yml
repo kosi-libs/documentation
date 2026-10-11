@@ -3,19 +3,20 @@ site:
   url: https://kosi-libs.org
   start_page: kosi-libs::index.adoc
   robots: allow
+antora:
+  extensions:
+    - require: '@antora-supplemental/unversioned-component-urls'
+      mode: alias
 content:
   sources:
-    - url: https://github.com/kosi-libs/documentation.git
+    - url: ./
       branches: master
       start_path: home
-    - url: https://github.com/kosi-libs/Kodein.git
-      branches: ['7.*', '6.5']
-      start_path: doc
-    - url: https://github.com/kosi-libs/Canard.git
-      branches: ['0.*', '1.*']
-      start_path: doc
     - url: https://github.com/kosi-libs/MocKMP.git
-      branches: ['1.*', '2.*']
+      branches: 'release/v{0..9}*'
+      start_path: doc
+    - url: https://github.com/kosi-libs/Inara.git
+      branches: 'release/v{0..9}*'
       start_path: doc
 ui:
   bundle:

@@ -1,3 +1,2 @@
-* xref:kodein::index.adoc[Dependency Injection]
-* xref:canard::index.adoc[Logging]
-* xref:mockmp::index.adoc[Mocking for tests]
+* xref:inara::index.adoc[Inara]
+* xref:mockmp::index.adoc[MocKMP]
