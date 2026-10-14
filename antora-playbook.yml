@@ -12,10 +12,13 @@ content:
     - url: ./
       branches: master
       start_path: home
-    - url: https://github.com/kosi-libs/MocKMP.git
+    - url: https://github.com/kosi-libs/Inara.git
       branches: 'release/v{0..9}*'
       start_path: doc
-    - url: https://github.com/kosi-libs/Inara.git
+    - url: https://github.com/kosi-libs/Kodein.git
+      branches: 'release/v{0..9}*'
+      start_path: doc
+    - url: https://github.com/kosi-libs/MocKMP.git
       branches: 'release/v{0..9}*'
       start_path: doc
 ui:
