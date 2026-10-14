@@ -50,6 +50,39 @@ Every module gets generated `copy(...)` overloads, so building a test variant me
 Inara targets every platform it supports and behaves *exactly* the same on each of them — the sole exception is the JS/Wasm targets, where thread synchronization is a no-op, since there is no thread to synchronize.
 
 
+=== xref:nomi::index.adoc[Nomi: REST API]
+
+Nomi turns plain Kotlin interfaces into a working REST API.
+You declare _resources_ — nested interfaces that are your routes — and _services_ — interfaces whose `suspend` functions are your endpoints.
+A KSP processor generates a ktor server implementation from them; another generates a typed ktor client.
+
+There is no reflection, no runtime route table and no hand-written URL on either side.
+
+* *One declaration, both sides.*
+The resource and service interfaces in `commonMain` are the only place the API is written down.
+The server's routes and the client's implementation are both generated from them, so they can never disagree about a path, a method, or a type.
+
+* *A route is a type, not a string.*
+Nesting `@Endpoint.Resource` interfaces _is_ the path structure, and a path parameter is a `val` on the interface that owns it.
+
+* *Business failures are in the return type.*
+Every endpoint returns `Either<V, E>`: the server answers a failure with `Either.error(...)`, and the client receives it back as the very same, typed `E`.
+No exception crosses the wire for a business outcome.
+
+* *Everything is checked before anything is generated.*
+A processor validates every declaration it reads, and generates nothing at all if anything is invalid.
+There is no partial output and no runtime "route not found".
+
+* *The API documents itself.*
+Set `withOpenApiSpecs` and ktor serves an OpenAPI document straight from the routing tree.
+
+* *Serialization stays yours.*
+Nomi defines the _shape_ of a call and hands the body to ktor's `ContentNegotiation`: JSON, CBOR, ProtoBuf, or anything else ktor can negotiate.
+
+* *Multiplatform client, JVM server.*
+The generated client runs on every target; the generated server runs on ktor-server, which is JVM-only.
+
+
 === xref:mockmp::index.adoc[MocKMP: Mocking for tests]
 
 MocKMP turns a plain interface or abstract class into a mock or a fake for your tests.
