@@ -109,3 +109,32 @@ Inherit it and get a `Mocker`, an automatic reset before every test, `withMocks`
 
 * *Multiplatform, with no platform-specific surprises.*
 `mockmp-runtime` targets every platform MocKMP supports and behaves the same on each of them.
+
+
+=== xref:vie::index.adoc[VIE: Model-View-Intent]
+
+VIE brings Model-View-Intent to Compose Multiplatform: one state flow down, intents up, signals sideways.
+A screen has three types: a _Model_ that the view renders, _Intents_ the view posts (usually user events), and _Signals_, which are one-off things the view reacts to but does not render, such as a navigation or a snackbar.
+You declare all three in an interface, a `VIEViewModel` implements it, and a `VIEView` renders it.
+
+No navigation framework, no event bus, no manual `collectAsState`.
+
+* *The contract is an interface.*
+The view depends on the `VIE` interface, not on the ViewModel that implements it, so you can render it in a preview or a test by giving it a different receiver.
+
+* *The view never holds the ViewModel.*
+Inside `VIEView`, the view sees a `VIEViewScope` with only two members: `post(intent)` and `signalFlow`.
+It cannot read the model flow, call `update`, or reach `viewModelScope`.
+
+* *Events and Effects are different delivery channels.*
+An Event is broadcast to every view that is listening.
+An Effect reaches exactly one view, so a "navigate back" fires once even when two views observe the same ViewModel.
+
+* *Model updates are serialized.*
+`update { }` hands its block to a single consumer and suspends until it is applied, so concurrent updates never lose one another.
+
+* *Built on `ViewModel`, not beside it.*
+`VIEViewModel` extends `androidx.lifecycle.ViewModel`, so `viewModelScope`, `viewModel { }` and Navigation3 entry scoping work unchanged.
+
+* *Middlewares wrap the flows.*
+A `VIEMiddleware` intercepts the model, intent and signal flows as plain `Flow` transformations (logging, filtering, inspecting) without the ViewModel or the view knowing.

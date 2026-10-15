@@ -24,6 +24,9 @@ content:
     - url: https://github.com/kosi-libs/Kodein.git
       branches: 'release/v{0..9}*'
       start_path: doc
+    - url: https://github.com/kosi-libs/VIE.git
+      branches: 'release/v{0..9}*'
+      start_path: doc
 ui:
   bundle:
     url: https://github.com/kosi-libs/documentation-ui/raw/kosi/build/ui-bundle-v1.4.2.zip
