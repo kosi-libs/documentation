@@ -4,3 +4,4 @@ package-lock.json
 build/
 .gradle
 docs/
+.DS_Store

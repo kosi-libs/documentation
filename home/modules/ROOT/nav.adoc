@@ -1,2 +1,3 @@
 * xref:inara::index.adoc[Inara]
+* xref:mockmp::index.adoc[Nomi]
 * xref:mockmp::index.adoc[MocKMP]
