@@ -83,28 +83,6 @@ Nomi defines the _shape_ of a call and hands the body to ktor's `ContentNegotiat
 The generated client runs on every target; the generated server runs on ktor-server, which is JVM-only.
 
 
-=== xref:vie::index.adoc[VIE: MVI for Compose]
-
-VIE gives a Compose Multiplatform screen three types and a contract between them.
-A _Model_ is the state the view renders, an _Intent_ is a UI event, and a _Signal_ is a one-off the view reacts to without rendering it: a navigation, a snackbar.
-You declare the three in an interface, a `VIEViewModel` implements it, and a `VIEView` renders it.
-
-* *The contract is an interface.*
-The ViewModel is one implementation of it, and the view depends on the interface, never on the ViewModel.
-
-* *The view never holds the ViewModel.*
-It can post intents and listen to signals, nothing more.
-
-* *Events and Effects are different channels.*
-An Event is broadcast to every view that listens; an Effect reaches exactly one, so "navigate back" fires once.
-
-* *Model updates are serialized.*
-Two coroutines updating the model at the same time cannot lose an update.
-
-* *Built on `ViewModel`, not beside it.*
-`viewModelScope`, `viewModel { }` and Navigation3 scoping work unchanged.
-
-
 === xref:mockmp::index.adoc[MocKMP: Mocking for tests]
 
 MocKMP turns a plain interface or abstract class into a mock or a fake for your tests.

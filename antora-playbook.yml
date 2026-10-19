@@ -18,9 +18,6 @@ content:
     - url: https://github.com/kosi-libs/Nomi.git
       branches: 'release/v{0..9}*'
       start_path: doc
-    - url: https://github.com/kosi-libs/VIE.git
-      branches: 'release/v{0..9}*'
-      start_path: doc
     - url: https://github.com/kosi-libs/MocKMP.git
       branches: 'release/v{0..9}*'
       start_path: doc
