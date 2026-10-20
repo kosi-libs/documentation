@@ -1,5 +1,5 @@
 name: kosi-libs
 title: Kodein Open Source Initiative
-version: master
+version: hub
 nav:
   - modules/ROOT/nav.adoc
