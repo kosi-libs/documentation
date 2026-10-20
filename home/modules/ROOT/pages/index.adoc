@@ -83,34 +83,6 @@ Nomi defines the _shape_ of a call and hands the body to ktor's `ContentNegotiat
 The generated client runs on every target; the generated server runs on ktor-server, which is JVM-only.
 
 
-=== xref:mockmp::index.adoc[MocKMP: Mocking for tests]
-
-MocKMP turns a plain interface or abstract class into a mock or a fake for your tests.
-You ask for what a test needs with an annotation — `@Mock`, `@Fake`, `@UsesMocks`, `@UsesFakes` — and a KSP processor generates the implementation, ready to inject.
-
-* *Compile-time, not reflection.*
-A KSP processor generates a real class implementing the interface or abstract class you asked to mock or fake, so it behaves identically on every target — including the ones with no runtime reflection at all, like iOS, JS and Wasm.
-
-* *Mocking and faking answer different questions.*
-A ``mock``'s behaviour is defined per test, and every call on it can be verified; a ``fake``'s data is inert and zero-valued, and nothing about it is checked.
-Reach for a fake when a collaborator only needs to *exist*, and a mock when the test needs to configure or verify it.
-
-* *Nothing is generated until you ask for it.*
-`@UsesMocks` / `@UsesFakes` — or a `@Mock` / `@Fake` property — requests exactly the types a given test needs, so an interface used across a large codebase doesn't grow generated code everywhere it's declared, only where it's actually mocked or faked.
-
-* *Injection kills the constructor boilerplate.*
-Annotate properties `@Mock` or `@Fake` and call`mocker.injectMocks(this)`; inherited properties are injected too, so a shared base test class works exactly as if its mocks had been declared locally.
-
-* *The `TestsWithMocks` helper collapses the ceremony further.*
-Inherit it and get a `Mocker`, an automatic reset before every test, `withMocks` property delegates rebuilt fresh each time, and `every` / `everySuspending` / `verify` / `verifyWithSuspend` callable without the `mocker.` prefix.
-
-* *Constraints read the same in a definition and in a verification.*
-`isAny`, `isEqual`, `isNotNull`, `isInstanceOf`, and any custom constraint you write with `isValid`, work identically whether they appear inside `every` or inside `verify` — one matcher vocabulary, not two.
-
-* *Multiplatform, with no platform-specific surprises.*
-`mockmp-runtime` targets every platform MocKMP supports and behaves the same on each of them.
-
-
 === xref:vie::index.adoc[VIE: Model-View-Intent]
 
 VIE brings Model-View-Intent to Compose Multiplatform: one state flow down, intents up, signals sideways.
@@ -138,3 +110,31 @@ An Effect reaches exactly one view, so a "navigate back" fires once even when tw
 
 * *Middlewares wrap the flows.*
 A `VIEMiddleware` intercepts the model, intent and signal flows as plain `Flow` transformations (logging, filtering, inspecting) without the ViewModel or the view knowing.
+
+
+=== xref:mockmp::index.adoc[MocKMP: Mocking for tests]
+
+MocKMP turns a plain interface or abstract class into a mock or a fake for your tests.
+You ask for what a test needs with an annotation — `@Mock`, `@Fake`, `@UsesMocks`, `@UsesFakes` — and a KSP processor generates the implementation, ready to inject.
+
+* *Compile-time, not reflection.*
+A KSP processor generates a real class implementing the interface or abstract class you asked to mock or fake, so it behaves identically on every target — including the ones with no runtime reflection at all, like iOS, JS and Wasm.
+
+* *Mocking and faking answer different questions.*
+A ``mock``'s behaviour is defined per test, and every call on it can be verified; a ``fake``'s data is inert and zero-valued, and nothing about it is checked.
+Reach for a fake when a collaborator only needs to *exist*, and a mock when the test needs to configure or verify it.
+
+* *Nothing is generated until you ask for it.*
+`@UsesMocks` / `@UsesFakes` — or a `@Mock` / `@Fake` property — requests exactly the types a given test needs, so an interface used across a large codebase doesn't grow generated code everywhere it's declared, only where it's actually mocked or faked.
+
+* *Injection kills the constructor boilerplate.*
+Annotate properties `@Mock` or `@Fake` and call`mocker.injectMocks(this)`; inherited properties are injected too, so a shared base test class works exactly as if its mocks had been declared locally.
+
+* *The `TestsWithMocks` helper collapses the ceremony further.*
+Inherit it and get a `Mocker`, an automatic reset before every test, `withMocks` property delegates rebuilt fresh each time, and `every` / `everySuspending` / `verify` / `verifyWithSuspend` callable without the `mocker.` prefix.
+
+* *Constraints read the same in a definition and in a verification.*
+`isAny`, `isEqual`, `isNotNull`, `isInstanceOf`, and any custom constraint you write with `isValid`, work identically whether they appear inside `every` or inside `verify` — one matcher vocabulary, not two.
+
+* *Multiplatform, with no platform-specific surprises.*
+`mockmp-runtime` targets every platform MocKMP supports and behaves the same on each of them.
