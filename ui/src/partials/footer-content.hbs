@@ -1,0 +1,9 @@
+<footer class="footer">
+  <img class="footer-logo" src="{{{uiRootPath}}}/img/logo.svg" alt="">
+  <div class="footer-text">
+    <p>Kosi Libs &mdash; open source libraries by <a href="https://kodein-koders.com">Kodein Koders</a>, Kotlin Multiplatform experts.</p>
+  </div>
+  {{#with (or (repo-url (and (ne page.component.name 'kosi-libs') page.origin.url)) 'https://github.com/kosi-libs')}}
+  <a href="{{{this}}}">{{without-scheme this}}</a>
+  {{/with}}
+</footer>

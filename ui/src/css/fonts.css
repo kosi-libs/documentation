@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "LCTPicon";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../font/LCTPicon-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "LCTPicon";
+  font-style: normal;
+  font-weight: 500;
+  src: url(../font/LCTPicon-Medium.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "LCTPicon";
+  font-style: normal;
+  font-weight: 600;
+  src: url(../font/LCTPicon-Semi-bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "LCTPicon";
+  font-style: normal;
+  font-weight: 700;
+  src: url(../font/LCTPicon-Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../font/JetBrainsMono-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 600;
+  src: url(../font/JetBrainsMono-Medium.woff2) format("woff2");
+}

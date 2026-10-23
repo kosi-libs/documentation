@@ -1,0 +1,30 @@
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://kodein-koders.com" aria-label="Kodein Koders">
+        <img class="navbar-logo" src="{{{uiRootPath}}}/img/logo.svg" alt="Kodein Koders">
+      </a>
+      <span class="navbar-item navbar-title">Kodein Open Source Initiative{{#if (ne page.component.title "Kodein Open Source Initiative")}}{{#with page.component.title}} &mdash; {{this}}{{/with}}{{/if}}</span>
+      {{#if env.SITE_SEARCH_PROVIDER}}
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs"{{#if page.home}} autofocus{{/if}}>
+        </div>
+      </div>
+      {{/if}}
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="{{{siteRootPath}}}/index.html">KOSI Libs</a>
+        <a class="navbar-item" href="{{{or (repo-url (and (ne page.component.name 'kosi-libs') page.origin.url)) 'https://github.com/kosi-libs'}}}" target="_blank" rel="noopener" aria-label="GitHub">
+          <span class="icon"><img src="{{{uiRootPath}}}/img/github-light.svg" alt="GitHub"></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
