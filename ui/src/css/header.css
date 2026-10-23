@@ -368,3 +368,120 @@ body {
     color: var(--navbar-menu-font-color);
   }
 }
+
+.theme-selector {
+  position: relative;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  color: var(--navbar-font-color);
+  cursor: pointer;
+  display: flex;
+  padding: 0.35rem;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible,
+.theme-toggle[aria-expanded="true"] {
+  background: var(--navbar_hover-background);
+  outline: none;
+}
+
+.theme-toggle svg,
+.theme-option svg {
+  fill: none;
+  height: 1.25rem;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: 1.25rem;
+}
+
+.theme-icon {
+  display: none;
+}
+
+.theme-toggle[data-theme-choice="auto"] .theme-icon-auto,
+.theme-toggle[data-theme-choice="light"] .theme-icon-light,
+.theme-toggle[data-theme-choice="dark"] .theme-icon-dark {
+  display: flex;
+}
+
+.theme-menu {
+  background: var(--kodein-violet-800);
+  border: 1px solid var(--kodein-violet-600);
+  border-radius: 0.25rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  min-width: 9rem;
+  padding: 0.25rem 0;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.25rem);
+  z-index: var(--z-index-navbar);
+}
+
+.theme-menu[hidden] {
+  display: none;
+}
+
+.theme-option {
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--kodein-orange-100);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+.theme-option:hover,
+.theme-option:focus-visible {
+  background: var(--kodein-violet-600);
+  outline: none;
+}
+
+.theme-option[aria-checked="true"] {
+  color: var(--kodein-orange-400);
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1023.5px) {
+  .theme-toggle {
+    color: var(--navbar-menu-font-color);
+  }
+
+  .theme-toggle:hover,
+  .theme-toggle:focus-visible,
+  .theme-toggle[aria-expanded="true"] {
+    background: var(--navbar-menu_hover-background);
+  }
+
+  .theme-menu {
+    background: none;
+    border: none;
+    box-shadow: none;
+    position: static;
+  }
+
+  .theme-option {
+    color: var(--navbar-menu-font-color);
+  }
+
+  .theme-option:hover,
+  .theme-option:focus-visible {
+    background: var(--navbar-menu_hover-background);
+  }
+
+  .theme-option[aria-checked="true"] {
+    color: var(--link-font-color);
+  }
+}

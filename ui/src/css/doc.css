@@ -1114,11 +1114,19 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .nav-menu-toggle {
+  :root:not([data-theme="light"]) .nav-menu-toggle {
     filter: invert(1);
   }
 
-  .doc img:not([src$=".svg"]) {
+  :root:not([data-theme="light"]) .doc img:not([src$=".svg"]) {
     filter: brightness(0.92);
   }
+}
+
+:root[data-theme="dark"] .nav-menu-toggle {
+  filter: invert(1);
+}
+
+:root[data-theme="dark"] .doc img:not([src$=".svg"]) {
+  filter: brightness(0.92);
 }
