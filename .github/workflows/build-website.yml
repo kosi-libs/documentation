@@ -30,12 +30,6 @@ jobs:
       - name: Install Antora
         run: npm install
 
-      - name: Build UI
-        working-directory: ui
-        run: |
-          npm install
-          npx gulp bundle
-
       - name: Generate site
         run: ./node_modules/@antora/cli/bin/antora generate --fetch --stacktrace antora-playbook.yml
 

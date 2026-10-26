@@ -5,4 +5,3 @@ build/
 .gradle
 docs/
 .DS_Store
-ui/node_modules/

@@ -3,6 +3,12 @@ site:
   url: https://kosi-libs.org
   start_page: kosi-libs::index.adoc
   robots: allow
+  keys:
+    navbar_title: Kodein Open Source Initiative
+    navbar_button_label: KOSI Libs
+    home_component: kosi-libs
+    github_url: https://github.com/kosi-libs
+    footer_text: 'Kosi Libs &mdash; open source libraries by <a href="https://kodein-koders.com">Kodein Koders</a>, Kotlin Multiplatform experts.'
 antora:
   extensions:
     - require: '@antora-supplemental/unversioned-component-urls'
@@ -29,7 +35,7 @@ content:
       start_path: doc
 ui:
   bundle:
-    url: ./ui/build/ui-bundle.zip
+    url: https://github.com/KodeinKoders/Antora-Kodein-UI/releases/latest/download/ui-bundle.zip
     snapshot: true
 urls:
   redirect_facility: 'static'
